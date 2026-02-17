@@ -1,0 +1,6 @@
+.venv
+node_modules/
+public/
+resources/
+hugo_stats.json
+.hugo_build.lock

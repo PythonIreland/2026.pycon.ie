@@ -1,0 +1,3 @@
+[tools]
+hugo = "latest"
+python = "3.13.11"
