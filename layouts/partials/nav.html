@@ -1,0 +1,60 @@
+<header class="fixed top-0 left-0 right-0 z-50 nav-blur bg-bg-primary/80 border-b border-white/5">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      {{/* Logo */}}
+      <a href="/" class="flex items-center gap-2 text-text-heading font-bold text-lg">
+        <img src="/img/logo.svg" alt="" class="h-8 w-8">
+        <span>PyCon Ireland</span>
+      </a>
+
+      {{/* Desktop nav */}}
+      <div class="hidden md:flex items-center gap-6">
+        {{ range .Site.Menus.main }}
+          <a href="{{ .URL }}" class="text-text-secondary hover:text-py-yellow text-sm font-medium transition-colors">
+            {{ .Name }}
+          </a>
+        {{ end }}
+        <a href="/#tickets" class="bg-py-yellow text-bg-primary px-4 py-2 rounded-lg text-sm font-semibold hover:bg-py-yellow-light transition-colors">
+          Get Tickets
+        </a>
+      </div>
+
+      {{/* Mobile menu button */}}
+      <button id="menu-toggle" class="md:hidden text-text-primary p-2" aria-label="Toggle menu" aria-expanded="false">
+        <svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="menu-icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    {{/* Mobile menu */}}
+    <div id="mobile-menu" class="hidden md:hidden pb-4">
+      <div class="flex flex-col gap-2">
+        {{ range .Site.Menus.main }}
+          <a href="{{ .URL }}" class="text-text-secondary hover:text-py-yellow px-3 py-2 text-sm font-medium transition-colors">
+            {{ .Name }}
+          </a>
+        {{ end }}
+        <a href="/#tickets" class="bg-py-yellow text-bg-primary px-4 py-2 rounded-lg text-sm font-semibold text-center hover:bg-py-yellow-light transition-colors mt-2">
+          Get Tickets
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+    const expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', !expanded);
+    menu.classList.toggle('hidden');
+    iconOpen.classList.toggle('hidden');
+    iconClose.classList.toggle('hidden');
+  });
+</script>
