@@ -1,0 +1,12 @@
+{
+  "name": "2026-pycon-ie",
+  "private": true,
+  "scripts": {
+    "dev": "hugo server --buildDrafts",
+    "build": "hugo --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4",
+    "tailwindcss": "^4"
+  }
+}

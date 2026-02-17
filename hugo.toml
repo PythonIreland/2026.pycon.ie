@@ -1,0 +1,96 @@
+baseURL = "https://2026.pycon.ie/"
+languageCode = "en-IE"
+title = "PyCon Ireland 2026"
+
+[taxonomies]
+
+[build]
+  [build.buildStats]
+    enable = true
+
+  [[build.cachebusters]]
+    source = "assets/css/main\\.css"
+    target = "css"
+  [[build.cachebusters]]
+    source = "(postcss|tailwind)\\.config\\.js"
+    target = "css"
+  [[build.cachebusters]]
+    source = "hugo_stats\\.json"
+    target = "css"
+
+[params]
+  description = "PyCon Ireland 2026 — Ireland's premier Python conference. Join 500+ developers for talks, workshops, and networking."
+  dateHuman = "8-9 November 2026"
+  venue = "The Convention Centre Dublin"
+  venueAddress = "Spencer Dock, North Wall Quay, Dublin 1, D01 T1W6"
+  venueMapLat = "53.3478"
+  venueMapLon = "-6.2389"
+  email = "info@pycon.ie"
+  twitterHandle = "@pyaborern"
+  ogImage = "/img/og-image.png"
+
+  [params.hero]
+    title = "PyCon Ireland 2026"
+    subtitle = "Ireland's Premier Python Conference"
+    date = "8-9 November 2026"
+    location = "The Convention Centre Dublin"
+
+  [params.stats]
+    attendees = 500
+    speakers = 50
+    tracks = 3
+    days = 2
+
+  [[params.tickets]]
+    name = "Student"
+    price = 40
+    currency = "EUR"
+    features = ["Full conference access", "Lunch & refreshments", "Community networking"]
+    highlight = false
+
+  [[params.tickets]]
+    name = "Early Bird"
+    price = 70
+    currency = "EUR"
+    features = ["Full conference access", "Lunch & refreshments", "Conference t-shirt", "Workshop access"]
+    highlight = true
+
+  [[params.tickets]]
+    name = "General"
+    price = 100
+    currency = "EUR"
+    features = ["Full conference access", "Lunch & refreshments", "Conference t-shirt", "Workshop access"]
+    highlight = false
+
+  [[params.tickets]]
+    name = "Corporate"
+    price = 300
+    currency = "EUR"
+    features = ["Full conference access", "Lunch & refreshments", "Conference t-shirt", "Workshop access", "Priority seating", "Networking reception"]
+    highlight = false
+
+[menus]
+  [[menus.main]]
+    name = "About"
+    url = "/#about"
+    weight = 10
+  [[menus.main]]
+    name = "Speakers"
+    url = "/speakers/"
+    weight = 20
+  [[menus.main]]
+    name = "Schedule"
+    url = "/schedule/"
+    weight = 30
+  [[menus.main]]
+    name = "Sponsors"
+    url = "/sponsors/"
+    weight = 40
+  [[menus.main]]
+    name = "Venue"
+    url = "/venue/"
+    weight = 50
+  [[menus.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 60
