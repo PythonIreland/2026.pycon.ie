@@ -1,0 +1,99 @@
+{{/* ItemList + Person Schema for Speakers Page */}}
+
+{{/* Option 1: ItemList showing all speakers */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "PyCon Ireland 2026 Speakers",
+  "description": "Meet our incredible lineup of speakers at PyCon Ireland 2026",
+  "numberOfItems": {{ len .Site.Data.speakers }},
+  "itemListElement": [
+    {{ range $index, $speaker := .Site.Data.speakers }}
+    {
+      "@type": "ListItem",
+      "position": {{ add $index 1 }},
+      "item": {
+        "@type": "Person",
+        "@id": "{{ $.Site.BaseURL }}speakers/#{{ $speaker.id }}",
+        "name": "{{ $speaker.name }}",
+        "jobTitle": "{{ $speaker.title }}",
+        {{ with $speaker.company }}"worksFor": {
+          "@type": "Organization",
+          "name": "{{ . }}"
+        },{{ end }}
+        "description": "{{ $speaker.bio }}",
+        "image": "{{ $speaker.photo | absURL }}",
+        {{ with $speaker.social }}
+          "sameAs": [
+            {{ $links := slice }}
+            {{ with .twitter }}{{ $links = $links | append . }}{{ end }}
+            {{ with .github }}{{ $links = $links | append . }}{{ end }}
+            {{ with .linkedin }}{{ $links = $links | append . }}{{ end }}
+            {{ with .mastodon }}{{ $links = $links | append . }}{{ end }}
+            {{ range $i, $link := $links }}
+              {{ if gt $i 0 }},{{ end }}"{{ $link }}"
+            {{ end }}
+          ],
+        {{ end }}
+        {{/* Option 2: Link speakers to their talks via performerIn */}}
+        "performerIn": [
+          {{ $speakerId := $speaker.id }}
+          {{ $sessions := where $.Site.Data.sessions "speaker_ids" "intersect" (slice $speakerId) }}
+          {{ range $idx, $session := $sessions }}
+            {{ if gt $idx 0 }},{{ end }}
+            {
+              "@type": "EducationalEvent",
+              "@id": "{{ $.Site.BaseURL }}schedule/#{{ $session.id }}",
+              "name": "{{ $session.title }}",
+              "description": "{{ $session.description }}",
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+            }
+          {{ end }}
+        ]
+      }
+    }{{ if lt (add $index 1) (len $.Site.Data.speakers) }},{{ end }}
+    {{ end }}
+  ]
+}
+</script>
+
+{{/* Individual Person schemas with rich detail for keynote speakers */}}
+{{ range $speaker := where .Site.Data.speakers "keynote" true }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "{{ $.Site.BaseURL }}speakers/#{{ $speaker.id }}",
+  "name": "{{ $speaker.name }}",
+  "jobTitle": "{{ $speaker.title }}",
+  {{ with $speaker.company }}"worksFor": {
+    "@type": "Organization",
+    "name": "{{ . }}"
+  },{{ end }}
+  "description": "{{ $speaker.bio }}",
+  "image": "{{ $speaker.photo | absURL }}",
+  {{ with $speaker.social }}
+    "sameAs": [
+      {{ $links := slice }}
+      {{ with .twitter }}{{ $links = $links | append . }}{{ end }}
+      {{ with .github }}{{ $links = $links | append . }}{{ end }}
+      {{ with .linkedin }}{{ $links = $links | append . }}{{ end }}
+      {{ with .mastodon }}{{ $links = $links | append . }}{{ end }}
+      {{ range $i, $link := $links }}
+        {{ if gt $i 0 }},{{ end }}"{{ $link }}"
+      {{ end }}
+    ],
+  {{ end }}
+  "knowsAbout": ["Python", "Software Development", "{{ if $speaker.keynote }}Keynote Speaking{{ end }}"],
+  "alumniOf": {
+    "@type": "Event",
+    "name": "PyCon Ireland 2026",
+    "organizer": {
+      "@type": "Organization",
+      "name": "Python Ireland"
+    }
+  }
+}
+</script>
+{{ end }}

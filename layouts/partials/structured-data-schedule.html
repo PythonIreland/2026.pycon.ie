@@ -1,0 +1,124 @@
+{{/* Option 3: EducationalEvent Schema for Each Talk/Keynote */}}
+
+{{ range $day := .Site.Data.schedule.days }}
+  {{ range $slot := $day.slots }}
+    {{ if eq $slot.type "session" }}
+      {{ range $sessionId := $slot.session_ids }}
+        {{ range $session := where $.Site.Data.sessions "id" $sessionId }}
+          {{ if or (eq $session.type "keynote") (eq $session.type "talk") }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalEvent",
+  "@id": "{{ $.Site.BaseURL }}schedule/#{{ $session.id }}",
+  "name": "{{ $session.title }}",
+  "description": "{{ $session.description }}",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  {{/* Parse time for startDate */}}
+  {{ $year := "2026" }}
+  {{ $month := "11" }}
+  {{ $dayNum := substr $day.date 8 2 }}
+  {{ $time := $slot.time }}
+  "startDate": "{{ $year }}-{{ $month }}-{{ $dayNum }}T{{ $time }}:00+00:00",
+  {{/* Calculate endDate based on duration */}}
+  {{ $duration := default 30 $session.duration }}
+  "duration": "PT{{ $duration }}M",
+  "location": {
+    "@type": "Place",
+    "name": "{{ $.Site.Params.venue }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "University College Dublin, Belfield",
+      "addressLocality": "Dublin",
+      "postalCode": "Dublin 4",
+      "addressCountry": "IE"
+    }
+  },
+  "superEvent": {
+    "@type": "Event",
+    "@id": "{{ $.Site.BaseURL }}#main-event",
+    "name": "{{ $.Site.Title }}"
+  },
+  {{/* Performers (speakers) */}}
+  {{ if $session.speaker_ids }}
+  "performer": [
+    {{ range $idx, $speakerId := $session.speaker_ids }}
+      {{ range $speaker := where $.Site.Data.speakers "id" $speakerId }}
+        {{ if gt $idx 0 }},{{ end }}
+        {
+          "@type": "Person",
+          "@id": "{{ $.Site.BaseURL }}speakers/#{{ $speaker.id }}",
+          "name": "{{ $speaker.name }}",
+          "jobTitle": "{{ $speaker.title }}",
+          {{ with $speaker.company }}"worksFor": {
+            "@type": "Organization",
+            "name": "{{ . }}"
+          }{{ end }}
+        }
+      {{ end }}
+    {{ end }}
+  ],
+  {{ end }}
+  "organizer": {
+    "@type": "Organization",
+    "name": "Python Ireland",
+    "url": "https://python.ie"
+  },
+  {{ if eq $session.type "keynote" }}
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Python developers, software engineers, data scientists"
+  },
+  {{ end }}
+  "inLanguage": "en-IE",
+  "isAccessibleForFree": false,
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Python Programming"
+    },
+    {
+      "@type": "Thing",
+      "name": "Software Development"
+    }
+  ]
+}
+</script>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* EventSeries for the full conference schedule */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EventSeries",
+  "name": "{{ .Site.Title }} Schedule",
+  "description": "Full conference schedule for {{ .Site.Title }}",
+  "superEvent": {
+    "@type": "Event",
+    "@id": "{{ .Site.BaseURL }}#main-event",
+    "name": "{{ .Site.Title }}"
+  },
+  "location": {
+    "@type": "Place",
+    "name": "{{ .Site.Params.venue }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "University College Dublin, Belfield",
+      "addressLocality": "Dublin",
+      "postalCode": "Dublin 4",
+      "addressCountry": "IE"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Python Ireland",
+    "url": "https://python.ie"
+  }
+}
+</script>
