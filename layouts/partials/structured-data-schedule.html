@@ -1,5 +1,10 @@
 {{/* Option 3: EducationalEvent Schema for Each Talk/Keynote */}}
 
+{{/* Extract year and month from event start date */}}
+{{ $eventStart := time.AsTime $.Site.Params.eventStartDate }}
+{{ $year := $eventStart.Format "2006" }}
+{{ $month := $eventStart.Format "01" }}
+
 {{ range $day := .Site.Data.schedule.days }}
   {{ range $slot := $day.slots }}
     {{ if eq $slot.type "session" }}
@@ -16,8 +21,6 @@
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   {{/* Parse time for startDate */}}
-  {{ $year := "2026" }}
-  {{ $month := "11" }}
   {{ $dayNum := substr $day.date 8 2 }}
   {{ $time := $slot.time }}
   "startDate": "{{ $year }}-{{ $month }}-{{ $dayNum }}T{{ $time }}:00+00:00",
@@ -29,10 +32,10 @@
     "name": "{{ $.Site.Params.venue }}",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "University College Dublin, Belfield",
-      "addressLocality": "Dublin",
-      "postalCode": "Dublin 4",
-      "addressCountry": "IE"
+      "streetAddress": "{{ $.Site.Params.venueStreetAddress }}",
+      "addressLocality": "{{ $.Site.Params.venueCity }}",
+      "postalCode": "{{ $.Site.Params.venuePostalCode }}",
+      "addressCountry": "{{ $.Site.Params.venueCountry }}"
     }
   },
   "superEvent": {

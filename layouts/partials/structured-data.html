@@ -6,8 +6,8 @@
   "@type": "Event",
   "name": "{{ .Site.Title }}",
   "description": "{{ .Site.Params.description }}",
-  "startDate": "2026-11-08T09:00:00+00:00",
-  "endDate": "2026-11-09T18:00:00+00:00",
+  "startDate": "{{ .Site.Params.eventStartDate }}",
+  "endDate": "{{ .Site.Params.eventEndDate }}",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
@@ -15,11 +15,11 @@
     "name": "{{ .Site.Params.venue }}",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "University College Dublin, Belfield",
-      "addressLocality": "Dublin",
-      "postalCode": "Dublin 4",
-      "addressRegion": "Dublin",
-      "addressCountry": "IE"
+      "streetAddress": "{{ .Site.Params.venueStreetAddress }}",
+      "addressLocality": "{{ .Site.Params.venueCity }}",
+      "postalCode": "{{ .Site.Params.venuePostalCode }}",
+      "addressRegion": "{{ .Site.Params.venueRegion }}",
+      "addressCountry": "{{ .Site.Params.venueCountry }}"
     },
     "geo": {
       "@type": "GeoCoordinates",
