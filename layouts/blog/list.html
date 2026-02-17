@@ -1,0 +1,33 @@
+{{ define "main" }}
+<div class="pt-24">
+  {{/* Header */}}
+  <section class="py-16 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-text-heading mb-4">{{ .Title }}</h1>
+      <p class="text-text-secondary text-lg max-w-2xl mx-auto">{{ .Description }}</p>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  {{/* Posts */}}
+  <section class="py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-8">
+        {{ range .Pages.ByDate.Reverse }}
+          <article class="bg-bg-card rounded-2xl p-8 border border-white/5 card-glow transition-all duration-300 hover:-translate-y-1">
+            <time class="text-text-secondary text-sm">{{ .Date.Format "2 January 2006" }}</time>
+            <h2 class="text-xl font-bold text-text-heading mt-2 mb-3">
+              <a href="{{ .RelPermalink }}" class="hover:text-py-yellow transition-colors">{{ .Title }}</a>
+            </h2>
+            <p class="text-text-secondary leading-relaxed mb-4">{{ .Description }}</p>
+            <a href="{{ .RelPermalink }}" class="text-py-blue-light hover:text-py-yellow text-sm font-semibold transition-colors">
+              Read more &rarr;
+            </a>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+</div>
+{{ end }}
