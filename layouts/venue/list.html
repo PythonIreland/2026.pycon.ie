@@ -20,11 +20,25 @@
 
           <div class="space-y-6 text-text-secondary leading-relaxed">
             <p>
-              The Convention Centre Dublin (CCD) is Ireland's premier purpose-built conference venue, situated in the heart of Dublin's vibrant Docklands district.
+              UCD O'Reilly Hall is a modern conference and events venue located on the Belfield campus of University College Dublin, one of Europe's leading research-intensive universities.
             </p>
             <p>
-              With world-class facilities, excellent transport links, and stunning views of the River Liffey, the CCD provides the perfect setting for PyCon Ireland 2026.
+              With excellent facilities and a campus setting, O'Reilly Hall provides the perfect environment for PyCon Ireland 2026.
             </p>
+          </div>
+
+          <div class="mt-8 space-y-4">
+            <h3 class="text-lg font-semibold text-text-heading">Amenities</h3>
+            <ul class="space-y-3 text-text-secondary text-sm">
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Accessible entrance</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Free parking (N1, N2 car parks)</span>
+              </li>
+            </ul>
           </div>
 
           <div class="mt-8 space-y-4">
@@ -32,19 +46,15 @@
             <ul class="space-y-3 text-text-secondary text-sm">
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                <span><strong class="text-text-heading">Luas:</strong> Spencer Dock stop (Red Line) — 2 minute walk</span>
+                <span><strong class="text-text-heading">Bus:</strong> Routes 39a, 145, 155 stop at UCD Belfield</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                <span><strong class="text-text-heading">DART:</strong> Connolly Station — 10 minute walk</span>
+                <span><strong class="text-text-heading">Car:</strong> Free parking available on campus (N1, N2 car parks)</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                <span><strong class="text-text-heading">Bus:</strong> Routes 151 and 33 stop nearby</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                <span><strong class="text-text-heading">Airport:</strong> Dublin Airport is 20 minutes by taxi or bus</span>
+                <span><strong class="text-text-heading">Airport:</strong> Dublin Airport is 30 minutes by taxi or Aircoach</span>
               </li>
             </ul>
           </div>
@@ -54,7 +64,7 @@
           {{/* Map */}}
           <div class="rounded-2xl overflow-hidden border border-white/5">
             <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-6.245%2C53.345%2C-6.233%2C53.351&layer=mapnik&marker={{ .Site.Params.venueMapLat }}%2C{{ .Site.Params.venueMapLon }}"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-6.232%2C53.305%2C-6.220%2C53.312&layer=mapnik&marker={{ .Site.Params.venueMapLat }}%2C{{ .Site.Params.venueMapLon }}"
               class="w-full h-80"
               loading="lazy"
               title="Venue map">
@@ -65,10 +75,10 @@
           <div class="bg-bg-card rounded-2xl p-6 border border-white/5">
             <h3 class="text-lg font-semibold text-text-heading mb-4">Nearby Accommodation</h3>
             <ul class="space-y-2 text-text-secondary text-sm">
-              <li>Spencer Hotel — 1 min walk</li>
-              <li>The Gibson Hotel — 5 min walk</li>
-              <li>Maldron Hotel Smithfield — 10 min walk</li>
-              <li>Clayton Hotel Cardiff Lane — 5 min walk</li>
+              <li>Talbot Hotel Stillorgan — 10 min by bus</li>
+              <li>Radisson Blu St. Helen's — 10 min walk</li>
+              <li>Clayton Hotel Burlington Road — 15 min by bus</li>
+              <li>Dublin city centre hotels — 20 min by bus</li>
             </ul>
           </div>
         </div>
