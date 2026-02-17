@@ -1,0 +1,43 @@
+{{ define "main" }}
+<div class="pt-24">
+  {{/* Header */}}
+  <section class="py-16 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-text-heading mb-4">{{ .Title }}</h1>
+      <p class="text-text-secondary text-lg max-w-2xl mx-auto">{{ .Description }}</p>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  {{/* Keynotes */}}
+  {{ $keynotes := where .Site.Data.speakers "keynote" true }}
+  {{ if $keynotes }}
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-text-heading mb-8 text-center">Keynote Speakers</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {{ range $keynotes }}
+            {{ partial "speaker-card.html" (dict "speaker" . "featured" true) }}
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* All speakers */}}
+  {{ $regular := where .Site.Data.speakers "keynote" false }}
+  {{ if $regular }}
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-text-heading mb-8 text-center">Speakers</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {{ range $regular }}
+            {{ partial "speaker-card.html" (dict "speaker" . "featured" false) }}
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+</div>
+{{ end }}

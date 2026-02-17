@@ -1,0 +1,74 @@
+- id: "keynote-1"
+  title: "The Future of Python: What's Coming in 3.15 and Beyond"
+  description: "An overview of the most exciting features coming to Python, from performance improvements to new syntax features. We'll explore the PEP process and how the community shapes the language."
+  speaker_ids: ["anna-ravenscroft"]
+  type: "keynote"
+  duration: 45
+  track: "main"
+
+- id: "keynote-2"
+  title: "Scaling ML Pipelines: Lessons from Production"
+  description: "Real-world lessons from deploying machine learning models at scale. We'll cover data pipeline architecture, model serving, monitoring, and the tools that make it all work."
+  speaker_ids: ["james-murphy"]
+  type: "keynote"
+  duration: 45
+  track: "main"
+
+- id: "talk-1"
+  title: "Cloud-Native Python: Containers, Kubernetes, and Beyond"
+  description: "Learn how to build and deploy Python applications in cloud-native environments. We'll cover containerization best practices, Kubernetes patterns, and serverless options."
+  speaker_ids: ["siobhan-oconnor"]
+  type: "talk"
+  duration: 30
+  track: "track-1"
+
+- id: "talk-2"
+  title: "Building Real-Time Data Pipelines with Python"
+  description: "A deep dive into building real-time data processing pipelines using Python. We'll explore Apache Kafka, Apache Flink, and how to handle streaming data at scale."
+  speaker_ids: ["tomas-petricek"]
+  type: "talk"
+  duration: 30
+  track: "track-2"
+
+- id: "talk-3"
+  title: "Python Security: Common Vulnerabilities and How to Avoid Them"
+  description: "An in-depth look at the most common security vulnerabilities in Python applications and practical strategies to prevent them."
+  speaker_ids: ["maria-garcia"]
+  type: "talk"
+  duration: 30
+  track: "track-1"
+
+- id: "talk-4"
+  title: "Infrastructure as Code with Python and Pulumi"
+  description: "Discover how to manage cloud infrastructure using Python with Pulumi. We'll build real infrastructure and explore testing strategies for IaC."
+  speaker_ids: ["declan-kelly"]
+  type: "talk"
+  duration: 30
+  track: "track-2"
+
+- id: "break-morning"
+  title: "Coffee Break"
+  type: "break"
+  duration: 30
+
+- id: "lunch"
+  title: "Lunch"
+  type: "break"
+  duration: 60
+
+- id: "break-afternoon"
+  title: "Afternoon Break"
+  type: "break"
+  duration: 30
+
+- id: "lightning"
+  title: "Lightning Talks"
+  type: "lightning"
+  duration: 60
+  track: "main"
+
+- id: "closing"
+  title: "Closing Remarks & Community Awards"
+  type: "ceremony"
+  duration: 30
+  track: "main"

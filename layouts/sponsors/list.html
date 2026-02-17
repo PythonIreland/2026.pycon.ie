@@ -1,0 +1,50 @@
+{{ define "main" }}
+<div class="pt-24">
+  {{/* Header */}}
+  <section class="py-16 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-text-heading mb-4">{{ .Title }}</h1>
+      <p class="text-text-secondary text-lg max-w-2xl mx-auto">{{ .Description }}</p>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  {{/* Sponsor tiers */}}
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {{ range .Site.Data.sponsors.tiers }}
+        <div class="mb-16 last:mb-0">
+          <h2 class="text-center text-sm font-semibold uppercase tracking-widest text-text-secondary mb-8">
+            {{ .name }} Sponsors
+          </h2>
+
+          {{ $size := "h-12" }}
+          {{ if eq .level 1 }}{{ $size = "h-16" }}{{ end }}
+          {{ if eq .level 4 }}{{ $size = "h-10" }}{{ end }}
+
+          <div class="flex flex-wrap justify-center items-center gap-8">
+            {{ range .sponsors }}
+              <a href="{{ .url }}" target="_blank" rel="noopener" class="bg-bg-card rounded-xl p-8 hover:bg-bg-card-hover transition-colors group">
+                <img src="{{ .logo }}" alt="{{ .name }}" class="{{ $size }} w-auto opacity-70 group-hover:opacity-100 transition-opacity">
+                <p class="text-text-secondary text-xs text-center mt-3">{{ .name }}</p>
+              </a>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+
+      {{/* CTA */}}
+      <div class="text-center mt-16 bg-bg-card rounded-2xl p-12 border border-white/5">
+        <h2 class="text-2xl font-bold text-text-heading mb-4">Become a Sponsor</h2>
+        <p class="text-text-secondary max-w-xl mx-auto mb-8">
+          Support Ireland's largest Python conference and connect with 500+ developers, data scientists, and engineers.
+        </p>
+        <a href="mailto:{{ .Site.Params.email }}?subject=Sponsorship Inquiry" class="bg-py-yellow text-bg-primary px-8 py-4 rounded-xl text-lg font-bold hover:bg-py-yellow-light transition-colors inline-block">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+{{ end }}

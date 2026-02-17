@@ -1,0 +1,91 @@
+{{ define "main" }}
+<div class="pt-24">
+  {{/* Header */}}
+  <section class="py-16 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-text-heading mb-4">{{ .Title }}</h1>
+      <p class="text-text-secondary text-lg max-w-2xl mx-auto">{{ .Description }}</p>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  {{/* Schedule grid */}}
+  <section class="py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {{ range .Site.Data.schedule.days }}
+        <div class="mb-16 last:mb-0">
+          <h2 class="text-2xl font-bold text-text-heading mb-8 text-center">{{ .name }}</h2>
+
+          <div class="space-y-3">
+            {{ range .slots }}
+              {{ if eq .type "break" }}
+                {{/* Break slot */}}
+                <div class="bg-bg-secondary rounded-xl px-6 py-4 flex items-center gap-4 border border-white/5">
+                  <span class="text-py-yellow font-mono font-semibold text-sm w-14 shrink-0">{{ .time }}</span>
+                  <span class="text-text-secondary text-sm">{{ .title }}</span>
+                  <span class="text-text-secondary/50 text-xs ml-auto">{{ .duration }} min</span>
+                </div>
+
+              {{ else if eq .type "session" }}
+                {{/* Session slot */}}
+                <div class="bg-bg-card rounded-xl px-6 py-5 border border-white/5">
+                  <div class="flex items-start gap-4">
+                    <span class="text-py-blue-light font-mono font-semibold text-sm w-14 shrink-0 pt-0.5">{{ .time }}</span>
+                    <div class="flex-1">
+                      {{ if eq (len .session_ids) 1 }}
+                        {{/* Single track session */}}
+                        {{ $sid := index .session_ids 0 }}
+                        {{ range where $.Site.Data.sessions "id" $sid }}
+                          <div>
+                            <div class="flex items-center gap-2 mb-1">
+                              {{ if eq .type "keynote" }}
+                                <span class="inline-block bg-py-yellow/10 text-py-yellow text-xs font-semibold px-2 py-0.5 rounded-full uppercase">Keynote</span>
+                              {{ else if eq .type "lightning" }}
+                                <span class="inline-block bg-py-blue/20 text-py-blue-light text-xs font-semibold px-2 py-0.5 rounded-full uppercase">Lightning</span>
+                              {{ else if eq .type "ceremony" }}
+                                <span class="inline-block bg-py-yellow/10 text-py-yellow text-xs font-semibold px-2 py-0.5 rounded-full uppercase">{{ .type }}</span>
+                              {{ end }}
+                            </div>
+                            <h3 class="text-text-heading font-semibold mb-1">{{ .title }}</h3>
+                            {{ range .speaker_ids }}
+                              {{ $spkId := . }}
+                              {{ range where $.Site.Data.speakers "id" $spkId }}
+                                <p class="text-py-blue-light text-sm">{{ .name }}</p>
+                              {{ end }}
+                            {{ end }}
+                          </div>
+                        {{ end }}
+
+                      {{ else }}
+                        {{/* Multi-track session */}}
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          {{ range .session_ids }}
+                            {{ $sid := . }}
+                            {{ range where $.Site.Data.sessions "id" $sid }}
+                              <div class="bg-bg-primary/50 rounded-lg p-4">
+                                <span class="inline-block text-text-secondary/50 text-xs uppercase tracking-wider mb-1">{{ .track }}</span>
+                                <h3 class="text-text-heading font-semibold text-sm mb-1">{{ .title }}</h3>
+                                {{ range .speaker_ids }}
+                                  {{ $spkId := . }}
+                                  {{ range where $.Site.Data.speakers "id" $spkId }}
+                                    <p class="text-py-blue-light text-xs">{{ .name }}</p>
+                                  {{ end }}
+                                {{ end }}
+                              </div>
+                            {{ end }}
+                          {{ end }}
+                        </div>
+                      {{ end }}
+                    </div>
+                  </div>
+                </div>
+              {{ end }}
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+</div>
+{{ end }}
