@@ -1,0 +1,30 @@
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text-heading mb-4">Keynote Speakers</h2>
+      <p class="text-text-secondary max-w-2xl mx-auto text-lg">
+        Hear from leading voices in the Python community.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {{ range where .Site.Data.speakers "keynote" true }}
+        <div class="bg-bg-card rounded-2xl p-8 card-glow transition-all duration-300 hover:-translate-y-1 flex flex-col items-center text-center">
+          <div class="w-24 h-24 rounded-full overflow-hidden mb-6 ring-2 ring-py-yellow/30">
+            <img src="{{ .photo }}" alt="{{ .name }}" class="w-full h-full object-cover">
+          </div>
+          <span class="inline-block bg-py-yellow/10 text-py-yellow text-xs font-semibold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">Keynote</span>
+          <h3 class="text-xl font-bold text-text-heading mb-1">{{ .name }}</h3>
+          <p class="text-py-blue-light text-sm mb-3">{{ .title }}, {{ .company }}</p>
+          <p class="text-text-secondary text-sm leading-relaxed">{{ .bio }}</p>
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="/speakers/" class="text-py-blue-light hover:text-py-yellow font-semibold transition-colors">
+        View All Speakers &rarr;
+      </a>
+    </div>
+  </div>
+</section>

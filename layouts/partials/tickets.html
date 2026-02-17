@@ -1,0 +1,41 @@
+<section id="tickets" class="py-24 bg-bg-secondary">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text-heading mb-4">Tickets</h2>
+      <p class="text-text-secondary max-w-2xl mx-auto text-lg">
+        Secure your spot at PyCon Ireland 2026. Early bird pricing available for a limited time.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {{ range .Site.Params.tickets }}
+        <div class="bg-bg-card rounded-2xl p-6 flex flex-col {{ if .highlight }}ticket-highlight{{ else }}border border-white/5{{ end }}">
+          {{ if .highlight }}
+            <div class="text-center mb-2">
+              <span class="inline-block bg-py-yellow/10 text-py-yellow text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Best Value</span>
+            </div>
+          {{ end }}
+
+          <h3 class="text-lg font-bold text-text-heading text-center mb-4">{{ .name }}</h3>
+
+          <div class="text-center mb-6">
+            <span class="text-4xl font-extrabold text-text-heading">&euro;{{ .price }}</span>
+          </div>
+
+          <ul class="space-y-3 mb-8 flex-1">
+            {{ range .features }}
+              <li class="flex items-start gap-2 text-sm text-text-secondary">
+                <svg class="w-4 h-4 text-py-blue-light mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                {{ . }}
+              </li>
+            {{ end }}
+          </ul>
+
+          <a href="#" class="{{ if .highlight }}bg-py-yellow text-bg-primary hover:bg-py-yellow-light{{ else }}bg-py-blue text-white hover:bg-py-blue-light{{ end }} px-6 py-3 rounded-xl font-semibold text-center transition-colors text-sm">
+            Buy Ticket
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

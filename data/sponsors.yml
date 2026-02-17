@@ -1,0 +1,43 @@
+tiers:
+  - name: "Platinum"
+    level: 1
+    sponsors:
+      - name: "Python Software Foundation"
+        logo: "/img/sponsors/placeholder.svg"
+        url: "https://www.python.org/psf/"
+      - name: "TechCorp Ireland"
+        logo: "/img/sponsors/placeholder.svg"
+        url: "https://example.com"
+
+  - name: "Gold"
+    level: 2
+    sponsors:
+      - name: "CloudScale"
+        logo: "/img/sponsors/placeholder.svg"
+        url: "https://example.com"
+      - name: "DataFlow Systems"
+        logo: "/img/sponsors/placeholder.svg"
+        url: "https://example.com"
+      - name: "DevTools Inc"
+        logo: "/img/sponsors/placeholder.svg"
+        url: "https://example.com"
+
+  - name: "Silver"
+    level: 3
+    sponsors:
+      - name: "PyLabs"
+        logo: "/img/sponsors/placeholder.svg"
+        url: "https://example.com"
+      - name: "CodeAcademy IE"
+        logo: "/img/sponsors/placeholder.svg"
+        url: "https://example.com"
+
+  - name: "Community"
+    level: 4
+    sponsors:
+      - name: "Python Ireland"
+        logo: "/img/sponsors/placeholder.svg"
+        url: "https://python.ie"
+      - name: "Django Girls Dublin"
+        logo: "/img/sponsors/placeholder.svg"
+        url: "https://example.com"

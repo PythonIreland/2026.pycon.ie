@@ -1,0 +1,62 @@
+- id: "anna-ravenscroft"
+  name: "Anna Ravenscroft"
+  title: "Senior Software Engineer"
+  company: "Python Software Foundation"
+  bio: "Anna is a long-time Python core contributor and advocate for diversity in tech. She brings deep expertise in Python internals and community building."
+  photo: "/img/speakers/placeholder.svg"
+  keynote: true
+  social:
+    twitter: "https://twitter.com/example"
+    github: "https://github.com/example"
+
+- id: "james-murphy"
+  name: "James Murphy"
+  title: "ML Engineering Lead"
+  company: "Acme AI"
+  bio: "James specializes in deploying machine learning models at scale. He has contributed to several popular open-source ML libraries."
+  photo: "/img/speakers/placeholder.svg"
+  keynote: true
+  social:
+    twitter: "https://twitter.com/example"
+    github: "https://github.com/example"
+
+- id: "siobhan-oconnor"
+  name: "Siobhan O'Connor"
+  title: "Platform Architect"
+  company: "CloudScale"
+  bio: "Siobhan is passionate about cloud-native Python applications and has helped scale platforms serving millions of users."
+  photo: "/img/speakers/placeholder.svg"
+  keynote: false
+  social:
+    github: "https://github.com/example"
+
+- id: "tomas-petricek"
+  name: "Tomas Petricek"
+  title: "Data Engineer"
+  company: "DataFlow Systems"
+  bio: "Tomas focuses on data pipeline architecture and real-time processing. He is an active contributor to the Apache Airflow project."
+  photo: "/img/speakers/placeholder.svg"
+  keynote: false
+  social:
+    twitter: "https://twitter.com/example"
+
+- id: "maria-garcia"
+  name: "Maria Garcia"
+  title: "Security Researcher"
+  company: "SecurePy Labs"
+  bio: "Maria researches Python security patterns and helps organizations build secure applications. She is a regular speaker at security conferences."
+  photo: "/img/speakers/placeholder.svg"
+  keynote: false
+  social:
+    github: "https://github.com/example"
+
+- id: "declan-kelly"
+  name: "Declan Kelly"
+  title: "DevOps Engineer"
+  company: "InfraOps"
+  bio: "Declan automates everything with Python. From CI/CD pipelines to infrastructure-as-code, he believes in making operations effortless."
+  photo: "/img/speakers/placeholder.svg"
+  keynote: false
+  social:
+    twitter: "https://twitter.com/example"
+    github: "https://github.com/example"

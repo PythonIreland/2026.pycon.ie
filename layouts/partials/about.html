@@ -1,0 +1,28 @@
+<section id="about" class="py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text-heading mb-4">What is PyCon Ireland?</h2>
+      <p class="text-text-secondary max-w-2xl mx-auto text-lg">
+        Ireland's largest gathering of Python enthusiasts. Two days of talks, workshops, and community.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {{ range .Site.Data.site.about }}
+        <div class="bg-bg-card rounded-2xl p-8 card-glow transition-all duration-300 hover:-translate-y-1">
+          <div class="w-12 h-12 bg-py-blue/20 rounded-xl flex items-center justify-center mb-6">
+            {{ if eq .icon "mic" }}
+              <svg class="w-6 h-6 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+            {{ else if eq .icon "code" }}
+              <svg class="w-6 h-6 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            {{ else if eq .icon "users" }}
+              <svg class="w-6 h-6 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            {{ end }}
+          </div>
+          <h3 class="text-xl font-bold text-text-heading mb-3">{{ .title }}</h3>
+          <p class="text-text-secondary leading-relaxed">{{ .description }}</p>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
