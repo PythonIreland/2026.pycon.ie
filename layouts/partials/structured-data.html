@@ -30,8 +30,8 @@
   "image": "{{ .Site.Params.ogImage | absURL }}",
   "organizer": {
     "@type": "Organization",
-    "name": "Python Ireland",
-    "url": "https://python.ie",
+    "name": "{{ .Site.Params.organizerName }}",
+    "url": "{{ .Site.Params.organizerUrl }}",
     "email": "{{ .Site.Params.email }}"
   },
   "offers": {
@@ -55,8 +55,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Python Ireland",
-  "url": "https://python.ie",
+  "name": "{{ .Site.Params.organizerName }}",
+  "url": "{{ .Site.Params.organizerUrl }}",
   "logo": "{{ "/img/logo.svg" | absURL }}",
   "contactPoint": {
     "@type": "ContactPoint",
@@ -80,7 +80,7 @@
   "description": "{{ .Site.Params.description }}",
   "publisher": {
     "@type": "Organization",
-    "name": "Python Ireland"
+    "name": "{{ .Site.Params.organizerName }}"
   }
 }
 </script>

@@ -65,8 +65,8 @@
   {{ end }}
   "organizer": {
     "@type": "Organization",
-    "name": "Python Ireland",
-    "url": "https://python.ie"
+    "name": "{{ $.Site.Params.organizerName }}",
+    "url": "{{ $.Site.Params.organizerUrl }}"
   },
   {{ if eq $session.type "keynote" }}
   "audience": {
@@ -112,16 +112,16 @@
     "name": "{{ .Site.Params.venue }}",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "University College Dublin, Belfield",
-      "addressLocality": "Dublin",
-      "postalCode": "Dublin 4",
-      "addressCountry": "IE"
+      "streetAddress": "{{ .Site.Params.venueStreetAddress }}",
+      "addressLocality": "{{ .Site.Params.venueCity }}",
+      "postalCode": "{{ .Site.Params.venuePostalCode }}",
+      "addressCountry": "{{ .Site.Params.venueCountry }}"
     }
   },
   "organizer": {
     "@type": "Organization",
-    "name": "Python Ireland",
-    "url": "https://python.ie"
+    "name": "{{ .Site.Params.organizerName }}",
+    "url": "{{ .Site.Params.organizerUrl }}"
   }
 }
 </script>

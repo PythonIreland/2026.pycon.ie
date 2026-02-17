@@ -5,8 +5,8 @@
 {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "PyCon Ireland 2026 Speakers",
-  "description": "Meet our incredible lineup of speakers at PyCon Ireland 2026",
+  "name": "{{ .Site.Title }} Speakers",
+  "description": "Meet our incredible lineup of speakers at {{ .Site.Title }}",
   "numberOfItems": {{ len .Site.Data.speakers }},
   "itemListElement": [
     {{ range $index, $speaker := .Site.Data.speakers }}
@@ -88,10 +88,10 @@
   "knowsAbout": ["Python", "Software Development", "{{ if $speaker.keynote }}Keynote Speaking{{ end }}"],
   "alumniOf": {
     "@type": "Event",
-    "name": "PyCon Ireland 2026",
+    "name": "{{ $.Site.Title }}",
     "organizer": {
       "@type": "Organization",
-      "name": "Python Ireland"
+      "name": "{{ $.Site.Params.organizerName }}"
     }
   }
 }

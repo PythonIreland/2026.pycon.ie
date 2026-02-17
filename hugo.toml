@@ -39,6 +39,10 @@ title = "PyCon Ireland 2026"
   venuePhone = "+353 1 716 7777"
   venueWebsite = "https://www.ucd.ie/oreillyhall/"
 
+  # Organizer information
+  organizerName = "Python Ireland"
+  organizerUrl = "https://python.ie"
+
   # Contact & social
   email = "contact@python.ie"
   twitterHandle = "@pythonireland"
