@@ -41,11 +41,15 @@ title = "PyCon Ireland 2026"
 
   # Organizer information
   organizerName = "Python Ireland"
+  organizerFullName = "Python Ireland Developers CLG"
   organizerUrl = "https://python.ie"
+  croNumber = "559983"
 
   # Contact & social
   email = "contact@python.ie"
   twitterHandle = "@pythonireland"
+  mastodonHandle = "@pythonireland"
+  youtubeUrl = "https://www.youtube.com/@PythonIreland"
   ogImage = "/img/og-image.png"
 
   [params.hero]

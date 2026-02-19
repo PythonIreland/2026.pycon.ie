@@ -37,9 +37,9 @@
       <div>
         <h4 class="text-text-heading font-semibold text-sm uppercase tracking-wider mb-4">Connect</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="https://twitter.com/pyaborern" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">Twitter / X</a></li>
-          <li><a href="https://mastodon.social/@pythonireland" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">Mastodon</a></li>
-          <li><a href="https://www.youtube.com/@PythonIreland" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">Twitter / X</a></li>
+          <li><a href="https://mastodon.social/{{ .Site.Params.mastodonHandle }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">Mastodon</a></li>
+          <li><a href="{{ .Site.Params.youtubeUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">YouTube</a></li>
           <li><a href="mailto:{{ .Site.Params.email }}" class="text-text-secondary hover:text-py-yellow transition-colors">{{ .Site.Params.email }}</a></li>
         </ul>
       </div>
@@ -48,8 +48,11 @@
     <div class="section-divider mt-8 mb-6"></div>
 
     <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-text-secondary">
-      <p>&copy; {{ now.Year }} Python Ireland. All rights reserved.</p>
-      <p>Built with <a href="https://gohugo.io" class="text-py-blue hover:text-py-blue-light transition-colors" target="_blank" rel="noopener">Hugo</a> &amp; <a href="https://tailwindcss.com" class="text-py-blue hover:text-py-blue-light transition-colors" target="_blank" rel="noopener">Tailwind CSS</a></p>
+      <div class="text-center sm:text-left">
+        <p>&copy; {{ now.Year }} {{ .Site.Params.organizerFullName }}. All rights reserved.</p>
+        <p class="mt-1">CRO Number: {{ .Site.Params.croNumber }}</p>
+      </div>
+      <p class="text-center sm:text-right">Built with <a href="https://gohugo.io" class="text-py-blue hover:text-py-blue-light transition-colors" target="_blank" rel="noopener">Hugo</a> &amp; <a href="https://tailwindcss.com" class="text-py-blue hover:text-py-blue-light transition-colors" target="_blank" rel="noopener">Tailwind CSS</a></p>
     </div>
   </div>
 </footer>
