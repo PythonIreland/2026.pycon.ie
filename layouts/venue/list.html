@@ -20,10 +20,10 @@
 
           <div class="space-y-6 text-text-secondary leading-relaxed">
             <p>
-              UCD O'Reilly Hall is a modern conference and events venue located on the Belfield campus of University College Dublin, one of Europe's leading research-intensive universities.
+              Trinity College Dublin is Ireland's oldest and most prestigious university, founded in 1592 and located in the heart of Dublin city centre.
             </p>
             <p>
-              With excellent facilities and a campus setting, O'Reilly Hall provides the perfect environment for PyCon Ireland 2026.
+              With its stunning historic campus and excellent facilities, TCD provides the perfect environment for PyCon Ireland 2026.
             </p>
           </div>
 
@@ -36,7 +36,7 @@
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                <span>Free parking (N1, N2 car parks)</span>
+                <span>City centre location</span>
               </li>
             </ul>
           </div>
@@ -46,11 +46,11 @@
             <ul class="space-y-3 text-text-secondary text-sm">
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                <span><strong class="text-text-heading">Bus:</strong> Routes 39a, 145, 155 stop at UCD Belfield</span>
+                <span><strong class="text-text-heading">Bus:</strong> Numerous routes stop on College Green and Nassau Street</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                <span><strong class="text-text-heading">Car:</strong> Free parking available on campus (N1, N2 car parks)</span>
+                <span><strong class="text-text-heading">LUAS:</strong> Green Line — Dawson or St. Stephen's Green stops, 5 min walk</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
@@ -60,11 +60,15 @@
           </div>
         </div>
 
+        {{ $lat := .Site.Params.venueMapLat | float }}
+        {{ $lon := .Site.Params.venueMapLon | float }}
+        {{ $d := 0.008 }}
+        {{ $bbox := printf "%.4f,%.4f,%.4f,%.4f" (math.Sub $lon $d) (math.Sub $lat $d) (math.Add $lon $d) (math.Add $lat $d) }}
         <div class="space-y-6">
           {{/* Map */}}
           <div class="rounded-2xl overflow-hidden border border-white/5">
             <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-6.232%2C53.305%2C-6.220%2C53.312&layer=mapnik&marker={{ .Site.Params.venueMapLat }}%2C{{ .Site.Params.venueMapLon }}"
+              src="https://www.openstreetmap.org/export/embed.html?bbox={{ $bbox }}&layer=mapnik&marker={{ $lat }},{{ $lon }}"
               class="w-full h-80"
               loading="lazy"
               title="Venue map">
@@ -75,10 +79,10 @@
           <div class="bg-bg-card rounded-2xl p-6 border border-white/5">
             <h3 class="text-lg font-semibold text-text-heading mb-4">Nearby Accommodation</h3>
             <ul class="space-y-2 text-text-secondary text-sm">
-              <li>Talbot Hotel Stillorgan — 10 min by bus</li>
-              <li>Radisson Blu St. Helen's — 10 min walk</li>
-              <li>Clayton Hotel Burlington Road — 15 min by bus</li>
-              <li>Dublin city centre hotels — 20 min by bus</li>
+              <li>The Westbury Hotel — 5 min walk</li>
+              <li>Buswells Hotel — 5 min walk</li>
+              <li>Trinity City Hotel — adjacent to campus</li>
+              <li>Many more options throughout Dublin city centre</li>
             </ul>
           </div>
         </div>
