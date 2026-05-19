@@ -17,7 +17,7 @@ Used under the [Unsplash License](https://unsplash.com/license) — free for com
 
 ## Homepage — Hero image
 
-**The Temple Bar, Dublin**
+**Red telephone box in front of The Temple Bar, Dublin**
 Photograph by [Matheus Câmara da Silva](https://unsplash.com/@matheussox), published on [Unsplash](https://unsplash.com/photos/NL2ORrGh8KM).
 Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
 
