@@ -1,0 +1,90 @@
+{{ define "main" }}
+{{ $dublin := hugo.Data.dublin }}
+<div class="pt-24">
+
+  {{/* Header */}}
+  <section class="py-16 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-text-heading mb-4">{{ .Title }}</h1>
+      <p class="text-text-secondary text-lg max-w-2xl mx-auto">{{ $dublin.intro }}</p>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  {{/* Photo gallery */}}
+  {{ $gallery := $dublin.gallery }}
+  {{ $featured := index $gallery 0 }}
+  {{ $rest := after 1 $gallery }}
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-3 gap-4">
+        <div class="col-span-3 rounded-2xl overflow-hidden h-80 bg-bg-card">
+          {{ if $featured }}
+            <img src="{{ $featured.src }}" alt="{{ $featured.alt }}" class="w-full h-full object-cover">
+          {{ end }}
+        </div>
+        {{ range $rest }}
+          <div class="rounded-2xl overflow-hidden h-56 bg-bg-card">
+            <img src="{{ .src }}" alt="{{ .alt }}" class="w-full h-full object-cover" loading="lazy">
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  {{/* Highlights */}}
+  <section class="py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-text-heading mb-10 text-center">Top Things to Do</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {{ range $dublin.highlights }}
+          <div class="bg-bg-card rounded-2xl overflow-hidden border border-white/5 card-glow flex flex-col">
+            {{ if .photo }}
+              <div class="h-40 overflow-hidden shrink-0">
+                <img src="{{ .photo }}" alt="{{ .title }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+            {{ end }}
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="text-text-heading font-semibold text-lg mb-2">{{ .title }}</h3>
+              <p class="text-text-secondary text-sm leading-relaxed mb-4 flex-1">{{ .description }}</p>
+              {{ if .link }}
+                <a href="{{ .link }}" target="_blank" rel="noopener" class="text-py-blue-light hover:text-py-yellow text-sm font-medium transition-colors">
+                  Learn more →
+                </a>
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  {{/* Getting Around */}}
+  <section class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-text-heading mb-10 text-center">Getting Around Dublin</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {{ range $dublin.transport }}
+          <div class="bg-bg-card rounded-2xl overflow-hidden border border-white/5 card-glow flex flex-col">
+            {{ if .photo }}
+              <div class="h-40 overflow-hidden shrink-0">
+                <img src="{{ .photo }}" alt="{{ .mode }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+            {{ end }}
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="text-text-heading font-semibold text-lg mb-2">{{ .mode }}</h3>
+              <p class="text-text-secondary text-sm leading-relaxed flex-1">{{ .description }}</p>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+</div>
+{{ end }}
