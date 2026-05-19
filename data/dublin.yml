@@ -1,15 +1,23 @@
 intro: "Dublin is one of Europe's most welcoming capitals — compact enough to explore on foot, packed with history, culture, and a legendary pub scene. Whether you're arriving a day early or staying on after PyCon, you'll find plenty to discover."
 
 gallery:
-  - src: "/img/dublin/ha-penny-bridge.jpg"
-    alt: "Ha'penny Bridge over the River Liffey at dusk"
+  - src: "https://images.unsplash.com/photo-1663509851482-56ffbd1cf076?w=1600&h=700&q=80&auto=format&fit=crop"
+    alt: "Ha'penny Bridge over the River Liffey, Dublin"
+    credit: "Sophie Popplewell on Unsplash"
+    credit_url: "https://unsplash.com/photos/blDB0HbjB1k"
     featured: true
-  - src: "/img/dublin/phoenix-park.jpg"
-    alt: "Phoenix Park, one of the largest city parks in Europe"
-  - src: "/img/dublin/grafton-street.jpg"
-    alt: "Grafton Street, Dublin's pedestrianised shopping district"
-  - src: "/img/dublin/dublin-castle.jpg"
-    alt: "Dublin Castle, a historic seat of Irish government"
+  - src: "https://images.unsplash.com/photo-1672062971379-50b03f5210e1?w=800&h=600&q=80&auto=format&fit=crop"
+    alt: "Deer in Phoenix Park, one of Europe's largest city parks"
+    credit: "Clément Bonnet on Unsplash"
+    credit_url: "https://unsplash.com/photos/FE-OsdkaFBw"
+  - src: "https://images.unsplash.com/photo-1630784032326-4aafb67d344c?w=800&h=600&q=80&auto=format&fit=crop"
+    alt: "Georgian architecture in Dublin city centre"
+    credit: "Barbora Dostálová on Unsplash"
+    credit_url: "https://unsplash.com/photos/CVStJe2lhmU"
+  - src: "https://images.unsplash.com/photo-1602061464448-5859b31eb1b8?w=800&h=600&q=80&auto=format&fit=crop"
+    alt: "Dublin Castle at sunset"
+    credit: "Lisa Fecker on Unsplash"
+    credit_url: "https://unsplash.com/photos/V-B9sHnqeR4"
 
 highlights:
   - icon: "landmark"
