@@ -1,0 +1,125 @@
+{{ define "main" }}
+
+{{/* ── Hero ── */}}
+<section class="py-24 bg-bg-secondary">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="inline-flex items-center gap-2 bg-py-blue/10 border border-py-blue/30 text-py-blue-light text-sm font-semibold px-4 py-2 rounded-full mb-8">
+      Community-run since 2010
+    </span>
+    <h1 class="text-4xl sm:text-5xl font-bold text-text-heading mb-6 font-brand">About Us</h1>
+    <p class="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
+      PyCon Ireland is organised by volunteers from the Irish Python community.
+      Every year, a small team comes together to bring Ireland's premier Python conference to life —
+      and sometimes, even a Belgian shows up to lend a hand.
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+{{/* ── Python Ireland ── */}}
+<section class="py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+      <div>
+        <h2 class="text-3xl font-bold text-text-heading mb-6">The Organisation Behind the Conference</h2>
+        <p class="text-text-secondary leading-relaxed mb-4">
+          Behind the scenes, the conference is made possible by
+          <a href="https://python.ie" target="_blank" rel="noopener" class="text-py-yellow hover:underline">Python Ireland</a>,
+          a non-profit Irish company (Company Limited by Guarantee).
+          Python Ireland exists to support and grow the Python community in Ireland.
+        </p>
+        <p class="text-text-secondary leading-relaxed mb-4">
+          As the legal and financial entity behind PyCon Ireland, Python Ireland handles
+          all contractual, financial, and compliance aspects of the conference — so the
+          volunteer team can focus on what matters: the programme, the people, and the community.
+        </p>
+        <p class="text-text-secondary leading-relaxed">
+          Python Ireland is governed by a board comprising a President, a Vice-President,
+          and additional board members elected by the community.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="bg-bg-card rounded-2xl p-6 card-glow">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-py-blue/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <h3 class="font-bold text-text-heading">Community-driven</h3>
+          </div>
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Every organiser and volunteer gives their time freely. There are no paid staff —
+            just people who love Python and want to share that love with the community.
+          </p>
+        </div>
+
+        <div class="bg-bg-card rounded-2xl p-6 card-glow">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-py-yellow/10 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-py-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="font-bold text-text-heading">Non-profit</h3>
+          </div>
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Python Ireland is a Company Limited by Guarantee — a non-profit structure under
+            Irish law. Any surplus from the conference is reinvested into the community.
+          </p>
+        </div>
+
+        <div class="bg-bg-card rounded-2xl p-6 card-glow">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-py-blue/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="font-bold text-text-heading">Part of the global PSF network</h3>
+          </div>
+          <p class="text-text-secondary text-sm leading-relaxed">
+            PyCon Ireland is a community conference affiliated with the Python Software Foundation,
+            which supports Python communities worldwide.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{/* ── Board ── */}}
+<section class="py-20 bg-bg-secondary">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl font-bold text-text-heading mb-4">The Python Ireland Board</h2>
+    <p class="text-text-secondary text-lg max-w-2xl mx-auto mb-12">
+      Python Ireland is governed by a board comprising a President, a Vice-President,
+      and additional board members. The current board will be announced shortly.
+    </p>
+    <div class="inline-flex items-center gap-3 bg-bg-card border border-white/10 rounded-2xl px-6 py-4 text-text-secondary text-sm">
+      <svg class="w-5 h-5 text-py-blue-light flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span>Board members will be listed here soon. Follow us on
+        <a href="{{ .Site.Params.mastodonUrl }}" target="_blank" rel="me noopener" class="text-py-yellow hover:underline">Mastodon</a>,
+        <a href="https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}" target="_blank" rel="noopener" class="text-py-yellow hover:underline">X</a>
+        or <a href="{{ .Site.Params.linkedinUrl }}" target="_blank" rel="noopener" class="text-py-yellow hover:underline">LinkedIn</a>
+        for updates.
+      </span>
+    </div>
+  </div>
+</section>
+
+{{/* ── Get Involved ── */}}
+<section class="py-20">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl font-bold text-text-heading mb-4">Get Involved</h2>
+    <p class="text-text-secondary text-lg leading-relaxed mb-8">
+      Want to help organise PyCon Ireland or get involved with Python Ireland?
+      We'd love to hear from you.
+    </p>
+    <a href="mailto:{{ .Site.Params.email }}"
+       class="inline-flex items-center gap-2 bg-py-blue hover:bg-py-blue-light text-white px-8 py-3 rounded-xl font-semibold transition-colors">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      Contact us
+    </a>
+  </div>
+</section>
+
+{{ end }}
