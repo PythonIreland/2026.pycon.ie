@@ -131,7 +131,23 @@ enableGitInfo = true
     url = "/dublin/"
     parent = "venue"
     weight = 2
+  [[menus.main]]
+    identifier = "community"
+    name = "Community"
+    weight = 60
+
+  [[menus.main]]
+    name = "About Us"
+    url = "/#about"
+    parent = "community"
+    weight = 1
+
+  [[menus.main]]
+    name = "Python Ireland"
+    url = "https://python.ie"
+    parent = "community"
+    weight = 2
   # [[menus.main]]
   #   name = "Blog"
   #   url = "/blog/"
-  #   weight = 60
+  #   weight = 70
