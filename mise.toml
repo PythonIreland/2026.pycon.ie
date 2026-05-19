@@ -1,3 +1,7 @@
 [tools]
 hugo = "0.161.1"
 python = "3.13.11"
+
+[env]
+BROWSERLESS_TOKEN = "secret"
+BROWSERLESS_URL = "http://localhost:3000/"
