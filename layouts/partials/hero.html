@@ -17,8 +17,8 @@
     </a>
   </div>
 
-  {{/* Dark overlay + brand gradient */}}
-  <div class="absolute inset-0 bg-bg-primary/85 hero-gradient"></div>
+  {{/* Dark overlay — inline style to bypass Tailwind class generation */}}
+  <div class="absolute inset-0" style="background: rgba(15,17,23,0.62);"></div>
 
   {{/* Decorative blur elements */}}
   <div class="absolute inset-0 overflow-hidden">
@@ -31,8 +31,10 @@
       {{ .Site.Params.hero.date }} &middot; {{ .Site.Params.hero.location }}
     </p>
 
-    <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-text-heading leading-tight mb-6">
-      {{ .Site.Params.hero.title }}
+    <h1 class="font-brand text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-6" style="text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);">
+      <span style="color:#169B62">PyCon</span>
+      <span class="text-white">Ireland</span>
+      <span style="color:#FF883E">2026</span>
     </h1>
 
     <p class="text-xl sm:text-2xl text-text-secondary max-w-2xl mx-auto mb-10">
