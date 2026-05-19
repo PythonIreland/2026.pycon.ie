@@ -61,6 +61,8 @@ title = "PyCon Ireland 2026"
   [params.stats]
     attendees = 500
     speakers = 50
+    tracks = 3
+    days = 2
 
   [[params.tickets]]
     name = "Student"
