@@ -104,10 +104,6 @@ enableGitInfo = true
 
 [menus]
   [[menus.main]]
-    name = "About"
-    url = "/#about"
-    weight = 10
-  [[menus.main]]
     name = "Call for Proposals"
     url = "/cfp/"
     weight = 20
@@ -138,7 +134,7 @@ enableGitInfo = true
 
   [[menus.main]]
     name = "About Us"
-    url = "/#about"
+    url = "/about/"
     parent = "community"
     weight = 1
 
