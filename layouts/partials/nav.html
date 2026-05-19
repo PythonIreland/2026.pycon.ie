@@ -11,14 +11,14 @@
       <div class="hidden md:flex items-center gap-6">
         {{ range .Site.Menus.main }}
           {{ if .HasChildren }}
-            <div class="relative group">
-              <button class="flex items-center gap-1 text-text-secondary hover:text-py-yellow text-sm font-medium transition-colors" aria-haspopup="true">
+            <div class="relative" data-dropdown>
+              <button class="flex items-center gap-1 text-text-secondary hover:text-py-yellow text-sm font-medium transition-colors" aria-haspopup="true" aria-expanded="false" data-dropdown-trigger>
                 {{ .Name }}
-                <svg class="w-3 h-3 mt-0.5 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="w-3 h-3 mt-0.5 transition-transform duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor" data-dropdown-chevron>
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                 </svg>
               </button>
-              <div class="absolute top-full left-0 mt-2 bg-bg-card border border-white/10 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 min-w-40 py-1">
+              <div class="absolute top-full left-0 mt-2 bg-bg-card border border-white/10 rounded-xl shadow-xl opacity-0 invisible transition-all duration-150 min-w-40 py-1" data-dropdown-menu>
                 {{ range .Children }}
                   {{ $external := hasPrefix .URL "http" }}
                   <a href="{{ .URL }}"
@@ -87,6 +87,7 @@
 </header>
 
 <script>
+  // Mobile menu toggle
   document.getElementById('menu-toggle').addEventListener('click', function() {
     const menu = document.getElementById('mobile-menu');
     const iconOpen = document.getElementById('menu-icon-open');
@@ -96,5 +97,52 @@
     menu.classList.toggle('hidden');
     iconOpen.classList.toggle('hidden');
     iconClose.classList.toggle('hidden');
+  });
+
+  // Desktop dropdowns — click/touch + hover
+  function openDropdown(wrapper) {
+    const menu = wrapper.querySelector('[data-dropdown-menu]');
+    const trigger = wrapper.querySelector('[data-dropdown-trigger]');
+    const chevron = wrapper.querySelector('[data-dropdown-chevron]');
+    menu.classList.remove('opacity-0', 'invisible');
+    menu.classList.add('opacity-100', 'visible');
+    trigger.setAttribute('aria-expanded', 'true');
+    chevron.style.transform = 'rotate(180deg)';
+  }
+
+  function closeDropdown(wrapper) {
+    const menu = wrapper.querySelector('[data-dropdown-menu]');
+    const trigger = wrapper.querySelector('[data-dropdown-trigger]');
+    const chevron = wrapper.querySelector('[data-dropdown-chevron]');
+    menu.classList.add('opacity-0', 'invisible');
+    menu.classList.remove('opacity-100', 'visible');
+    trigger.setAttribute('aria-expanded', 'false');
+    chevron.style.transform = '';
+  }
+
+  function closeAllDropdowns() {
+    document.querySelectorAll('[data-dropdown]').forEach(closeDropdown);
+  }
+
+  document.querySelectorAll('[data-dropdown]').forEach(function(wrapper) {
+    const trigger = wrapper.querySelector('[data-dropdown-trigger]');
+
+    // Hover (mouse)
+    wrapper.addEventListener('mouseenter', function() { openDropdown(wrapper); });
+    wrapper.addEventListener('mouseleave', function() { closeDropdown(wrapper); });
+
+    // Click/touch (iPad and keyboard)
+    trigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+      closeAllDropdowns();
+      if (!isOpen) openDropdown(wrapper);
+    });
+  });
+
+  // Close on outside click/touch
+  document.addEventListener('click', closeAllDropdowns);
+  document.addEventListener('touchstart', function(e) {
+    if (!e.target.closest('[data-dropdown]')) closeAllDropdowns();
   });
 </script>
