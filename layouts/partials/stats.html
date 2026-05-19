@@ -1,6 +1,6 @@
 <section class="py-20 bg-bg-secondary">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div class="grid grid-cols-2 gap-8 text-center">
       {{ with .Site.Params.stats }}
         <div class="stat-animate">
           <div class="text-4xl sm:text-5xl font-extrabold text-py-yellow mb-2">{{ .attendees }}+</div>
@@ -9,14 +9,6 @@
         <div class="stat-animate">
           <div class="text-4xl sm:text-5xl font-extrabold text-py-yellow mb-2">{{ .speakers }}+</div>
           <div class="text-text-secondary text-sm uppercase tracking-wider">Speakers</div>
-        </div>
-        <div class="stat-animate">
-          <div class="text-4xl sm:text-5xl font-extrabold text-py-yellow mb-2">{{ .tracks }}</div>
-          <div class="text-text-secondary text-sm uppercase tracking-wider">Tracks</div>
-        </div>
-        <div class="stat-animate">
-          <div class="text-4xl sm:text-5xl font-extrabold text-py-yellow mb-2">{{ .days }}</div>
-          <div class="text-text-secondary text-sm uppercase tracking-wider">Days</div>
         </div>
       {{ end }}
     </div>
