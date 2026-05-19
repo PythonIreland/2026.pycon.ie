@@ -6,6 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 PyCon Ireland 2026 conference website — a Hugo static site with Tailwind CSS v4 native integration and comprehensive SEO structured data.
 
+**Event:** 17 October 2026 · Trinity College Dublin  
+**Deployment:** Netlify (production at `https://2026.pycon.ie/`)
+
 ## Development Commands
 
 ```bash
@@ -23,6 +26,12 @@ npm run build               # Alias
 ```
 
 **Note:** Hugo auto-detects port conflicts and uses the next available port (e.g., 53940).
+
+## Tool Versions
+
+Managed via `mise.toml`:
+- Hugo: 0.161.1
+- Python: 3.13.11
 
 ## Architecture
 
@@ -110,12 +119,13 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 - `layouts/sponsors/list.html` — Sponsor logos grouped by tier
 - `layouts/venue/list.html` — Venue details with image grid
 - `layouts/blog/list.html`, `single.html` — Blog listing and posts
+- `layouts/credits/single.html` — Photo/image attribution page
 
 **Partials:**
 - `layouts/partials/nav.html` — Responsive navigation with mobile menu
-- `layouts/partials/footer.html` — Footer with link groups and social icons
+- `layouts/partials/footer.html` — Footer with link groups, social icons, and Netlify build info
 - `layouts/partials/head.html` — Meta tags, Open Graph, structured data inclusion
-- `layouts/partials/hero.html` — Homepage hero section
+- `layouts/partials/hero.html` — Homepage hero section (uses `assets/img/hero.jpg`)
 - `layouts/partials/about.html` — About section with feature cards from `site.yml`
 - `layouts/partials/sponsors-home.html` — Homepage sponsor logos by tier
 - `layouts/partials/venue-home.html` — Venue showcase
@@ -123,11 +133,12 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 - `layouts/partials/stats.html` — Animated statistics counters
 - `layouts/partials/keynotes.html` — Featured keynote speakers
 - `layouts/partials/speaker-card.html` — Reusable speaker card component
+- `layouts/partials/cta-newsletter.html` — Newsletter signup with social links (not active — no newsletter service configured yet)
 - `layouts/partials/css.html` — Deferred CSS rendering with Tailwind processing
 
-**Homepage composition:**
-`layouts/index.html` includes sections in this order:
-1. Hero → About → Stats → Keynotes → Sponsors → Venue → Tickets → Newsletter CTA
+**Homepage composition (`layouts/index.html`):**
+Active: Hero → About → Stats → Venue
+Commented out (pending content): Keynotes, Sponsors, Tickets, Newsletter CTA
 
 ### Configuration (`hugo.toml`)
 
@@ -136,7 +147,7 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 - `[params.hero]` — Hero section content
 - `[params.stats]` — Statistics for counters (attendees, speakers, tracks, days)
 - `[[params.tickets]]` — Ticket types with pricing (Student, Early Bird, General, Corporate)
-- `[menus.main]` — Navigation menu items
+- `[menus.main]` — Navigation menu items (Sponsors menu currently commented out)
 
 **Build configuration:**
 - Cache busters for CSS changes (tailwind/postcss config, hugo_stats.json)
@@ -146,23 +157,35 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 
 **Python brand colors:**
 ```css
-py-blue: #306998        /* Primary accent */
-py-yellow: #FFD43B      /* Secondary accent */
-bg-primary: #0f1117     /* Page background */
-bg-secondary: #141722   /* Section backgrounds */
-bg-card: #1a1d2e        /* Card surfaces */
+py-blue:        #306998   /* Primary accent */
+py-blue-light:  #4a8abf
+py-blue-dark:   #234b6e
+py-yellow:      #FFD43B   /* Secondary accent */
+py-yellow-light: #ffe066
+py-yellow-dark: #e6be00
+bg-primary:     #0f1117   /* Page background */
+bg-secondary:   #141722   /* Section backgrounds */
+bg-card:        #1a1d2e   /* Card surfaces */
+bg-card-hover:  #222640
+text-primary:   #e2e8f0
+text-secondary: #94a3b8
+text-heading:   #f1f5f9
 ```
 
-**Theme tokens:** Defined in `assets/css/main.css` using Tailwind v4's `@theme` directive. All custom colors prefixed with `py-` or `bg-`/`text-`.
+**Theme tokens:** Defined in `assets/css/main.css` using Tailwind v4's `@theme` directive. All custom colors prefixed with `py-`, `bg-`, or `text-`.
+
+**Typography:**
+- Body: Inter font (`--font-sans`), loaded via Google Fonts preconnect in head
+- Brand/headings: Bree font (`--font-brand`), applied with `.font-brand` utility class
 
 **Custom CSS classes:**
+- `.font-brand` — Applies the Bree brand font
 - `.hero-gradient` — Gradient overlay with brand colors
 - `.section-divider` — Horizontal gradient divider (blue → yellow)
 - `.card-glow:hover` — Subtle glow effect on cards
 - `.nav-blur` — Backdrop blur for fixed navigation
+- `.stat-animate` — Count-up animation for statistics
 - `.ticket-highlight` — Yellow ring for highlighted ticket tier
-
-**Typography:** Inter font from Google Fonts, loaded via preconnect in head.
 
 ## Content Management
 
@@ -298,7 +321,10 @@ Commit message style:
 ## Important Files
 
 - `hugo.toml` — All site configuration and parameters
+- `mise.toml` — Tool version pinning (Hugo, Python)
+- `netlify.toml` — Netlify build config (Hugo 0.161.1, Node 22, TZ Europe/Dublin)
 - `assets/css/main.css` — Design system tokens and custom CSS
+- `assets/img/hero.jpg` — Homepage hero image
 - `layouts/partials/head.html` — Meta tags, OG tags, favicon, structured data inclusion
 - `layouts/partials/structured-data*.html` — JSON-LD schemas (3 files)
 - `data/*.yml` — All conference content (speakers, sessions, schedule, sponsors)
@@ -306,11 +332,16 @@ Commit message style:
 
 ## Deployment
 
+Deployed via **Netlify** (not GitHub Pages). Configuration in `netlify.toml`:
+- Build command: `npm install && hugo --minify`
+- Publish dir: `public/`
+- Hugo version: 0.161.1 / Node: 22 / TZ: Europe/Dublin
+- Production env: `HUGO_ENV=production`
+- Footer displays build date and commit SHA on Netlify deployments
+
 Production builds via `hugo --minify` generate optimized output in `public/`:
 - CSS minified and fingerprinted
 - HTML minified
 - Static assets copied from `static/`
 - Generated sitemap at `/sitemap.xml`
 - Generated robots.txt at `/robots.txt`
-
-The site is designed for GitHub Pages or any static hosting.
