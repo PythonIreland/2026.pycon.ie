@@ -1,6 +1,7 @@
 baseURL = "https://2026.pycon.ie/"
-languageCode = "en-IE"
+locale = "en-IE"
 title = "PyCon Ireland 2026"
+enableGitInfo = true
 
 [taxonomies]
 
@@ -38,8 +39,8 @@ title = "PyCon Ireland 2026"
   venuePostalCode = "Dublin 2"
   venueRegion = "Dublin"
   venueCountry = "IE"
-  venueMapLat = "53.3438"
-  venueMapLon = "-6.2546"
+  venueMapLat = 53.3438
+  venueMapLon = -6.2546
   venuePhone = "+353 1 896 1000"
   venueWebsite = "https://www.tcd.ie/"
 
@@ -49,11 +50,16 @@ title = "PyCon Ireland 2026"
   organizerUrl = "https://python.ie"
   croNumber = "559983"
 
+  # CFP status: "soon" or "open"
+  cfpStatus = "soon"
+
   # Contact & social
   email = "contact@python.ie"
   twitterHandle = "@pythonireland"
-  mastodonHandle = "@pythonireland"
+  mastodonHandle = "@Python_Ireland"
+  mastodonUrl = "https://mastodon.ie/@Python_Ireland"
   youtubeUrl = "https://www.youtube.com/@PythonIreland"
+  linkedinUrl = "https://www.linkedin.com/company/python-ireland"
   ogImage = "/img/og-image.png"
 
   [params.hero]
@@ -66,7 +72,7 @@ title = "PyCon Ireland 2026"
     attendees = 500
     speakers = 50
     tracks = 3
-    days = 2
+    days = 1
 
   [[params.tickets]]
     name = "Student"
@@ -101,6 +107,10 @@ title = "PyCon Ireland 2026"
     name = "About"
     url = "/#about"
     weight = 10
+  [[menus.main]]
+    name = "Call for Proposals"
+    url = "/cfp/"
+    weight = 20
   # [[menus.main]]
   #   name = "Sponsors"
   #   url = "/sponsors/"
@@ -121,7 +131,23 @@ title = "PyCon Ireland 2026"
     url = "/dublin/"
     parent = "venue"
     weight = 2
+  [[menus.main]]
+    identifier = "community"
+    name = "Community"
+    weight = 60
+
+  [[menus.main]]
+    name = "About Us"
+    url = "/#about"
+    parent = "community"
+    weight = 1
+
+  [[menus.main]]
+    name = "Python Ireland"
+    url = "https://python.ie"
+    parent = "community"
+    weight = 2
   # [[menus.main]]
   #   name = "Blog"
   #   url = "/blog/"
-  #   weight = 60
+  #   weight = 70

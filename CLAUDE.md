@@ -133,17 +133,18 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 - `layouts/partials/stats.html` — Animated statistics counters
 - `layouts/partials/keynotes.html` — Featured keynote speakers
 - `layouts/partials/speaker-card.html` — Reusable speaker card component
+- `layouts/partials/discover-dublin.html` — "Discover Dublin" section with gallery, top things to do, and transport info
 - `layouts/partials/cta-newsletter.html` — Newsletter signup with social links (not active — no newsletter service configured yet)
 - `layouts/partials/css.html` — Deferred CSS rendering with Tailwind processing
 
 **Homepage composition (`layouts/index.html`):**
-Active: Hero → About → Stats → Venue
+Active: Hero → About → Stats → Venue → Discover Dublin
 Commented out (pending content): Keynotes, Sponsors, Tickets, Newsletter CTA
 
 ### Configuration (`hugo.toml`)
 
 **Key parameters:**
-- `[params]` — Conference details (dates, venue, contact, social)
+- `[params]` — Conference details (dates, venue, contact, social). Key social params: `twitterHandle`, `mastodonHandle` (`@Python_Ireland`), `mastodonUrl` (`https://mastodon.ie/@Python_Ireland` — instance is mastodon.ie, not mastodon.social), `youtubeUrl`
 - `[params.hero]` — Hero section content
 - `[params.stats]` — Statistics for counters (attendees, speakers, tracks, days)
 - `[[params.tickets]]` — Ticket types with pricing (Student, Early Bird, General, Corporate)
@@ -252,6 +253,7 @@ Posts appear on `/blog/` automatically.
 When making content changes:
 - [ ] Unique meta descriptions for new pages (in frontmatter or params)
 - [ ] Alt text on all images (especially speaker photos)
+- [ ] **Always update `content/credits.md`** when adding any image to the site (Unsplash or otherwise)
 - [ ] Verify structured data with [Google Rich Results Test](https://search.google.com/test/rich-results)
 - [ ] Check `og:image` exists at `/img/og-image.png` (1200x630px)
 

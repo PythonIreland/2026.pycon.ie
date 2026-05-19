@@ -1,0 +1,38 @@
+# PyCon Ireland 2026
+
+PyCon Ireland 2026 is Ireland's premier Python conference, organised by Python Ireland (a not-for-profit company registered in Ireland, CRO 559983). The event takes place on 17 October 2026 at Trinity College Dublin, College Green, Dublin 2, Ireland.
+
+## Event details
+
+- Date: 17 October 2026
+- Venue: Trinity College Dublin, College Green, Dublin 2, Ireland
+- Format: Single-day, multi-track conference
+- Expected attendance: 500+ Python developers, data scientists, and engineers
+- Organiser: Python Ireland (https://python.ie)
+- Contact: contact@python.ie
+
+## Call for Proposals
+
+The Call for Proposals for PyCon Ireland 2026 will open in 2026. All speakers are welcome — from first-time presenters to conference veterans. Topics include Python language and ecosystem, data science, AI engineering, scientific computing, and real-world Python use cases. Speakers are required to purchase a ticket; financial aid is available on request.
+
+## Authoritative pages
+
+- Homepage: https://2026.pycon.ie/
+- Call for Proposals: https://2026.pycon.ie/cfp/
+- Venue: https://2026.pycon.ie/venue/
+- Discover Dublin: https://2026.pycon.ie/dublin/
+- Code of Conduct: https://2026.pycon.ie/code-of-conduct/
+- Speakers: https://2026.pycon.ie/speakers/
+- Schedule: https://2026.pycon.ie/schedule/
+
+## Organisation
+
+- Website: https://python.ie
+- Twitter / X: https://twitter.com/pythonireland
+- Mastodon: https://mastodon.ie/@Python_Ireland
+- YouTube: https://www.youtube.com/@PythonIreland
+- LinkedIn: https://www.linkedin.com/company/python-ireland
+
+## Licensing
+
+Content on this site is copyright Python Ireland Developers CLG unless otherwise noted. Photography credits are listed at https://2026.pycon.ie/credits/.

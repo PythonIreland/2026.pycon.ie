@@ -3,9 +3,29 @@ title: "Photo Credits"
 description: "Attribution for photography and images used on the PyCon Ireland 2026 website."
 ---
 
+## CFP page — Hero
+
+**Speaker presenting on stage at a conference**
+Photograph by [Product School](https://unsplash.com/@productschool), published on [Unsplash](https://unsplash.com/photos/DL-yyYDDNX4).
+Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
+
+---
+
+## Homepage — About section cards
+
+**Conference talk — crowd of people seated in a conference room**
+Photograph by [Headway](https://unsplash.com/@headwayio), published on [Unsplash](https://unsplash.com/photos/F2KRf_QfCqw).
+Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
+
+**Conference networking — people collaborating at a tech event**
+Photograph by [Marvin Meyer](https://unsplash.com/@marvelous), published on [Unsplash](https://unsplash.com/photos/SYTO3xs06fU).
+Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
+
+---
+
 ## Homepage — Hero image
 
-**The Temple Bar, Dublin**
+**Red telephone box in front of The Temple Bar, Dublin**
 Photograph by [Matheus Câmara da Silva](https://unsplash.com/@matheussox), published on [Unsplash](https://unsplash.com/photos/NL2ORrGh8KM).
 Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
 
@@ -28,6 +48,14 @@ Used under the [Unsplash License](https://unsplash.com/license).
 **Dublin Castle at sunset**
 Photograph by [Lisa Fecker](https://unsplash.com/@lisafecker), published on [Unsplash](https://unsplash.com/photos/V-B9sHnqeR4).
 Used under the [Unsplash License](https://unsplash.com/license).
+
+---
+
+## Venue page — Hero
+
+**Trinity College Dublin — The Long Room library**
+Photograph by [Van Williams](https://unsplash.com/@vanunsplash), published on [Unsplash](https://unsplash.com/photos/Ty6KjYKmiUk).
+Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
 
 ---
 

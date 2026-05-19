@@ -4,6 +4,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Event",
+  "@id": "{{ .Site.BaseURL }}#main-event",
   "name": "{{ .Site.Title }}",
   "description": "{{ .Site.Params.description }}",
   "startDate": "{{ .Site.Params.eventStartDate }}",
@@ -12,6 +13,7 @@
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
+    "@id": "{{ .Site.BaseURL }}venue/#place",
     "name": "{{ .Site.Params.venue }}",
     "address": {
       "@type": "PostalAddress",
@@ -30,31 +32,27 @@
   "image": "{{ .Site.Params.ogImage | absURL }}",
   "organizer": {
     "@type": "Organization",
-    "name": "{{ .Site.Params.organizerName }}",
-    "url": "{{ .Site.Params.organizerUrl }}",
-    "email": "{{ .Site.Params.email }}"
+    "@id": "{{ .Site.Params.organizerUrl }}#organization"
   },
   "offers": {
     "@type": "AggregateOffer",
-    "lowPrice": "{{ (index .Site.Params.tickets 0).price }}",
-    "highPrice": "{{ (index .Site.Params.tickets (sub (len .Site.Params.tickets) 1)).price }}",
+    "lowPrice": {{ (index .Site.Params.tickets 0).price }},
+    "highPrice": {{ (index .Site.Params.tickets (sub (len .Site.Params.tickets) 1)).price }},
     "priceCurrency": "EUR",
     "url": "{{ .Site.BaseURL }}#tickets",
     "availability": "https://schema.org/InStock"
-  },
-  "performer": {
-    "@type": "Organization",
-    "name": "Python Community Speakers"
   }
 }
 </script>
 {{ end }}
 
-{{/* Organization Schema - Site-wide */}}
+{{/* Organization Schema - Homepage only */}}
+{{ if .IsHome }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": "{{ .Site.Params.organizerUrl }}#organization",
   "name": "{{ .Site.Params.organizerName }}",
   "url": "{{ .Site.Params.organizerUrl }}",
   "logo": "{{ "/img/logo.png" | absURL }}",
@@ -64,10 +62,14 @@
     "contactType": "Customer Service"
   },
   "sameAs": [
-    "https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}"
+    "https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}",
+    "{{ .Site.Params.mastodonUrl }}",
+    "{{ .Site.Params.youtubeUrl }}",
+    "{{ .Site.Params.linkedinUrl }}"
   ]
 }
 </script>
+{{ end }}
 
 {{/* WebSite Schema for Search */}}
 {{ if .IsHome }}
@@ -80,7 +82,7 @@
   "description": "{{ .Site.Params.description }}",
   "publisher": {
     "@type": "Organization",
-    "name": "{{ .Site.Params.organizerName }}"
+    "@id": "{{ .Site.Params.organizerUrl }}#organization"
   }
 }
 </script>

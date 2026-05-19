@@ -1,13 +1,14 @@
-{{ $img := resources.Get "img/hero.jpg" }}
-{{ $hero := $img.Resize "1920x webp q85" }}
-{{ $heroMobile := $img.Resize "768x webp q80" }}
+{{ $heroBase := "https://images.unsplash.com/photo-1605969353711-234dea348ce1" }}
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
   {{/* Hero background image with photo credit anchored to it */}}
   <div class="absolute inset-0">
     <picture>
-      <source media="(max-width: 768px)" srcset="{{ $heroMobile.RelPermalink }}">
-      <img src="{{ $hero.RelPermalink }}" alt="The Temple Bar, Dublin" class="w-full h-full object-cover object-center" loading="eager">
+      <source media="(max-width: 768px)" srcset="{{ $heroBase }}?auto=format&fit=crop&w=768&q=80">
+      <img src="{{ $heroBase }}?auto=format&fit=crop&w=1920&q=85"
+           alt="Red telephone box in front of The Temple Bar, Dublin"
+           class="w-full h-full object-cover object-center"
+           loading="eager" fetchpriority="high">
     </picture>
     {{/* Photo credit anchored to bottom-right of the image */}}
     <a href="https://unsplash.com/photos/NL2ORrGh8KM"
@@ -27,24 +28,37 @@
   </div>
 
   <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-    <p class="text-py-yellow font-semibold text-sm uppercase tracking-widest mb-4">
-      {{ .Site.Params.hero.date }} &middot; {{ .Site.Params.hero.location }}
-    </p>
-
-    <h1 class="font-brand text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-6" style="text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);">
+    <h1 class="font-brand text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-4" style="text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);">
       <span style="color:#169B62">PyCon</span>
       <span class="text-white">Ireland</span>
       <span style="color:#FF883E">2026</span>
     </h1>
+
+    <p class="text-py-yellow font-semibold text-base sm:text-lg uppercase tracking-widest mb-8">
+      {{ .Site.Params.hero.date }} &middot; {{ .Site.Params.hero.location }}
+    </p>
 
     <p class="text-xl sm:text-2xl text-text-secondary max-w-2xl mx-auto mb-10">
       {{ .Site.Params.hero.subtitle }}
     </p>
 
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#about" class="border border-py-blue text-py-blue-light px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-blue/10 transition-colors">
-        Learn More
-      </a>
+      {{ if eq .Site.Params.cfpStatus "open" }}
+        <a href="/cfp/" class="bg-py-yellow text-bg-primary px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-yellow-light transition-colors">
+          Submit a Talk &rarr;
+        </a>
+        <a href="#about" class="border border-py-blue text-py-blue-light px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-blue/10 transition-colors">
+          Learn More
+        </a>
+      {{ else }}
+        <a href="/cfp/" class="inline-flex items-center gap-2 bg-py-yellow/20 border border-py-yellow text-py-yellow px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-yellow/30 transition-colors">
+          <span class="w-2 h-2 rounded-full bg-py-yellow animate-pulse"></span>
+          CFP — Opening Soon
+        </a>
+        <a href="#about" class="bg-py-blue/20 border border-py-blue text-py-blue-light px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-blue/30 transition-colors">
+          Learn More
+        </a>
+      {{ end }}
     </div>
   </div>
 

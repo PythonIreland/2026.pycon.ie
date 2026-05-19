@@ -1,6 +1,6 @@
 days:
-  - name: "Day 1 — Saturday, 8 November"
-    date: "2026-11-08"
+  - name: "Saturday, 17 October 2026"
+    date: "2026-10-17"
     slots:
       - time: "09:00"
         type: "break"
@@ -47,54 +47,6 @@ days:
         duration: 30
 
       - time: "17:00"
-        type: "session"
-        session_ids: ["closing"]
-        tracks: ["main"]
-        duration: 30
-
-  - name: "Day 2 — Sunday, 9 November"
-    date: "2026-11-09"
-    slots:
-      - time: "09:00"
-        type: "break"
-        title: "Registration & Coffee"
-        duration: 60
-
-      - time: "10:00"
-        type: "session"
-        session_ids: ["keynote-2"]
-        tracks: ["main"]
-        duration: 45
-
-      - time: "10:45"
-        type: "break"
-        title: "Coffee Break"
-        duration: 30
-
-      - time: "11:15"
-        type: "session"
-        session_ids: ["talk-1", "talk-4"]
-        tracks: ["track-1", "track-2"]
-        duration: 30
-
-      - time: "11:45"
-        type: "session"
-        session_ids: ["talk-3", "talk-2"]
-        tracks: ["track-1", "track-2"]
-        duration: 30
-
-      - time: "12:15"
-        type: "break"
-        title: "Lunch"
-        duration: 60
-
-      - time: "13:15"
-        type: "session"
-        session_ids: ["lightning"]
-        tracks: ["main"]
-        duration: 60
-
-      - time: "16:30"
         type: "session"
         session_ids: ["closing"]
         tracks: ["main"]

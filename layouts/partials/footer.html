@@ -27,7 +27,7 @@
       <div>
         <h4 class="text-text-heading font-semibold text-sm uppercase tracking-wider mb-4">Community</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="/blog/" class="text-text-secondary hover:text-py-yellow transition-colors">Blog</a></li>
+          {{/* <li><a href="/blog/" class="text-text-secondary hover:text-py-yellow transition-colors">Blog</a></li> */}}
           <li><a href="/code-of-conduct/" class="text-text-secondary hover:text-py-yellow transition-colors">Code of Conduct</a></li>
           <li><a href="/credits/" class="text-text-secondary hover:text-py-yellow transition-colors">Photo Credits</a></li>
           <li><a href="https://python.ie" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">Python Ireland</a></li>
@@ -39,8 +39,9 @@
         <h4 class="text-text-heading font-semibold text-sm uppercase tracking-wider mb-4">Connect</h4>
         <ul class="space-y-2 text-sm">
           <li><a href="https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">Twitter / X</a></li>
-          <li><a href="https://mastodon.social/{{ .Site.Params.mastodonHandle }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">Mastodon</a></li>
+          <li><a href="{{ .Site.Params.mastodonUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="me noopener">Mastodon</a></li>
           <li><a href="{{ .Site.Params.youtubeUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="{{ .Site.Params.linkedinUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="mailto:{{ .Site.Params.email }}" class="text-text-secondary hover:text-py-yellow transition-colors">{{ .Site.Params.email }}</a></li>
         </ul>
       </div>

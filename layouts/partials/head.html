@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<title>{{ if .IsHome }}PyCon Ireland 2026 — Python Conference · Dublin, 17 October{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#306998">
@@ -20,9 +20,12 @@
 {{/* Fonts — Adobe Fonts (Typekit): Bree for headings, Inter for body */}}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="//use.typekit.net/qgj1xay.js"></script>
-<script>try{Typekit.load({async:true});}catch(e){}</script>
+<link rel="preconnect" href="https://use.typekit.net">
+<link rel="preconnect" href="https://p.typekit.net" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"></noscript>
+<script src="https://use.typekit.net/qgj1xay.js" async></script>
+<script>document.addEventListener('DOMContentLoaded',function(){try{Typekit.load({async:true});}catch(e){}});</script>
 
 {{/* Favicon */}}
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

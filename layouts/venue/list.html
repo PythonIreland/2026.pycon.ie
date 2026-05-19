@@ -1,13 +1,43 @@
 {{ define "main" }}
-<div class="pt-24">
-  {{/* Header */}}
-  <section class="py-16 text-center">
-    <div class="max-w-4xl mx-auto px-4">
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-text-heading mb-4">{{ .Title }}</h1>
-      <p class="text-text-secondary text-lg max-w-2xl mx-auto">{{ .Description }}</p>
+
+  {{/* Hero — same pattern as homepage */}}
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0">
+      <picture>
+        <source media="(max-width: 768px)" srcset="https://images.unsplash.com/photo-1529106480931-45a586ae6857?auto=format&fit=crop&w=768&q=80">
+        <img src="https://images.unsplash.com/photo-1529106480931-45a586ae6857?auto=format&fit=crop&w=1920&q=85"
+             alt="The Long Room library at Trinity College Dublin"
+             class="w-full h-full object-cover object-center"
+             loading="eager" fetchpriority="high">
+      </picture>
+      <a href="https://unsplash.com/photos/Ty6KjYKmiUk"
+         target="_blank" rel="noopener noreferrer"
+         class="absolute bottom-2 right-3 text-[10px] text-white/30 hover:text-white/60 transition-colors z-20 drop-shadow">
+        Photo: Van Williams / Unsplash
+      </a>
+    </div>
+    <div class="absolute inset-0" style="background: rgba(15,17,23,0.62);"></div>
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-py-blue/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-py-yellow/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+      <p class="text-py-yellow font-semibold text-sm uppercase tracking-widest mb-4">PyCon Ireland 2026</p>
+      <h1 class="font-brand text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-6" style="text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);">
+        {{ .Site.Params.venue }}
+      </h1>
+      <p class="text-xl sm:text-2xl text-text-secondary max-w-2xl mx-auto">
+        {{ .Description }}
+      </p>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+      <div class="w-6 h-10 border-2 border-text-secondary/30 rounded-full flex justify-center">
+        <div class="w-1 h-3 bg-text-secondary/50 rounded-full mt-2 animate-bounce"></div>
+      </div>
     </div>
   </section>
 
+<div>
   <div class="section-divider max-w-7xl mx-auto"></div>
 
   {{/* Venue details */}}

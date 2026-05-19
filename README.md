@@ -1,10 +1,10 @@
 # PyCon Ireland 2026
 
-Conference website for PyCon Ireland 2026, 8–9 November at The Convention Centre Dublin.
+Conference website for PyCon Ireland 2026, 17 October at Trinity College Dublin.
 
 ## Tech Stack
 
-- **[Hugo](https://gohugo.io/) v0.155.3** (extended) — static site generator
+- **[Hugo](https://gohugo.io/) v0.161.1** (extended) — static site generator
 - **[Tailwind CSS](https://tailwindcss.com/) v4** — via Hugo's native `css.TailwindCSS` pipe (no PostCSS or external build tools needed)
 - **Inter** — Google Fonts sans-serif typeface
 - **Vanilla JS** — mobile menu toggle only, no frameworks
@@ -13,7 +13,7 @@ Hugo processes Tailwind CSS natively through its asset pipeline. The `hugo_stats
 
 ## Prerequisites
 
-- [Hugo Extended](https://gohugo.io/installation/) >= 0.155.0
+- [Hugo Extended](https://gohugo.io/installation/) >= 0.161.1
 - [Node.js](https://nodejs.org/) >= 20
 
 If you use [mise](https://mise.jdx.dev/), Hugo is configured in `mise.toml`.
