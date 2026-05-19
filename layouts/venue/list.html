@@ -90,15 +90,6 @@
           </div>
         </div>
 
-        {{/* Luas info */}}
-        <div class="bg-bg-card rounded-2xl p-6 border border-white/5">
-          <h3 class="text-lg font-semibold text-text-heading mb-3">Nearest Luas Stop</h3>
-          <p class="text-text-secondary text-sm leading-relaxed">
-            <strong class="text-text-heading">Trinity</strong> stop on the Green Line (Pearse Street) — 3 minutes' walk to the Nassau Street gate.
-            All Luas trams and platforms are fully step-free with level boarding.
-          </p>
-        </div>
-
         {{ $lat := .Site.Params.venueMapLat | float }}
         {{ $lon := .Site.Params.venueMapLon | float }}
         {{ $d := 0.008 }}
