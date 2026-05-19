@@ -53,7 +53,14 @@
         <p>&copy; {{ now.Year }} {{ .Site.Params.organizerFullName }}. All rights reserved.</p>
         <p class="mt-1">CRO Number: {{ .Site.Params.croNumber }}</p>
       </div>
-      <p class="text-center sm:text-right">Built with <a href="https://gohugo.io" class="text-py-blue hover:text-py-blue-light transition-colors" target="_blank" rel="noopener">Hugo</a> &amp; <a href="https://tailwindcss.com" class="text-py-blue hover:text-py-blue-light transition-colors" target="_blank" rel="noopener">Tailwind CSS</a></p>
+      <div class="text-center sm:text-right">
+        <p>Built with <a href="https://gohugo.io" class="text-py-blue hover:text-py-blue-light transition-colors" target="_blank" rel="noopener">Hugo</a> &amp; <a href="https://tailwindcss.com" class="text-py-blue hover:text-py-blue-light transition-colors" target="_blank" rel="noopener">Tailwind CSS</a></p>
+        {{ with os.Getenv "COMMIT_REF" }}
+        <p class="mt-1 text-text-secondary/50">
+          {{ now.Format "2006-01-02" }} &middot; <a href="https://github.com/PythonIreland/2026.pycon.ie/commit/{{ . }}" class="font-mono hover:text-text-secondary transition-colors" target="_blank" rel="noopener">{{ slice . 0 7 }}</a>
+        </p>
+        {{ end }}
+      </div>
     </div>
   </div>
 </footer>
