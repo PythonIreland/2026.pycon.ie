@@ -18,6 +18,10 @@ title = "PyCon Ireland 2026"
     source = "hugo_stats\\.json"
     target = "css"
 
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$', '^COMMIT_REF$', '^DEPLOY_ID$']
+
 [params]
   description = "PyCon Ireland 2026 — Ireland's premier Python conference. Join 500+ developers for talks, workshops, and networking."
   dateHuman = "17 October 2026"
