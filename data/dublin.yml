@@ -1,0 +1,53 @@
+intro: "Dublin is one of Europe's most welcoming capitals — compact enough to explore on foot, packed with history, culture, and a legendary pub scene. Whether you're arriving a day early or staying on after PyCon, you'll find plenty to discover."
+
+gallery:
+  - src: "/img/dublin/ha-penny-bridge.jpg"
+    alt: "Ha'penny Bridge over the River Liffey at dusk"
+    featured: true
+  - src: "/img/dublin/phoenix-park.jpg"
+    alt: "Phoenix Park, one of the largest city parks in Europe"
+  - src: "/img/dublin/grafton-street.jpg"
+    alt: "Grafton Street, Dublin's pedestrianised shopping district"
+  - src: "/img/dublin/dublin-castle.jpg"
+    alt: "Dublin Castle, a historic seat of Irish government"
+
+highlights:
+  - icon: "landmark"
+    title: "Trinity College & Book of Kells"
+    description: "Our conference venue is itself one of Dublin's top attractions. The Old Library and the illuminated Book of Kells are unmissable."
+    link: "https://www.tcd.ie/visitors/"
+
+  - icon: "museum"
+    title: "National Museum of Ireland"
+    description: "Free entry to world-class archaeology and decorative arts collections, just a short walk from TCD."
+    link: "https://www.museum.ie/"
+
+  - icon: "park"
+    title: "Phoenix Park"
+    description: "One of the largest walled city parks in Europe — home to a herd of wild fallow deer and the official residence of the Irish President."
+    link: "https://www.phoenixpark.ie/"
+
+  - icon: "pint"
+    title: "The Liberties & Guinness Storehouse"
+    description: "Explore the historic Liberties neighbourhood and learn the story of Ireland's most famous stout at the Guinness Storehouse."
+    link: "https://www.guinness-storehouse.com/"
+
+  - icon: "food"
+    title: "Food & Markets"
+    description: "Dublin's food scene has exploded. Visit Eatyard, the Covered Market, or simply grab a coffee on Drury Street."
+
+  - icon: "coast"
+    title: "Howth & Malahide"
+    description: "Just 30 minutes by DART train — dramatic coastal cliffs, fresh seafood, and a medieval castle. Perfect for a half-day trip."
+
+transport:
+  - mode: "DART"
+    description: "Coastal rail service connecting Dublin city centre to Howth, Malahide, Bray and Greystones. Runs every 10–15 min."
+  - mode: "Luas"
+    description: "Two tram lines (Red & Green). The Green Line serves the conference area — stops at St. Stephen's Green and Dawson Street."
+  - mode: "Dublin Bus"
+    description: "Extensive network across the city and suburbs. The Real-Time app shows live departure times."
+  - mode: "Leap Card"
+    description: "Reloadable travel card for all public transport — buses, DART, Luas and commuter rail. Available at the airport and convenience stores."
+  - mode: "Cycling"
+    description: "Dublin Bikes scheme has 110+ stations in the city centre. First 30 minutes free with a day pass."

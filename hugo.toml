@@ -106,9 +106,21 @@ title = "PyCon Ireland 2026"
   #   url = "/sponsors/"
   #   weight = 40
   [[menus.main]]
+    identifier = "venue"
+    name = "Venue"
+    weight = 50
+
+  [[menus.main]]
     name = "Venue"
     url = "/venue/"
-    weight = 50
+    parent = "venue"
+    weight = 1
+
+  [[menus.main]]
+    name = "Dublin"
+    url = "/dublin/"
+    parent = "venue"
+    weight = 2
   # [[menus.main]]
   #   name = "Blog"
   #   url = "/blog/"

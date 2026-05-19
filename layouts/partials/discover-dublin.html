@@ -1,0 +1,41 @@
+{{ $dublin := hugo.Data.dublin }}
+{{ $gallery := $dublin.gallery }}
+{{ $featured := index (where $gallery "featured" true) 0 }}
+{{ $rest := where $gallery "featured" false }}
+
+<section class="py-24 bg-bg-secondary">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-12">
+      <h2 class="text-4xl sm:text-5xl font-extrabold text-text-heading mb-4">Discover Dublin</h2>
+      <div class="section-divider max-w-24 mx-auto mb-6"></div>
+      <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+        Join us in one of Europe's most welcoming capitals — a city where history, culture and a legendary pub scene meet.
+      </p>
+    </div>
+
+    {{/* Gallery: 1 large + 3 small */}}
+    <div class="grid grid-cols-3 gap-3 sm:gap-4">
+      <div class="col-span-3 rounded-2xl overflow-hidden h-72 sm:h-96 bg-bg-card">
+        {{ if $featured }}
+          <img src="{{ $featured.src }}" alt="{{ $featured.alt }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+        {{ end }}
+      </div>
+      {{ range first 3 $rest }}
+        <div class="col-span-1 rounded-2xl overflow-hidden h-48 sm:h-64 bg-bg-card">
+          <img src="{{ .src }}" alt="{{ .alt }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy">
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="/dublin/" class="inline-flex items-center gap-2 text-text-secondary hover:text-py-yellow font-medium transition-colors">
+        Explore Dublin
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
