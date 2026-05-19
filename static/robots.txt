@@ -1,8 +1,27 @@
 # Robots.txt for PyCon Ireland 2026
-# Allow all search engines to crawl the site
 
 User-agent: *
 Allow: /
+
+# AI inference crawlers — allowed for search and citation
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# AI training crawlers — blocked
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
 
 # Sitemap location
 Sitemap: https://2026.pycon.ie/sitemap.xml
