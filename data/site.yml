@@ -1,9 +1,10 @@
 about:
   - title: "Talks"
     icon: "mic"
-    description: "Two days of inspiring talks from Python experts across industry, academia, and open source. Learn about the latest trends, tools, and techniques."
+    description: "A full day of inspiring talks from Python experts across industry, academia, and open source. Learn about the latest trends, tools, and techniques."
   - title: "Workshops"
     icon: "code"
+    disabled: true
     description: "Hands-on workshops for all skill levels. Dive deep into topics from web development to machine learning with experienced instructors."
   - title: "Networking"
     icon: "users"

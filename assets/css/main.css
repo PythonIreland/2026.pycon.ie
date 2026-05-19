@@ -24,6 +24,12 @@
 
   /* Fonts */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-brand: "bree", "Inter", ui-sans-serif, sans-serif;
+}
+
+/* Brand font */
+.font-brand {
+  font-family: var(--font-brand);
 }
 
 /* Base styles */
