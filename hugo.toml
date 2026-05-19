@@ -20,24 +20,24 @@ title = "PyCon Ireland 2026"
 
 [params]
   description = "PyCon Ireland 2026 — Ireland's premier Python conference. Join 500+ developers for talks, workshops, and networking."
-  dateHuman = "8-9 November 2026"
+  dateHuman = "17 October 2026"
 
   # Event dates in ISO 8601 format (for structured data)
-  eventStartDate = "2026-11-08T09:00:00+00:00"
-  eventEndDate = "2026-11-09T18:00:00+00:00"
+  eventStartDate = "2026-10-17T09:00:00+01:00"
+  eventEndDate = "2026-10-17T18:00:00+01:00"
 
   # Venue information
-  venue = "UCD O'Reilly Hall"
-  venueAddress = "University College Dublin, Belfield, Dublin 4, Ireland"
-  venueStreetAddress = "University College Dublin, Belfield"
+  venue = "Trinity College Dublin"
+  venueAddress = "Trinity College Dublin, College Green, Dublin 2, Ireland"
+  venueStreetAddress = "College Green"
   venueCity = "Dublin"
-  venuePostalCode = "Dublin 4"
+  venuePostalCode = "Dublin 2"
   venueRegion = "Dublin"
   venueCountry = "IE"
-  venueMapLat = "53.3087"
-  venueMapLon = "-6.2260"
-  venuePhone = "+353 1 716 7777"
-  venueWebsite = "https://www.ucd.ie/oreillyhall/"
+  venueMapLat = "53.3438"
+  venueMapLon = "-6.2546"
+  venuePhone = "+353 1 896 1000"
+  venueWebsite = "https://www.tcd.ie/"
 
   # Organizer information
   organizerName = "Python Ireland"
@@ -55,8 +55,8 @@ title = "PyCon Ireland 2026"
   [params.hero]
     title = "PyCon Ireland 2026"
     subtitle = "Ireland's Premier Python Conference"
-    date = "8-9 November 2026"
-    location = "UCD O'Reilly Hall, Dublin"
+    date = "17 October 2026"
+    location = "Trinity College Dublin"
 
   [params.stats]
     attendees = 500
