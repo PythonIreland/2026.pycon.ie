@@ -34,11 +34,11 @@
     </p>
     <div class="inline-flex items-center gap-3 bg-bg-card border border-white/10 rounded-2xl px-6 py-4 text-text-secondary text-sm">
       <svg class="w-5 h-5 text-py-blue-light flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      The CFP is not yet open. Follow us on
-      <a href="{{ .Site.Params.mastodonUrl }}" target="_blank" rel="me noopener" class="text-py-yellow hover:underline">Mastodon</a>
-      and
-      <a href="https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}" target="_blank" rel="noopener" class="text-py-yellow hover:underline">Twitter&nbsp;/&nbsp;X</a>
-      to be notified when submissions open.
+      <span>CFP not open yet — follow us on
+      <a href="{{ .Site.Params.mastodonUrl }}" target="_blank" rel="me noopener" class="text-py-yellow hover:underline">Mastodon</a>,
+      <a href="https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}" target="_blank" rel="noopener" class="text-py-yellow hover:underline">X</a>
+      or <a href="{{ .Site.Params.linkedinUrl }}" target="_blank" rel="noopener" class="text-py-yellow hover:underline">LinkedIn</a>
+      for updates.</span>
     </div>
   </div>
 </section>
