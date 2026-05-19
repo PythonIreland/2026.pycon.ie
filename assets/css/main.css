@@ -80,6 +80,39 @@ html {
   -webkit-backdrop-filter: blur(12px);
 }
 
+/* Credits page — rendered Markdown */
+.credits-content h2 {
+  color: var(--color-text-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.credits-content h2:first-child { margin-top: 0; }
+.credits-content hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin: 2rem 0;
+}
+.credits-content p {
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin-bottom: 0.25rem;
+}
+.credits-content strong {
+  color: var(--color-text-heading);
+  font-weight: 600;
+}
+.credits-content a {
+  color: var(--color-py-blue-light);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.credits-content a:hover { color: var(--color-py-yellow); }
+
 /* Ticket highlight ring */
 .ticket-highlight {
   border: 2px solid var(--color-py-yellow);
