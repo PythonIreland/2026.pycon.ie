@@ -1,7 +1,7 @@
 {{ $dublin := hugo.Data.dublin }}
 {{ $gallery := $dublin.gallery }}
-{{ $featured := index (where $gallery "featured" true) 0 }}
-{{ $rest := where $gallery "featured" false }}
+{{ $featured := index $gallery 0 }}
+{{ $rest := after 1 $gallery }}
 
 <section class="py-24 bg-bg-secondary">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
