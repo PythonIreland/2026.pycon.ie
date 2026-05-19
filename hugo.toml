@@ -55,6 +55,7 @@ title = "PyCon Ireland 2026"
   mastodonHandle = "@Python_Ireland"
   mastodonUrl = "https://mastodon.ie/@Python_Ireland"
   youtubeUrl = "https://www.youtube.com/@PythonIreland"
+  linkedinUrl = "https://www.linkedin.com/company/python-ireland"
   ogImage = "/img/og-image.png"
 
   [params.hero]
