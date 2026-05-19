@@ -90,6 +90,15 @@
           </div>
         </div>
 
+        {{/* Luas info */}}
+        <div class="bg-bg-card rounded-2xl p-6 border border-white/5">
+          <h3 class="text-lg font-semibold text-text-heading mb-3">Nearest Luas Stop</h3>
+          <p class="text-text-secondary text-sm leading-relaxed">
+            <strong class="text-text-heading">Trinity</strong> stop on the Green Line (Pearse Street) — 3 minutes' walk to the Nassau Street gate.
+            All Luas trams and platforms are fully step-free with level boarding.
+          </p>
+        </div>
+
         {{ $lat := .Site.Params.venueMapLat | float }}
         {{ $lon := .Site.Params.venueMapLon | float }}
         {{ $d := 0.008 }}
@@ -120,4 +129,90 @@
     </div>
   </section>
 </div>
+{{/* ── Accessibility ── */}}
+<section class="py-20 bg-bg-secondary">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-text-heading mb-4">Accessibility</h2>
+      <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+        We are committed to making PyCon Ireland 2026 accessible to everyone.
+        If you have specific requirements, please <a href="mailto:{{ .Site.Params.email }}" class="text-py-yellow hover:underline">contact us</a> in advance.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+
+      {{/* Getting there */}}
+      <div class="bg-bg-card rounded-2xl p-6 card-glow">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-py-blue/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="font-bold text-text-heading">Getting Here</h3>
+        </div>
+        <ul class="space-y-3 text-text-secondary text-sm">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span><strong class="text-text-heading">Luas Green Line (recommended):</strong> <em>Trinity</em> stop on Pearse Street — 3 min walk to Nassau Gate. Fully step-free with level boarding.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span><strong class="text-text-heading">DART:</strong> Pearse Station — ~5 min walk to Lincoln Gate. Has lifts; check status on the day.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span><strong class="text-text-heading">Dublin Bus:</strong> 100% low-floor fleet. Stops on Nassau Street and College Green.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span><strong class="text-text-heading">Blue badge parking:</strong> ~10 disabled bays on campus. Enter via <strong>Lincoln Gate</strong> (Lincoln Place) and ask security for the nearest bay. First-come, no pre-booking.</span>
+          </li>
+        </ul>
+      </div>
+
+      {{/* Campus access */}}
+      <div class="bg-bg-card rounded-2xl p-6 card-glow">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-py-yellow/10 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-py-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="font-bold text-text-heading">Campus Access</h3>
+        </div>
+        <ul class="space-y-3 text-text-secondary text-sm">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span><strong class="text-text-heading">Recommended entrance:</strong> Lincoln Gate (Lincoln Place) or Nassau Street Gate — both step-free.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span><strong class="text-text-heading">Accessible toilets</strong> throughout campus, including a <strong>Changing Places facility</strong> (hoist, height-adjustable bench) in the Arts Block — key available from security.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span><strong class="text-text-heading">Induction loops</strong> available in lecture rooms. We will confirm which conference rooms have loops once the programme is finalised.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span><strong class="text-text-heading">Guide and assistance dogs</strong> are welcome throughout the entire campus and all conference spaces.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    {{/* Note + links */}}
+    <div class="bg-bg-card rounded-2xl p-6 border border-py-blue/20 flex flex-col sm:flex-row items-start gap-4">
+      <svg class="w-6 h-6 text-py-blue-light flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <div class="text-text-secondary text-sm leading-relaxed">
+        <strong class="text-text-heading block mb-1">Need assistance or have specific requirements?</strong>
+        Contact us at <a href="mailto:{{ .Site.Params.email }}" class="text-py-yellow hover:underline">{{ .Site.Params.email }}</a> — we'll do our best to accommodate you.
+        You can also consult the
+        <a href="https://www.tcd.ie/Maps/map.php" target="_blank" rel="noopener" class="text-py-yellow hover:underline">TCD accessible campus map</a>
+        and the
+        <a href="https://www.tcd.ie/disability/" target="_blank" rel="noopener" class="text-py-yellow hover:underline">TCD disAbility Service</a>.
+      </div>
+    </div>
+  </div>
+</section>
+
 {{ end }}
