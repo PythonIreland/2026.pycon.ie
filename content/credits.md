@@ -5,12 +5,12 @@ description: "Attribution for photography and images used on the PyCon Ireland 2
 
 ## Homepage — About section cards
 
-**Conference talk — speaker presenting to an audience**
-Photograph by [Sam McGhee](https://unsplash.com/@sammcghee), published on [Unsplash](https://unsplash.com/photos/4i6nlAtzvMo).
+**Conference talk — crowd of people seated in a conference room**
+Photograph by [Headway](https://unsplash.com/@headwayio), published on [Unsplash](https://unsplash.com/photos/F2KRf_QfCqw).
 Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
 
 **Conference networking — people connecting at an event**
-Photograph by [Antenna](https://unsplash.com/@antenna), published on [Unsplash](https://unsplash.com/photos/ZDN-G1xBWHY).
+Photograph by [Priscilla Du Preez](https://unsplash.com/@priscilladupreez), published on [Unsplash](https://unsplash.com/license).
 Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
 
 ---
