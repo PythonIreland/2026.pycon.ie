@@ -3,6 +3,14 @@ title: "Photo Credits"
 description: "Attribution for photography and images used on the PyCon Ireland 2026 website."
 ---
 
+## CFP page — Hero
+
+**Speaker presenting on stage at a conference**
+Photograph by [Product School](https://unsplash.com/@productschool), published on [Unsplash](https://unsplash.com/photos/DL-yyYDDNX4).
+Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
+
+---
+
 ## Homepage — About section cards
 
 **Conference talk — crowd of people seated in a conference room**

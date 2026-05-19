@@ -1,9 +1,27 @@
 {{ define "main" }}
 
 {{/* ── Hero ── */}}
-<section class="relative py-24 overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-py-blue-dark/30 via-bg-primary to-bg-primary pointer-events-none"></div>
-  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0">
+    <picture>
+      <source media="(max-width: 768px)" srcset="https://images.unsplash.com/photo-1560439514-e960a3ef5019?auto=format&fit=crop&w=768&q=80">
+      <img src="https://images.unsplash.com/photo-1560439514-e960a3ef5019?auto=format&fit=crop&w=1920&q=85"
+           alt="Speaker presenting on stage at a conference"
+           class="w-full h-full object-cover object-center"
+           loading="eager" fetchpriority="high">
+    </picture>
+    <div class="absolute inset-0" style="background: rgba(15,17,23,0.72);"></div>
+    <a href="https://unsplash.com/photos/DL-yyYDDNX4"
+       target="_blank" rel="noopener noreferrer"
+       class="absolute bottom-2 right-3 text-[10px] text-white/30 hover:text-white/60 transition-colors z-20 drop-shadow">
+      Photo: Product School / Unsplash
+    </a>
+  </div>
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-py-blue/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-py-yellow/5 rounded-full blur-3xl"></div>
+  </div>
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <span class="inline-flex items-center gap-2 bg-py-yellow/10 border border-py-yellow/30 text-py-yellow text-sm font-semibold px-4 py-2 rounded-full mb-8">
       <span class="w-2 h-2 rounded-full bg-py-yellow animate-pulse"></span>
       Opening Soon
