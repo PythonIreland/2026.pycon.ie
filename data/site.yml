@@ -1,6 +1,8 @@
 about:
   - title: "Talks"
     icon: "mic"
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80"
+    image_alt: "Speaker presenting at a technology conference"
     description: "A full day of inspiring talks from Python experts across industry, academia, and open source. Learn about the latest trends, tools, and techniques."
   - title: "Workshops"
     icon: "code"
@@ -8,4 +10,6 @@ about:
     description: "Hands-on workshops for all skill levels. Dive deep into topics from web development to machine learning with experienced instructors."
   - title: "Networking"
     icon: "users"
+    image: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=800&q=80"
+    image_alt: "People networking and connecting at a conference"
     description: "Connect with 500+ Python developers, data scientists, and engineers. Build lasting relationships at social events and hallway tracks."

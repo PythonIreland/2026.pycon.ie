@@ -3,6 +3,18 @@ title: "Photo Credits"
 description: "Attribution for photography and images used on the PyCon Ireland 2026 website."
 ---
 
+## Homepage — About section cards
+
+**Conference talk — speaker presenting to an audience**
+Photograph by [Sam McGhee](https://unsplash.com/@sammcghee), published on [Unsplash](https://unsplash.com/photos/4i6nlAtzvMo).
+Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
+
+**Conference networking — people connecting at an event**
+Photograph by [Antenna](https://unsplash.com/@antenna), published on [Unsplash](https://unsplash.com/photos/ZDN-G1xBWHY).
+Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
+
+---
+
 ## Homepage — Hero image
 
 **The Temple Bar, Dublin**
