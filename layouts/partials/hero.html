@@ -27,15 +27,15 @@
   </div>
 
   <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-    <p class="text-py-yellow font-semibold text-sm uppercase tracking-widest mb-4">
-      {{ .Site.Params.hero.date }} &middot; {{ .Site.Params.hero.location }}
-    </p>
-
-    <h1 class="font-brand text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-6" style="text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);">
+    <h1 class="font-brand text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-4" style="text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);">
       <span style="color:#169B62">PyCon</span>
       <span class="text-white">Ireland</span>
       <span style="color:#FF883E">2026</span>
     </h1>
+
+    <p class="text-py-yellow font-semibold text-base sm:text-lg uppercase tracking-widest mb-8">
+      {{ .Site.Params.hero.date }} &middot; {{ .Site.Params.hero.location }}
+    </p>
 
     <p class="text-xl sm:text-2xl text-text-secondary max-w-2xl mx-auto mb-10">
       {{ .Site.Params.hero.subtitle }}
