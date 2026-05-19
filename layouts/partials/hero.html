@@ -42,9 +42,22 @@
     </p>
 
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="#about" class="border border-py-blue text-py-blue-light px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-blue/10 transition-colors">
-        Learn More
-      </a>
+      {{ if eq .Site.Params.cfpStatus "open" }}
+        <a href="/cfp/" class="bg-py-yellow text-bg-primary px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-yellow-light transition-colors">
+          Submit a Talk &rarr;
+        </a>
+        <a href="#about" class="border border-py-blue text-py-blue-light px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-blue/10 transition-colors">
+          Learn More
+        </a>
+      {{ else }}
+        <a href="/cfp/" class="inline-flex items-center gap-2 border border-py-yellow/40 text-py-yellow px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-yellow/10 transition-colors">
+          <span class="w-2 h-2 rounded-full bg-py-yellow animate-pulse"></span>
+          CFP — Opening Soon
+        </a>
+        <a href="#about" class="border border-py-blue text-py-blue-light px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-blue/10 transition-colors">
+          Learn More
+        </a>
+      {{ end }}
     </div>
   </div>
 

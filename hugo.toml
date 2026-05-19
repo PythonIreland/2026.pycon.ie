@@ -49,6 +49,9 @@ title = "PyCon Ireland 2026"
   organizerUrl = "https://python.ie"
   croNumber = "559983"
 
+  # CFP status: "soon" or "open"
+  cfpStatus = "soon"
+
   # Contact & social
   email = "contact@python.ie"
   twitterHandle = "@pythonireland"
