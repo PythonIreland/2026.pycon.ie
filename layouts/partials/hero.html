@@ -1,8 +1,20 @@
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-  {{/* Background gradient */}}
-  <div class="absolute inset-0 hero-gradient"></div>
+{{ $img := resources.Get "img/hero.jpg" }}
+{{ $hero := $img.Resize "1920x webp q85" }}
+{{ $heroMobile := $img.Resize "768x webp q80" }}
 
-  {{/* Decorative elements */}}
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  {{/* Hero background image */}}
+  <div class="absolute inset-0">
+    <picture>
+      <source media="(max-width: 768px)" srcset="{{ $heroMobile.RelPermalink }}">
+      <img src="{{ $hero.RelPermalink }}" alt="The Temple Bar, Dublin" class="w-full h-full object-cover object-center" loading="eager">
+    </picture>
+  </div>
+
+  {{/* Dark overlay + brand gradient */}}
+  <div class="absolute inset-0 bg-bg-primary/70 hero-gradient"></div>
+
+  {{/* Decorative blur elements */}}
   <div class="absolute inset-0 overflow-hidden">
     <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-py-blue/10 rounded-full blur-3xl"></div>
     <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-py-yellow/5 rounded-full blur-3xl"></div>
@@ -34,4 +46,11 @@
       <div class="w-1 h-3 bg-text-secondary/50 rounded-full mt-2 animate-bounce"></div>
     </div>
   </div>
+
+  {{/* Photo credit */}}
+  <a href="https://unsplash.com/photos/NL2ORrGh8KM"
+     target="_blank" rel="noopener noreferrer"
+     class="absolute bottom-3 right-4 text-xs text-white/30 hover:text-white/60 transition-colors z-10">
+    Photo: Matheus Câmara da Silva / Unsplash
+  </a>
 </section>
