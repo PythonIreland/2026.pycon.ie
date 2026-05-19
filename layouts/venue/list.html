@@ -1,14 +1,30 @@
 {{ define "main" }}
-<div class="pt-24">
-  {{/* Header */}}
-  <section class="py-16 text-center">
-    <div class="max-w-4xl mx-auto px-4">
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-text-heading mb-4">{{ .Title }}</h1>
-      <p class="text-text-secondary text-lg max-w-2xl mx-auto">{{ .Description }}</p>
+<div>
+  {{/* Hero */}}
+  <section class="relative h-[32rem] flex items-end overflow-hidden">
+    <div class="absolute inset-0">
+      <picture>
+        <source media="(max-width: 768px)" srcset="https://images.unsplash.com/photo-1529106480931-45a586ae6857?auto=format&fit=crop&w=768&q=80">
+        <img src="https://images.unsplash.com/photo-1529106480931-45a586ae6857?auto=format&fit=crop&w=1920&q=85"
+             alt="The Long Room library at Trinity College Dublin"
+             class="w-full h-full object-cover object-center"
+             loading="eager" fetchpriority="high">
+      </picture>
+      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(15,17,23,0.92) 0%, rgba(15,17,23,0.4) 50%, rgba(15,17,23,0.15) 100%);"></div>
+      <a href="https://unsplash.com/photos/Ty6KjYKmiUk"
+         target="_blank" rel="noopener noreferrer"
+         class="absolute bottom-2 right-3 text-[10px] text-white/30 hover:text-white/60 transition-colors z-20 drop-shadow">
+        Photo: Van Williams / Unsplash
+      </a>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 w-full">
+      <p class="text-py-yellow font-semibold text-sm uppercase tracking-widest mb-3">PyCon Ireland 2026</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-text-heading mb-3 font-brand">{{ .Site.Params.venue }}</h1>
+      <p class="text-text-secondary text-lg">{{ .Description }}</p>
     </div>
   </section>
 
-  <div class="section-divider max-w-7xl mx-auto"></div>
+  <div class="section-divider"></div>
 
   {{/* Venue details */}}
   <section class="py-16">
