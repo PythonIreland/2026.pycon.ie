@@ -9,8 +9,8 @@ description: "Attribution for photography and images used on the PyCon Ireland 2
 Photograph by [Headway](https://unsplash.com/@headwayio), published on [Unsplash](https://unsplash.com/photos/F2KRf_QfCqw).
 Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
 
-**Conference networking — people connecting at an event**
-Photograph by [Priscilla Du Preez](https://unsplash.com/@priscilladupreez), published on [Unsplash](https://unsplash.com/license).
+**Conference networking — people collaborating at a tech event**
+Photograph by [Marvin Meyer](https://unsplash.com/@marvelous), published on [Unsplash](https://unsplash.com/photos/SYTO3xs06fU).
 Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
 
 ---
