@@ -102,6 +102,10 @@ title = "PyCon Ireland 2026"
     name = "About"
     url = "/#about"
     weight = 10
+  [[menus.main]]
+    name = "Call for Proposals"
+    url = "/cfp/"
+    weight = 20
   # [[menus.main]]
   #   name = "Sponsors"
   #   url = "/sponsors/"

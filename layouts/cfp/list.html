@@ -1,0 +1,205 @@
+{{ define "main" }}
+
+{{/* ── Hero ── */}}
+<section class="relative py-24 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-py-blue-dark/30 via-bg-primary to-bg-primary pointer-events-none"></div>
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="inline-flex items-center gap-2 bg-py-yellow/10 border border-py-yellow/30 text-py-yellow text-sm font-semibold px-4 py-2 rounded-full mb-8">
+      <span class="w-2 h-2 rounded-full bg-py-yellow animate-pulse"></span>
+      Opening Soon
+    </span>
+    <h1 class="text-4xl sm:text-5xl font-bold text-text-heading mb-6 font-brand">
+      Call for Proposals 2026
+    </h1>
+    <p class="text-xl text-text-secondary max-w-2xl mx-auto mb-8">
+      PyCon Ireland is looking for speakers. Share your Python knowledge, inspire the community, and take the stage at <strong class="text-text-primary">Trinity College Dublin</strong> on <strong class="text-text-primary">17 October 2026</strong>.
+    </p>
+    <div class="inline-flex items-center gap-3 bg-bg-card border border-white/10 rounded-2xl px-6 py-4 text-text-secondary text-sm">
+      <svg class="w-5 h-5 text-py-blue-light flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      The CFP is not yet open. Follow us on
+      <a href="{{ .Site.Params.mastodonUrl }}" target="_blank" rel="me noopener" class="text-py-yellow hover:underline">Mastodon</a>
+      and
+      <a href="https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}" target="_blank" rel="noopener" class="text-py-yellow hover:underline">Twitter&nbsp;/&nbsp;X</a>
+      to be notified when submissions open.
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+{{/* ── Who Should Submit ── */}}
+<section class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h2 class="text-3xl font-bold text-text-heading mb-4">Who Should Submit?</h2>
+      <p class="text-text-secondary text-lg leading-relaxed">
+        Whether you're a Python novice or a seasoned pro, a first-time speaker or a conference veteran,
+        we want your contribution! PyCon Ireland is the perfect platform to share your knowledge,
+        inspire others, and be part of our vibrant community.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      <div class="bg-bg-card rounded-2xl p-6 text-center card-glow">
+        <div class="w-12 h-12 bg-py-blue/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        </div>
+        <h3 class="font-bold text-text-heading mb-2">First-time speakers</h3>
+        <p class="text-text-secondary text-sm">We actively welcome newcomers to the stage. Everyone has something valuable to share.</p>
+      </div>
+      <div class="bg-bg-card rounded-2xl p-6 text-center card-glow">
+        <div class="w-12 h-12 bg-py-blue/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <h3 class="font-bold text-text-heading mb-2">Industry practitioners</h3>
+        <p class="text-text-secondary text-sm">Share real-world experience, lessons learned, and production Python from your day job.</p>
+      </div>
+      <div class="bg-bg-card rounded-2xl p-6 text-center card-glow">
+        <div class="w-12 h-12 bg-py-blue/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        </div>
+        <h3 class="font-bold text-text-heading mb-2">Researchers & academics</h3>
+        <p class="text-text-secondary text-sm">Bring scientific computing, data science, and academic Python to a wider audience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ── Talk Themes ── */}}
+<section class="py-20 bg-bg-secondary">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-text-heading mb-4">What Are We Looking For?</h2>
+      <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+        Your topic is only limited by your imagination and expertise. Here are some themes we're particularly interested in.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      {{/* Category I */}}
+      <div class="bg-bg-card rounded-2xl p-8 card-glow">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-py-blue/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-text-heading">Python Language &amp; Ecosystem</h3>
+        </div>
+        <ul class="space-y-3">
+          {{ range slice
+            "Python Core — New PEPs, language updates, and best practices"
+            "In-depth Patterns &amp; Algorithms — Nuances of the standard library and beyond"
+            "Library Functionality — Using and extending cutting-edge libraries"
+            "Open Source Contributions — Showcase your own Python projects"
+            "Testing, Deployment &amp; Telemetry — Best practices and innovative approaches"
+            "Python in the Cloud — Serverless computing, Infrastructure as Code, and more"
+            "Architecting Solutions — Strategies for building robust Python applications"
+            "Data Science — NLP, machine learning, computer vision, data visualisation"
+            "AI Engineering — LLMs, agentic AI, RAG applications, AI ethics and risks"
+            "Scientific Computing — Python for complex computations"
+            "Python &amp; Hardware — IoT projects, edge computing, hardware integrations"
+          }}
+          <li class="flex items-start gap-2 text-text-secondary text-sm">
+            <svg class="w-4 h-4 text-py-blue-light mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span>{{ . | safeHTML }}</span>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+
+      {{/* Category II */}}
+      <div class="bg-bg-card rounded-2xl p-8 card-glow">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-py-yellow/10 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-py-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-text-heading">Python Use Cases</h3>
+        </div>
+        <ul class="space-y-3">
+          {{ range slice
+            "Solving Tough Problems — How Python tackled difficult challenges in your field"
+            "Why Python? — The reasons behind choosing Python for your projects"
+            "Open Sourcing Your Work — The journey of making your code available to the community"
+            "Academic Applications — Python in bioinformatics, geospatial, physics, linguistics…"
+            "Business Applications — Supply chain, manufacturing, financial services, and more"
+            "Hobby Projects — Personal projects that grew into something bigger"
+            "Education — Python in teaching and learning environments"
+            "Automation — Robotics and automating tasks, with or without AI"
+          }}
+          <li class="flex items-start gap-2 text-text-secondary text-sm">
+            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span>{{ . | safeHTML }}</span>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{/* ── Speaker Ticket Policy ── */}}
+<section class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-text-heading mb-4">Speaker Ticket Policy</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="bg-bg-card rounded-2xl p-8 card-glow">
+        <div class="w-12 h-12 bg-py-blue/20 rounded-xl flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-text-heading mb-3">Speakers buy a ticket</h3>
+        <p class="text-text-secondary text-sm leading-relaxed">
+          PyCon Ireland is a community-run event organised entirely by volunteers.
+          To maintain the integrity and inclusivity of our conference, we ask that all speakers,
+          like organizers, purchase a ticket.
+        </p>
+      </div>
+      <div class="bg-bg-card rounded-2xl p-8 card-glow">
+        <div class="w-12 h-12 bg-py-yellow/10 rounded-xl flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-py-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-text-heading mb-3">Financial aid available</h3>
+        <p class="text-text-secondary text-sm leading-relaxed">
+          We understand that purchasing a ticket may be a barrier for some.
+          Financial aid is available on a per-request basis to ensure everyone
+          has the opportunity to participate and contribute.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ── Stay Tuned CTA ── */}}
+<section class="py-20 bg-bg-secondary">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="bg-bg-card rounded-2xl p-10 card-glow border border-py-blue/20">
+      <h2 class="text-2xl font-bold text-text-heading mb-4">Stay in the Loop</h2>
+      <p class="text-text-secondary mb-8 leading-relaxed">
+        The Call for Proposals will open in the coming months.
+        Follow Python Ireland on social media to be among the first notified
+        when submissions open.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="{{ .Site.Params.mastodonUrl }}" target="_blank" rel="me noopener"
+           class="inline-flex items-center gap-2 bg-py-blue hover:bg-py-blue-light text-white px-6 py-3 rounded-xl font-semibold transition-colors text-sm">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 00.023-.043v-1.809a.052.052 0 00-.066-.054 19.648 19.648 0 01-4.58.574c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 01-.319-1.433.053.053 0 01.066-.054 19.648 19.648 0 004.581.574c.497 0 .994-.013 1.49-.04 2.397-.126 4.955-.326 7.146-1.085 2.604-.901 4.88-3.599 5.094-6.715.034-.504.121-5.263-.004-5.785z"/></svg>
+          Follow on Mastodon
+        </a>
+        <a href="https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-bg-primary hover:bg-bg-card border border-white/10 text-text-primary px-6 py-3 rounded-xl font-semibold transition-colors text-sm">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Follow on Twitter / X
+        </a>
+        <a href="mailto:{{ .Site.Params.email }}"
+           class="inline-flex items-center gap-2 bg-bg-primary hover:bg-bg-card border border-white/10 text-text-primary px-6 py-3 rounded-xl font-semibold transition-colors text-sm">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Contact us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}
