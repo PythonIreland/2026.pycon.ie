@@ -1,0 +1,94 @@
+name: Open CFP
+
+# Runs on 25 May 2026 at 07:00 UTC (08:00 Dublin — Irish Summer Time UTC+1)
+# Also triggerable manually for testing
+on:
+  schedule:
+    - cron: "0 7 25 5 *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  open-cfp:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Check if CFP is already open
+        id: check
+        run: |
+          if grep -q 'cfpStatus = "open"' hugo.toml; then
+            echo "already_open=true" >> "$GITHUB_OUTPUT"
+            echo "CFP is already open — nothing to do."
+          else
+            echo "already_open=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create branch and update cfpStatus
+        if: steps.check.outputs.already_open == 'false'
+        run: |
+          BRANCH="chore/open-cfp-$(date +%Y%m%d)"
+          git checkout -b "$BRANCH"
+          sed -i 's/cfpStatus = "soon"/cfpStatus = "open"/' hugo.toml
+          echo "branch=$BRANCH" >> "$GITHUB_ENV"
+
+      - name: Commit change
+        if: steps.check.outputs.already_open == 'false'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add hugo.toml
+          git commit -m "Open CFP: set cfpStatus to open
+
+          The Call for Proposals is now open (cfpOpens = 2026-05-25).
+          Flip cfpStatus from 'soon' to 'open' so the hero button and
+          CFP page show the submission link immediately."
+
+      - name: Push branch
+        if: steps.check.outputs.already_open == 'false'
+        run: git push origin "$branch"
+
+      - name: Create PR with auto-merge
+        if: steps.check.outputs.already_open == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PR_URL=$(gh pr create \
+            --title "Open CFP — set cfpStatus to open" \
+            --body "$(cat <<'EOF'
+## Summary
+
+The CFP officially opens today (25 May 2026). This automated PR flips the flag in `hugo.toml`:
+
+\`\`\`diff
+- cfpStatus = "soon"
++ cfpStatus = "open"
+\`\`\`
+
+### What changes on the site
+
+- **Hero section** — CTA button switches from *"CFP — Opens 25 May"* to a direct *"Submit a Talk"* link.
+- **CFP page** — submission button becomes active and links to Sessionize.
+
+---
+🤖 Generated automatically by the [Open CFP workflow](/.github/workflows/open-cfp.yml).
+EOF
+)" \
+            --base main \
+            --head "$branch" \
+            --label "automated")
+
+          echo "PR created: $PR_URL"
+
+          # Enable auto-merge (squash) — merges as soon as required checks pass.
+          # If the repo has no branch-protection rules requiring checks, it merges instantly.
+          gh pr merge "$PR_URL" --auto --squash
+          echo "Auto-merge enabled on $PR_URL"
