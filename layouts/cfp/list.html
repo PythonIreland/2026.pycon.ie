@@ -22,24 +22,52 @@
     <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-py-yellow/5 rounded-full blur-3xl"></div>
   </div>
   <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    {{ if eq .Site.Params.cfpStatus "open" }}
+    <span class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-semibold px-4 py-2 rounded-full mb-8">
+      <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+      CFP Now Open
+    </span>
+    {{ else }}
     <span class="inline-flex items-center gap-2 bg-py-yellow/10 border border-py-yellow/30 text-py-yellow text-sm font-semibold px-4 py-2 rounded-full mb-8">
       <span class="w-2 h-2 rounded-full bg-py-yellow animate-pulse"></span>
       Opening Soon
     </span>
+    {{ end }}
     <h1 class="text-4xl sm:text-5xl font-bold text-text-heading mb-6 font-brand">
       Call for Proposals 2026
     </h1>
     <p class="text-xl text-text-secondary max-w-2xl mx-auto mb-8">
       PyCon Ireland is looking for speakers. Share your Python knowledge, inspire the community, and take the stage at <strong class="text-text-primary">Trinity College Dublin</strong> on <strong class="text-text-primary">17 October 2026</strong>.
     </p>
+
+    {{/* CFP dates */}}
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+      <div class="inline-flex items-center gap-2 bg-bg-card border border-white/10 rounded-xl px-5 py-3 text-sm">
+        <svg class="w-4 h-4 text-py-blue-light flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <span class="text-text-secondary">Opens <strong class="text-text-primary">{{ dateFormat "2 January 2006" .Site.Params.cfpOpens }}</strong></span>
+      </div>
+      <div class="inline-flex items-center gap-2 bg-bg-card border border-white/10 rounded-xl px-5 py-3 text-sm">
+        <svg class="w-4 h-4 text-py-yellow flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="text-text-secondary">Deadline <strong class="text-text-primary">{{ dateFormat "2 January 2006" .Site.Params.cfpCloses }}</strong></span>
+      </div>
+    </div>
+
+    {{ if eq .Site.Params.cfpStatus "open" }}
+    <a href="{{ .Site.Params.cfpUrl }}" target="_blank" rel="noopener"
+       class="inline-flex items-center gap-2 bg-py-yellow hover:bg-py-yellow-light text-bg-primary font-bold px-8 py-4 rounded-xl text-lg transition-colors">
+      Submit a Proposal
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+    </a>
+    {{ else }}
     <div class="inline-flex items-center gap-3 bg-bg-card border border-white/10 rounded-2xl px-6 py-4 text-text-secondary text-sm">
-      <svg class="w-5 h-5 text-py-blue-light flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <svg class="w-5 h-5 text-py-blue-light flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
       <span>CFP not open yet — follow us on
       <a href="{{ .Site.Params.mastodonUrl }}" target="_blank" rel="me noopener" class="text-py-yellow hover:underline">Mastodon</a>,
       <a href="https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}" target="_blank" rel="noopener" class="text-py-yellow hover:underline">X</a>
       or <a href="{{ .Site.Params.linkedinUrl }}" target="_blank" rel="noopener" class="text-py-yellow hover:underline">LinkedIn</a>
       for updates.</span>
     </div>
+    {{ end }}
   </div>
 </section>
 
@@ -76,24 +104,57 @@
         <div class="w-12 h-12 bg-py-blue/20 rounded-xl flex items-center justify-center mx-auto mb-4">
           <svg class="w-6 h-6 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
         </div>
-        <h3 class="font-bold text-text-heading mb-2">Researchers & academics</h3>
+        <h3 class="font-bold text-text-heading mb-2">Researchers &amp; academics</h3>
         <p class="text-text-secondary text-sm">Bring scientific computing, data science, and academic Python to a wider audience.</p>
       </div>
     </div>
   </div>
 </section>
 
-{{/* ── Talk Themes ── */}}
+{{/* ── Featured Tracks ── */}}
 <section class="py-20 bg-bg-secondary">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="inline-block bg-py-yellow/10 border border-py-yellow/30 text-py-yellow text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">2026 Edition</span>
+      <h2 class="text-3xl font-bold text-text-heading mb-4">Featured Tracks</h2>
+      <p class="text-text-secondary text-lg max-w-2xl mx-auto">
+        This year we are particularly excited about two dedicated tracks. We especially encourage proposals in these areas.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="bg-bg-card rounded-2xl p-8 card-glow border border-py-blue/20">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-py-blue/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-text-heading">Python Security</h3>
+        </div>
+        <p class="text-text-secondary text-sm leading-relaxed">Vulnerabilities, secure coding practices, supply chain security, threat modelling, and more.</p>
+      </div>
+      <div class="bg-bg-card rounded-2xl p-8 card-glow border border-py-yellow/20">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-py-yellow/10 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-py-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-text-heading">AI with Python</h3>
+        </div>
+        <p class="text-text-secondary text-sm leading-relaxed">LLMs, Agentic AI, RAG applications, Agentic Security, AI Ethics and Risks, responsible AI engineering.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ── Talk Themes ── */}}
+<section class="py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-3xl font-bold text-text-heading mb-4">What Are We Looking For?</h2>
       <p class="text-text-secondary text-lg max-w-2xl mx-auto">
-        Your topic is only limited by your imagination and expertise. Here are some themes we're particularly interested in.
+        We are eager to hear about your Python discoveries and creations. We greatly encourage unique proposals that present topics that might be under-discussed otherwise.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
       {{/* Category I */}}
       <div class="bg-bg-card rounded-2xl p-8 card-glow">
@@ -101,7 +162,7 @@
           <div class="w-10 h-10 bg-py-blue/20 rounded-xl flex items-center justify-center flex-shrink-0">
             <svg class="w-5 h-5 text-py-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
           </div>
-          <h3 class="text-xl font-bold text-text-heading">Python Language &amp; Ecosystem</h3>
+          <h3 class="text-lg font-bold text-text-heading">Python Language &amp; Ecosystem</h3>
         </div>
         <ul class="space-y-3">
           {{ range slice
@@ -113,9 +174,11 @@
             "Python in the Cloud — Serverless computing, Infrastructure as Code, and more"
             "Architecting Solutions — Strategies for building robust Python applications"
             "Data Science — NLP, machine learning, computer vision, data visualisation"
-            "AI Engineering — LLMs, agentic AI, RAG applications, AI ethics and risks"
+            "AI Engineering — LLMs, Agentic AI, RAG applications, AI Ethics and Risks"
             "Scientific Computing — Python for complex computations"
+            "Security — Best practices, vulnerabilities, and secure coding in Python"
             "Python &amp; Hardware — IoT projects, edge computing, hardware integrations"
+            "Something Else — If it's relevant to the Python ecosystem, we're probably interested"
           }}
           <li class="flex items-start gap-2 text-text-secondary text-sm">
             <svg class="w-4 h-4 text-py-blue-light mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -131,7 +194,7 @@
           <div class="w-10 h-10 bg-py-yellow/10 rounded-xl flex items-center justify-center flex-shrink-0">
             <svg class="w-5 h-5 text-py-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
-          <h3 class="text-xl font-bold text-text-heading">Python Use Cases</h3>
+          <h3 class="text-lg font-bold text-text-heading">Python Use Cases</h3>
         </div>
         <ul class="space-y-3">
           {{ range slice
@@ -140,12 +203,34 @@
             "Open Sourcing Your Work — The journey of making your code available to the community"
             "Academic Applications — Python in bioinformatics, geospatial, physics, linguistics…"
             "Business Applications — Supply chain, manufacturing, financial services, and more"
-            "Hobby Projects — Personal projects that grew into something bigger"
-            "Education — Python in teaching and learning environments"
-            "Automation — Robotics and automating tasks, with or without AI"
+            "Education &amp; Ethics — Python in teaching, learning, and the ethical dimensions of software"
+            "Automation — Using Python to automate tasks, with or without AI"
           }}
           <li class="flex items-start gap-2 text-text-secondary text-sm">
             <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span>{{ . | safeHTML }}</span>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+
+      {{/* Category III */}}
+      <div class="bg-bg-card rounded-2xl p-8 card-glow">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-green-500/10 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-text-heading">Community, Culture &amp; Creativity</h3>
+        </div>
+        <ul class="space-y-3">
+          {{ range slice
+            "Community, Culture &amp; Leadership — How Python communities grow, organise, and inspire"
+            "Gaming, Art &amp; Creative Expression — Game development, generative art, music, and creative projects"
+            "Diversity &amp; Inclusion — Initiatives and experiences that make the Python community more welcoming"
+            "Career &amp; Inspiration — How Python has positively influenced your career or life"
+          }}
+          <li class="flex items-start gap-2 text-text-secondary text-sm">
+            <svg class="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             <span>{{ . | safeHTML }}</span>
           </li>
           {{ end }}
@@ -156,8 +241,62 @@
   </div>
 </section>
 
-{{/* ── Speaker Ticket Policy ── */}}
+{{/* ── Submission Rules ── */}}
+<section class="py-20 bg-bg-secondary">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-text-heading mb-4">Submission Rules</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="bg-bg-card rounded-2xl p-6 card-glow text-center">
+        <div class="text-4xl font-bold text-py-blue-light mb-2">3</div>
+        <p class="text-text-heading font-semibold mb-1">proposals maximum</p>
+        <p class="text-text-secondary text-sm">per person, including co-speaker credits</p>
+      </div>
+      <div class="bg-bg-card rounded-2xl p-6 card-glow text-center">
+        <div class="text-4xl font-bold text-py-blue-light mb-2">2</div>
+        <p class="text-text-heading font-semibold mb-1">speakers maximum</p>
+        <p class="text-text-secondary text-sm">per talk</p>
+      </div>
+      <div class="bg-bg-card rounded-2xl p-6 card-glow text-center">
+        <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center mx-auto mb-2">
+          <svg class="w-6 h-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/></svg>
+        </div>
+        <p class="text-text-heading font-semibold mb-1">No LLM-written proposals</p>
+        <p class="text-text-secondary text-sm">Proposals written entirely or substantially by an AI (ChatGPT, Claude…) will not be accepted. We want to hear your voice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ── How to Write a Strong Proposal ── */}}
 <section class="py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-text-heading mb-4">How to Write a Strong Proposal</h2>
+      <p class="text-text-secondary text-lg">A good proposal clearly answers these four points.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {{ range slice
+        (dict "num" "1" "title" "Context" "desc" "What is the problem or topic you are addressing?" "color" "py-blue")
+        (dict "num" "2" "title" "Solution" "desc" "How does your talk approach or solve it?" "color" "py-blue")
+        (dict "num" "3" "title" "Takeaway" "desc" "What will the audience learn or walk away with?" "color" "py-yellow")
+        (dict "num" "4" "title" "Audience" "desc" "Who is this talk for? (beginner, intermediate, advanced)" "color" "py-yellow")
+      }}
+      <div class="bg-bg-card rounded-2xl p-6 card-glow flex items-start gap-4">
+        <span class="text-3xl font-bold text-{{ .color }}-light opacity-60 leading-none mt-1">{{ .num }}</span>
+        <div>
+          <h3 class="font-bold text-text-heading mb-1">{{ .title }}</h3>
+          <p class="text-text-secondary text-sm">{{ .desc }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ── Speaker Ticket Policy ── */}}
+<section class="py-20 bg-bg-secondary">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <h2 class="text-3xl font-bold text-text-heading mb-4">Speaker Ticket Policy</h2>
@@ -181,23 +320,33 @@
         <h3 class="text-lg font-bold text-text-heading mb-3">Financial aid available</h3>
         <p class="text-text-secondary text-sm leading-relaxed">
           We understand that purchasing a ticket may be a barrier for some.
-          Financial aid is available on a per-request basis to ensure everyone
-          has the opportunity to participate and contribute.
+          Financial aid (capped at <strong class="text-text-primary">€350</strong>) is available on a per-request basis
+          to ensure everyone has the opportunity to participate and contribute.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-{{/* ── Stay Tuned CTA ── */}}
-<section class="py-20 bg-bg-secondary">
+{{/* ── CTA ── */}}
+<section class="py-20">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <div class="bg-bg-card rounded-2xl p-10 card-glow border border-py-blue/20">
+      {{ if eq .Site.Params.cfpStatus "open" }}
+      <h2 class="text-2xl font-bold text-text-heading mb-4">Ready to Submit?</h2>
+      <p class="text-text-secondary mb-8 leading-relaxed">
+        We look forward to your submissions and can't wait to see the incredible talks you'll bring to PyCon Ireland 2026!
+      </p>
+      <a href="{{ .Site.Params.cfpUrl }}" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 bg-py-yellow hover:bg-py-yellow-light text-bg-primary font-bold px-8 py-4 rounded-xl text-lg transition-colors">
+        Submit a Proposal on Sessionize
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </a>
+      {{ else }}
       <h2 class="text-2xl font-bold text-text-heading mb-4">Stay in the Loop</h2>
       <p class="text-text-secondary mb-8 leading-relaxed">
-        The Call for Proposals will open in the coming days.
-        Follow Python Ireland on social media to be among the first notified
-        when submissions open.
+        The Call for Proposals will open on <strong class="text-text-primary">{{ dateFormat "2 January 2006" .Site.Params.cfpOpens }}</strong>.
+        Follow Python Ireland on social media to be among the first notified when submissions open.
       </p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="{{ .Site.Params.mastodonUrl }}" target="_blank" rel="me noopener" aria-label="Follow on Mastodon"
@@ -217,6 +366,7 @@
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </a>
       </div>
+      {{ end }}
     </div>
   </div>
 </section>
