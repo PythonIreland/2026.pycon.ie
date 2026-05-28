@@ -72,7 +72,7 @@ enableGitInfo = true
     location = "Trinity College Dublin"
 
   [params.stats]
-    attendees = 500
+    # attendees = 500  # TODO: restore once attendance number is confirmed
     speakers = 50
     tracks = 3
     days = 1
