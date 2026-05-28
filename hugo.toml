@@ -51,7 +51,7 @@ enableGitInfo = true
   croNumber = "559983"
 
   # CFP status: "soon" or "open"
-  cfpStatus = "soon"
+  cfpStatus = "open"
   cfpUrl = "https://sessionize.com/pycon-ireland-2026/"
   cfpOpens = "2026-05-25"
   cfpCloses = "2026-08-30"
