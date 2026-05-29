@@ -3,14 +3,23 @@
 {
   "@context": "https://schema.org",
   "@type": "ConferenceEvent",
+  "@id": "{{ .Site.BaseURL }}#main-event",
   "name": "{{ .Site.Title }}",
   "url": "{{ .Site.BaseURL }}",
   "startDate": "{{ .Site.Params.eventStartDate }}",
   "endDate": "{{ .Site.Params.eventEndDate }}",
   "location": {
-    "@type": "PostalAddress",
+    "@type": "Place",
+    "@id": "{{ .Site.BaseURL }}venue/#place",
     "name": "{{ .Site.Params.venue }}",
-    "addressCountry": "{{ .Site.Params.venueCountry }}"
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ .Site.Params.venueStreetAddress }}",
+      "addressLocality": "{{ .Site.Params.venueCity }}",
+      "postalCode": "{{ .Site.Params.venuePostalCode }}",
+      "addressRegion": "{{ .Site.Params.venueRegion }}",
+      "addressCountry": "{{ .Site.Params.venueCountry }}"
+    }
   }{{ if eq .Site.Params.cfpStatus "open" }},
   "hasParticipationOffer": {
     "@type": "Offer",
