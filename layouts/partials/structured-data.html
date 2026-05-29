@@ -1,3 +1,31 @@
+{{/* ConferenceEvent Schema - emitted on every page (Python conference interop format) */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ConferenceEvent",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "startDate": "{{ .Site.Params.eventStartDate }}",
+  "endDate": "{{ .Site.Params.eventEndDate }}",
+  "location": {
+    "@type": "PostalAddress",
+    "name": "{{ .Site.Params.venue }}",
+    "addressCountry": "{{ .Site.Params.venueCountry }}"
+  },
+  "hasParticipationOffer": {
+    "@type": "Offer",
+    "name": "Call for Proposals",
+    "url": "{{ "cfp/" | absURL }}",
+    "availabilityEnds": "{{ .Site.Params.cfpCloses }}"
+  },
+  "hasSponsorshipOffer": {
+    "@type": "Offer",
+    "name": "Sponsor Packages",
+    "url": "{{ "sponsors/" | absURL }}"
+  }
+}
+</script>
+
 {{/* Event Schema - Main Conference */}}
 {{ if .IsHome }}
 <script type="application/ld+json">
