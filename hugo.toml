@@ -24,7 +24,7 @@ enableGitInfo = true
     getenv = ['^HUGO_', '^CI$', '^COMMIT_REF$', '^DEPLOY_ID$']
 
 [params]
-  description = "PyCon Ireland 2026 — Ireland's premier Python conference. Join 500+ developers for talks, workshops, and networking."
+  description = "PyCon Ireland 2026 — Ireland's premier Python conference. Join Python developers for talks, workshops, and networking at Trinity College Dublin."
   dateHuman = "17 October 2026"
 
   # Event dates in ISO 8601 format (for structured data)
@@ -47,7 +47,7 @@ enableGitInfo = true
   # Organizer information
   organizerName = "Python Ireland"
   organizerFullName = "Python Ireland Developers CLG"
-  organizerUrl = "https://python.ie"
+  organizerUrl = "https://python.ie/"
   croNumber = "559983"
 
   # CFP status: "soon" or "open"

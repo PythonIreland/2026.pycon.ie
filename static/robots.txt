@@ -16,6 +16,10 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+# Google-Extended — Gemini/Vertex grounding and AI Overviews
+User-agent: Google-Extended
+Allow: /
+
 # AI training crawlers — blocked
 User-agent: CCBot
 Disallow: /
