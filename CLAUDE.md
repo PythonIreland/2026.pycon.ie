@@ -257,6 +257,17 @@ When making content changes:
 - [ ] Verify structured data with [Google Rich Results Test](https://search.google.com/test/rich-results)
 - [ ] Check `og:image` exists at `/img/og-image.png` (1200x630px)
 
+## Language Policy
+
+**All GitHub-facing content MUST be written in English**, regardless of the language used when chatting with a contributor. This applies to:
+- Commit messages
+- Pull request titles and descriptions
+- Issue titles and descriptions
+- PR/issue comments and code review notes
+- Code comments and documentation in the repository
+
+A conversation may happen in another language (e.g. French), but anything published to the repository or GitHub is in English so the project stays accessible to all contributors.
+
 ## Git Workflow
 
 **Important:** Do NOT include `Co-Authored-By: Claude` lines in commits (see `CLAUDE.local.md`).
