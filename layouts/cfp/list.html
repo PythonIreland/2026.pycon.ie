@@ -371,4 +371,38 @@
   </div>
 </section>
 
+{{/* FAQPage schema — improves AI citation for CFP eligibility questions */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who should submit a talk to PyCon Ireland 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anyone with Python experience is welcome to submit — from first-time presenters to conference veterans. Topics include Python, data science, AI engineering, scientific computing, and real-world Python use cases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do speakers need to buy a ticket for PyCon Ireland 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, all accepted speakers are required to purchase a conference ticket. Financial aid is available on request for those who need it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When does the PyCon Ireland 2026 Call for Proposals close?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Call for Proposals closes on 30 August 2026. Submissions are reviewed by the programme committee and applicants are notified of the outcome."
+      }
+    }
+  ]
+}
+</script>
+
 {{ end }}

@@ -87,4 +87,39 @@
   </section>
 
 </div>
+
+{{/* FAQPage schema — improves AI citation for Dublin travel Q&As */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I get to Trinity College Dublin from the airport?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "From Dublin Airport, take the Airlink 747 bus directly to College Green (stop is a short walk from Trinity's front gate). Journey time is approximately 35-45 minutes. Taxis and rideshare services are also available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Trinity College Dublin accessible for wheelchair users?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trinity College Dublin has accessible entrances, lifts, and accessible toilet facilities. Contact the PyCon Ireland team at contact@python.ie for specific accommodation requests."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What public transport options are available near PyCon Ireland 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trinity College Dublin (College Green) is served by LUAS tram lines, Dublin Bus, and is within walking distance of Pearse and Tara Street DART stations. The venue is in the city centre and easily reachable from most Dublin hotels."
+      }
+    }
+  ]
+}
+</script>
+
 {{ end }}
