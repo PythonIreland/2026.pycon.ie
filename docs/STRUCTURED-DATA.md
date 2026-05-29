@@ -40,6 +40,32 @@ Le site PyCon Ireland 2026 implémente des schémas JSON-LD complets pour améli
 
 ---
 
+### 1bis. ConferenceEvent — Global (toutes les pages)
+**Fichier:** `layouts/partials/structured-data.html`
+
+```json
+"@type": "ConferenceEvent"
+```
+- Émis sur **chaque page** (format d'interopérabilité des conférences Python, ex. EuroPython)
+- `name`, `url`, `startDate`/`endDate`, `location` (PostalAddress)
+- `hasParticipationOffer` : offre **Call for Proposals** → `/cfp/`, avec `availabilityEnds = cfpCloses`. Émise uniquement lorsque `cfpStatus == "open"`.
+
+#### ⏳ À intégrer plus tard : `hasSponsorshipOffer`
+
+Le format `ConferenceEvent` prévoit également une offre de sponsoring. Elle **n'est pas encore intégrée** : la brochure / page sponsors (`/sponsors/`) n'est pas publiée à ce jour. À ajouter dans le bloc `ConferenceEvent` dès que la page sera en ligne :
+
+```json
+"hasSponsorshipOffer": {
+  "@type": "Offer",
+  "name": "Sponsor Packages",
+  "url": "https://2026.pycon.ie/sponsors/"
+}
+```
+
+> ⚠️ Penser à rétablir la virgule JSON après `hasParticipationOffer` lors de l'ajout (le bloc CFP est conditionnel et actuellement dernier élément).
+
+---
+
 ### 2. Page Speakers (`/speakers/`)
 **Fichier:** `layouts/partials/structured-data-speakers.html`
 

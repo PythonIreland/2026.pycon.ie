@@ -11,18 +11,13 @@
     "@type": "PostalAddress",
     "name": "{{ .Site.Params.venue }}",
     "addressCountry": "{{ .Site.Params.venueCountry }}"
-  },
+  }{{ if eq .Site.Params.cfpStatus "open" }},
   "hasParticipationOffer": {
     "@type": "Offer",
     "name": "Call for Proposals",
     "url": "{{ "cfp/" | absURL }}",
     "availabilityEnds": "{{ .Site.Params.cfpCloses }}"
-  },
-  "hasSponsorshipOffer": {
-    "@type": "Offer",
-    "name": "Sponsor Packages",
-    "url": "{{ "sponsors/" | absURL }}"
-  }
+  }{{ end }}
 }
 </script>
 
