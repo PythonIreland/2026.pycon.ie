@@ -44,7 +44,7 @@ Python Ireland shall not be liable for any loss, damage, injury, or expense suff
 
 ### Financial Aid
 
-Financial aid is available on a per-request basis, subject to availability, with a cap of €350 per recipient. Applications are assessed at the discretion of the organising committee. Decisions are final.
+Financial aid is available on a per-request basis, subject to availability, with a cap of €350 per recipient. Priority is given to applicants based in Ireland. Applications are assessed at the discretion of the organising committee. Decisions are final.
 
 ### Contact
 
