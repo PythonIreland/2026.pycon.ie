@@ -2,7 +2,7 @@
 title: "Call for Proposals Now Open"
 date: 2026-02-15
 description: "Submit your talk or workshop proposal for PyCon Ireland 2026. We're looking for speakers of all experience levels."
-draft: true
+draft: false
 ---
 
 We're excited to announce that the **Call for Proposals (CFP)** for PyCon Ireland 2026 is now open!
