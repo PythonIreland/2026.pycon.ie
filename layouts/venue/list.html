@@ -206,4 +206,29 @@
   </div>
 </section>
 
+{{/* Place schema — defines the @id referenced from the homepage Event location */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Place",
+  "@id": "{{ .Site.BaseURL }}venue/#place",
+  "name": "{{ .Site.Params.venue }}",
+  "url": "{{ .Site.Params.venueWebsite }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ .Site.Params.venueStreetAddress }}",
+    "addressLocality": "{{ .Site.Params.venueCity }}",
+    "postalCode": "{{ .Site.Params.venuePostalCode }}",
+    "addressRegion": "{{ .Site.Params.venueRegion }}",
+    "addressCountry": "{{ .Site.Params.venueCountry }}"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": {{ .Site.Params.venueMapLat }},
+    "longitude": {{ .Site.Params.venueMapLon }}
+  },
+  "telephone": "{{ .Site.Params.venuePhone }}"
+}
+</script>
+
 {{ end }}
