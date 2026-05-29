@@ -13,7 +13,7 @@
     {{/* Photo credit anchored to bottom-right of the image */}}
     <a href="https://unsplash.com/photos/NL2ORrGh8KM"
        target="_blank" rel="noopener noreferrer"
-       class="absolute bottom-2 right-3 text-[10px] text-white/30 hover:text-white/60 transition-colors z-20 drop-shadow">
+       class="absolute bottom-2 right-3 text-xs text-white/30 hover:text-white/60 transition-colors z-20 drop-shadow">
       Photo: Matheus Câmara da Silva / Unsplash
     </a>
   </div>
@@ -28,7 +28,9 @@
   </div>
 
   <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-    <h1 class="font-brand text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-4" style="text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);">
+    <h1 class="font-brand text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-4"
+        aria-label="PyCon Ireland 2026 — Ireland's Python Conference"
+        style="text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);">
       <span style="color:#169B62">PyCon</span>
       <span class="text-white">Ireland</span>
       <span style="color:#FF883E">2026</span>
@@ -47,7 +49,7 @@
         <a href="/cfp/" class="bg-py-yellow text-bg-primary px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-yellow-light transition-colors">
           Submit a Talk &rarr;
         </a>
-        <a href="#about" class="border border-py-blue text-py-blue-light px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-blue/10 transition-colors">
+        <a href="#about" class="border border-white/50 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 transition-colors">
           Learn More
         </a>
       {{ else }}
@@ -55,7 +57,7 @@
           <span class="w-2 h-2 rounded-full bg-py-yellow animate-pulse"></span>
           CFP — Opens {{ dateFormat "2 January" .Site.Params.cfpOpens }}
         </a>
-        <a href="#about" class="bg-py-blue/20 border border-py-blue text-py-blue-light px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-blue/30 transition-colors">
+        <a href="#about" class="border border-white/50 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 transition-colors">
           Learn More
         </a>
       {{ end }}
