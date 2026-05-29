@@ -21,12 +21,14 @@
       <div class="grid grid-cols-3 gap-4">
         <div class="col-span-3 rounded-2xl overflow-hidden h-80 bg-bg-card">
           {{ if $featured }}
-            <img src="{{ $featured.src }}" alt="{{ $featured.alt }}" class="w-full h-full object-cover">
+            <img src="{{ $featured.src }}" alt="{{ $featured.alt }}" class="w-full h-full object-cover"
+                 {{ with $featured.width }}width="{{ . }}"{{ end }} {{ with $featured.height }}height="{{ . }}"{{ end }}>
           {{ end }}
         </div>
         {{ range $rest }}
           <div class="rounded-2xl overflow-hidden h-56 bg-bg-card">
-            <img src="{{ .src }}" alt="{{ .alt }}" class="w-full h-full object-cover" loading="lazy">
+            <img src="{{ .src }}" alt="{{ .alt }}" class="w-full h-full object-cover"
+                 {{ with .width }}width="{{ . }}"{{ end }} {{ with .height }}height="{{ . }}"{{ end }} loading="lazy">
           </div>
         {{ end }}
       </div>
@@ -44,7 +46,8 @@
           <div class="bg-bg-card rounded-2xl overflow-hidden border border-white/5 card-glow flex flex-col">
             {{ if .photo }}
               <div class="h-40 overflow-hidden shrink-0">
-                <img src="{{ .photo }}" alt="{{ .title }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+                <img src="{{ .photo }}" alt="{{ .title }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                     {{ with .photo_width }}width="{{ . }}"{{ end }} {{ with .photo_height }}height="{{ . }}"{{ end }} loading="lazy">
               </div>
             {{ end }}
             <div class="p-6 flex flex-col flex-1">
@@ -73,7 +76,8 @@
           <div class="bg-bg-card rounded-2xl overflow-hidden border border-white/5 card-glow flex flex-col">
             {{ if .photo }}
               <div class="h-40 overflow-hidden shrink-0">
-                <img src="{{ .photo }}" alt="{{ .mode }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy">
+                <img src="{{ .photo }}" alt="{{ .mode }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                     {{ with .photo_width }}width="{{ . }}"{{ end }} {{ with .photo_height }}height="{{ . }}"{{ end }} loading="lazy">
               </div>
             {{ end }}
             <div class="p-5 flex flex-col flex-1">
