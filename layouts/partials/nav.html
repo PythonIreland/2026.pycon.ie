@@ -46,7 +46,7 @@
       </div>
 
       {{/* Mobile menu button */}}
-      <button id="menu-toggle" class="md:hidden text-text-primary p-2" aria-label="Toggle menu" aria-expanded="false">
+      <button id="menu-toggle" class="md:hidden text-text-primary p-3" aria-label="Toggle menu" aria-expanded="false">
         <svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
@@ -57,7 +57,7 @@
     </div>
 
     {{/* Mobile menu */}}
-    <div id="mobile-menu" class="hidden md:hidden pb-4">
+    <div id="mobile-menu" class="hidden md:hidden pb-4 bg-bg-primary border-t border-white/10">
       <div class="flex flex-col gap-1">
         {{ range .Site.Menus.main }}
           {{ if .HasChildren }}
@@ -66,7 +66,7 @@
               {{ $external := hasPrefix .URL "http" }}
               <a href="{{ .URL }}"
                  {{ if $external }}target="_blank" rel="noopener"{{ end }}
-                 class="flex items-center gap-2 text-text-secondary hover:text-py-yellow px-6 py-2 text-sm font-medium transition-colors">
+                 class="flex items-center gap-2 text-text-secondary hover:text-py-yellow px-6 py-3 text-sm font-medium transition-colors">
                 {{ .Name }}
                 {{ if $external }}
                   <svg class="w-3 h-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -76,7 +76,7 @@
               </a>
             {{ end }}
           {{ else }}
-            <a href="{{ .URL }}" class="text-text-secondary hover:text-py-yellow px-3 py-2 text-sm font-medium transition-colors">
+            <a href="{{ .URL }}" class="text-text-secondary hover:text-py-yellow px-3 py-3 text-sm font-medium transition-colors">
               {{ .Name }}
             </a>
           {{ end }}
