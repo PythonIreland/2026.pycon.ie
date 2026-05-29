@@ -23,7 +23,7 @@
   {{/* Parse time for startDate */}}
   {{ $dayNum := substr $day.date 8 2 }}
   {{ $time := $slot.time }}
-  "startDate": "{{ $year }}-{{ $month }}-{{ $dayNum }}T{{ $time }}:00+00:00",
+  "startDate": "{{ $year }}-{{ $month }}-{{ $dayNum }}T{{ $time }}:00+01:00",
   {{/* Calculate endDate based on duration */}}
   {{ $duration := default 30 $session.duration }}
   "duration": "PT{{ $duration }}M",
