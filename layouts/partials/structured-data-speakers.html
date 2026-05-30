@@ -85,7 +85,10 @@
       {{ end }}
     ],
   {{ end }}
-  "knowsAbout": ["Python", "Software Development", "{{ if $speaker.keynote }}Keynote Speaking{{ end }}"],
+  {{/* Build knowsAbout array — avoid empty trailing string for non-keynotes */}}
+  {{ $knows := slice "Python" "Software Development" }}
+  {{ if $speaker.keynote }}{{ $knows = $knows | append "Keynote Speaking" }}{{ end }}
+  "knowsAbout": [{{ range $i, $k := $knows }}{{ if $i }},{{ end }}"{{ $k }}"{{ end }}],
   "alumniOf": {
     "@type": "Event",
     "name": "{{ $.Site.Title }}",
