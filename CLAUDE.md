@@ -78,6 +78,11 @@ Conference content is stored in **YAML data files** (`data/*.yml`), not Markdown
 **`data/site.yml`**
 - About section content (feature cards)
 
+**`data/dublin.yml`**
+- "Discover Dublin" section: intro text, gallery images, highlights (attractions), transport options
+- Structure: `intro`, `gallery[]`, `highlights[]`, `transport[]`
+- Accessed: `.Site.Data.dublin`
+
 **Why data files?** Allows non-technical team members to update content without touching templates. Enables programmatic manipulation and structured data generation.
 
 ### SEO Structured Data System
@@ -120,10 +125,13 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 - `layouts/venue/list.html` — Venue details with image grid
 - `layouts/blog/list.html`, `single.html` — Blog listing and posts
 - `layouts/credits/single.html` — Photo/image attribution page
+- `layouts/cfp/` — Call for Proposals page
+- `layouts/about/` — About Python Ireland page
+- `layouts/dublin/` — Discover Dublin page
 
 **Partials:**
 - `layouts/partials/nav.html` — Responsive navigation with mobile menu
-- `layouts/partials/footer.html` — Footer with link groups, social icons, and Netlify build info
+- `layouts/partials/footer.html` — Footer with 4 columns: brand, Conference links, Community links (Code of Conduct, Terms & Conditions, Photo Credits, Python Ireland), Connect (social + email)
 - `layouts/partials/head.html` — Meta tags, Open Graph, structured data inclusion
 - `layouts/partials/hero.html` — Homepage hero section (uses `assets/img/hero.jpg`)
 - `layouts/partials/about.html` — About section with feature cards from `site.yml`

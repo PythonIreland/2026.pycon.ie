@@ -42,27 +42,37 @@ Output goes to `public/`. CSS is minified and fingerprinted automatically in pro
 ├── assets/css/main.css        # Tailwind v4 entry + theme tokens
 ├── content/                   # Markdown content pages
 │   ├── _index.md              # Homepage
-│   ├── speakers/_index.md
-│   ├── schedule/_index.md
-│   ├── sponsors/_index.md
-│   ├── venue/_index.md
-│   ├── code-of-conduct/_index.md
-│   └── blog/                  # Blog posts
+│   ├── about/                 # About Python Ireland
+│   ├── blog/                  # Blog posts
+│   ├── cfp/                   # Call for Proposals
+│   ├── code-of-conduct/       # Code of Conduct
+│   ├── credits.md             # Photo & image attribution
+│   ├── dublin/                # Discover Dublin section
+│   ├── schedule/
+│   ├── speakers/
+│   ├── sponsors/
+│   ├── terms-and-conditions/  # Terms & Conditions
+│   └── venue/
 ├── data/                      # YAML data files
 │   ├── speakers.yml           # Speaker profiles
 │   ├── sessions.yml           # Talk details
 │   ├── schedule.yml           # Multi-track schedule grid
 │   ├── sponsors.yml           # Sponsor tiers
 │   ├── team.yml               # Organising team
-│   └── site.yml               # About section content
+│   ├── site.yml               # About section content
+│   └── dublin.yml             # Discover Dublin (gallery, highlights, transport)
 ├── layouts/
 │   ├── _default/              # Base and fallback templates
 │   ├── partials/              # Reusable components (nav, footer, hero, etc.)
+│   ├── about/                 # About page template
+│   ├── blog/                  # Blog list and single templates
+│   ├── cfp/                   # Call for Proposals template
+│   ├── credits/single.html    # Photo attribution page
+│   ├── dublin/                # Discover Dublin template
 │   ├── speakers/list.html     # Speakers grid page
 │   ├── schedule/list.html     # Schedule grid page
 │   ├── sponsors/list.html     # Sponsors page
-│   ├── venue/list.html        # Venue page
-│   └── blog/                  # Blog list and single templates
+│   └── venue/list.html        # Venue page
 └── static/img/                # Images, logo, favicon
 ```
 
