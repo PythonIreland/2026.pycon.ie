@@ -70,9 +70,10 @@
     "@type": "AggregateOffer",
     "lowPrice": {{ (index .Site.Params.tickets 0).price }},
     "highPrice": {{ (index .Site.Params.tickets (sub (len .Site.Params.tickets) 1)).price }},
+    "offerCount": {{ len .Site.Params.tickets }},
     "priceCurrency": "EUR",
-    "url": "{{ .Site.BaseURL }}#tickets",
-    "availability": "https://schema.org/InStock"
+    "url": "{{ if .Site.Params.ticketsUrl }}{{ .Site.Params.ticketsUrl }}{{ else }}{{ .Site.BaseURL }}{{ end }}",
+    "availability": "https://schema.org/PreOrder"
   }
 }
 </script>
@@ -136,8 +137,7 @@
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "{{ .Title }}",
-      "item": "{{ .Permalink }}"
+      "name": "{{ .Title }}"
     }
   ]
 }
