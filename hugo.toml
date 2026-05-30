@@ -147,7 +147,7 @@ enableGitInfo = true
     url = "https://python.ie"
     parent = "community"
     weight = 2
-  # [[menus.main]]
-  #   name = "Blog"
-  #   url = "/blog/"
-  #   weight = 70
+  [[menus.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 70
