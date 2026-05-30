@@ -2,7 +2,7 @@
 title: "Announcing PyCon Ireland 2026"
 date: 2026-02-01
 description: "We're excited to announce PyCon Ireland 2026! Join us on 17 October at Trinity College Dublin."
-draft: true
+draft: false
 ---
 
 We're thrilled to announce that **PyCon Ireland 2026** will take place on **17 October 2026** at **Trinity College Dublin**.
@@ -23,7 +23,7 @@ Our Call for Proposals will open soon. Whether you're a first-time speaker or a 
 ## Get Involved
 
 - **Speak:** Share your expertise with the community
-- **Sponsor:** Support Ireland's largest Python event
+- **Sponsor:** Support Ireland's Python community
 - **Volunteer:** Help us make PyCon Ireland amazing
 
 [Get your tickets now](/#tickets) and be part of PyCon Ireland 2026!

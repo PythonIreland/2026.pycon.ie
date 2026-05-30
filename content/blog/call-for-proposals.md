@@ -1,8 +1,8 @@
 ---
 title: "Call for Proposals Now Open"
 date: 2026-02-15
-description: "Submit your talk or workshop proposal for PyCon Ireland 2026. We're looking for speakers of all experience levels."
-draft: true
+description: "Submit your talk proposal for PyCon Ireland 2026. We're looking for speakers of all experience levels."
+draft: false
 ---
 
 We're excited to announce that the **Call for Proposals (CFP)** for PyCon Ireland 2026 is now open!
@@ -22,10 +22,9 @@ Whether you're a first-time speaker or an experienced presenter, we'd love to he
 
 - **Full talks** (30 minutes) — Deep dives into a topic
 - **Lightning talks** (5 minutes) — Quick, focused presentations
-- **Workshops** (2 hours) — Hands-on sessions with guided exercises
 
 ## How to Submit
 
-Visit our [proposal submission page](#) to submit your talk. The deadline is **15 September 2026**.
+Visit our [proposal submission page](https://sessionize.com/pycon-ireland-2026/) to submit your talk. The deadline is **30 August 2026**.
 
-We provide mentoring for first-time speakers. Don't hesitate to reach out at [info@pycon.ie](mailto:info@pycon.ie) if you'd like guidance on your proposal.
+Don't hesitate to reach out at [contact@python.ie](mailto:contact@python.ie) if you have any questions about your proposal.
