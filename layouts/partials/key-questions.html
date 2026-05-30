@@ -1,0 +1,27 @@
+<section class="py-12 bg-bg-primary">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl font-bold text-text-heading mb-3">When and where is PyCon Ireland 2026?</h2>
+    <p class="text-text-secondary mb-8 max-w-2xl">
+      PyCon Ireland 2026 takes place on <strong class="text-text-primary">{{ .Site.Params.dateHuman }}</strong>
+      at <strong class="text-text-primary">{{ .Site.Params.venue }}</strong>, College Green, Dublin 2, Ireland.
+      It is a single-day, multi-track conference organised by Python Ireland, a not-for-profit community organisation.
+    </p>
+    {{ if eq .Site.Params.cfpStatus "open" }}
+    <h2 class="text-2xl font-bold text-text-heading mb-3">How do I submit a talk to PyCon Ireland 2026?</h2>
+    <p class="text-text-secondary mb-8 max-w-2xl">
+      The Call for Proposals is open until <strong class="text-text-primary">{{ dateFormat "2 January 2006" .Site.Params.cfpCloses }}</strong>.
+      All experience levels are welcome, from first-time presenters to conference veterans.
+      Topics include Python, data science, AI engineering, scientific computing, and real-world Python use cases.
+      <a href="/cfp/" class="text-py-yellow hover:underline">Read the full CFP guidelines</a>.
+    </p>
+    {{ end }}
+    {{- /* Ticket price Q&A hidden until confirmed — see issue #115
+    <h2 class="text-2xl font-bold text-text-heading mb-3">How much do tickets cost for PyCon Ireland 2026?</h2>
+    <p class="text-text-secondary max-w-2xl">
+      Tickets range from <strong class="text-text-primary">€{{ (index .Site.Params.tickets 0).price }}</strong> (student)
+      to <strong class="text-text-primary">€{{ (index .Site.Params.tickets (sub (len .Site.Params.tickets) 1)).price }}</strong> (corporate).
+      {{ if .Site.Params.ticketsUrl }}<a href="{{ .Site.Params.ticketsUrl }}" class="text-py-yellow hover:underline">Get tickets</a>.{{ end }}
+    </p>
+    */ -}}
+  </div>
+</section>
