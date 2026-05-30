@@ -1,6 +1,6 @@
 ---
 title: "Call for Proposals Now Open"
-date: 2026-02-15
+date: 2026-05-29
 description: "Submit your talk proposal for PyCon Ireland 2026. We're looking for speakers of all experience levels."
 draft: false
 ---
