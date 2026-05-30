@@ -59,7 +59,8 @@ Output goes to `public/`. CSS is minified and fingerprinted automatically in pro
 │   ├── schedule.yml           # Multi-track schedule grid
 │   ├── sponsors.yml           # Sponsor tiers
 │   ├── team.yml               # Organising team
-│   └── site.yml               # About section content
+│   ├── site.yml               # About section content
+│   └── dublin.yml             # Discover Dublin (gallery, highlights, transport)
 ├── layouts/
 │   ├── _default/              # Base and fallback templates
 │   ├── partials/              # Reusable components (nav, footer, hero, etc.)
