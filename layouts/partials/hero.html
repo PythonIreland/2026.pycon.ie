@@ -1,17 +1,25 @@
-{{ $heroBase := "https://images.unsplash.com/photo-1605969353711-234dea348ce1" }}
+{{ $src     := resources.Get "img/hero.jpg" }}
+{{ $desktop := $src.Resize "1920x webp q85" }}
+{{ $tablet  := $src.Resize "1280x webp q85" }}
+{{ $mobile  := $src.Resize "768x webp q80" }}
+{{ $fallback := $src.Resize "1920x jpeg q85" }}
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
   {{/* Hero background image with photo credit anchored to it */}}
   <div class="absolute inset-0">
     <picture>
-      <source type="image/avif" media="(max-width: 768px)" srcset="{{ $heroBase }}?auto=format&fm=avif&fit=crop&w=768&q=75">
-      <source type="image/avif" srcset="{{ $heroBase }}?auto=format&fm=avif&fit=crop&w=1920&q=80">
-      <source media="(max-width: 768px)" srcset="{{ $heroBase }}?auto=format&fit=crop&w=768&q=80">
-      <img src="{{ $heroBase }}?auto=format&fit=crop&w=1920&q=85"
-           alt="Red telephone box in front of The Temple Bar, Dublin"
-           class="w-full h-full object-cover object-center"
-           width="1920" height="1280"
-           loading="eager" fetchpriority="high">
+      <source
+        type="image/webp"
+        srcset="{{ $mobile.RelPermalink }} 768w, {{ $tablet.RelPermalink }} 1280w, {{ $desktop.RelPermalink }} 1920w"
+        sizes="100vw">
+      <img
+        src="{{ $fallback.RelPermalink }}"
+        alt="Red telephone box in front of The Temple Bar, Dublin"
+        width="{{ $fallback.Width }}"
+        height="{{ $fallback.Height }}"
+        loading="eager"
+        fetchpriority="high"
+        class="w-full h-full object-cover object-center">
     </picture>
     {{/* Photo credit anchored to bottom-right of the image */}}
     <a href="https://unsplash.com/photos/NL2ORrGh8KM"
