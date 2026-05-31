@@ -339,6 +339,54 @@ Commit message style:
 
 3. **Schema.org validator:** https://validator.schema.org/
 
+## Content Security Policy (CSP)
+
+HTTP security headers are defined in `static/_headers` (served by Netlify on every response).
+
+### Adding a third-party service
+
+When adding any external script, stylesheet, or font, you **must** update the `Content-Security-Policy` header in `static/_headers`. The CI check (`scripts/check-csp.py`) will fail if a domain referenced in templates is missing from the CSP.
+
+**Steps:**
+
+1. Add the domain to the appropriate directive(s) in `static/_headers`:
+
+   | Resource type | Directive |
+   |---|---|
+   | `<script src="...">` | `script-src` |
+   | `<link rel="stylesheet">` or `<link rel="preload" as="style">` | `style-src` |
+   | Font files | `font-src` |
+   | `<link rel="preconnect">` | `connect-src` |
+   | `<img src="...">` | `img-src` (note: `https:` is a wildcard for all HTTPS images) |
+
+2. If the service **dynamically loads additional sub-resources** at runtime (e.g. a JS file that then injects a CSS or loads fonts), declare it in `csp-dynamic-loaders.yml`:
+
+   ```yaml
+   - name: My Service
+     trigger:
+       directive: script-src
+       domain: cdn.myservice.com
+     also-loads:
+       - directive: style-src
+         domain: cdn.myservice.com   # CSS injected by the JS
+       - directive: font-src
+         domain: fonts.myservice.com
+   ```
+
+3. Run the checker locally to verify before pushing:
+
+   ```bash
+   python scripts/check-csp.py --verbose
+   ```
+
+### CI enforcement
+
+`.github/workflows/csp-check.yml` runs `scripts/check-csp.py` on every PR that touches `layouts/`, `static/_headers`, or `csp-dynamic-loaders.yml`. A missing domain causes the check to fail with a precise error message pointing to the file and line.
+
+### Background
+
+The Bree brand font (Adobe Fonts / Typekit) stopped loading in production because `use.typekit.net` was present in `script-src` and `font-src` but missing from `style-src`. Typekit's JS dynamically injects a stylesheet — invisible to static analysis — which the browser blocked. This checker was introduced to prevent that class of regression.
+
 ## Important Files
 
 - `hugo.toml` — All site configuration and parameters
@@ -350,6 +398,9 @@ Commit message style:
 - `layouts/partials/structured-data*.html` — JSON-LD schemas (3 files)
 - `data/*.yml` — All conference content (speakers, sessions, schedule, sponsors)
 - `docs/STRUCTURED-DATA.md` — Complete structured data documentation
+- `static/_headers` — Netlify HTTP security headers including CSP
+- `csp-dynamic-loaders.yml` — Runtime loader declarations for the CSP checker
+- `scripts/check-csp.py` — Static CSP consistency checker
 
 ## Deployment
 
