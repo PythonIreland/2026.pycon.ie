@@ -16,6 +16,8 @@
   also-loads:
     - directive: style-src
       domain: use.typekit.net      # qgj1xay.css injected by qgj1xay.js
+    - directive: style-src
+      domain: p.typekit.net        # p.css injected at runtime (per-session font config)
     - directive: font-src
       domain: use.typekit.net
     - directive: font-src
