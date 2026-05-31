@@ -4,7 +4,9 @@
     {{ if hugo.IsDevelopment }}
       <link rel="stylesheet" href="{{ .RelPermalink }}">
     {{ else }}
-      <style>{{ .Content | safeCSS }}</style>
+      {{ with . | fingerprint }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+      {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}
