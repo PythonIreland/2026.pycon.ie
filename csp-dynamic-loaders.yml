@@ -1,0 +1,32 @@
+# Dynamic resource loaders — services whose JS injects additional resources
+# at runtime that static analysis cannot see in the HTML.
+#
+# Format:
+#   trigger: the domain/directive that activates this loader (must be in CSP)
+#   also-loads: additional domain/directive pairs that must also be in CSP
+#
+# When the trigger is present in the CSP, every also-loads entry is verified.
+# Add a new entry here whenever you add a third-party script that loads
+# its own stylesheets, fonts, or other sub-resources.
+
+- name: Adobe Fonts (Typekit)
+  trigger:
+    directive: script-src
+    domain: use.typekit.net
+  also-loads:
+    - directive: style-src
+      domain: use.typekit.net      # qgj1xay.css injected by qgj1xay.js
+    - directive: font-src
+      domain: use.typekit.net
+    - directive: font-src
+      domain: p.typekit.net
+    - directive: connect-src
+      domain: p.typekit.net
+
+- name: Google Fonts
+  trigger:
+    directive: style-src
+    domain: fonts.googleapis.com
+  also-loads:
+    - directive: font-src
+      domain: fonts.gstatic.com   # actual font files served from gstatic
