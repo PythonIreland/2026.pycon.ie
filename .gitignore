@@ -7,3 +7,6 @@ hugo_stats.json
 
 # Claude Code local instructions
 CLAUDE.local.md
+
+# Local Netlify folder
+.netlify
