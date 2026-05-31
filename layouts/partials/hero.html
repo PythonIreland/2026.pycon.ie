@@ -1,4 +1,5 @@
-{{ $src     := resources.Get "img/hero.jpg" }}
+{{ $src := resources.Get "img/hero.jpg" }}
+{{ if not $src }}{{ errorf "assets/img/hero.jpg is missing — hero image pipeline broken" }}{{ end }}
 {{ $desktop := $src.Resize "1920x webp q85" }}
 {{ $tablet  := $src.Resize "1280x webp q85" }}
 {{ $mobile  := $src.Resize "768x webp q80" }}
