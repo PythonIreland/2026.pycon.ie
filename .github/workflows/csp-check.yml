@@ -1,0 +1,29 @@
+name: CSP Check
+
+on:
+  push:
+    paths:
+      - static/_headers
+      - csp-dynamic-loaders.yml
+      - scripts/check-csp.py
+      - layouts/**
+  pull_request:
+    paths:
+      - static/_headers
+      - csp-dynamic-loaders.yml
+      - scripts/check-csp.py
+      - layouts/**
+
+jobs:
+  csp-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - run: pip install pyyaml
+
+      - run: python scripts/check-csp.py --verbose
