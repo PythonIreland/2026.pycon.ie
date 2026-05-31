@@ -13,12 +13,12 @@ Used under the [Unsplash License](https://unsplash.com/license) — free for com
 
 ## Homepage — About section cards
 
-**Conference talk — crowd of people seated in a conference room**
-Photograph by [Headway](https://unsplash.com/@headwayio), published on [Unsplash](https://unsplash.com/photos/F2KRf_QfCqw).
+**Conference talk — speaker presenting at a technology conference**
+Photograph by [Danny Howe](https://unsplash.com/@dannyhowe), published on [Unsplash](https://unsplash.com/photos/1540575467063).
 Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
 
 **Conference networking — people collaborating at a tech event**
-Photograph by [Marvin Meyer](https://unsplash.com/@marvelous), published on [Unsplash](https://unsplash.com/photos/SYTO3xs06fU).
+Photograph by [Headway](https://unsplash.com/@headwayio), published on [Unsplash](https://unsplash.com/photos/1519389950473).
 Used under the [Unsplash License](https://unsplash.com/license) — free for commercial use, no attribution required.
 
 ---

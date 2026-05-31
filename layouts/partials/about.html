@@ -12,7 +12,10 @@
         <div class="bg-bg-card rounded-2xl overflow-hidden card-glow transition-all duration-300 hover:-translate-y-1">
           {{ if $item.image }}
             <div class="h-52 overflow-hidden">
-              <img src="{{ $item.image }}" alt="{{ $item.image_alt }}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy">
+              <picture>
+                {{ with $item.image_webp }}<source srcset="{{ . }}" type="image/webp">{{ end }}
+                <img src="{{ $item.image }}" alt="{{ $item.image_alt }}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy" width="800" height="533">
+              </picture>
             </div>
           {{ end }}
           <div class="p-8">
