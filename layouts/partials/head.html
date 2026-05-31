@@ -36,6 +36,18 @@
 <link rel="preload" href="https://use.typekit.net/qgj1xay.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://use.typekit.net/qgj1xay.css"></noscript>
 
+{{/* Hero image preload — homepage only */}}
+{{ if .IsHome }}
+  {{ $hero        := resources.Get "img/hero.jpg" }}
+  {{ $heroDesktop := $hero.Resize "1920x webp q85" }}
+  {{ $heroMobile  := $hero.Resize "768x webp q80" }}
+  <link rel="preload" as="image" type="image/webp"
+        href="{{ $heroDesktop.RelPermalink }}"
+        imagesrcset="{{ $heroMobile.RelPermalink }} 768w, {{ $heroDesktop.RelPermalink }} 1920w"
+        imagesizes="100vw"
+        fetchpriority="high">
+{{ end }}
+
 {{/* Favicon */}}
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
