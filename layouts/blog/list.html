@@ -5,6 +5,16 @@
     <div class="max-w-4xl mx-auto px-4">
       <h1 class="text-4xl sm:text-5xl font-extrabold text-text-heading mb-4">{{ .Title }}</h1>
       <p class="text-text-secondary text-lg max-w-2xl mx-auto">{{ .Description }}</p>
+      {{- with .OutputFormats.Get "RSS" }}
+      <div class="mt-6">
+        <a href="{{ .Permalink }}" class="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-py-yellow transition-colors" title="Subscribe to the blog RSS feed">
+          <svg class="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M3.75 3a.75.75 0 0 0 0 1.5c7.042 0 12.75 5.708 12.75 12.75a.75.75 0 0 0 1.5 0C18 9.434 11.566 3 3.75 3ZM3.75 8.5a.75.75 0 0 0 0 1.5 6.75 6.75 0 0 1 6.75 6.75.75.75 0 0 0 1.5 0A8.25 8.25 0 0 0 3.75 8.5ZM3 15.25a1.25 1.25 0 1 0 2.5 0 1.25 1.25 0 0 0-2.5 0Z"/>
+          </svg>
+          RSS Feed
+        </a>
+      </div>
+      {{- end }}
     </div>
   </section>
 

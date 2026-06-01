@@ -56,5 +56,16 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="/favicon.png">
 
+{{/* RSS autodiscovery */}}
+{{- if eq .Section "blog" }}
+  {{- with .OutputFormats.Get "RSS" }}
+  <link rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }} Blog" href="{{ .Permalink }}">
+  {{- end }}
+{{- else if .IsHome }}
+  {{- with .OutputFormats.Get "RSS" }}
+  <link rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
+  {{- end }}
+{{- end }}
+
 {{/* Structured Data / Schema.org */}}
 {{ partial "structured-data.html" . }}
