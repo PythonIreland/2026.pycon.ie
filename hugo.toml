@@ -64,7 +64,7 @@ enableGitInfo = true
   mastodonUrl = "https://mastodon.ie/@Python_Ireland"
   youtubeUrl = "https://www.youtube.com/@PythonIreland"
   linkedinUrl = "https://www.linkedin.com/company/python-ireland"
-  ogImage = "/img/og-image.png"
+  ogImage = "/img/og-image.webp"
 
   [params.hero]
     title = "PyCon Ireland 2026"
