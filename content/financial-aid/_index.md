@@ -1,6 +1,6 @@
 ---
 title: "Financial Aid"
-description: "Financial assistance is available for eligible attendees of PyCon Ireland 2026."
+description: "Python Ireland offers grants covering tickets, travel, and accommodation for community members attending PyCon Ireland 2026 who need financial support."
 layout: "single"
 ---
 
