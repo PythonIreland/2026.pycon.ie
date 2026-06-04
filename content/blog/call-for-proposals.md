@@ -25,6 +25,6 @@ Whether you're a first-time speaker or an experienced presenter, we'd love to he
 
 ## How to Submit
 
-Visit our [proposal submission page](https://sessionize.com/pycon-ireland-2026/) to submit your talk. The deadline is **30 August 2026**.
+Visit our [proposal submission page](https://sessionize.com/pycon-ireland-2026/) to submit your talk. The deadline is **31 July 2026**.
 
 Don't hesitate to reach out at [contact@python.ie](mailto:contact@python.ie) if you have any questions about your proposal.

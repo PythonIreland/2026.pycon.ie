@@ -54,7 +54,7 @@ enableGitInfo = true
   cfpStatus = "open"
   cfpUrl = "https://sessionize.com/pycon-ireland-2026/"
   cfpOpens = "2026-05-25"
-  cfpCloses = "2026-08-30"
+  cfpCloses = "2026-07-31"
   ticketsUrl = ""  # Set to Tito/Eventbrite URL when tickets go on sale
 
   # Contact & social
