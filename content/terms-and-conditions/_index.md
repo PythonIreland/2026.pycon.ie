@@ -1,6 +1,6 @@
 ---
 title: Terms and Conditions
-description: "Terms and conditions for attending PyCon Ireland 2026."
+description: "Read the terms and conditions for purchasing tickets and attending PyCon Ireland 2026 at Trinity College Dublin on 17 October 2026."
 layout: "single"
 ---
 

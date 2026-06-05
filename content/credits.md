@@ -1,6 +1,6 @@
 ---
 title: "Photo Credits"
-description: "Attribution for photography and images used on the PyCon Ireland 2026 website."
+description: "Photo credits and image attribution for the PyCon Ireland 2026 website. Find the sources for photography and visual assets used across the site."
 ---
 
 ## CFP page — Hero

@@ -1,7 +1,7 @@
 ---
 title: "Announcing PyCon Ireland 2026"
 date: 2026-05-01
-description: "We're excited to announce PyCon Ireland 2026! Join us on 17 October at Trinity College Dublin."
+description: "We're excited to announce PyCon Ireland 2026, taking place on 17 October at Trinity College Dublin. Save the date and join Ireland's Python community."
 draft: false
 ---
 
