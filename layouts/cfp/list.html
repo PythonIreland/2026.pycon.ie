@@ -37,7 +37,7 @@
       {{ .Site.Title }} Call for Proposals
     </h1>
     <p class="text-xl text-text-secondary max-w-2xl mx-auto mb-8">
-      PyCon Ireland is looking for speakers. Share your Python knowledge, inspire the community, and take the stage at <strong class="text-text-primary">Trinity College Dublin</strong> on <strong class="text-text-primary">17 October 2026</strong>.
+      PyCon Ireland is looking for speakers. Share your Python knowledge, inspire the community, and take the stage at <strong class="text-text-primary">{{ .Site.Params.venue }}</strong> on <strong class="text-text-primary">{{ .Site.Params.dateHuman }}</strong>.
     </p>
 
     {{/* CFP dates */}}
@@ -335,7 +335,7 @@
       {{ if eq .Site.Params.cfpStatus "open" }}
       <h2 class="text-2xl font-bold text-text-heading mb-4">Ready to Submit?</h2>
       <p class="text-text-secondary mb-8 leading-relaxed">
-        We look forward to your submissions and can't wait to see the incredible talks you'll bring to PyCon Ireland 2026!
+        We look forward to your submissions and can't wait to see the incredible talks you'll bring to {{ .Site.Title }}!
       </p>
       <a href="{{ .Site.Params.cfpUrl }}" target="_blank" rel="noopener"
          class="inline-flex items-center gap-2 bg-py-yellow hover:bg-py-yellow-light text-bg-primary font-bold px-8 py-4 rounded-xl text-lg transition-colors">
@@ -379,7 +379,7 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Who should submit a talk to PyCon Ireland 2026?",
+      "name": "Who should submit a talk to {{ .Site.Title }}?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Anyone with Python experience is welcome to submit — from first-time presenters to conference veterans. Topics include Python, data science, AI engineering, scientific computing, and real-world Python use cases."
@@ -387,7 +387,7 @@
     },
     {
       "@type": "Question",
-      "name": "Do speakers need to buy a ticket for PyCon Ireland 2026?",
+      "name": "Do speakers need to buy a ticket for {{ .Site.Title }}?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes, all accepted speakers are required to purchase a conference ticket. Financial aid is available on request for those who need it."
@@ -395,7 +395,7 @@
     },
     {
       "@type": "Question",
-      "name": "When does the PyCon Ireland 2026 Call for Proposals close?",
+      "name": "When does the {{ .Site.Title }} Call for Proposals close?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "The Call for Proposals closes on 31 July 2026. Submissions are reviewed by the programme committee and applicants are notified of the outcome."

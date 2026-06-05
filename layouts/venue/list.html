@@ -22,7 +22,7 @@
       <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-py-yellow/5 rounded-full blur-3xl"></div>
     </div>
     <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-      <p class="text-py-yellow font-semibold text-sm uppercase tracking-widest mb-4">PyCon Ireland 2026</p>
+      <p class="text-py-yellow font-semibold text-sm uppercase tracking-widest mb-4">{{ .Site.Title }}</p>
       <h1 class="font-brand text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-6" style="text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);">
         {{ .Site.Params.venue }}
       </h1>
@@ -53,7 +53,7 @@
               Trinity College Dublin is Ireland's oldest and most prestigious university, founded in 1592 and located in the heart of Dublin city centre.
             </p>
             <p>
-              With its stunning historic campus and excellent facilities, TCD provides the perfect environment for PyCon Ireland 2026.
+              With its stunning historic campus and excellent facilities, TCD provides the perfect environment for {{ .Site.Title }}.
             </p>
           </div>
 
@@ -126,7 +126,7 @@
     <div class="text-center mb-12">
       <h2 class="text-3xl font-bold text-text-heading mb-4">Accessibility</h2>
       <p class="text-text-secondary text-lg max-w-2xl mx-auto">
-        We are committed to making PyCon Ireland 2026 accessible to everyone.
+        We are committed to making {{ .Site.Title }} accessible to everyone.
         If you have specific requirements, please <a href="mailto:{{ .Site.Params.email }}" class="text-py-yellow hover:underline">contact us</a> in advance.
       </p>
     </div>

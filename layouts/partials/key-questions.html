@@ -1,13 +1,13 @@
 <section class="py-12 bg-bg-primary">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-2xl font-bold text-text-heading mb-3">When and where is PyCon Ireland 2026?</h2>
+    <h2 class="text-2xl font-bold text-text-heading mb-3">When and where is {{ .Site.Title }}?</h2>
     <p class="text-text-secondary mb-8 max-w-2xl">
-      PyCon Ireland 2026 takes place on <strong class="text-text-primary">{{ .Site.Params.dateHuman }}</strong>
+      {{ .Site.Title }} takes place on <strong class="text-text-primary">{{ .Site.Params.dateHuman }}</strong>
       at <strong class="text-text-primary">{{ .Site.Params.venue }}</strong>, College Green, Dublin 2, Ireland.
       It is a single-day, multi-track conference organised by Python Ireland, a not-for-profit community organisation.
     </p>
     {{ if eq .Site.Params.cfpStatus "open" }}
-    <h2 class="text-2xl font-bold text-text-heading mb-3">How do I submit a talk to PyCon Ireland 2026?</h2>
+    <h2 class="text-2xl font-bold text-text-heading mb-3">How do I submit a talk to {{ .Site.Title }}?</h2>
     <p class="text-text-secondary mb-8 max-w-2xl">
       The Call for Proposals is open until <strong class="text-text-primary">{{ dateFormat "2 January 2006" .Site.Params.cfpCloses }}</strong>.
       All experience levels are welcome, from first-time presenters to conference veterans.
