@@ -1,6 +1,6 @@
 ---
 title: Code of Conduct
-description: "Python Ireland is dedicated to providing a harassment-free conference experience for everyone."
+description: "Python Ireland is dedicated to providing a harassment-free conference experience for everyone at PyCon Ireland 2026. Read the full Code of Conduct."
 layout: "single"
 ---
 
