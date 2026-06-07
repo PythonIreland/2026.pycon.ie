@@ -1,5 +1,5 @@
 baseURL = "https://2026.pycon.ie/"
-locale = "en-IE"
+locale = "en"
 title = "PyCon Ireland 2026"
 enableGitInfo = true
 
