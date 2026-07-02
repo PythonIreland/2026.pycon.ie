@@ -56,6 +56,7 @@ enableGitInfo = true
   cfpOpens = "2026-05-25"
   cfpCloses = "2026-07-31"
   ticketsUrl = ""  # Set to Tito/Eventbrite URL when tickets go on sale
+  ticketsValidFrom = "2026-05-01"  # Date pricing tiers were announced; required by Google's Offer.validFrom check
 
   # Contact & social
   email = "contact@python.ie"
