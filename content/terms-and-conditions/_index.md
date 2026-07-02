@@ -1,12 +1,15 @@
 ---
 title: Terms and Conditions
-description: "Read the terms and conditions for purchasing tickets and attending PyCon Ireland 2026 at Trinity College Dublin on 17 October 2026."
+# TODO: restore date/venue once confirmed — see venueChangePending in hugo.toml
+description: "Read the terms and conditions for purchasing tickets and attending PyCon Ireland 2026, organised by Python Ireland."
 layout: "single"
 ---
 
+<!-- TODO: restore date/venue once confirmed — see venueChangePending in hugo.toml -->
+
 ### Terms and Conditions — PyCon Ireland 2026
 
-These Terms and Conditions govern the purchase of tickets and attendance at PyCon Ireland 2026 ("the Event"), organised by Python Ireland Developers CLG ("Python Ireland"), taking place on 17 October 2026 at Trinity College Dublin, Ireland.
+These Terms and Conditions govern the purchase of tickets and attendance at PyCon Ireland 2026 ("the Event"), organised by Python Ireland Developers CLG ("Python Ireland"). The venue and date are currently being confirmed following a change of venue; this page will be updated once they are finalised.
 
 By purchasing a ticket or attending the Event, you agree to be bound by these Terms and Conditions.
 

@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}{{ .Site.Title }} — Python Conference · Dublin, {{ dateFormat "2 January" (time .Site.Params.eventStartDate) }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+{{/* TODO: restore ", {{ dateFormat "2 January" (time .Site.Params.eventStartDate) }}" once a new venue and date are confirmed — see venueChangePending in hugo.toml */}}
+<title>{{ if .IsHome }}{{ .Site.Title }} — Python Conference · Dublin{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta name="robots" content="index, follow">
 <meta name="google-site-verification" content="QPz8yzH2pOdYQFiK3Ndfd2VqhtQDzvkDs1YSZHntgao">
