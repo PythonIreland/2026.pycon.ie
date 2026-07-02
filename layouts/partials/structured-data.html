@@ -73,7 +73,8 @@
     "offerCount": {{ len .Site.Params.tickets }},
     "priceCurrency": "EUR",
     "url": "{{ if .Site.Params.ticketsUrl }}{{ .Site.Params.ticketsUrl }}{{ else }}{{ .Site.BaseURL }}{{ end }}",
-    "availability": "https://schema.org/PreOrder"
+    "availability": "https://schema.org/PreOrder",
+    "validFrom": "{{ .Site.Params.ticketsValidFrom }}"
   }
 }
 </script>
