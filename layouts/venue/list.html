@@ -24,7 +24,11 @@
     <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
       <p class="text-py-yellow font-semibold text-sm uppercase tracking-widest mb-4">{{ .Site.Title }}</p>
       <h1 class="font-brand text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-6" style="text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);">
-        {{ .Site.Params.venue }}
+        {{ if .Site.Params.venueChangePending }}
+          <s class="opacity-60 decoration-2">{{ .Site.Params.venue }}</s>
+        {{ else }}
+          {{ .Site.Params.venue }}
+        {{ end }}
       </h1>
       <p class="text-xl sm:text-2xl text-text-secondary max-w-2xl mx-auto">
         {{ .Description }}
