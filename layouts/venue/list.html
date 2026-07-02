@@ -40,6 +40,21 @@
 <div>
   <div class="section-divider max-w-7xl mx-auto"></div>
 
+  {{ if .Site.Params.venueChangePending }}
+  <section class="pt-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-bg-card border border-red-500/20 rounded-2xl p-6 flex flex-col sm:flex-row items-start gap-4">
+        <svg class="w-6 h-6 text-red-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+        <div class="text-text-secondary text-sm leading-relaxed">
+          <strong class="text-text-heading block mb-1">This venue is changing.</strong>
+          <s class="opacity-60">{{ .Site.Params.venue }}</s> is no longer able to host {{ .Site.Title }}. We are working to confirm a new venue and date, and will update this page as soon as details are available.
+          Read the full update on our <a href="/blog/venue-change-cfp-paused/" class="text-py-yellow hover:underline">blog</a>.
+        </div>
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
   {{/* Venue details */}}
   <section class="py-16">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -12,7 +12,11 @@
         </a>
         <p class="text-text-secondary text-sm">
           Ireland's premier Python conference.<br>
+          {{ if .Site.Params.venueChangePending }}
+          <s class="opacity-60">{{ .Site.Params.dateHuman }}</s> (new date TBC)
+          {{ else }}
           {{ .Site.Params.dateHuman }}
+          {{ end }}
         </p>
       </div>
 

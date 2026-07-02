@@ -41,7 +41,7 @@
   "description": "{{ .Site.Params.description }}",
   "startDate": "{{ .Site.Params.eventStartDate }}",
   "endDate": "{{ .Site.Params.eventEndDate }}",
-  "eventStatus": "https://schema.org/EventScheduled",
+  "eventStatus": "https://schema.org/{{ if .Site.Params.venueChangePending }}EventPostponed{{ else }}EventScheduled{{ end }}",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "location": {
     "@type": "Place",
