@@ -49,12 +49,22 @@
     </p>
     <div class="max-w-2xl mx-auto mb-8 bg-bg-card border border-red-500/20 rounded-2xl px-6 py-5 text-text-secondary text-sm text-left">
       <p><strong class="text-text-primary">Why is the CFP closed?</strong> Read the full explanation in our
-      <a href="/blog/venue-change-cfp-paused/" class="text-py-yellow hover:underline">blog post</a>. We will reopen the CFP, with a fresh timeline, once the new venue and date are confirmed.</p>
+      <a href="/blog/venue-change/" class="text-py-yellow hover:underline">blog post</a>. We will reopen the CFP, with a fresh timeline, once the new venue and date are confirmed.</p>
     </div>
     {{ else }}
     <p class="text-xl text-text-secondary max-w-2xl mx-auto mb-8">
+      {{ if .Site.Params.venueChangePending }}
+      PyCon Ireland is looking for speakers. Share your Python knowledge and inspire the community, no need to wait for us to confirm the new venue and date before submitting your proposal.
+      {{ else }}
       PyCon Ireland is looking for speakers. Share your Python knowledge, inspire the community, and take the stage at <strong class="text-text-primary">{{ .Site.Params.venue }}</strong> on <strong class="text-text-primary">{{ .Site.Params.dateHuman }}</strong>.
+      {{ end }}
     </p>
+    {{ if .Site.Params.venueChangePending }}
+    <div class="max-w-2xl mx-auto mb-8 bg-bg-card border border-py-blue/20 rounded-2xl px-6 py-5 text-text-secondary text-sm text-left">
+      <p><strong class="text-text-primary">Venue and date still to be confirmed.</strong> Our booked venue can no longer host the conference, and we are working on a new venue and date. Read the
+      <a href="/blog/venue-change/" class="text-py-yellow hover:underline">latest update</a>. The Call for Proposals is open in the meantime, and accepted speakers will be informed of the new venue and date as soon as they are confirmed.</p>
+    </div>
+    {{ end }}
 
     {{/* CFP dates */}}
     <div class="flex flex-wrap justify-center gap-4 mb-8">
@@ -372,7 +382,7 @@
       <h2 class="text-2xl font-bold text-text-heading mb-4">Stay in the Loop</h2>
       <p class="text-text-secondary mb-8 leading-relaxed">
         The Call for Proposals will reopen once we have confirmed a new venue and date, currently unknown.
-        Read our <a href="/blog/venue-change-cfp-paused/" class="text-py-yellow hover:underline">full update</a>, and
+        Read our <a href="/blog/venue-change/" class="text-py-yellow hover:underline">full update</a>, and
         follow Python Ireland on social media to be among the first notified when submissions reopen.
       </p>
       {{ else }}
@@ -431,7 +441,7 @@
       "name": "Is the {{ .Site.Title }} Call for Proposals open?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Call for Proposals is temporarily closed. The original venue can no longer host the conference, so a new venue and date are being confirmed before submissions reopen."
+        "text": "{{ if eq .Site.Params.cfpStatus "closed" }}The Call for Proposals is temporarily closed. The original venue can no longer host the conference, so a new venue and date are being confirmed before submissions reopen.{{ else if eq .Site.Params.cfpStatus "open" }}Yes, the Call for Proposals is open until {{ dateFormat "2 January 2006" .Site.Params.cfpCloses }}.{{ if .Site.Params.venueChangePending }} The venue and date are still being confirmed, but you can submit your talk now.{{ end }}{{ else }}The Call for Proposals is not open yet.{{ end }}"
       }
     }
   ]
