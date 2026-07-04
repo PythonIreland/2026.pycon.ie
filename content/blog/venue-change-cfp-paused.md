@@ -14,6 +14,7 @@ We know this is disappointing, especially for everyone who was planning to submi
 - **The Call for Proposals is temporarily closed**, until we can confirm a new venue. If you were preparing a submission, please hold off until we reopen it with a confirmed timeline.
 - **The conference date of 17 October 2026 no longer stands.** We will announce a new date once we have one.
 - **We are actively looking for a new venue** in the Dublin area that can accommodate the conference. As soon as a venue and date are confirmed, we will update the website and announce it through our usual channels.
+- **If you already submitted a talk, don't worry, your proposal is safe.** We will let speakers know the new date and venue as soon as they're confirmed, so you can make your own arrangements in good time.
 
 ## What Stays the Same
 
