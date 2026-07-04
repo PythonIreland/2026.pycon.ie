@@ -60,6 +60,7 @@
   {{ end }}
 
   {{/* Venue details */}}
+  {{ if not .Site.Params.venueChangePending }}
   <section class="py-16">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -138,8 +139,10 @@
       </div>
     </div>
   </section>
+  {{ end }}
 </div>
 {{/* ── Accessibility ── */}}
+{{ if not .Site.Params.venueChangePending }}
 <section class="py-20 bg-bg-secondary">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
@@ -224,8 +227,10 @@
     </div>
   </div>
 </section>
+{{ end }}
 
 {{/* Place schema — defines the @id referenced from the homepage Event location */}}
+{{ if not .Site.Params.venueChangePending }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -249,5 +254,6 @@
   "telephone": "{{ .Site.Params.venuePhone }}"
 }
 </script>
+{{ end }}
 
 {{ end }}
