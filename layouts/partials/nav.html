@@ -1,4 +1,16 @@
 <header class="fixed top-0 left-0 right-0 z-50 nav-blur bg-bg-primary/80 border-b border-white/5">
+  {{ if .Site.Params.venueChangePending }}
+  <div class="bg-red-500/15 border-b border-red-500/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-xs sm:text-sm">
+      <svg class="w-4 h-4 text-red-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+      <span class="text-text-primary">
+        <strong>Venue &amp; date update:</strong> our booked venue can no longer host {{ .Site.Title }}. A new venue and date are being confirmed.
+        {{ if eq .Site.Params.cfpStatus "open" }}The Call for Proposals is open in the meantime, until {{ dateFormat "2 January 2006" .Site.Params.cfpCloses }}.{{ else if eq .Site.Params.cfpStatus "closed" }}The Call for Proposals is temporarily closed.{{ end }}
+      </span>
+      <a href="/blog/venue-change/" class="text-py-yellow hover:underline font-semibold whitespace-nowrap">Read the update &rarr;</a>
+    </div>
+  </div>
+  {{ end }}
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       {{/* Logo */}}

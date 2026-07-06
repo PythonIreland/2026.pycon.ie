@@ -50,13 +50,18 @@ enableGitInfo = true
   organizerUrl = "https://python.ie/"
   croNumber = "559983"
 
-  # CFP status: "soon" or "open"
+  # CFP status: "soon", "open", or "closed"
   cfpStatus = "open"
   cfpUrl = "https://sessionize.com/pycon-ireland-2026/"
   cfpOpens = "2026-05-25"
-  cfpCloses = "2026-07-31"
+  cfpCloses = "2026-08-30"
   ticketsUrl = ""  # Set to Tito/Eventbrite URL when tickets go on sale
   ticketsValidFrom = "2026-05-01"  # Date pricing tiers were announced; required by Google's Offer.validFrom check
+
+  # Set to true while the venue and date are unconfirmed (venue withdrew from hosting).
+  # Drives the sitewide notice banner and the struck-through date across templates.
+  # See content/blog/venue-change.md for the full announcement.
+  venueChangePending = true
 
   # Contact & social
   email = "contact@python.ie"

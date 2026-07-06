@@ -49,7 +49,12 @@
     </h1>
 
     <p class="text-py-yellow font-semibold text-base sm:text-lg uppercase tracking-widest mb-8">
-      {{ .Site.Params.hero.date }} &middot; {{ .Site.Params.hero.location }}
+      {{ if .Site.Params.venueChangePending }}
+        <s class="opacity-60 decoration-2">{{ .Site.Params.hero.date }}</s> &middot; <s class="opacity-60 decoration-2">{{ .Site.Params.hero.location }}</s>
+        <span class="block sm:inline text-text-secondary normal-case tracking-normal text-sm mt-1 sm:mt-0 sm:ml-2">New venue &amp; date to be announced</span>
+      {{ else }}
+        {{ .Site.Params.hero.date }} &middot; {{ .Site.Params.hero.location }}
+      {{ end }}
     </p>
 
     <p class="text-xl sm:text-2xl text-text-secondary max-w-2xl mx-auto mb-10">
@@ -60,6 +65,14 @@
       {{ if eq .Site.Params.cfpStatus "open" }}
         <a href="/cfp/" class="bg-py-yellow text-bg-primary px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-yellow-light transition-colors">
           Submit a Talk &rarr;
+        </a>
+        <a href="#about" class="border border-white/50 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 transition-colors">
+          Learn More
+        </a>
+      {{ else if eq .Site.Params.cfpStatus "closed" }}
+        <a href="/cfp/" class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/15 transition-colors">
+          <span class="w-2 h-2 rounded-full bg-red-400"></span>
+          CFP Temporarily Closed
         </a>
         <a href="#about" class="border border-white/50 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 transition-colors">
           Learn More

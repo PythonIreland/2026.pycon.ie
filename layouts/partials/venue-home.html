@@ -1,8 +1,14 @@
 <section class="py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div>
+    <div class="grid grid-cols-1 {{ if not .Site.Params.venueChangePending }}lg:grid-cols-2{{ end }} gap-12 items-center">
+      <div{{ if .Site.Params.venueChangePending }} class="max-w-2xl mx-auto text-center"{{ end }}>
         <h2 class="text-3xl sm:text-4xl font-bold text-text-heading mb-4">The Venue</h2>
+        {{ if .Site.Params.venueChangePending }}
+        <div class="bg-bg-card border border-py-blue/20 rounded-2xl px-6 py-5 text-text-secondary text-sm leading-relaxed mb-6 text-left">
+          <strong class="text-text-heading block mb-1">Venue and date to be confirmed.</strong>
+          Our booked venue can no longer host {{ .Site.Title }}. We are working to confirm a new venue and date, and will update this page as soon as details are available.
+        </div>
+        {{ else }}
         <h3 class="text-xl text-py-blue-light font-semibold mb-4">{{ .Site.Params.venue }}</h3>
         <p class="text-text-secondary mb-6 leading-relaxed">
           Trinity College Dublin is one of Ireland's most iconic universities, located in
@@ -13,11 +19,13 @@
           <svg class="w-5 h-5 inline-block text-py-yellow mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           {{ .Site.Params.venueAddress }}
         </p>
+        {{ end }}
         <a href="/venue/" class="text-py-blue-light hover:text-py-yellow font-semibold transition-colors">
           Venue Details &rarr;
         </a>
       </div>
 
+      {{ if not .Site.Params.venueChangePending }}
       {{ $lat := .Site.Params.venueMapLat | float }}
       {{ $lon := .Site.Params.venueMapLon | float }}
       {{ $d := 0.008 }}
@@ -30,6 +38,7 @@
           title="Venue map">
         </iframe>
       </div>
+      {{ end }}
     </div>
   </div>
 </section>

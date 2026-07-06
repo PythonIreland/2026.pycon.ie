@@ -1,4 +1,4 @@
 ---
-title: "Venue — Trinity College Dublin"
-description: "PyCon Ireland 2026 takes place at Trinity College Dublin, College Green, Dublin 2. Find out how to get there and what to expect on the day."
+title: "Venue: To Be Confirmed"
+description: "Our booked venue, Trinity College Dublin, can no longer host PyCon Ireland 2026. We are confirming a new venue and date: read the latest update."
 ---

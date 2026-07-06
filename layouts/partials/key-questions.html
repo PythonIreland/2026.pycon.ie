@@ -2,9 +2,17 @@
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-2xl font-bold text-text-heading mb-3">When and where is {{ .Site.Title }}?</h2>
     <p class="text-text-secondary mb-8 max-w-2xl">
+      {{ if .Site.Params.venueChangePending }}
+      {{ .Site.Title }} was due to take place on <s class="opacity-60">{{ .Site.Params.dateHuman }}</s>
+      at <s class="opacity-60">{{ .Site.Params.venue }}</s>, College Green, Dublin 2, Ireland.
+      The venue can no longer host the event, so a new venue and date are being confirmed — see our
+      <a href="/blog/venue-change/" class="text-py-yellow hover:underline">latest update</a>.
+      It will remain a single-day, multi-track conference organised by Python Ireland, a not-for-profit community organisation.
+      {{ else }}
       {{ .Site.Title }} takes place on <strong class="text-text-primary">{{ .Site.Params.dateHuman }}</strong>
       at <strong class="text-text-primary">{{ .Site.Params.venue }}</strong>, College Green, Dublin 2, Ireland.
       It is a single-day, multi-track conference organised by Python Ireland, a not-for-profit community organisation.
+      {{ end }}
     </p>
     {{ if eq .Site.Params.cfpStatus "open" }}
     <h2 class="text-2xl font-bold text-text-heading mb-3">How do I submit a talk to {{ .Site.Title }}?</h2>
@@ -13,6 +21,12 @@
       All experience levels are welcome, from first-time presenters to conference veterans.
       Topics include Python, data science, AI engineering, scientific computing, and real-world Python use cases.
       <a href="/cfp/" class="text-py-yellow hover:underline">Read the full CFP guidelines</a>.
+    </p>
+    {{ else if eq .Site.Params.cfpStatus "closed" }}
+    <h2 class="text-2xl font-bold text-text-heading mb-3">Is the Call for Proposals for {{ .Site.Title }} open?</h2>
+    <p class="text-text-secondary mb-8 max-w-2xl">
+      No, the Call for Proposals is temporarily closed while we confirm a new venue and date.
+      <a href="/cfp/" class="text-py-yellow hover:underline">Read the full CFP page</a> for details, and follow us on social media for updates on when it reopens.
     </p>
     {{ end }}
     {{- /* Ticket price Q&A hidden until confirmed — see issue #115

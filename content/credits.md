@@ -3,6 +3,13 @@ title: "Photo Credits"
 description: "Photo credits and image attribution for the PyCon Ireland 2026 website. Find the sources for photography and visual assets used across the site."
 ---
 
+## Social sharing — OG images
+
+**PyCon Ireland 2026 branded artwork**
+AI-generated illustration created for Python Ireland, used for the site's Open Graph / Twitter Card preview images (homepage and CFP page).
+
+---
+
 ## CFP page — Hero
 
 **Speaker presenting on stage at a conference**

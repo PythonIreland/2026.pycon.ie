@@ -6,13 +6,24 @@
       <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center text-sm text-text-secondary">
         <span class="flex items-center gap-2">
           <svg class="w-4 h-4 text-py-yellow flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          {{ if .Site.Params.venueChangePending }}
+          <s class="text-text-primary opacity-60">{{ .Site.Params.dateHuman }}</s> &middot; <s class="opacity-60">{{ .Site.Params.venue }}</s>
+          <span class="text-text-secondary">(new venue &amp; date TBC)</span>
+          {{ else }}
           <strong class="text-text-primary">{{ .Site.Params.dateHuman }}</strong> &middot; {{ .Site.Params.venue }}
+          {{ end }}
         </span>
         {{ if eq .Site.Params.cfpStatus "open" }}
         <span class="flex items-center gap-2">
           <svg class="w-4 h-4 text-py-yellow flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
           <span>CFP open &middot; closes <strong class="text-text-primary">{{ dateFormat "2 January 2006" .Site.Params.cfpCloses }}</strong> &middot;
           <a href="/cfp/" class="text-py-yellow hover:underline">Submit a talk</a></span>
+        </span>
+        {{ else if eq .Site.Params.cfpStatus "closed" }}
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-red-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          <span>CFP temporarily closed &middot;
+          <a href="/cfp/" class="text-py-yellow hover:underline">Learn more</a></span>
         </span>
         {{ end }}
         {{- /* Ticket prices hidden until confirmed — see issue #115
