@@ -7,13 +7,15 @@ draft: false
 
 Our booked venue, **Trinity College Dublin**, has informed us that it can no longer host the conference. This decision was made by the venue, and it means we can no longer confirm **17 October 2026** as our event date.
 
+**ETA 2026-08-27**: PyCon Ireland 2026 will be held in ****Dublin's city centre** on **21 November 2026**.
+
 We know this is disappointing, especially for everyone who was planning to submit a talk, book travel, or simply mark the date in their calendar. We're disappointed too, but we want to be transparent with the community as soon as we have news, rather than staying quiet while we sort things out.
 
 ## What This Means Right Now
 
 - **The Call for Proposals deadline has been extended to 30 August 2026.** We don't want the venue search to hold back speakers who want to share their Python knowledge, so submissions remain open, you don't need to wait for the new venue and date to submit. Submit your proposal on our [Sessionize page](https://sessionize.com/pycon-ireland-2026/).
-- **The conference date of 17 October 2026 no longer stands.** We will announce a new date once we have one.
-- **We are actively looking for a new venue** in the Dublin area that can accommodate the conference. As soon as a venue and date are confirmed, we will update the website and announce it through our usual channels.
+- **The conference date of 17 October 2026 no longer stands.** The new date is 21 November 2026. ~~We will announce a new date once we have one.~~
+- **We are actively looking for a new venue** We have a new venue in Dublin's city centre (details to be announced). ~~in the Dublin area that can accommodate the conference. As soon as a venue and date are confirmed, we will update the website and announce it through our usual channels.~~
 - **If you already submitted a talk, don't worry, your proposal is safe.** We will let speakers know the new date and venue as soon as they're confirmed, so you can make your own arrangements in good time.
 
 ## What Stays the Same

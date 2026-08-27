@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 PyCon Ireland 2026 conference website — a Hugo static site with Tailwind CSS v4 native integration and comprehensive SEO structured data.
 
-**Event:** 17 October 2026 · Trinity College Dublin  
+**Event:** 21 November 2026 · Dublin city centre
 **Deployment:** Netlify (production at `https://2026.pycon.ie/`)
 
 ## Development Commands

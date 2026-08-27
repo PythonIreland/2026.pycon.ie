@@ -50,8 +50,8 @@
 
     <p class="text-py-yellow font-semibold text-base sm:text-lg uppercase tracking-widest mb-8">
       {{ if .Site.Params.venueChangePending }}
-        <s class="opacity-60 decoration-2">{{ .Site.Params.hero.date }}</s> &middot; <s class="opacity-60 decoration-2">{{ .Site.Params.hero.location }}</s>
-        <span class="block sm:inline text-text-secondary normal-case tracking-normal text-sm mt-1 sm:mt-0 sm:ml-2">New venue &amp; date to be announced</span>
+        {{ .Site.Params.hero.date }} &middot; {{ .Site.Params.hero.location }}
+        <span class="block sm:inline text-text-secondary normal-case tracking-normal text-sm mt-1 sm:mt-0 sm:ml-2">New venue to be announced</span>
       {{ else }}
         {{ .Site.Params.hero.date }} &middot; {{ .Site.Params.hero.location }}
       {{ end }}

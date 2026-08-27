@@ -24,25 +24,26 @@ enableGitInfo = true
     getenv = ['^HUGO_', '^CI$', '^COMMIT_REF$', '^DEPLOY_ID$']
 
 [params]
-  description = "PyCon Ireland 2026 — Ireland's premier Python conference. Join Python developers for talks, workshops, and networking at Trinity College Dublin."
-  dateHuman = "17 October 2026"
+  description = "PyCon Ireland 2026 — Ireland's premier Python conference. Join Python developers for talks, workshops, and networking in Dublin's city centre."
+  dateHuman = "21 November 2026"
+  eventDate = "2026-11-21"
 
   # Event dates in ISO 8601 format (for structured data)
-  eventStartDate = "2026-10-17T09:00:00+01:00"
-  eventEndDate = "2026-10-17T18:00:00+01:00"
+  eventStartDate = "2026-11-21T09:00:00+01:00"
+  eventEndDate = "2026-11-21T18:00:00+01:00"
 
   # Venue information
-  venue = "Trinity College Dublin"
-  venueAddress = "Trinity College Dublin, College Green, Dublin 2, Ireland"
-  venueStreetAddress = "College Green"
+  venue = "Dublin's City Centre"
+  venueAddress = "Dublin 2, Ireland"
+  venueStreetAddress = "Some Street"
   venueCity = "Dublin"
   venuePostalCode = "Dublin 2"
   venueRegion = "Dublin"
   venueCountry = "IE"
-  venueMapLat = 53.3438
-  venueMapLon = -6.2546
-  venuePhone = "+353 1 896 1000"
-  venueWebsite = "https://www.tcd.ie/"
+  # venueMapLat = 53.3438
+  # venueMapLon = -6.2546
+  # venuePhone = "+353 1 896 1000"
+  # venueWebsite = "https://www.tcd.ie/"
 
   # Organizer information
   organizerName = "Python Ireland"
@@ -75,8 +76,8 @@ enableGitInfo = true
   [params.hero]
     title = "PyCon Ireland 2026"
     subtitle = "Ireland's Premier Python Conference"
-    date = "17 October 2026"
-    location = "Trinity College Dublin"
+    date = "21 November 2026"
+    location = "Dublin's City Centre"
 
   [params.stats]
     # attendees = 500  # TODO: restore once attendance number is confirmed

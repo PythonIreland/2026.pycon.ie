@@ -1,6 +1,6 @@
 # PyCon Ireland 2026
 
-Conference website for PyCon Ireland 2026, 17 October at Trinity College Dublin.
+Conference website for PyCon Ireland 2026, 21 November in Dublin's city centre.
 
 ## Tech Stack
 
@@ -108,3 +108,7 @@ Dark theme with Python brand colours as accents:
 | `bg-card` | `#1a1d2e` | Card surfaces |
 
 Theme tokens are defined in `assets/css/main.css` using Tailwind v4's `@theme` directive.
+
+## Deployment
+
+Netlify: details TBD
