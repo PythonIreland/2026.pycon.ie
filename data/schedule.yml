@@ -1,6 +1,6 @@
 days:
-  - name: "Saturday, 17 October 2026"
-    date: "2026-10-17"
+  - name: "Saturday, 21 November 2026"
+    date: "2026-11-21"
     slots:
       - time: "09:00"
         type: "break"

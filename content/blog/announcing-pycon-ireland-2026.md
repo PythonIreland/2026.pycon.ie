@@ -5,6 +5,8 @@ description: "We're excited to announce PyCon Ireland 2026, taking place on 17 O
 draft: false
 ---
 
+**Added 2026-08-27**: PyCon Ireland 2026 will be held in **Dublin's city centre** (details to be announced) on **21 November 2026**.
+
 We're thrilled to announce that **PyCon Ireland 2026** will take place on **17 October 2026** at **Trinity College Dublin**.
 
 After years of building Ireland's Python community, we're bringing together the best speakers, workshops, and networking opportunities for Python developers of all levels.

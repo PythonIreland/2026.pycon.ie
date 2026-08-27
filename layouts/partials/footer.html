@@ -12,11 +12,8 @@
         </a>
         <p class="text-text-secondary text-sm">
           Ireland's premier Python conference.<br>
-          {{ if .Site.Params.venueChangePending }}
-          <s class="opacity-60">{{ .Site.Params.dateHuman }}</s> (new date TBC)
-          {{ else }}
-          {{ .Site.Params.dateHuman }}
-          {{ end }}
+          {{ .Site.Params.dateHuman }}.<br>
+          Dublin's city centre.
         </p>
       </div>
 
@@ -27,7 +24,7 @@
           {{/* <li><a href="/speakers/" class="text-text-secondary hover:text-py-yellow transition-colors">Speakers</a></li> */}}
           {{/* <li><a href="/schedule/" class="text-text-secondary hover:text-py-yellow transition-colors">Schedule</a></li> */}}
           {{/* <li><a href="/sponsors/" class="text-text-secondary hover:text-py-yellow transition-colors">Sponsors</a></li> */}}
-          <li><a href="/venue/" class="text-text-secondary hover:text-py-yellow transition-colors">Venue</a></li>
+          <li><a href="/venue/" class="text-text-secondary hover:text-py-yellow transition-colors">Venue (details to be announced)</a></li>
         </ul>
       </div>
 
@@ -46,8 +43,9 @@
       <div>
         <h4 class="text-text-heading font-semibold text-sm uppercase tracking-wider mb-4">Connect</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">Twitter / X</a></li>
+          {{/* <li><a href="https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">Twitter / X</a></li> */}}
           <li><a href="{{ .Site.Params.mastodonUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="me noopener">Mastodon</a></li>
+          <li><a href="{{ .Site.Params.bskyUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="me noopener">Bluesky</a></li>
           <li><a href="{{ .Site.Params.youtubeUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">YouTube</a></li>
           <li><a href="{{ .Site.Params.linkedinUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="mailto:{{ .Site.Params.email }}" class="text-text-secondary hover:text-py-yellow transition-colors">{{ .Site.Params.email }}</a></li>
