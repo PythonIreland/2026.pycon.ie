@@ -3,9 +3,11 @@
     <h2 class="text-2xl font-bold text-text-heading mb-3">When and where is {{ .Site.Title }}?</h2>
     <p class="text-text-secondary mb-8 max-w-2xl">
       {{ if .Site.Params.venueChangePending }}
-      {{ .Site.Title }} was due to take place on <s class="opacity-60">{{ .Site.Params.dateHuman }}</s>
-      at <s class="opacity-60">{{ .Site.Params.venue }}</s>, College Green, Dublin 2, Ireland.
-      The venue can no longer host the event. We have confirmed a new venue in Dublin's city centre (details to be announced) and date, {{ .Site.Params.dateHuman }}.
+      {{ .Site.Title }} was due to take place on <s class="opacity-60">17 October 2026</s>
+      at <s class="opacity-60">Trinity College Dublin</s>.
+      The venue can no longer host the event.
+      We have confirmed a <strong>new date, <span class="text-py-yellow">{{ .Site.Params.dateHuman }}</span></strong>,
+      and <strong>new venue</strong> in Dublin's city centre (details to be announced).
       See our <a href="/blog/date-and-final-cfp/" class="text-py-yellow hover:underline">latest update</a>.
       It will remain a single-day, multi-track conference organised by Python Ireland, a not-for-profit community organisation.
       {{ else }}

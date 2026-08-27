@@ -62,7 +62,7 @@
     {{ if .Site.Params.venueChangePending }}
     <div class="max-w-2xl mx-auto mb-8 bg-bg-card border border-py-blue/20 rounded-2xl px-6 py-5 text-text-secondary text-sm text-left">
       <p><strong class="text-text-primary">We have a new venue (details to be announced) in Dublin's city centre; the conference will take place on {{ .Site.Params.dateHuman }}</strong>. Our original venue can no longer host the conference.
-          Read the <a href="/blog/date-and-final-cfp/" class="text-py-yellow hover:underline">latest update</a>. The Call for Proposals is open in the meantime, and accepted speakers will be informed of the new venue as soon as they are confirmed.</p>
+          Read the <a href="/blog/date-and-final-cfp/" class="text-py-yellow hover:underline">latest update</a>. The Call for Proposals is open in the meantime, until {{ dateFormat "2 January 2006" .Site.Params.cfpCloses }}, and accepted speakers will be informed of the new venue as soon as they are confirmed.</p>
     </div>
     {{ end }}
 

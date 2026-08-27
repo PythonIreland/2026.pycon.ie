@@ -5,9 +5,10 @@ description: "Trinity College Dublin can no longer host PyCon Ireland 2026. We a
 draft: false
 ---
 
+**Added 2026-08-27**: PyCon Ireland 2026 will be held in ****Dublin's city centre** (details to be announced) on **21 November 2026**.
+
 Our booked venue, **Trinity College Dublin**, has informed us that it can no longer host the conference. This decision was made by the venue, and it means we can no longer confirm **17 October 2026** as our event date.
 
-**ETA 2026-08-27**: PyCon Ireland 2026 will be held in ****Dublin's city centre** on **21 November 2026**.
 
 We know this is disappointing, especially for everyone who was planning to submit a talk, book travel, or simply mark the date in their calendar. We're disappointed too, but we want to be transparent with the community as soon as we have news, rather than staying quiet while we sort things out.
 
