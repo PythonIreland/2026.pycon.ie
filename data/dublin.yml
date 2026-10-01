@@ -14,10 +14,10 @@ gallery:
     credit_url: "https://unsplash.com/photos/FE-OsdkaFBw"
     width: 600
     height: 450
-  - src: "https://images.unsplash.com/photo-1630784032326-4aafb67d344c?w=600&h=450&q=75&auto=format&fit=crop"
+  - src: "https://images.unsplash.com/photo-1743500353583-54ba42fbf69c?q=80&w=600&auto=format&fit=crop"
     alt: "Georgian architecture in Dublin city centre"
-    credit: "Barbora Dostálová on Unsplash"
-    credit_url: "https://unsplash.com/photos/CVStJe2lhmU"
+    credit: "Jamie Kettle on Unsplash"
+    credit_url: "https://unsplash.com/photos/a-red-door-welcomes-visitors-to-a-brick-building-M2mvaYMmO1U"
     width: 600
     height: 450
   - src: "https://images.unsplash.com/photo-1602061464448-5859b31eb1b8?w=600&h=450&q=75&auto=format&fit=crop"
@@ -82,7 +82,7 @@ transport:
     photo_width: 600
     photo_height: 300
   - mode: "Luas"
-    description: "Two tram lines (Red & Green). The Green Line serves the conference area — stops at St. Stephen's Green and Dawson Street."
+    description: "Two tram lines (Red & Green). The Green Line serves the conference area — stops at Trinity and Dawson Street."
     photo: "https://images.unsplash.com/photo-1766593896586-9c597d86faf2?w=600&h=300&q=75&auto=format&fit=crop"
     photo_credit: "lesha tuman on Unsplash"
     photo_width: 600
