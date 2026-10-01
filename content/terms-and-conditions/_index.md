@@ -18,7 +18,7 @@ Tickets must be presented (printed or digital) at the entrance. Python Ireland r
 
 ### Refund Policy
 
-Ticket refund requests must be submitted by email to [contact@python.ie](mailto:contact@python.ie).
+Ticket refund requests must be submitted by email to [pycon2026@python.ie](mailto:pycon2026@python.ie).
 
 - Requests made more than 30 days before the Event will receive a full refund.
 - Requests made between 15 and 30 days before the Event will receive a 50% refund.
@@ -48,7 +48,7 @@ Financial aid is available on a per-request basis, subject to availability, with
 
 ### Contact
 
-For any queries relating to these Terms and Conditions, please contact us at [contact@python.ie](mailto:contact@python.ie).
+For any queries relating to these Terms and Conditions, please contact us at [pycon2026@python.ie](mailto:pycon2026@python.ie).
 
 Python Ireland Developers CLG
 Registered in Ireland
