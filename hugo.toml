@@ -33,17 +33,17 @@ enableGitInfo = true
   eventEndDate = "2026-11-21T18:00:00+01:00"
 
   # Venue information
-  venue = "Dublin's City Centre"
-  venueAddress = "Dublin 2, Ireland"
-  venueStreetAddress = "Some Street"
+  venue = "Chartered Accountants House"
+  venueAddress = "47-49 Pearse St, Dublin 2, D02 YN40, Ireland"
+  venueStreetAddress = "47-49 Pearse Street"
   venueCity = "Dublin"
-  venuePostalCode = "Dublin 2"
+  venuePostalCode = "D02 YN40"
   venueRegion = "Dublin"
   venueCountry = "IE"
-  # venueMapLat = 53.3438
-  # venueMapLon = -6.2546
-  # venuePhone = "+353 1 896 1000"
-  # venueWebsite = "https://www.tcd.ie/"
+  venueMapLat = 53.344289
+  venueMapLon = -6.247827
+  venuePhone = "+353 1 637 7200"
+  venueWebsite = "https://www.charteredaccountants.ie/chartered-accountants-house/home"
 
   # Organizer information
   organizerName = "Python Ireland"
@@ -51,21 +51,19 @@ enableGitInfo = true
   organizerUrl = "https://python.ie/"
   croNumber = "559983"
 
-  # CFP status: "soon", "open", or "closed"
-  cfpStatus = "open"
+  # CFP status: "soon", "open", "closed" (temporarily), or "finished"
+  cfpStatus = "finished"
   cfpUrl = "https://sessionize.com/pycon-ireland-2026/"
   cfpOpens = "2026-05-25"
   cfpCloses = "2026-08-30"
-  ticketsUrl = ""  # Set to Tito/Eventbrite URL when tickets go on sale
-  ticketsValidFrom = "2026-05-01"  # Date pricing tiers were announced; required by Google's Offer.validFrom check
-
-  # Set to true while the venue and date are unconfirmed (venue withdrew from hosting).
-  # Drives the sitewide notice banner and the struck-through date across templates.
-  # See content/blog/venue-change.md for the full announcement.
-  venueChangePending = true
+  ticketsUrl = "https://ti.to/python-ireland/pycon-ireland-2026"  # Set to Tito/Eventbrite URL when tickets go on sale
+  ticketsValidFrom = "2026-10-01"  # Date pricing tiers were announced; required by Google's Offer.validFrom check
 
   # Contact & social
-  email = "contact@python.ie"
+  email = "pycon2026@python.ie"
+  bskyUrl = "https://bsky.app/profile/python-ireland.bsky.social"
+  bskyHandle = "@python-ireland.bsky.social"
+  twitterUrl = "https://x.com/pythonireland"
   twitterHandle = "@pythonireland"
   mastodonHandle = "@Python_Ireland"
   mastodonUrl = "https://mastodon.ie/@Python_Ireland"
@@ -87,30 +85,30 @@ enableGitInfo = true
 
   [[params.tickets]]
     name = "Student"
-    price = 40
+    price = 35
     currency = "EUR"
     features = ["Full conference access", "Lunch & refreshments", "Community networking"]
     highlight = false
 
-  [[params.tickets]]
-    name = "Early Bird"
-    price = 70
-    currency = "EUR"
-    features = ["Full conference access", "Lunch & refreshments", "Conference t-shirt", "Workshop access"]
-    highlight = true
+  # [[params.tickets]]
+  #   name = "Early Bird"
+  #   price = 49
+  #   currency = "EUR"
+  #   features = ["Full conference access", "Lunch & refreshments", "Conference t-shirt", "Workshop access"]
+  #   highlight = true
 
   [[params.tickets]]
     name = "General"
-    price = 100
+    price = 59
     currency = "EUR"
-    features = ["Full conference access", "Lunch & refreshments", "Conference t-shirt", "Workshop access"]
+    features = ["Full conference access", "Lunch & refreshments", "Workshop access"]
     highlight = false
 
   [[params.tickets]]
     name = "Corporate"
-    price = 300
+    price = 159
     currency = "EUR"
-    features = ["Full conference access", "Lunch & refreshments", "Conference t-shirt", "Workshop access", "Priority seating", "Networking reception"]
+    features = ["Full conference access", "Lunch & refreshments", "Workshop access", "Priority seating", "Networking reception"]
     highlight = false
 
 [menus]

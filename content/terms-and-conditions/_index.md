@@ -1,15 +1,12 @@
 ---
 title: Terms and Conditions
-# TODO: restore date/venue once confirmed — see venueChangePending in hugo.toml
-description: "Read the terms and conditions for purchasing tickets and attending PyCon Ireland 2026, organised by Python Ireland."
+description: "Read the terms and conditions for purchasing tickets and attending PyCon Ireland 2026, taking place on 21 November at Chartered Accountants House, Dublin."
 layout: "single"
 ---
 
-<!-- TODO: restore date/venue once confirmed — see venueChangePending in hugo.toml -->
-
 ### Terms and Conditions — PyCon Ireland 2026
 
-These Terms and Conditions govern the purchase of tickets and attendance at PyCon Ireland 2026 ("the Event"), organised by Python Ireland Developers CLG ("Python Ireland"). The venue and date are currently being confirmed following a change of venue; this page will be updated once they are finalised.
+These Terms and Conditions govern the purchase of tickets and attendance at PyCon Ireland 2026 ("the Event"), organised by Python Ireland Developers CLG ("Python Ireland"), taking place on 21 November at Chartered Accountants House, Dublin.
 
 By purchasing a ticket or attending the Event, you agree to be bound by these Terms and Conditions.
 

@@ -1,4 +1,4 @@
 ---
-title: "Venue: To Be Confirmed"
-description: "Our booked venue, Trinity College Dublin, can no longer host PyCon Ireland 2026. We are confirming a new venue: read the latest update."
+title: "Venue: Confirmed"
+description: "PyCon Ireland 2026 is confirmed to take place on 21 November at Chartered Accountants House, Dublin."
 ---
