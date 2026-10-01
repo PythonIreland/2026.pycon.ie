@@ -113,6 +113,10 @@ enableGitInfo = true
 
 [menus]
   [[menus.main]]
+    name = "Tickets"
+    url = "#tickets"
+    weight = 10
+  [[menus.main]]
     name = "Call for Proposals"
     url = "/cfp/"
     weight = 20
