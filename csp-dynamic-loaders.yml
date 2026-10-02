@@ -25,6 +25,18 @@
     - directive: connect-src
       domain: p.typekit.net
 
+- name: Tito
+  trigger:
+    directive: script-src
+    domain: js.tito.io
+  also-loads:
+    - directive: style-src
+      domain: js.tito.io
+    - directive: connect-src
+      domain: js.tito.io
+    - directive: frame-src
+      domain: js.tito.io
+
 - name: Google Fonts
   trigger:
     directive: style-src
