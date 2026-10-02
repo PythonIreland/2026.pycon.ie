@@ -2,19 +2,9 @@
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-2xl font-bold text-text-heading mb-3">When and where is {{ .Site.Title }}?</h2>
     <p class="text-text-secondary mb-8 max-w-2xl">
-      {{ if .Site.Params.venueChangePending }}
-      {{ .Site.Title }} was due to take place on <s class="opacity-60">17 October 2026</s>
-      at <s class="opacity-60">Trinity College Dublin</s>.
-      The venue can no longer host the event.
-      We have confirmed a <strong>new date, <span class="text-py-yellow">{{ .Site.Params.dateHuman }}</span></strong>,
-      and <strong>new venue</strong> in Dublin's city centre (details to be announced).
-      See our <a href="/blog/date-and-final-cfp/" class="text-py-yellow hover:underline">latest update</a>.
-      It will remain a single-day, multi-track conference organised by Python Ireland, a not-for-profit community organisation.
-      {{ else }}
       {{ .Site.Title }} takes place on <strong class="text-text-primary">{{ .Site.Params.dateHuman }}</strong>
-      at <strong class="text-text-primary">{{ .Site.Params.venue }}</strong>, College Green, Dublin 2, Ireland.
+      at <strong class="text-text-primary">{{ .Site.Params.venue }}</strong>, Pearse Street, Dublin 2, Ireland.
       It is a single-day, multi-track conference organised by Python Ireland, a not-for-profit community organisation.
-      {{ end }}
     </p>
     {{ if eq .Site.Params.cfpStatus "open" }}
     <h2 class="text-2xl font-bold text-text-heading mb-3">How do I submit a talk to {{ .Site.Title }}?</h2>
@@ -31,13 +21,10 @@
       <a href="/cfp/" class="text-py-yellow hover:underline">Read the full CFP page</a> for details, and follow us on social media for updates on when it reopens.
     </p>
     {{ end }}
-    {{- /* Ticket price Q&A hidden until confirmed — see issue #115
-    <h2 class="text-2xl font-bold text-text-heading mb-3">How much do tickets cost for PyCon Ireland 2026?</h2>
-    <p class="text-text-secondary max-w-2xl">
-      Tickets range from <strong class="text-text-primary">€{{ (index .Site.Params.tickets 0).price }}</strong> (student)
-      to <strong class="text-text-primary">€{{ (index .Site.Params.tickets (sub (len .Site.Params.tickets) 1)).price }}</strong> (corporate).
-      {{ if .Site.Params.ticketsUrl }}<a href="{{ .Site.Params.ticketsUrl }}" class="text-py-yellow hover:underline">Get tickets</a>.{{ end }}
+    <h2 class="text-2xl font-bold text-text-heading mb-3">What is the schedule?</h2>
+    <p class="text-text-secondary mb-8 max-w-2xl">
+      The schedule will be announced soon.
+      There will be three tracks of talks and two workshop tracks.
     </p>
-    */ -}}
   </div>
 </section>

@@ -22,49 +22,17 @@
     <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-py-yellow/5 rounded-full blur-3xl"></div>
   </div>
   <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    {{ if eq .Site.Params.cfpStatus "open" }}
-    <span class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-semibold px-4 py-2 rounded-full mb-8">
-      <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-      CFP Now Open
-    </span>
-    {{ else if eq .Site.Params.cfpStatus "closed" }}
-    <span class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-semibold px-4 py-2 rounded-full mb-8">
-      <span class="w-2 h-2 rounded-full bg-red-400"></span>
-      CFP Temporarily Closed
-    </span>
-    {{ else }}
-    <span class="inline-flex items-center gap-2 bg-py-yellow/10 border border-py-yellow/30 text-py-yellow text-sm font-semibold px-4 py-2 rounded-full mb-8">
-      <span class="w-2 h-2 rounded-full bg-py-yellow animate-pulse"></span>
-      Opening Soon
-    </span>
-    {{ end }}
     <h1 class="text-4xl sm:text-5xl font-bold text-text-heading mb-6 font-brand">
-      {{ .Site.Title }} Call for Proposals
+      {{ .Site.Title }} – Call for Proposals
     </h1>
-    {{ if eq .Site.Params.cfpStatus "closed" }}
     <p class="text-xl text-text-secondary max-w-2xl mx-auto mb-8">
-      PyCon Ireland is looking for speakers, but the Call for Proposals is temporarily closed. Our booked venue,
-      <s class="opacity-60">{{ .Site.Params.venue }}</s>, can no longer host the event on <s class="opacity-60">{{ .Site.Params.dateHuman }}</s>.
-      We are confirming a new venue and date before reopening submissions.
+      The CFP is <strong class="text-green-400">closed</strong>.
+      PyCon Ireland is currently assessing the many fine proposals for talks and workshops.
+      The schedule will be announced soon.
     </p>
-    <div class="max-w-2xl mx-auto mb-8 bg-bg-card border border-red-500/20 rounded-2xl px-6 py-5 text-text-secondary text-sm text-left">
-      <p><strong class="text-text-primary">Why is the CFP closed?</strong> Read the full explanation in our
-      <a href="/blog/venue-change/" class="text-py-yellow hover:underline">blog post</a>. We will reopen the CFP, with a fresh timeline, once the new venue and date are confirmed.</p>
-    </div>
-    {{ else }}
     <p class="text-xl text-text-secondary max-w-2xl mx-auto mb-8">
-      {{ if .Site.Params.venueChangePending }}
-      PyCon Ireland is looking for speakers. Share your Python knowledge and inspire the community, no need to wait for us to confirm the new venue and date before submitting your proposal.
-      {{ else }}
-      PyCon Ireland is looking for speakers. Share your Python knowledge, inspire the community, and take the stage at <strong class="text-text-primary">{{ .Site.Params.venue }}</strong> on <strong class="text-text-primary">{{ .Site.Params.dateHuman }}</strong>.
-      {{ end }}
+      Share your Python knowledge, inspire the community, and take the stage at <strong class="text-text-primary">{{ .Site.Params.venue }}</strong> on <strong class="text-text-primary">{{ .Site.Params.dateHuman }}</strong>.
     </p>
-    {{ if .Site.Params.venueChangePending }}
-    <div class="max-w-2xl mx-auto mb-8 bg-bg-card border border-py-blue/20 rounded-2xl px-6 py-5 text-text-secondary text-sm text-left">
-      <p><strong class="text-text-primary">We have a new venue (details to be announced) in Dublin's city centre; the conference will take place on {{ .Site.Params.dateHuman }}</strong>. Our original venue can no longer host the conference.
-          Read the <a href="/blog/date-and-final-cfp/" class="text-py-yellow hover:underline">latest update</a>. The Call for Proposals is open in the meantime, until {{ dateFormat "2 January 2006" .Site.Params.cfpCloses }}, and accepted speakers will be informed of the new venue as soon as they are confirmed.</p>
-    </div>
-    {{ end }}
 
     {{/* CFP dates */}}
     <div class="flex flex-wrap justify-center gap-4 mb-8">
@@ -77,33 +45,17 @@
         <span class="text-text-secondary">Deadline <strong class="text-text-primary">{{ dateFormat "2 January 2006" .Site.Params.cfpCloses }}</strong></span>
       </div>
     </div>
-    {{ end }}
 
-    {{ if eq .Site.Params.cfpStatus "open" }}
-    <a href="{{ .Site.Params.cfpUrl }}" target="_blank" rel="noopener"
-       class="inline-flex items-center gap-2 bg-py-yellow hover:bg-py-yellow-light text-bg-primary font-bold px-8 py-4 rounded-xl text-lg transition-colors">
-      Submit a Proposal
-      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-    </a>
-    {{ else if eq .Site.Params.cfpStatus "closed" }}
     <div class="inline-flex items-center gap-3 bg-bg-card border border-white/10 rounded-2xl px-6 py-4 text-text-secondary text-sm">
-      <svg class="w-5 h-5 text-red-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
-      <span>CFP closed for an indeterminate period. Follow us on
+      <span>Follow us on
+      <a href="{{ .Site.Params.bskyUrl }}" target="_blank" rel="me noopener" class="text-py-yellow hover:underline">Bluesky</a>,
+      <a href="{{ .Site.Params.linkedinUrl }}" target="_blank" rel="me noopener" class="text-py-yellow hover:underline">LinkedIn</a>,
       <a href="{{ .Site.Params.mastodonUrl }}" target="_blank" rel="me noopener" class="text-py-yellow hover:underline">Mastodon</a>,
-      <a href="https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}" target="_blank" rel="noopener" class="text-py-yellow hover:underline">X</a>
-      or <a href="{{ .Site.Params.linkedinUrl }}" target="_blank" rel="noopener" class="text-py-yellow hover:underline">LinkedIn</a>
-      for updates on the new venue, date, and CFP reopening.</span>
-    </div>
-    {{ else }}
-    <div class="inline-flex items-center gap-3 bg-bg-card border border-white/10 rounded-2xl px-6 py-4 text-text-secondary text-sm">
-      <svg class="w-5 h-5 text-py-blue-light flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
-      <span>CFP not open yet — follow us on
-      <a href="{{ .Site.Params.mastodonUrl }}" target="_blank" rel="me noopener" class="text-py-yellow hover:underline">Mastodon</a>,
-      <a href="https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}" target="_blank" rel="noopener" class="text-py-yellow hover:underline">X</a>
-      or <a href="{{ .Site.Params.linkedinUrl }}" target="_blank" rel="noopener" class="text-py-yellow hover:underline">LinkedIn</a>
+      <a href="{{ .Site.Params.twitterUrl }}" target="_blank" rel="me noopener" class="text-py-yellow hover:underline">X</a>,
+      or
+      <a href="{{ .Site.Params.youtubeUrl }}" target="_blank" rel="me noopener" class="text-py-yellow hover:underline">YouTube</a>
       for updates.</span>
     </div>
-    {{ end }}
   </div>
 </section>
 
@@ -115,7 +67,7 @@
     <div class="max-w-3xl mx-auto text-center mb-16">
       <h2 class="text-3xl font-bold text-text-heading mb-4">Who Should Submit?</h2>
       <p class="text-text-secondary text-lg leading-relaxed">
-        Whether you're a Python novice or a seasoned pro, a first-time speaker or a conference veteran,
+        Whether you're a Python novice or a seasoned pro, a first-time speaker, or a conference veteran,
         we want your contribution! PyCon Ireland is the perfect platform to share your knowledge,
         inspire others, and be part of our vibrant community.
       </p>
@@ -441,7 +393,7 @@
       "name": "Is the {{ .Site.Title }} Call for Proposals open?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "{{ if eq .Site.Params.cfpStatus "closed" }}The Call for Proposals is temporarily closed. The original venue can no longer host the conference, so a new venue and date are being confirmed before submissions reopen.{{ else if eq .Site.Params.cfpStatus "open" }}Yes, the Call for Proposals is open until {{ dateFormat "2 January 2006" .Site.Params.cfpCloses }}.{{ if .Site.Params.venueChangePending }} The venue and date are still being confirmed, but you can submit your talk now.{{ end }}{{ else }}The Call for Proposals is not open yet.{{ end }}"
+        "text": "The Call for Proposals is finished. The proposals are being reviewed. The schedule is being finalized."
       }
     }
   ]
