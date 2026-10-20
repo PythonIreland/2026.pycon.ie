@@ -116,14 +116,37 @@ enableGitInfo = true
     name = "Tickets"
     url = "/#tickets"
     weight = 10
+
   [[menus.main]]
-    name = "Call for Proposals"
-    url = "/cfp/"
+    identifier = "conference"
+    name = "Conference"
     weight = 20
+  [[menus.main]]
+    name = "Schedule Grid"
+    url = "/grid/"
+    parent = "conference"
+    weight = 1
+  [[menus.main]]
+    name = "Schedule List"
+    url = "/schedule/"
+    parent = "conference"
+    weight = 2
+  [[menus.main]]
+    name = "Speakers"
+    url = "/speakers/"
+    parent = "conference"
+    weight = 3
+
+  # [[menus.main]]
+  #   name = "Call for Proposals"
+  #   url = "/cfp/"
+  #   weight = 30
+
   # [[menus.main]]
   #   name = "Sponsors"
   #   url = "/sponsors/"
   #   weight = 40
+
   [[menus.main]]
     identifier = "venue"
     name = "Venue"
@@ -140,6 +163,7 @@ enableGitInfo = true
     url = "/dublin/"
     parent = "venue"
     weight = 2
+
   [[menus.main]]
     identifier = "community"
     name = "Community"
@@ -156,6 +180,7 @@ enableGitInfo = true
     url = "https://python.ie"
     parent = "community"
     weight = 2
+
   [[menus.main]]
     name = "Blog"
     url = "/blog/"

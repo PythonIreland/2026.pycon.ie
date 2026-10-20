@@ -7,8 +7,10 @@ about:
     description: "A full day of inspiring talks from Python experts across industry, academia, and open source. Learn about the latest trends, tools, and techniques."
   - title: "Workshops"
     icon: "code"
-    disabled: true
-    description: "Hands-on workshops for all skill levels. Dive deep into topics from web development to machine learning with experienced instructors."
+    image: "/img/about/laptop-classroom.jpg"
+    image_webp: "/img/about/laptop-classroom.webp"
+    image_alt: "Man sitting at laptop in classroom"
+    description: "Hands-on workshops for all skill levels. Dive deep into topics from quantum programming to artificial intelligence with experienced instructors."
   - title: "Networking"
     icon: "users"
     image: "/img/about/networking.jpg"
