@@ -67,6 +67,7 @@ enableGitInfo = true
   twitterHandle = "@pythonireland"
   mastodonHandle = "@Python_Ireland"
   mastodonUrl = "https://mastodon.ie/@Python_Ireland"
+  meetupUrl = "https://www.meetup.com/pythonireland/"
   youtubeUrl = "https://www.youtube.com/@PythonIreland"
   linkedinUrl = "https://www.linkedin.com/company/python-ireland"
   ogImage = "/img/dublin-skyline-2026.png"
