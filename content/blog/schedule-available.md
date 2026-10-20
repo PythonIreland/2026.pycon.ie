@@ -7,10 +7,14 @@ draft: false
 
 We are delighted to announce the [schedule](/grid/) for PyCon Ireland 2026,
 to be held at [Chartered Accountants House](/venue/) in Dublin on Saturday 21 November.
-We'll have more than thirty talks, at least four workshops, and two panels
+You can choose from
+more than thirty talks across three tracks,
+at least four workshops,
+and two panels,
+as well as keynotes and lightning talks,
 given by dozens of [speakers](/speakers/).
 
-We'll have lots of [sessions](/schedule/) on everything **AI** and Machine Learning, including
+We'll have lots of [sessions](/schedule/) on **AI** and Machine Learning, including
 - agentic AI, coding agents, multi-agent workflows, and agent evaluation
 - Bayesian modeling
 - benchmarking ML models
@@ -21,18 +25,19 @@ We'll have lots of [sessions](/schedule/) on everything **AI** and Machine Learn
 - ML monitoring
 - mutation testing
 - neural networks
+- reliable machine learning
 - searching with agents
 - teaching robots
 - tensor regression
 - workflows
 
-But it's not just AI. We'll also have [sessions](/schedule/) on
+But it's not just AI.
+There will also be [sessions](/schedule/) on
 - asynchronous I/O
-- community
+- learning in public
 - natural language processing
 - Python packaging
 - quantum programming
-- reliable machine learning
 - route optimisation
 - scientific computing
 - secure coding
@@ -50,10 +55,12 @@ We had difficult choices to make when drawing up the schedule.
 
 If you've been waiting for the schedule to appear before buying your ticket, wait no more!
 Tickets are [being sold now](/#tickets).
-The General ticket costs €59,
-the Student ticket is only €35,
-and the Corporate ticket is €159.
-With these all-inclusive tickets, you get a light breakfast,
+The *General* ticket costs €59,
+the *Student* ticket is only €35,
+and the *Corporate* ticket is €159.
+With these all-inclusive tickets,
+as well as access to all the sessions and networking with the speakers and other attendees,
+you get a light breakfast,
 a sandwich lunch, and morning and afternoon refreshment breaks.
 
 We do expect to make some **further additions** to the [schedule](/grid/),
