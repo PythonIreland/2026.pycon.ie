@@ -1,4 +1,4 @@
 ---
 title: "Venue: Confirmed"
-description: "PyCon Ireland 2026 is confirmed to take place on 21 November at Chartered Accountants House, Dublin."
+description: "PyCon Ireland 2026 will take place on 21 November at Chartered Accountants House, on Dublin's Pearse St."
 ---
