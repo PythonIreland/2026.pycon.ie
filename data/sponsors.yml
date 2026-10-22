@@ -1,43 +1,43 @@
 tiers:
-  - name: "Platinum"
+  - name: "Diamond"
     level: 1
+    amount: 7000 # euros
     sponsors:
-      - name: "Python Software Foundation"
+      - name: "nineDots"
+        logo: "/img/sponsors/ninedots-logo-white.svg"
+        url: "https://ninedots.io/"
+      - name: "Bank of America Merrill Lynch"
         logo: "/img/sponsors/placeholder.svg"
-        url: "https://www.python.org/psf/"
-      - name: "TechCorp Ireland"
+        url: "https://business.bofa.com/ie/en/about-us.html"
+
+  - name: "Platinum"
+    level: 2
+    amount: 5000 # euros
+    sponsors:
+      - name: "Zyte"
         logo: "/img/sponsors/placeholder.svg"
-        url: "https://example.com"
+        url: "https://zyte.com"
 
   - name: "Gold"
-    level: 2
+    level: 3
+    # amount: 0 # euros
     sponsors:
-      - name: "CloudScale"
-        logo: "/img/sponsors/placeholder.svg"
-        url: "https://example.com"
-      - name: "DataFlow Systems"
-        logo: "/img/sponsors/placeholder.svg"
-        url: "https://example.com"
-      - name: "DevTools Inc"
+      - name: "TBD"
         logo: "/img/sponsors/placeholder.svg"
         url: "https://example.com"
 
   - name: "Silver"
-    level: 3
+    level: 4
+    # amount: 0 # euros
     sponsors:
-      - name: "PyLabs"
-        logo: "/img/sponsors/placeholder.svg"
-        url: "https://example.com"
-      - name: "CodeAcademy IE"
+      - name: "TBD"
         logo: "/img/sponsors/placeholder.svg"
         url: "https://example.com"
 
   - name: "Community"
-    level: 4
+    level: 5
+    # amount: 0 # euros
     sponsors:
-      - name: "Python Ireland"
-        logo: "/img/sponsors/placeholder.svg"
-        url: "https://python.ie"
-      - name: "Django Girls Dublin"
+      - name: "TBD"
         logo: "/img/sponsors/placeholder.svg"
         url: "https://example.com"
