@@ -1,7 +1,7 @@
 tiers:
   - name: "Diamond"
     level: 1
-    # €7,000
+    amount: 7000 # euros
     sponsors:
       - name: "nineDots"
         logo: "/img/sponsors/ninedots-logo-white.svg"
@@ -11,28 +11,32 @@ tiers:
         url: "https://business.bofa.com/ie/en/about-us.html"
 
   - name: "Platinum"
-    level: 1
+    level: 2
+    amount: 5000 # euros
     sponsors:
-      - name: "TBD"
+      - name: "Zyte"
         logo: "/img/sponsors/placeholder.svg"
-        url: "https://example.com"
+        url: "https://zyte.com"
 
   - name: "Gold"
-    level: 2
+    level: 3
+    # amount: 0 # euros
     sponsors:
       - name: "TBD"
         logo: "/img/sponsors/placeholder.svg"
         url: "https://example.com"
 
   - name: "Silver"
-    level: 3
+    level: 4
+    # amount: 0 # euros
     sponsors:
       - name: "TBD"
         logo: "/img/sponsors/placeholder.svg"
         url: "https://example.com"
 
   - name: "Community"
-    level: 4
+    level: 5
+    # amount: 0 # euros
     sponsors:
       - name: "TBD"
         logo: "/img/sponsors/placeholder.svg"
