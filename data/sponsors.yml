@@ -1,13 +1,21 @@
 tiers:
-  - name: "Platinum"
+  - name: "Diamond"
     level: 1
+    # €7,000
     sponsors:
-      # - name: "Python Software Foundation"
-      #   logo: "/img/sponsors/placeholder.svg"
-      #   url: "https://www.python.org/psf/"
       - name: "nineDots"
         logo: "/img/sponsors/ninedots-logo-white.svg"
         url: "https://ninedots.io/"
+      - name: "Bank of America Merrill Lynch"
+        logo: "/img/sponsors/placeholder.svg"
+        url: "https://business.bofa.com/ie/en/about-us.html"
+
+  - name: "Platinum"
+    level: 1
+    sponsors:
+      - name: "TBD"
+        logo: "/img/sponsors/placeholder.svg"
+        url: "https://example.com"
 
   - name: "Gold"
     level: 2
