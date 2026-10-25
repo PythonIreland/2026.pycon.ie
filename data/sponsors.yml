@@ -15,7 +15,7 @@ tiers:
     amount: 5000 # euros
     sponsors:
       - name: "Zyte"
-        logo: "/img/sponsors/placeholder.svg"
+        logo: "/img/sponsors/Zyte_Logo_RGB_ElectricIndigo-1.png"
         url: "https://zyte.com"
 
   - name: "Gold"
