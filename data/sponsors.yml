@@ -6,6 +6,7 @@ tiers:
       - name: "nineDots"
         logo: "/img/sponsors/ninedots-logo-white.svg"
         url: "https://ninedots.io/"
+        blurb: "The tech recruitment team that does it right."
       - name: "Bank of America Merrill Lynch"
         logo: "/img/sponsors/placeholder.svg"
         url: "https://business.bofa.com/ie/en/about-us.html"
@@ -17,6 +18,7 @@ tiers:
       - name: "Zyte"
         logo: "/img/sponsors/Zyte_Logo_RGB_ElectricIndigo-1.png"
         url: "https://zyte.com"
+        blurb: "Web data, solved"
 
   - name: "Gold"
     level: 3
