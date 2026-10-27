@@ -17,8 +17,8 @@ tiers:
     sponsors:
       - name: "Zyte"
         logo: "/img/sponsors/Zyte_Logo_RGB_ElectricIndigo-1.png"
-        url: "https://zyte.com"
-        blurb: "Web data, solved"
+        url: "https://www.zyte.com/pycon-ireland-2026/"
+        blurb: "Unlock your data with Zyte."
 
   - name: "Gold"
     level: 3
