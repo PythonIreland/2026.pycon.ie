@@ -143,10 +143,10 @@ enableGitInfo = true
   #   url = "/cfp/"
   #   weight = 30
 
-  # [[menus.main]]
-  #   name = "Sponsors"
-  #   url = "/sponsors/"
-  #   weight = 40
+  [[menus.main]]
+    name = "Sponsors"
+    url = "/sponsors/"
+    weight = 40
 
   [[menus.main]]
     identifier = "venue"

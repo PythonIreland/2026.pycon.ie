@@ -14,7 +14,7 @@
           <span>CFP open &middot; closes <strong class="text-text-primary">{{ dateFormat "2 January 2006" .Site.Params.cfpCloses }}</strong> &middot;
           <a href="/cfp/" class="text-py-yellow hover:underline">Submit a talk</a></span>
         </span>
-        {{ else if eq .Site.Params.cfpStatus "finshed" }}
+        {{ else if eq .Site.Params.cfpStatus "finished" }}
         <span class="flex items-center gap-2">
           <svg class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
           <span>CFP closed <strong class="text-text-primary">{{ dateFormat "2 January 2006" .Site.Params.cfpCloses }}</strong> &middot;
@@ -36,7 +36,7 @@
   {{- partial "about.html" . -}}
   {{- /* partial "stats.html" . */ -}}
   {{- /* partial "keynotes.html" . */ -}}
-  {{- /* partial "sponsors-home.html" . */ -}}
+  {{- partial "sponsors-home.html" . -}}
   {{- partial "venue-home.html" . -}}
   {{- partial "key-questions.html" . -}}
   {{- partial "tickets.html" . -}}

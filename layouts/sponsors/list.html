@@ -25,7 +25,7 @@
 
           <div class="flex flex-wrap justify-center items-center gap-8">
             {{ range .sponsors }}
-              <a href="{{ .url }}" target="_blank" rel="noopener" class="bg-bg-card rounded-xl p-8 hover:bg-bg-card-hover transition-colors group">
+              <a href="{{ .url }}" target="_blank" rel="noopener" title="{{ .blurb }}" class="bg-bg-card rounded-xl p-8 hover:bg-bg-card-hover transition-colors group">
                 <img src="{{ .logo }}" alt="{{ .name }}" class="{{ $size }} w-auto opacity-70 group-hover:opacity-100 transition-opacity">
                 <p class="text-text-secondary text-xs text-center mt-3">{{ .name }}</p>
               </a>
