@@ -7,9 +7,10 @@ tiers:
         logo: "/img/sponsors/ninedots-logo-white.svg"
         url: "https://ninedots.io/"
         blurb: "The tech recruitment team that does it right."
-      # - name: "Bank of America Merrill Lynch"
-      #   logo: "/img/sponsors/placeholder.svg"
-      #   url: "https://business.bofa.com/ie/en/about-us.html"
+      - name: "Bank of America"
+        logo: "/img/sponsors/bank-of-america.max-300x240.png"
+        url: "https://careers.bankofamerica.com/en-us/job-search?ref=search&search=jobsByLocation&rows=50&start=0&searchstring=Dublin%2C+Ireland"
+        blurb: "Bank of America"
 
   - name: "Platinum"
     level: 2
@@ -24,7 +25,7 @@ tiers:
     level: 3
     # amount: 0 # euros
     sponsors:
-      - name: "TBD"
+      - name: "Your company could be HERE"
         logo: "/img/sponsors/placeholder.svg"
         url: "https://example.com"
 
