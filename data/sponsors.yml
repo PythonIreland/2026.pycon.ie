@@ -31,22 +31,25 @@ tiers:
     level: 3
     # amount: 0 # euros
     sponsors:
-      - name: "Your company could be HERE"
-        logo: "/img/sponsors/LogoHere.png"
-        url: "https://example.com"
+      # - name: "Your company could be HERE"
+      #   logo: "/img/sponsors/LogoHere.png"
+      #   url: "https://example.com"
+      #   blurb: "We are the best!"
 
   - name: "Silver"
     level: 4
     # amount: 0 # euros
     sponsors:
-      - name: "TBD"
-        logo: "/img/sponsors/LogoHere.png"
-        url: "https://example.com"
+      # - name: "TBD"
+      #   logo: "/img/sponsors/LogoHere.png"
+      #   url: "https://example.com"
+      #   blurb: "We are the best!"
 
   - name: "Community"
     level: 5
     # amount: 0 # euros
     sponsors:
-      - name: "TBD"
-        logo: "/img/sponsors/LogoHere.png"
-        url: "https://example.com"
+      # - name: "TBD"
+      #   logo: "/img/sponsors/LogoHere.png"
+      #   url: "https://example.com"
+      #   blurb: "We are the best!"

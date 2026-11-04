@@ -14,25 +14,27 @@
   <section class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {{ range .Site.Data.sponsors.tiers }}
-        <div class="mb-16 last:mb-0">
-          <h2 class="text-center text-sm font-semibold uppercase tracking-widest text-text-secondary mb-8">
-            {{ .name }} Sponsors
+        {{ if .sponsors }}
+          <div class="mb-16 last:mb-0">
+            <h2 class="text-center text-sm font-semibold uppercase tracking-widest text-text-secondary mb-8">
+              {{ .name }} Sponsors
           </h2>
 
           {{ $size := "h-16" }}
           {{ if lt .level 3 }}
-            {{ $size = "h-20" }}
+              {{ $size = "h-20" }}
           {{ end }}
 
           <div class="flex flex-wrap justify-center items-center gap-8">
-            {{ range .sponsors }}
-              <a href="{{ .url }}" target="_blank" rel="noopener" title="{{ .blurb }}" class="bg-bg-card rounded-xl p-8 hover:bg-bg-card-hover transition-colors group">
-                <img src="{{ .logo }}" alt="{{ .name }}" class="{{ $size }} w-auto mx-auto opacity-70 group-hover:opacity-100 transition-opacity">
-                <p class="text-text-secondary text-xs text-center mt-3">{{ .name }}</p>
-              </a>
-            {{ end }}
+              {{ range .sponsors }}
+                <a href="{{ .url }}" target="_blank" rel="noopener" title="{{ .blurb }}" class="bg-bg-card rounded-xl p-8 hover:bg-bg-card-hover transition-colors group">
+                  <img src="{{ .logo }}" alt="{{ .name }}" class="{{ $size }} w-auto mx-auto opacity-70 group-hover:opacity-100 transition-opacity">
+                  <p class="text-text-secondary text-xs text-center mt-3">{{ .name }}</p>
+                </a>
+              {{ end }}
           </div>
-        </div>
+          </div>
+        {{ end }}
       {{ end }}
 
       {{/* CTA */}}
