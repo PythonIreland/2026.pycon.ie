@@ -7,6 +7,7 @@ tiers:
         logo: "/img/sponsors/ninedots-logo-white.svg"
         url: "https://ninedots.io/"
         blurb: "The tech recruitment team that does it right."
+
       - name: "Bank of America"
         logo: "/img/sponsors/bank-of-america.max-300x240.png"
         url: "https://careers.bankofamerica.com/en-us/job-search?ref=search&search=jobsByLocation&rows=50&start=0&searchstring=Dublin%2C+Ireland"
@@ -21,12 +22,17 @@ tiers:
         url: "https://www.zyte.com/pycon-ireland-2026/"
         blurb: "Unblock your data with Zyte."
 
+      - name: "EuroPython Society"
+        logo: "/img/sponsors/EuroPythonSociety-Logo-v3.svg"
+        url: "https://www.europython-society.org/"
+        blurb: "Organisers of the EuroPython conference series. Working for the Python community."
+
   - name: "Gold"
     level: 3
     # amount: 0 # euros
     sponsors:
       - name: "Your company could be HERE"
-        logo: "/img/sponsors/placeholder.svg"
+        logo: "/img/sponsors/LogoHere.png"
         url: "https://example.com"
 
   - name: "Silver"
@@ -34,7 +40,7 @@ tiers:
     # amount: 0 # euros
     sponsors:
       - name: "TBD"
-        logo: "/img/sponsors/placeholder.svg"
+        logo: "/img/sponsors/LogoHere.png"
         url: "https://example.com"
 
   - name: "Community"
@@ -42,5 +48,5 @@ tiers:
     # amount: 0 # euros
     sponsors:
       - name: "TBD"
-        logo: "/img/sponsors/placeholder.svg"
+        logo: "/img/sponsors/LogoHere.png"
         url: "https://example.com"
