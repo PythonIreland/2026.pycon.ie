@@ -9,9 +9,10 @@ tiers:
         blurb: "The tech recruitment team that does it right."
 
       - name: "Bank of America"
-        logo: "/img/sponsors/bank-of-america.max-300x240.png"
+        logo: "/img/sponsors/bofa_lo2_rgb.png"
         url: "https://careers.bankofamerica.com/en-us/job-search?ref=search&search=jobsByLocation&rows=50&start=0&searchstring=Dublin%2C+Ireland"
         blurb: "Bank of America"
+        bg_color: "#ffffff"
 
   - name: "Platinum"
     level: 2
