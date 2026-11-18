@@ -3,7 +3,8 @@
 
   Params (dict):
     page  the current page
-    view  Sessionize embed view: "Sessions" (list) or "GridSmart" (grid)
+    view  Sessionize embed view: "Sessions" (list), "GridSmart" (grid)
+          or "Speakers"
 
   The embed is constrained to the site container (it otherwise spans the
   full viewport) and overflow-x is clipped: the Sessionize list renders a
@@ -13,12 +14,14 @@
 {{- $page := .page -}}
 {{- $view := .view -}}
 {{- $sz := partialCached "sessionize-data.html" $page -}}
-{{- /* The list view has long descriptions: keep a readable line length.
-       The grid needs the full container width for its room columns. */ -}}
+{{- /* Session and speaker lists have long descriptions and bios: keep a
+       readable line length. The grid needs the full container width for
+       its room columns. */ -}}
 {{- $width := cond (eq $view "GridSmart") "max-w-7xl" "max-w-4xl" -}}
 {{- $tabs := slice
     (dict "label" "List" "url" "/schedule/" "view" "Sessions")
     (dict "label" "Grid" "url" "/grid/" "view" "GridSmart")
+    (dict "label" "Speakers" "url" "/speakers/" "view" "Speakers")
 -}}
 <div class="pt-24">
   <section class="pt-12 pb-8 text-center">
@@ -37,14 +40,13 @@
       </p>
       {{- end }}
 
-      <nav class="mt-8 inline-flex rounded-xl bg-bg-card p-1 border border-white/5" aria-label="Schedule views">
+      <nav class="mt-8 inline-flex rounded-xl bg-bg-card p-1 border border-white/5" aria-label="Programme views">
         {{- range $tabs }}
         {{- $active := eq .view $view }}
         <a href="{{ .url }}"
            class="px-5 py-2 rounded-lg text-sm font-semibold transition-colors {{ if $active }}bg-py-yellow text-bg-primary{{ else }}text-text-secondary hover:text-py-yellow{{ end }}"
            {{- if $active }} aria-current="page"{{ end }}>{{ .label }}</a>
         {{- end }}
-        <a href="/speakers/" class="px-5 py-2 rounded-lg text-sm font-semibold text-text-secondary hover:text-py-yellow transition-colors">Speakers</a>
       </nav>
     </div>
   </section>
