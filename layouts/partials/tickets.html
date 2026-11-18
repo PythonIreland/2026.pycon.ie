@@ -12,9 +12,8 @@
     </div>
 
     {{- with $tito.slug }}
+    {{- /* The js.tito.io script is loaded from head.html, on the homepage only */}}
     <tito-widget event="{{ . }}"></tito-widget>
-    {{- /* Loaded here rather than in <head> so only the page showing the widget pays for it */}}
-    <script src="https://js.tito.io/v2" async></script>
     {{- end }}
 
   </div>
