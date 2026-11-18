@@ -118,3 +118,10 @@ html {
   border: 2px solid var(--color-py-yellow);
   box-shadow: 0 0 40px rgba(255, 212, 59, 0.1);
 }
+
+/* Sessionize embeds (/schedule/, /grid/) */
+/* Single-day event: the page header already shows the date, and Sessionize's
+   day title is an <h1> that would duplicate the page <h1>. */
+.sessionize-embed .sz-day__title {
+  display: none;
+}

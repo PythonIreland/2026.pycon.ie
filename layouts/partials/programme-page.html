@@ -1,0 +1,61 @@
+{{- /*
+  Shared layout for the Sessionize-powered programme pages.
+
+  Params (dict):
+    page  the current page
+    view  Sessionize embed view: "Sessions" (list), "GridSmart" (grid)
+          or "Speakers"
+
+  The embed is constrained to the site container (it otherwise spans the
+  full viewport) and overflow-x is clipped: the Sessionize list renders a
+  few pixels wider than the viewport on mobile. See .sessionize-embed in
+  assets/css/main.css for the overrides of Sessionize's own markup.
+*/ -}}
+{{- $page := .page -}}
+{{- $view := .view -}}
+{{- $sz := partialCached "sessionize-data.html" $page -}}
+{{- /* Session and speaker lists have long descriptions and bios: keep a
+       readable line length. The grid needs the full container width for
+       its room columns. */ -}}
+{{- $width := cond (eq $view "GridSmart") "max-w-7xl" "max-w-4xl" -}}
+{{- $tabs := slice
+    (dict "label" "List" "url" "/schedule/" "view" "Sessions")
+    (dict "label" "Grid" "url" "/grid/" "view" "GridSmart")
+    (dict "label" "Speakers" "url" "/speakers/" "view" "Speakers")
+-}}
+<div class="pt-24">
+  <section class="pt-12 pb-8 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-text-heading mb-4">{{ $page.Title }}</h1>
+      <p class="text-text-secondary text-lg">
+        {{ site.Params.dateHuman }} &middot; {{ site.Params.venue }}, Dublin
+      </p>
+      {{- if $sz.ok }}
+      {{- $talks := 0 }}{{ $workshops := 0 }}
+      {{- range $sz.sessions }}
+        {{- if eq .type "Workshop" }}{{ $workshops = add $workshops 1 }}{{ else }}{{ $talks = add $talks 1 }}{{ end }}
+      {{- end }}
+      <p class="text-text-secondary mt-1">
+        {{ $talks }} talks &amp; panels &middot; {{ $workshops }} workshops &middot; {{ len $sz.speakers }} speakers
+      </p>
+      {{- end }}
+
+      <nav class="mt-8 inline-flex rounded-xl bg-bg-card p-1 border border-white/5" aria-label="Programme views">
+        {{- range $tabs }}
+        {{- $active := eq .view $view }}
+        <a href="{{ .url }}"
+           class="px-5 py-2 rounded-lg text-sm font-semibold transition-colors {{ if $active }}bg-py-yellow text-bg-primary{{ else }}text-text-secondary hover:text-py-yellow{{ end }}"
+           {{- if $active }} aria-current="page"{{ end }}>{{ .label }}</a>
+        {{- end }}
+      </nav>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-7xl mx-auto"></div>
+
+  <section class="py-12">
+    <div class="sessionize-embed {{ $width }} mx-auto px-4 sm:px-6 lg:px-8 overflow-x-clip">
+      <script type="text/javascript" src="https://sessionize.com/api/v2/gcf50ep3/view/{{ $view }}"></script>
+    </div>
+  </section>
+</div>
