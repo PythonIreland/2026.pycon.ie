@@ -148,4 +148,28 @@
   document.addEventListener('touchstart', function(e) {
     if (!e.target.closest('[data-dropdown]')) closeAllDropdowns();
   });
+
+  // Same-page anchor links (e.g. "/#tickets" clicked on the homepage).
+  // The Tito widget script runs vue-router in this page: it listens to
+  // "popstate", which a native fragment navigation fires, and then calls
+  // window.scrollTo(0, 0), sending the visitor back to the top (Firefox).
+  // Scroll ourselves and update the URL with pushState, which does not fire
+  // popstate.
+  document.addEventListener('click', function(e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const link = e.target.closest('a[href*="#"]');
+    if (!link || link.target || link.origin !== location.origin || link.pathname !== location.pathname || !link.hash) return;
+    const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+    if (!target) return;
+    e.preventDefault();
+
+    // Close the mobile menu if the link was inside it
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu && mobileMenu.contains(link) && !mobileMenu.classList.contains('hidden')) {
+      document.getElementById('menu-toggle').click();
+    }
+
+    target.scrollIntoView({ behavior: 'smooth' });
+    if (location.hash !== link.hash) history.pushState(null, '', link.hash);
+  });
 </script>
