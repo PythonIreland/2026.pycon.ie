@@ -1,3 +1,4 @@
+{{- $tito := partialCached "tito-data.html" . -}}
 <section id="tickets" class="py-24 bg-bg-secondary">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
@@ -6,11 +7,14 @@
         Secure your spot at {{ .Site.Title }}.
         Buy your tickets from
         <a href="{{ .Site.Params.ticketsUrl }}" class="text-py-blue-light hover:text-py-yellow font-semibold transition-colors"
-            target="_blank" rel="me noopener">Tito</a>.
+            target="_blank" rel="noopener">Tito</a>.
       </p>
     </div>
 
-    <tito-widget event="python-ireland/pycon-ireland-2026"></tito-widget>
+    {{- with $tito.slug }}
+    {{- /* The js.tito.io script is loaded from head.html, on the homepage only */}}
+    <tito-widget event="{{ . }}"></tito-widget>
+    {{- end }}
 
   </div>
 </section>

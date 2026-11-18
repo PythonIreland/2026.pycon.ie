@@ -137,7 +137,8 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 - `layouts/partials/about.html` — About section with feature cards from `site.yml`
 - `layouts/partials/sponsors-home.html` — Homepage sponsor logos by tier
 - `layouts/partials/venue-home.html` — Venue showcase
-- `layouts/partials/tickets.html` — Dynamic pricing cards from `hugo.toml` params
+- `layouts/partials/tickets.html` — Tito ticket widget; the `js.tito.io` script is loaded here only, not site-wide
+- `layouts/partials/tito-data.html` — Fetches ticket names, prices and sale state from Tito at build time (use with `partialCached`)
 - `layouts/partials/stats.html` — Animated statistics counters
 - `layouts/partials/keynotes.html` — Featured keynote speakers
 - `layouts/partials/speaker-card.html` — Reusable speaker card component
@@ -155,7 +156,7 @@ Commented out (pending content): Keynotes, Sponsors, Tickets, Newsletter CTA
 - `[params]` — Conference details (dates, venue, contact, social). Key social params: `twitterHandle`, `mastodonHandle` (`@Python_Ireland`), `mastodonUrl` (`https://mastodon.ie/@Python_Ireland` — instance is mastodon.ie, not mastodon.social), `youtubeUrl`
 - `[params.hero]` — Hero section content
 - `[params.stats]` — Statistics for counters (attendees, speakers, tracks, days)
-- `[[params.tickets]]` — Ticket types with pricing (Student, Early Bird, General, Corporate)
+- `ticketsUrl` — Tito event URL (`https://ti.to/<account>/<event>`). Ticket prices are **not** stored in `hugo.toml`: they come from Tito's public checkout endpoint at build time and feed the homepage price range and the Event `offers` JSON-LD
 - `[menus.main]` — Navigation menu items (Sponsors menu currently commented out)
 
 **Build configuration:**
@@ -319,11 +320,10 @@ Commit message style:
   <span class="badge">Keynote</span>
 {{ end }}
 
-{{ if .Site.Params.tickets }}
-  {{ range .Site.Params.tickets }}
-    {{ if .highlight }}
-      <div class="ticket-highlight">...</div>
-    {{ end }}
+{{ $tito := partialCached "tito-data.html" . }}
+{{ if $tito.ok }}
+  {{ range $tito.releases }}
+    <p>{{ .name }}: {{ $tito.currencySymbol }}{{ .priceLabel }}</p>
   {{ end }}
 {{ end }}
 ```
