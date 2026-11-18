@@ -137,7 +137,7 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 - `layouts/partials/about.html` — About section with feature cards from `site.yml`
 - `layouts/partials/sponsors-home.html` — Homepage sponsor logos by tier
 - `layouts/partials/venue-home.html` — Venue showcase
-- `layouts/partials/tickets.html` — Tito ticket widget; the `js.tito.io` script is loaded here only, not site-wide
+- `layouts/partials/tickets.html` — Tito ticket widget. The `js.tito.io` script is loaded from `head.html` on the homepage only (not site-wide). Tito's script resets the scroll position on `popstate`, so same-page anchor links are handled in `nav.html` with `pushState`
 - `layouts/partials/tito-data.html` — Fetches ticket names, prices and sale state from Tito at build time (use with `partialCached`)
 - `layouts/partials/stats.html` — Animated statistics counters
 - `layouts/partials/keynotes.html` — Featured keynote speakers
