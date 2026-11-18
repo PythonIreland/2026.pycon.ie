@@ -1,0 +1,92 @@
+{{- /*
+  Programme data fetched from Sessionize at build time.
+
+  Sessionize is the single source of truth for sessions and speakers. The
+  JSON endpoint (site.Params.sessionizeApiUrl, "All data" view) is queried
+  once per build: use with partialCached.
+
+  Returns a dict:
+    ok        bool   false if the URL is unset or Sessionize is unreachable
+    sessions  slice  dicts sorted by start time:
+                       id, title, description, start, end (RFC 3339 with the
+                       Europe/Dublin offset), room, type ("Talk"/"Workshop"),
+                       speakers (slice of speaker ids)
+    speakers  slice  dicts sorted by name:
+                       id, name, tagline, bio, photo, links (slice of URLs),
+                       sessions (slice of session ids)
+    speakerNames  dict  speaker id -> full name
+
+  A Sessionize outage must not break the build: on error a warning is logged
+  and callers omit the structured data.
+*/ -}}
+{{- $result := dict "ok" false -}}
+{{- with site.Params.sessionizeApiUrl -}}
+  {{- $api := . -}}
+  {{- $remote := try (resources.GetRemote $api) -}}
+  {{- with $remote.Err -}}
+    {{- warnf "sessionize-data: cannot fetch %s: %s" $api . -}}
+  {{- else with $remote.Value -}}
+    {{- $data := . | transform.Unmarshal -}}
+
+    {{- /* Lookup tables */ -}}
+    {{- $rooms := dict -}}
+    {{- range $data.rooms }}{{ $rooms = merge $rooms (dict (string .id) .name) }}{{ end -}}
+    {{- $categoryItems := dict -}}
+    {{- range $data.categories -}}
+      {{- if eq .title "Presentation Type" -}}
+        {{- range .items }}{{ $categoryItems = merge $categoryItems (dict (string .id) .name) }}{{ end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- /* Sessionize times are the event's wall-clock time; attach the
+           Europe/Dublin offset (GMT in winter, IST in summer). */ -}}
+    {{- $tz := "Europe/Dublin" -}}
+    {{- $rfc3339 := "2006-01-02T15:04:05-07:00" -}}
+
+    {{- $sessions := slice -}}
+    {{- range sort $data.sessions "startsAt" -}}
+      {{- if and .startsAt (eq .status "Accepted") (not .isServiceSession) -}}
+        {{- $type := "" -}}
+        {{- range .categoryItems }}{{ with index $categoryItems (string .) }}{{ $type = . }}{{ end }}{{ end -}}
+        {{- $sessions = $sessions | append (dict
+            "id" (string .id)
+            "title" .title
+            "description" (.description | default "")
+            "start" ((time.AsTime (strings.TrimSuffix "Z" .startsAt) $tz).Format $rfc3339)
+            "end" ((time.AsTime (strings.TrimSuffix "Z" .endsAt) $tz).Format $rfc3339)
+            "room" (index $rooms (string .roomId) | default "")
+            "type" $type
+            "speakers" .speakers
+        ) -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- $speakers := slice -}}
+    {{- $speakerNames := dict -}}
+    {{- range sort $data.speakers "fullName" -}}
+      {{- $links := slice -}}
+      {{- range .links }}{{ with .url }}{{ $links = $links | append . }}{{ end }}{{ end -}}
+      {{- $sessionIds := slice -}}
+      {{- range .sessions }}{{ $sessionIds = $sessionIds | append (string .) }}{{ end -}}
+      {{- $speakers = $speakers | append (dict
+          "id" .id
+          "name" .fullName
+          "tagline" (strings.TrimSpace (.tagLine | default ""))
+          "bio" (.bio | default "")
+          "photo" (.profilePicture | default "")
+          "links" $links
+          "sessions" $sessionIds
+      ) -}}
+      {{- $speakerNames = merge $speakerNames (dict .id .fullName) -}}
+    {{- end -}}
+
+    {{- if $sessions -}}
+      {{- $result = dict "ok" true "sessions" $sessions "speakers" $speakers "speakerNames" $speakerNames -}}
+    {{- else -}}
+      {{- warnf "sessionize-data: no sessions returned by %s" $api -}}
+    {{- end -}}
+  {{- else -}}
+    {{- warnf "sessionize-data: %s not found (check params.sessionizeApiUrl)" $api -}}
+  {{- end -}}
+{{- end -}}
+{{- return $result -}}

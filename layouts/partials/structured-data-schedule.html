@@ -1,127 +1,45 @@
-{{/* Option 3: EducationalEvent Schema for Each Talk/Keynote */}}
-
-{{/* Extract year and month from event start date */}}
-{{ $eventStart := time.AsTime $.Site.Params.eventStartDate }}
-{{ $year := $eventStart.Format "2006" }}
-{{ $month := $eventStart.Format "01" }}
-
-{{ range $day := .Site.Data.schedule.days }}
-  {{ range $slot := $day.slots }}
-    {{ if eq $slot.type "session" }}
-      {{ range $sessionId := $slot.session_ids }}
-        {{ range $session := where $.Site.Data.sessions "id" $sessionId }}
-          {{ if or (eq $session.type "keynote") (eq $session.type "talk") }}
+{{- /*
+  JSON-LD for the schedule pages (/schedule/, /grid/): one EducationalEvent
+  per accepted Sessionize session, linked to the main event (superEvent),
+  the venue (containedInPlace) and its speakers (performer, @id references
+  to the Person nodes emitted on /speakers/).
+*/ -}}
+{{- $sz := partialCached "sessionize-data.html" . -}}
+{{- if $sz.ok }}
+{{- $base := site.BaseURL -}}
+{{- $graph := slice -}}
+{{- range $sz.sessions -}}
+  {{- $performers := slice -}}
+  {{- range .speakers -}}
+    {{- $performers = $performers | append (dict
+        "@type" "Person"
+        "@id" (printf "%sspeakers/#%s" $base .)
+        "name" (index $sz.speakerNames .)
+    ) -}}
+  {{- end -}}
+  {{- $location := dict
+      "@type" "Place"
+      "name" (cond (ne .room "") (printf "%s, %s" .room site.Params.venue) site.Params.venue)
+      "containedInPlace" (dict "@id" (printf "%svenue/#place" $base))
+  -}}
+  {{- $event := dict
+      "@type" "EducationalEvent"
+      "@id" (printf "%sschedule/#session-%s" $base .id)
+      "name" .title
+      "startDate" .start
+      "endDate" .end
+      "eventStatus" "https://schema.org/EventScheduled"
+      "eventAttendanceMode" "https://schema.org/OfflineEventAttendanceMode"
+      "location" $location
+      "superEvent" (dict "@id" (printf "%s#main-event" $base))
+      "organizer" (dict "@id" (printf "%s#organization" site.Params.organizerUrl))
+      "inLanguage" "en"
+  -}}
+  {{- with .description }}{{ $event = merge $event (dict "description" .) }}{{ end -}}
+  {{- with $performers }}{{ $event = merge $event (dict "performer" .) }}{{ end -}}
+  {{- $graph = $graph | append $event -}}
+{{- end }}
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EducationalEvent",
-  "@id": "{{ $.Site.BaseURL }}schedule/#{{ $session.id }}",
-  "name": "{{ $session.title }}",
-  "description": "{{ $session.description }}",
-  "eventStatus": "https://schema.org/EventScheduled",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  {{/* Parse time for startDate */}}
-  {{ $dayNum := substr $day.date 8 2 }}
-  {{ $time := $slot.time }}
-  "startDate": "{{ $year }}-{{ $month }}-{{ $dayNum }}T{{ $time }}:00+01:00",
-  {{/* Calculate endDate based on duration */}}
-  {{ $duration := default 30 $session.duration }}
-  "duration": "PT{{ $duration }}M",
-  "location": {
-    "@type": "Place",
-    "name": "{{ $.Site.Params.venue }}",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "{{ $.Site.Params.venueStreetAddress }}",
-      "addressLocality": "{{ $.Site.Params.venueCity }}",
-      "postalCode": "{{ $.Site.Params.venuePostalCode }}",
-      "addressCountry": "{{ $.Site.Params.venueCountry }}"
-    }
-  },
-  "superEvent": {
-    "@type": "Event",
-    "@id": "{{ $.Site.BaseURL }}#main-event",
-    "name": "{{ $.Site.Title }}"
-  },
-  {{/* Performers (speakers) */}}
-  {{ if $session.speaker_ids }}
-  "performer": [
-    {{ range $idx, $speakerId := $session.speaker_ids }}
-      {{ range $speaker := where $.Site.Data.speakers "id" $speakerId }}
-        {{ if gt $idx 0 }},{{ end }}
-        {
-          "@type": "Person",
-          "@id": "{{ $.Site.BaseURL }}speakers/#{{ $speaker.id }}",
-          "name": "{{ $speaker.name }}",
-          "jobTitle": "{{ $speaker.title }}",
-          {{ with $speaker.company }}"worksFor": {
-            "@type": "Organization",
-            "name": "{{ . }}"
-          }{{ end }}
-        }
-      {{ end }}
-    {{ end }}
-  ],
-  {{ end }}
-  "organizer": {
-    "@type": "Organization",
-    "name": "{{ $.Site.Params.organizerName }}",
-    "url": "{{ $.Site.Params.organizerUrl }}"
-  },
-  {{ if eq $session.type "keynote" }}
-  "audience": {
-    "@type": "Audience",
-    "audienceType": "Python developers, software engineers, data scientists"
-  },
-  {{ end }}
-  "inLanguage": "en-IE",
-  "isAccessibleForFree": false,
-  "about": [
-    {
-      "@type": "Thing",
-      "name": "Python Programming"
-    },
-    {
-      "@type": "Thing",
-      "name": "Software Development"
-    }
-  ]
-}
+{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}
 </script>
-          {{ end }}
-        {{ end }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}
-
-{{/* EventSeries for the full conference schedule */}}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "EventSeries",
-  "name": "{{ .Site.Title }} Schedule",
-  "description": "Full conference schedule for {{ .Site.Title }}",
-  "superEvent": {
-    "@type": "Event",
-    "@id": "{{ .Site.BaseURL }}#main-event",
-    "name": "{{ .Site.Title }}"
-  },
-  "location": {
-    "@type": "Place",
-    "name": "{{ .Site.Params.venue }}",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "{{ .Site.Params.venueStreetAddress }}",
-      "addressLocality": "{{ .Site.Params.venueCity }}",
-      "postalCode": "{{ .Site.Params.venuePostalCode }}",
-      "addressCountry": "{{ .Site.Params.venueCountry }}"
-    }
-  },
-  "organizer": {
-    "@type": "Organization",
-    "name": "{{ .Site.Params.organizerName }}",
-    "url": "{{ .Site.Params.organizerUrl }}"
-  }
-}
-</script>
+{{- end }}

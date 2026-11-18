@@ -51,22 +51,15 @@ This project uses Hugo's **native Tailwind CSS processing** without PostCSS or N
 
 ### Data-Driven Content Model
 
-Conference content is stored in **YAML data files** (`data/*.yml`), not Markdown frontmatter:
+Conference content is stored in **YAML data files** (`data/*.yml`), not Markdown frontmatter. Two kinds of content come from external services instead, fetched at build time with `resources.GetRemote`:
 
-**`data/speakers.yml`**
-- Speaker profiles: id, name, title, company, bio, photo, keynote flag, social links
-- Accessed: `.Site.Data.speakers`
-- Keynotes: `where .Site.Data.speakers "keynote" true`
+**Sessions and speakers: Sessionize**
+- Source of truth: Sessionize. Pages embed the Sessionize widgets (`/schedule/`, `/grid/`, `/speakers/`)
+- `params.sessionizeApiUrl` points to the JSON "All data" endpoint
+- `layouts/partials/sessionize-data.html` normalises it (sessions with Europe/Dublin RFC 3339 times, room, speaker ids; speakers with tagline, bio, photo, links). Use with `partialCached`
+- There is no `data/speakers.yml` / `data/sessions.yml` / `data/schedule.yml` any more: edit the programme in Sessionize and redeploy
 
-**`data/sessions.yml`**
-- Talk details: id, title, description, speaker_ids (array), type, duration, track
-- Types: keynote, talk, break, lightning, ceremony
-- Linked to speakers via `speaker_ids`
-
-**`data/schedule.yml`**
-- Multi-day, multi-track schedule grid
-- Structure: `days[].slots[]` with time, type, session_ids, tracks, duration
-- References sessions by ID
+**Ticket prices: Tito** (see `layouts/partials/tito-data.html`)
 
 **`data/sponsors.yml`**
 - Sponsor tiers: Platinum, Gold, Silver, Community
@@ -95,19 +88,17 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 - WebSite schema: Site metadata
 - BreadcrumbList schema: Navigation hierarchy for interior pages
 
-**Layer 2: Speakers (`layouts/partials/structured-data-speakers.html`)**
-- ItemList schema: All speakers with position indexing
-- Person schemas: Individual speaker profiles with `performerIn` property
-- Bidirectional linking: Speaker → talks, talks → speakers
-- Dedicated schemas for keynote speakers with expertise tags
+**Layer 2: Speakers (`layouts/partials/structured-data-speakers.html`)**, built from Sessionize
+- ItemList of Person nodes (name, tagline as `jobTitle`, bio, photo, `sameAs` links)
+- `performerIn` links each speaker to their sessions
 
-**Layer 3: Schedule (`layouts/partials/structured-data-schedule.html`)**
-- EducationalEvent schema: Each talk/keynote with precise timing
-- EventSeries schema: Full conference schedule
-- `superEvent` hierarchy: Links sessions to main event
-- ISO 8601 dates/durations (e.g., `PT30M` for 30 minutes)
+**Layer 3: Schedule (`layouts/partials/structured-data-schedule.html`)**, built from Sessionize, on `/schedule/` and `/grid/`
+- One EducationalEvent per accepted session in an `@graph`: exact `startDate`/`endDate`, room as `location` (`containedInPlace` the venue), `performer` references, `superEvent` → main event
+- The homepage Event also lists all speakers as `performer`
 
-**Key Pattern:** Use `@id` for cross-references (e.g., `{{ .Site.BaseURL }}speakers/#{{ $speaker.id }}`). This enables Google Knowledge Graph integration.
+**Key Pattern:** Use `@id` for cross-references: speakers are `{{ site.BaseURL }}speakers/#<sessionize speaker id>`, sessions `{{ site.BaseURL }}schedule/#session-<sessionize session id>`. Build JSON-LD objects with `dict` + `jsonify | safeJS` rather than string templating, so titles and bios are escaped correctly.
+
+**Time zone:** Dublin is on GMT (`+00:00`) in November, IST (`+01:00`) in summer. `eventStartDate`/`eventEndDate` in `hugo.toml` must carry the right offset.
 
 **Documentation:** See `docs/STRUCTURED-DATA.md` for complete schema details and validation instructions.
 
@@ -140,15 +131,14 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 - `layouts/partials/tickets.html` — Tito ticket widget. The `js.tito.io` script is loaded from `head.html` on the homepage only (not site-wide). Tito's script resets the scroll position on `popstate`, so same-page anchor links are handled in `nav.html` with `pushState`
 - `layouts/partials/tito-data.html` — Fetches ticket names, prices and sale state from Tito at build time (use with `partialCached`)
 - `layouts/partials/stats.html` — Animated statistics counters
-- `layouts/partials/keynotes.html` — Featured keynote speakers
-- `layouts/partials/speaker-card.html` — Reusable speaker card component
+- `layouts/partials/sessionize-data.html` — Fetches sessions and speakers from Sessionize at build time (use with `partialCached`)
 - `layouts/partials/discover-dublin.html` — "Discover Dublin" section with gallery, top things to do, and transport info
 - `layouts/partials/cta-newsletter.html` — Newsletter signup with social links (not active — no newsletter service configured yet)
 - `layouts/partials/css.html` — Deferred CSS rendering with Tailwind processing
 
 **Homepage composition (`layouts/index.html`):**
-Active: Hero → About → Stats → Venue → Discover Dublin
-Commented out (pending content): Keynotes, Sponsors, Tickets, Newsletter CTA
+Active: Hero → key facts bar (date, venue, ticket prices) → About → Sponsors → Venue → Key questions → Tickets (Tito widget) → Discover Dublin
+Commented out (pending content): Stats, Newsletter CTA
 
 ### Configuration (`hugo.toml`)
 
@@ -199,48 +189,9 @@ text-heading:   #f1f5f9
 
 ## Content Management
 
-### Adding Speakers
+### Adding Speakers and Sessions
 
-Edit `data/speakers.yml`:
-```yaml
-- id: "speaker-slug"
-  name: "Full Name"
-  title: "Job Title"
-  company: "Company Name"
-  bio: "Biography text"
-  photo: "/img/speakers/photo.jpg"  # or placeholder.svg
-  keynote: true  # or false
-  social:
-    twitter: "https://twitter.com/handle"
-    github: "https://github.com/username"
-    linkedin: "https://linkedin.com/in/username"
-```
-
-Structured data will auto-generate for new speakers.
-
-### Adding Sessions/Talks
-
-Edit `data/sessions.yml`:
-```yaml
-- id: "talk-slug"
-  title: "Talk Title"
-  description: "Detailed description"
-  speaker_ids: ["speaker-slug"]  # Array, can have multiple
-  type: "talk"  # or "keynote", "lightning", "workshop"
-  duration: 30  # minutes
-  track: "track-1"  # or "main" for plenary
-```
-
-Then add to schedule in `data/schedule.yml`:
-```yaml
-- time: "14:00"
-  type: "session"
-  session_ids: ["talk-slug"]
-  tracks: ["track-1"]
-  duration: 30
-```
-
-EducationalEvent schemas will auto-generate with correct dates/times.
+Speakers, sessions, rooms and times are managed in **Sessionize**. After a change there, trigger a new deploy so the JSON-LD (built from `params.sessionizeApiUrl`) picks it up; the embedded widgets update on their own.
 
 ### Adding Blog Posts
 
@@ -291,24 +242,20 @@ Commit message style:
 ### Accessing Data Files in Templates
 
 ```go
-{{ range .Site.Data.speakers }}
-  {{ .name }} — {{ .company }}
-{{ end }}
-
-{{ $keynotes := where .Site.Data.speakers "keynote" true }}
-
-{{ range where .Site.Data.sessions "type" "talk" }}
-  {{ .title }}
+{{ range hugo.Data.sponsors.tiers }}
+  {{ .name }}
 {{ end }}
 ```
 
-### Linking Sessions to Speakers
+### Sessions and Speakers from Sessionize
 
 ```go
-{{ range .speaker_ids }}
-  {{ $speakerId := . }}
-  {{ range where $.Site.Data.speakers "id" $speakerId }}
-    <p>{{ .name }}</p>
+{{ $sz := partialCached "sessionize-data.html" . }}
+{{ if $sz.ok }}
+  {{ range $sz.sessions }}
+    <p>{{ .start }} {{ .title }}:
+      {{ range $i, $id := .speakers }}{{ if $i }}, {{ end }}{{ index $sz.speakerNames $id }}{{ end }}
+    </p>
   {{ end }}
 {{ end }}
 ```

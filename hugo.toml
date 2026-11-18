@@ -29,8 +29,8 @@ enableGitInfo = true
   eventDate = "2026-11-21"
 
   # Event dates in ISO 8601 format (for structured data)
-  eventStartDate = "2026-11-21T09:00:00+01:00"
-  eventEndDate = "2026-11-21T18:00:00+01:00"
+  eventStartDate = "2026-11-21T09:00:00+00:00"  # Dublin is on GMT (UTC+0) in November
+  eventEndDate = "2026-11-21T19:05:00+00:00"  # End of the last session (Lightning Talks) in Sessionize
 
   # Venue information
   venue = "Chartered Accountants House"
@@ -56,6 +56,7 @@ enableGitInfo = true
   cfpUrl = "https://sessionize.com/pycon-ireland-2026/"
   cfpOpens = "2026-05-25"
   cfpCloses = "2026-08-30"
+  sessionizeApiUrl = "https://sessionize.com/api/v2/k10qao8b/view/All"  # JSON "All data" endpoint; sessions/speakers JSON-LD is built from it at build time
   ticketsUrl = "https://ti.to/python-ireland/pycon-ireland-2026"  # Tito event URL; ticket names, prices and availability are fetched from Tito at build time
   ticketsValidFrom = "2026-10-01"  # Date pricing tiers were announced; required by Google's Offer.validFrom check
 

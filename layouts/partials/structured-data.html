@@ -66,6 +66,14 @@
     "@type": "Organization",
     "@id": "{{ .Site.Params.organizerUrl }}#organization"
   }
+  {{- $sz := partialCached "sessionize-data.html" . }}
+  {{- if $sz.ok }}
+  {{- $performers := slice }}
+  {{- range $sz.speakers }}
+    {{- $performers = $performers | append (dict "@type" "Person" "@id" (printf "%sspeakers/#%s" site.BaseURL .id) "name" .name) }}
+  {{- end }},
+  "performer": {{ $performers | jsonify | safeJS }}
+  {{- end }}
   {{- $tito := partialCached "tito-data.html" . }}
   {{- if $tito.ok }}
   {{- $offers := slice }}

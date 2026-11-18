@@ -1,5 +1,8 @@
 # Structured Data (JSON-LD) - Implementation Guide
 
+> **Update (November 2026):** the speaker and schedule schemas are now generated from the Sessionize JSON endpoint (`params.sessionizeApiUrl`, see `layouts/partials/sessionize-data.html`). `data/speakers.yml`, `data/sessions.yml` and `data/schedule.yml` were removed, and the `EventSeries` block was dropped. Sections below that refer to those files or to `+01:00` offsets describe the former setup; `CLAUDE.md` is the up-to-date reference.
+
+
 ## 📋 Vue d'Ensemble
 
 Le site PyCon Ireland 2026 implémente des schémas JSON-LD complets pour améliorer le référencement et activer les rich snippets dans les résultats de recherche Google.
