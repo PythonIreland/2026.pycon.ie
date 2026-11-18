@@ -1,0 +1,71 @@
+{{- /*
+  Ticket data fetched from Tito at build time.
+
+  Tito is the single source of truth for ticket names, prices and sale state.
+  The event slug is derived from site.Params.ticketsUrl
+  (https://ti.to/<account>/<event>), and the public checkout endpoint used by
+  the Tito widget itself is queried: https://checkout.tito.io/<slug>.json
+
+  Returns a dict:
+    ok              bool    false if ticketsUrl is unset or Tito is unreachable
+    slug            string  "<account>/<event>" (set whenever ticketsUrl is set)
+    currency        string  ISO code, e.g. "EUR"
+    currencySymbol  string  e.g. "€"
+    releases        slice   dicts: name, price (float), priceLabel, state, availability
+    minPrice        string  formatted lowest price (no currency symbol)
+    maxPrice        string  formatted highest price
+
+  A Tito outage must not break the build: on error a warning is logged and
+  callers hide price information.
+
+  Use with partialCached so Tito is queried once per build.
+*/ -}}
+{{- $result := dict "ok" false "slug" "" -}}
+{{- with site.Params.ticketsUrl -}}
+  {{- $slug := . | strings.TrimPrefix "https://ti.to/" | strings.TrimSuffix "/" -}}
+  {{- $result = merge $result (dict "slug" $slug) -}}
+  {{- $api := printf "https://checkout.tito.io/%s.json" $slug -}}
+  {{- $remote := try (resources.GetRemote $api) -}}
+  {{- with $remote.Err -}}
+    {{- warnf "tito-data: cannot fetch %s: %s" $api . -}}
+  {{- else with $remote.Value -}}
+    {{- $event := (. | transform.Unmarshal).event -}}
+    {{- $availability := dict
+        "on_sale" "https://schema.org/InStock"
+        "sold_out" "https://schema.org/SoldOut"
+        "upcoming" "https://schema.org/PreOrder"
+    -}}
+    {{- $releases := slice -}}
+    {{- $prices := slice -}}
+    {{- range $event.releases -}}
+      {{- $price := float .price -}}
+      {{- $label := cond (eq $price (math.Floor $price)) (printf "%.0f" $price) (printf "%.2f" $price) -}}
+      {{- $releases = $releases | append (dict
+          "name" .title
+          "price" $price
+          "priceLabel" $label
+          "state" .state
+          "availability" (index $availability .state | default "")
+      ) -}}
+      {{- $prices = $prices | append $price -}}
+    {{- end -}}
+    {{- if $releases -}}
+      {{- $min := math.Min $prices -}}
+      {{- $max := math.Max $prices -}}
+      {{- $result = merge $result (dict
+          "ok" true
+          "currency" $event.currency
+          "currencySymbol" $event.currency_symbol
+          "releases" $releases
+          "minPrice" (cond (eq $min (math.Floor $min)) (printf "%.0f" $min) (printf "%.2f" $min))
+          "maxPrice" (cond (eq $max (math.Floor $max)) (printf "%.0f" $max) (printf "%.2f" $max))
+      ) -}}
+    {{- else -}}
+      {{- warnf "tito-data: no releases returned by %s" $api -}}
+    {{- end -}}
+  {{- else -}}
+    {{- /* resources.GetRemote returns nil without error on a 404 */ -}}
+    {{- warnf "tito-data: %s not found (check params.ticketsUrl)" $api -}}
+  {{- end -}}
+{{- end -}}
+{{- return $result -}}

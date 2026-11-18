@@ -56,7 +56,7 @@ enableGitInfo = true
   cfpUrl = "https://sessionize.com/pycon-ireland-2026/"
   cfpOpens = "2026-05-25"
   cfpCloses = "2026-08-30"
-  ticketsUrl = "https://ti.to/python-ireland/pycon-ireland-2026"  # Set to Tito/Eventbrite URL when tickets go on sale
+  ticketsUrl = "https://ti.to/python-ireland/pycon-ireland-2026"  # Tito event URL; ticket names, prices and availability are fetched from Tito at build time
   ticketsValidFrom = "2026-10-01"  # Date pricing tiers were announced; required by Google's Offer.validFrom check
 
   # Contact & social
@@ -83,34 +83,6 @@ enableGitInfo = true
     speakers = 50
     tracks = 3
     days = 1
-
-  [[params.tickets]]
-    name = "Student"
-    price = 35
-    currency = "EUR"
-    features = ["Full conference access", "Lunch & refreshments", "Community networking"]
-    highlight = false
-
-  # [[params.tickets]]
-  #   name = "Early Bird"
-  #   price = 49
-  #   currency = "EUR"
-  #   features = ["Full conference access", "Lunch & refreshments", "Conference t-shirt", "Workshop access"]
-  #   highlight = true
-
-  [[params.tickets]]
-    name = "General"
-    price = 59
-    currency = "EUR"
-    features = ["Full conference access", "Lunch & refreshments", "Workshop access"]
-    highlight = false
-
-  [[params.tickets]]
-    name = "Corporate"
-    price = 159
-    currency = "EUR"
-    features = ["Full conference access", "Lunch & refreshments", "Workshop access", "Priority seating", "Networking reception"]
-    highlight = false
 
 [menus]
   [[menus.main]]
@@ -186,3 +158,8 @@ enableGitInfo = true
     name = "Blog"
     url = "/blog/"
     weight = 70
+
+# Remote resources (Tito ticket data) are cached by Hugo; keep it short so a
+# local `hugo server` does not show stale prices forever.
+[caches.getresource]
+  maxAge = "1h"
