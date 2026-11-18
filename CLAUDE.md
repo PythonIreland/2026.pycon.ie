@@ -93,7 +93,7 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 - `performerIn` links each speaker to their sessions
 
 **Layer 3: Schedule (`layouts/partials/structured-data-schedule.html`)**, built from Sessionize, on `/schedule/` and `/grid/`
-- One EducationalEvent per accepted session in an `@graph`: exact `startDate`/`endDate`, room as `location` (`containedInPlace` the venue), `performer` references, `superEvent` → main event
+- One EducationEvent (schema.org has no "EducationalEvent") per accepted session in an `@graph`: exact `startDate`/`endDate`, room as `location` (venue `address`, `containedInPlace` the venue), `performer` references, `superEvent` → main event
 - The homepage Event also lists all speakers as `performer`
 
 **Key Pattern:** Use `@id` for cross-references: speakers are `{{ site.BaseURL }}speakers/#<sessionize speaker id>`, sessions `{{ site.BaseURL }}schedule/#session-<sessionize session id>`. Build JSON-LD objects with `dict` + `jsonify | safeJS` rather than string templating, so titles and bios are escaped correctly.

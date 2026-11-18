@@ -1,5 +1,5 @@
 {{- /*
-  JSON-LD for the schedule pages (/schedule/, /grid/): one EducationalEvent
+  JSON-LD for the schedule pages (/schedule/, /grid/): one EducationEvent
   per accepted Sessionize session, linked to the main event (superEvent),
   the venue (containedInPlace) and its speakers (performer, @id references
   to the Person nodes emitted on /speakers/).
@@ -7,23 +7,53 @@
 {{- $sz := partialCached "sessionize-data.html" . -}}
 {{- if $sz.ok }}
 {{- $base := site.BaseURL -}}
+{{- /* Google requires location.address on physical events */ -}}
+{{- $address := dict
+    "@type" "PostalAddress"
+    "streetAddress" site.Params.venueStreetAddress
+    "addressLocality" site.Params.venueCity
+    "postalCode" site.Params.venuePostalCode
+    "addressRegion" site.Params.venueRegion
+    "addressCountry" site.Params.venueCountry
+-}}
+{{- /* Admission to every session is the conference ticket: reuse Tito's offers */ -}}
+{{- $offers := slice -}}
+{{- $tito := partialCached "tito-data.html" . -}}
+{{- if $tito.ok -}}
+  {{- range $tito.releases -}}
+    {{- $offer := dict
+        "@type" "Offer"
+        "name" .name
+        "price" (printf "%.2f" .price)
+        "priceCurrency" $tito.currency
+        "url" site.Params.ticketsUrl
+        "validFrom" site.Params.ticketsValidFrom
+    -}}
+    {{- with .availability }}{{ $offer = merge $offer (dict "availability" .) }}{{ end -}}
+    {{- $offers = $offers | append $offer -}}
+  {{- end -}}
+{{- end -}}
+{{- $fallbackImage := site.Params.ogImage | absURL -}}
 {{- $graph := slice -}}
 {{- range $sz.sessions -}}
   {{- $performers := slice -}}
+  {{- $images := slice -}}
   {{- range .speakers -}}
     {{- $performers = $performers | append (dict
         "@type" "Person"
         "@id" (printf "%sspeakers/#%s" $base .)
         "name" (index $sz.speakerNames .)
     ) -}}
+    {{- with index $sz.speakerPhotos . }}{{ $images = $images | append . }}{{ end -}}
   {{- end -}}
   {{- $location := dict
       "@type" "Place"
       "name" (cond (ne .room "") (printf "%s, %s" .room site.Params.venue) site.Params.venue)
+      "address" $address
       "containedInPlace" (dict "@id" (printf "%svenue/#place" $base))
   -}}
   {{- $event := dict
-      "@type" "EducationalEvent"
+      "@type" "EducationEvent"
       "@id" (printf "%sschedule/#session-%s" $base .id)
       "name" .title
       "startDate" .start
@@ -34,7 +64,9 @@
       "superEvent" (dict "@id" (printf "%s#main-event" $base))
       "organizer" (dict "@id" (printf "%s#organization" site.Params.organizerUrl))
       "inLanguage" "en"
+      "image" (cond (gt (len $images) 0) $images (slice $fallbackImage))
   -}}
+  {{- with $offers }}{{ $event = merge $event (dict "offers" .) }}{{ end -}}
   {{- with .description }}{{ $event = merge $event (dict "description" .) }}{{ end -}}
   {{- with $performers }}{{ $event = merge $event (dict "performer" .) }}{{ end -}}
   {{- $graph = $graph | append $event -}}

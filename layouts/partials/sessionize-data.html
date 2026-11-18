@@ -15,6 +15,7 @@
                        id, name, tagline, bio, photo, links (slice of URLs),
                        sessions (slice of session ids)
     speakerNames  dict  speaker id -> full name
+    speakerPhotos dict  speaker id -> photo URL (only speakers with a photo)
 
   A Sessionize outage must not break the build: on error a warning is logged
   and callers omit the structured data.
@@ -63,6 +64,7 @@
 
     {{- $speakers := slice -}}
     {{- $speakerNames := dict -}}
+    {{- $speakerPhotos := dict -}}
     {{- range sort $data.speakers "fullName" -}}
       {{- $links := slice -}}
       {{- range .links }}{{ with .url }}{{ $links = $links | append . }}{{ end }}{{ end -}}
@@ -78,10 +80,12 @@
           "sessions" $sessionIds
       ) -}}
       {{- $speakerNames = merge $speakerNames (dict .id .fullName) -}}
+      {{- $speakerId := .id -}}
+      {{- with .profilePicture }}{{ $speakerPhotos = merge $speakerPhotos (dict $speakerId .) }}{{ end -}}
     {{- end -}}
 
     {{- if $sessions -}}
-      {{- $result = dict "ok" true "sessions" $sessions "speakers" $speakers "speakerNames" $speakerNames -}}
+      {{- $result = dict "ok" true "sessions" $sessions "speakers" $speakers "speakerNames" $speakerNames "speakerPhotos" $speakerPhotos -}}
     {{- else -}}
       {{- warnf "sessionize-data: no sessions returned by %s" $api -}}
     {{- end -}}
