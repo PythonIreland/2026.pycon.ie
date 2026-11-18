@@ -119,7 +119,23 @@ html {
   box-shadow: 0 0 40px rgba(255, 212, 59, 0.1);
 }
 
-/* Sessionize embeds (/schedule/, /grid/) */
+/* Sessionize embeds (/schedule/, /grid/, /speakers/) */
+
+/* Keep the grid's z-index values (up to 400 for its sticky room headers)
+   inside their own stacking context, so they no longer paint over the fixed
+   navigation bar (z-index 50). Only the grid is isolated: the session details
+   modal (#sz-modal-container, z-index 1000) lives outside it and must keep
+   covering the navigation bar. */
+.sessionize-embed .sz-cssgrid {
+  isolation: isolate;
+}
+
+/* The grid's sticky room headers would otherwise stick at top: 0, hidden
+   behind the fixed navigation. Sessionize forces top: 0, hence !important. */
+.sessionize-embed .sz-cssgrid__track-label {
+  top: 4rem !important; /* height of the fixed navigation bar */
+}
+
 /* Single-day event: the page header already shows the date, and Sessionize's
    day title is an <h1> that would duplicate the page <h1>. */
 .sessionize-embed .sz-day__title {
