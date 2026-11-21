@@ -30,7 +30,7 @@ npm run build               # Alias
 ## Tool Versions
 
 Managed via `mise.toml`:
-- Hugo: 0.161.1
+- Hugo: 0.170.1
 - Python: 3.13.11
 
 ## Architecture
@@ -74,7 +74,7 @@ Conference content is stored in **YAML data files** (`data/*.yml`), not Markdown
 **`data/dublin.yml`**
 - "Discover Dublin" section: intro text, gallery images, highlights (attractions), transport options
 - Structure: `intro`, `gallery[]`, `highlights[]`, `transport[]`
-- Accessed: `.Site.Data.dublin`
+- Accessed: `hugo.Data.dublin`
 
 **Why data files?** Allows non-technical team members to update content without touching templates. Enables programmatic manipulation and structured data generation.
 
@@ -338,7 +338,7 @@ The Bree brand font (Adobe Fonts / Typekit) stopped loading in production becaus
 
 - `hugo.toml` — All site configuration and parameters
 - `mise.toml` — Tool version pinning (Hugo, Python)
-- `netlify.toml` — Netlify build config (Hugo 0.161.1, Node 22, TZ Europe/Dublin)
+- `netlify.toml` — Netlify build config (Hugo 0.170.1, Node 22, TZ Europe/Dublin)
 - `assets/css/main.css` — Design system tokens and custom CSS
 - `assets/img/hero.jpg` — Homepage hero image
 - `layouts/partials/head.html` — Meta tags, OG tags, favicon, structured data inclusion
@@ -354,7 +354,7 @@ The Bree brand font (Adobe Fonts / Typekit) stopped loading in production becaus
 Deployed via **Netlify** (not GitHub Pages). Configuration in `netlify.toml`:
 - Build command: `npm install && hugo --minify`
 - Publish dir: `public/`
-- Hugo version: 0.161.1 / Node: 22 / TZ: Europe/Dublin
+- Hugo version: 0.170.1 / Node: 22 / TZ: Europe/Dublin
 - Production env: `HUGO_ENV=production`
 - Footer displays build date and commit SHA on Netlify deployments
 

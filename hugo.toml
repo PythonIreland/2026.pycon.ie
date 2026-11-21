@@ -20,6 +20,10 @@ enableGitInfo = true
     target = "css"
 
 [security]
+  # Hugo >= 0.165 no longer allows tailwindcss by default (gohugoio/hugo#15178).
+  # Re-add it to the default list; we own the templates that drive it.
+  [security.exec]
+    allow = ['^(dart-)?sass$', '^go$', '^git$', '^node$', '^postcss$', '^tailwindcss$']
   [security.funcs]
     getenv = ['^HUGO_', '^CI$', '^COMMIT_REF$', '^DEPLOY_ID$']
 
