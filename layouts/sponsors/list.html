@@ -13,7 +13,7 @@
   {{/* Sponsor tiers */}}
   <section class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {{ range .Site.Data.sponsors.tiers }}
+      {{ range hugo.Data.sponsors.tiers }}
         {{ if .sponsors }}
           <div class="mb-16 last:mb-0">
             <h2 class="text-center text-sm font-semibold uppercase tracking-widest text-text-secondary mb-8">
