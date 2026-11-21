@@ -33,6 +33,8 @@ Managed via `mise.toml`:
 - Hugo: 0.170.1
 - Python: 3.13.11
 
+`mise.toml` also sets `NETLIFY_SITE_ID`, so the Netlify CLI targets the right site (`pycon-ireland-2026`) without `netlify link`. Each edition's branch carries its own site id.
+
 ## Architecture
 
 ### Hugo + Tailwind v4 Native Integration

@@ -3,5 +3,9 @@ hugo = "0.170.1"
 python = "3.13.11"
 
 [env]
+# Netlify site the CLI targets (overrides .netlify/state.json).
+# Not a secret: API access still needs an auth token.
+# Site: pycon-ireland-2026 (team python-ireland)
+NETLIFY_SITE_ID = "0ac9ea14-5544-4f8b-80a6-f9b3eef21c59"
 BROWSERLESS_TOKEN = "secret"
 BROWSERLESS_URL = "http://localhost:3000/"
