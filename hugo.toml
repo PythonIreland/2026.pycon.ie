@@ -62,6 +62,7 @@ enableGitInfo = true
   cfpCloses = "2026-08-30"
   sessionizeApiUrl = "https://sessionize.com/api/v2/k10qao8b/view/All"  # JSON "All data" endpoint; sessions/speakers JSON-LD is built from it at build time
   ticketsUrl = "https://ti.to/python-ireland/pycon-ireland-2026"  # Tito event URL; ticket names, prices and availability are fetched from Tito at build time
+  ticketsEnabled = false  # Ticket sales closed after the event: hides the Tito widget, hero button, price bar and menu entry
   ticketsValidFrom = "2026-10-01"  # Date pricing tiers were announced; required by Google's Offer.validFrom check
 
   # Contact & social
@@ -90,10 +91,11 @@ enableGitInfo = true
     days = 1
 
 [menus]
-  [[menus.main]]
-    name = "Tickets"
-    url = "/#tickets"
-    weight = 10
+  # Tickets menu disabled after the event (see params.ticketsEnabled)
+  # [[menus.main]]
+  #   name = "Tickets"
+  #   url = "/#tickets"
+  #   weight = 10
 
   [[menus.main]]
     identifier = "conference"

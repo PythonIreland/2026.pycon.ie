@@ -74,7 +74,7 @@
 {{/* Tito tickets: only the homepage renders the widget (partials/tickets.html).
      Kept in <head>: loading it next to the widget in <body> left the widget
      empty in some Firefox setups. */}}
-{{ if .IsHome }}{{ with (partialCached "tito-data.html" .).slug }}
+{{ if and .IsHome site.Params.ticketsEnabled }}{{ with (partialCached "tito-data.html" .).slug }}
 <script src="https://js.tito.io/v2" async></script>
 {{ end }}{{ end }}
 
