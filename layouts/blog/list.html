@@ -35,6 +35,12 @@
               Read more &rarr;
             </a>
           </article>
+        {{ else }}
+          <p class="text-center text-text-secondary text-lg">
+            No posts yet for {{ site.Title }}.
+            News from the previous edition is on the
+            <a href="https://2026.pycon.ie/blog/" class="text-py-blue-light hover:text-py-yellow transition-colors">PyCon Ireland 2026 blog</a>.
+          </p>
         {{ end }}
       </div>
     </div>
