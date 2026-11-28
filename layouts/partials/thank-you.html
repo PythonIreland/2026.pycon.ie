@@ -1,0 +1,51 @@
+<section id="thank-you" class="py-24 bg-bg-primary scroll-mt-20">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="font-brand text-3xl sm:text-4xl font-bold text-text-heading mb-8">Thank you, everyone!</h2>
+
+    <div class="space-y-6 text-lg text-text-secondary text-left sm:text-center">
+      <p>
+        From the bottom of our hearts,
+        <strong class="text-text-primary">thank you</strong> to everyone who came and made it happen.
+      </p>
+      <p>
+        This year's edition was not an easy one to organise: we had to find a new venue
+        and reshuffle our plans along the way. That makes its success all the more special,
+        and it belongs to all of you.
+      </p>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 mt-12 text-left">
+      <div class="bg-bg-card rounded-xl p-6">
+        <h3 class="text-text-heading font-semibold mb-2">To our speakers</h3>
+        <p class="text-text-secondary">
+          Thank you for sharing your knowledge, your stories and your enthusiasm.
+          Your <a href="/speakers/" class="text-py-blue-light hover:text-py-yellow transition-colors">talks and workshops</a> were the heart of the day.
+        </p>
+      </div>
+      <div class="bg-bg-card rounded-xl p-6">
+        <h3 class="text-text-heading font-semibold mb-2">To our community</h3>
+        <p class="text-text-secondary">
+          Attendees, volunteers and organisers: thank you for your energy, your questions,
+          your kindness and every hallway conversation. You are what makes PyCon Ireland.
+        </p>
+      </div>
+      <div class="bg-bg-card rounded-xl p-6">
+        <h3 class="text-text-heading font-semibold mb-2">To our sponsors</h3>
+        <p class="text-text-secondary">
+          Thank you for believing in this conference and in the Irish Python community.
+          Without <a href="#sponsors" class="text-py-blue-light hover:text-py-yellow transition-colors">your support</a>, the 2026 edition simply would not have been possible.
+        </p>
+      </div>
+      <div class="bg-bg-card rounded-xl p-6">
+        <h3 class="text-text-heading font-semibold mb-2">To our venue</h3>
+        <p class="text-text-secondary">
+          A warm thank you to
+          {{ with .Site.Params.venueWebsite }}<a href="{{ . }}" target="_blank" rel="noopener" class="text-py-blue-light hover:text-py-yellow transition-colors">{{ end }}{{ .Site.Params.venue }}{{ with .Site.Params.venueWebsite }}</a>{{ end }}
+          for welcoming us and giving PyCon Ireland 2026 a home.
+        </p>
+      </div>
+    </div>
+
+    <p class="font-brand text-2xl text-py-yellow mt-12">We hope to see you all again next year!</p>
+  </div>
+</section>
