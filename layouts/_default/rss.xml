@@ -1,7 +1,11 @@
 {{- $pctx := . -}}
 {{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
 {{- $pages := slice -}}
-{{- if or $.IsHome $.IsSection -}}
+{{- if $.IsHome -}}
+{{- /* The home feed only lists blog posts: other regular pages at the
+       content root (e.g. content/credits.md) are not articles. */ -}}
+{{- $pages = where $pctx.RegularPages "Section" "blog" -}}
+{{- else if $.IsSection -}}
 {{- $pages = $pctx.RegularPages -}}
 {{- else -}}
 {{- $pages = $pctx.Pages -}}
