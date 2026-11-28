@@ -26,6 +26,9 @@
           <li><a href="/grid/" class="text-text-secondary hover:text-py-yellow transition-colors">Schedule</a></li>
           {{/* <li><a href="/sponsors/" class="text-text-secondary hover:text-py-yellow transition-colors">Sponsors</a></li> */}}
           <li><a href="/venue/" class="text-text-secondary hover:text-py-yellow transition-colors">Venue</a></li>
+          {{- with .Site.Params.nextEditionUrl }}
+          <li><a href="{{ . }}" class="text-text-secondary hover:text-py-yellow transition-colors">PyCon Ireland {{ $.Site.Params.nextEdition }}</a></li>
+          {{- end }}
         </ul>
       </div>
 

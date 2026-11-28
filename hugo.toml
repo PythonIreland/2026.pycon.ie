@@ -60,6 +60,11 @@ enableGitInfo = true
   organizerUrl = "https://python.ie/"
   croNumber = "559983"
 
+  # Next edition: when set, the homepage hero, the thank-you section and the
+  # footer link to it. Leave nextEditionUrl empty to hide those links.
+  nextEdition = "2027"
+  nextEditionUrl = "https://2027.pycon.ie/"
+
   # CFP status: "soon", "open", "closed" (temporarily), or "finished"
   cfpStatus = "finished"
   cfpUrl = "https://sessionize.com/pycon-ireland-2026/"

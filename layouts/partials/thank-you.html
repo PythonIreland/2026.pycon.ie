@@ -47,5 +47,15 @@
     </div>
 
     <p class="font-brand text-2xl text-py-yellow mt-12">We hope to see you all again next year!</p>
+    {{- with .Site.Params.nextEditionUrl }}
+    <div class="bg-bg-card rounded-xl p-6 mt-8 text-left sm:text-center">
+      <h3 class="text-text-heading font-semibold mb-2">PyCon Ireland {{ $.Site.Params.nextEdition }}</h3>
+      <p class="text-text-secondary">
+        We are starting to work on the next edition. Nothing is decided yet:
+        follow <a href="{{ . }}" class="text-py-blue-light hover:text-py-yellow transition-colors">{{ strings.TrimSuffix "/" (strings.TrimPrefix "https://" .) }}</a>
+        for news, and to sponsor or volunteer.
+      </p>
+    </div>
+    {{- end }}
   </div>
 </section>
