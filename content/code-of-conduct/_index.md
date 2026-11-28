@@ -40,13 +40,9 @@ If a participant engages in behaviour that violates this code of conduct, the ev
 
 If you are being harassed, notice that someone else is being harassed, or have any other concerns,
 please report it by email to [coc-reports@python.ie](mailto:coc-reports@python.ie),
-which will then be handled discreetly by the Python Ireland Code of Conduct Committee.
-As of 2026, the committee consists of:
+which will then be handled discreetly by Python Ireland's Code of Conduct contact:
 
-- Cheuk Ting Ho ([cheuk@europython.eu](mailto:cheuk@europython.eu))
 - Chris Hancock ([chris.hancock@python.ie](mailto:chris.hancock@python.ie))
-- Laís Carvalho ([lais.carvalho@python.ie](mailto:lais.carvalho@python.ie))
-- Sukanya Mandal ([sukanya.mandal@python.ie](mailto:sukanya.mandal@python.ie))
 
 In more urgent situations during an event, please contact a member of event staff. In the case of PyCon Ireland, staff will be wearing "**PyCon Ireland Staff**" polo shirts.
 
