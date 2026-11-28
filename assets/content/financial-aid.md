@@ -10,7 +10,9 @@ Financial assistance may include:
 - Full or partial reimbursement of travel expenses
 - Full or partial reimbursement of accommodation costs
 
-The maximum award is **€350 per person**.
+The maximum award is **€350 per person**. Requests well above this amount will be declined.
+
+Python Ireland is a small, volunteer-run, not-for-profit organisation. We do not have the means to pay for flights and hotels from all over the world, so we focus our budget on helping as many people as possible who already live in Ireland, the United Kingdom, or elsewhere in Europe.
 
 ## Eligibility and Priorities
 
