@@ -1,5 +1,8 @@
 {{ define "main" }}
   {{- partial "hero.html" . -}}
+  {{- /* After the event the hero already says when it was held: hide the key facts bar */}}
+  {{- $isOver := gt now.Unix (time .Site.Params.eventEndDate).Unix }}
+  {{- if not $isOver }}
   {{/* Key facts bar — visible prose for AI/GEO; keeps schema and visible content in sync */}}
   <section class="py-6 bg-bg-secondary border-b border-white/5">
     <div class="max-w-4xl mx-auto px-4">
@@ -36,6 +39,7 @@
       </div>
     </div>
   </section>
+  {{- end }}
   {{- partial "thank-you.html" . -}}
   {{- partial "about.html" . -}}
   {{- /* partial "stats.html" . */ -}}
