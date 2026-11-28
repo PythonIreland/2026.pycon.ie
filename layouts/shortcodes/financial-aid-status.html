@@ -1,0 +1,46 @@
+{{- /*
+  Financial aid application window, driven by hugo.toml:
+    financialAidOpens  = "YYYY-MM-DD"  (first day applications are accepted)
+    financialAidCloses = "YYYY-MM-DD"  (last day, inclusive)
+    financialAidUrl    = application form URL (optional)
+  The status is computed at build time (TZ=Europe/Dublin on Netlify), so it
+  only changes on the next deploy.
+
+  Usage: {{< financial-aid-status >}}            status badge
+         {{< financial-aid-status "apply" >}}    "How to Apply" paragraph
+*/ -}}
+{{- $opens := site.Params.financialAidOpens -}}
+{{- $closes := site.Params.financialAidCloses -}}
+{{- $url := site.Params.financialAidUrl -}}
+{{- $today := now.Format "2006-01-02" -}}
+{{- $fmt := "2 January 2006" -}}
+
+{{- $state := "tba" -}}
+{{- if and $opens $closes -}}
+  {{- if lt $today $opens -}}{{- $state = "soon" -}}
+  {{- else if le $today $closes -}}{{- $state = "open" -}}
+  {{- else -}}{{- $state = "closed" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if eq (.Get 0) "apply" -}}
+  {{- if eq $state "open" -}}
+<p>Applications are open until <strong>{{ dateFormat $fmt $closes }}</strong>.
+{{- with $url }} <a href="{{ . }}" target="_blank" rel="noopener">Apply for financial aid</a>.{{ else }} The application form will be linked here shortly.{{ end }}</p>
+  {{- else if eq $state "soon" -}}
+<p>Applications open on <strong>{{ dateFormat $fmt $opens }}</strong> and close on <strong>{{ dateFormat $fmt $closes }}</strong>.</p>
+  {{- else if eq $state "closed" -}}
+<p>Applications closed on <strong>{{ dateFormat $fmt $closes }}</strong>.</p>
+  {{- else -}}
+<p>The application form will be available shortly. Opening and closing dates are to be announced.</p>
+  {{- end -}}
+{{- else -}}
+  {{- $label := "Application dates to be announced" -}}
+  {{- if eq $state "soon" -}}{{- $label = printf "Applications open %s" (dateFormat $fmt $opens) -}}
+  {{- else if eq $state "open" -}}{{- $label = printf "Applications open until %s" (dateFormat $fmt $closes) -}}
+  {{- else if eq $state "closed" -}}{{- $label = "Applications closed" -}}
+  {{- end -}}
+<div class="mb-8 text-center">
+  <span class="inline-block {{ if eq $state "open" }}bg-green-500/10 text-green-400{{ else }}bg-py-yellow/10 text-py-yellow{{ end }} text-sm font-semibold px-4 py-2 rounded-full uppercase tracking-wider">{{ $label }}</span>
+</div>
+{{- end -}}

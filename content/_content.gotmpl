@@ -1,0 +1,17 @@
+{{- /*
+  Content adapter for pages that only exist when a feature flag is on.
+
+  /financial-aid/: added when params.financialAidEnabled is true. The page
+  body lives in assets/content/financial-aid.md (Markdown with shortcodes).
+*/ -}}
+{{- if site.Params.financialAidEnabled }}
+  {{- with resources.Get "content/financial-aid.md" }}
+    {{- $.AddPage (dict
+      "path" "financial-aid"
+      "kind" "page"
+      "title" "Financial Aid"
+      "description" "Python Ireland offers grants covering tickets, travel, and accommodation for community members attending PyCon Ireland 2027 who need financial support."
+      "content" (dict "mediaType" "text/markdown" "value" .Content)
+    ) }}
+  {{- end }}
+{{- end }}
