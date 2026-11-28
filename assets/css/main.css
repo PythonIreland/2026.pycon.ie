@@ -91,6 +91,14 @@ html {
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .credits-content h2:first-child { margin-top: 0; }
+.credits-content h3 {
+  color: var(--color-text-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.credits-content h2 + h3 { margin-top: 0; }
 .credits-content hr {
   border: none;
   border-top: 1px solid rgba(255,255,255,0.08);
