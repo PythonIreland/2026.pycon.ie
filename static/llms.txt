@@ -6,6 +6,10 @@ PyCon Ireland is Ireland's premier Python conference, organised by Python Irelan
 
 PyCon Ireland 2027 is in preparation. Python Ireland is working on the next edition, but nothing is decided yet: it is not confirmed whether a 2027 edition will take place, nor its date or venue. Announcements will be published on this site and on Python Ireland's channels.
 
+## Ticket policy
+
+A valid ticket registered in the attendee's own name is required to attend PyCon Ireland. This applies to everyone, including speakers, volunteers and organisers. Financial aid is available for those who need it. Details: https://2027.pycon.ie/terms-and-conditions/#everyone-needs-a-ticket
+
 ## Previous edition
 
 - PyCon Ireland 2026 took place on 21 November 2026 in Dublin: https://2026.pycon.ie/

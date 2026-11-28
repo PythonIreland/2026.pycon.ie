@@ -10,6 +10,19 @@ These Terms and Conditions govern the purchase of tickets and attendance at PyCo
 
 By purchasing a ticket or attending the Event, you agree to be bound by these Terms and Conditions.
 
+### Everyone needs a ticket
+
+A valid ticket registered in your own name is a prerequisite for attending PyCon Ireland. This applies to everyone, with no exception:
+
+- attendees,
+- speakers, workshop leaders and panellists,
+- volunteers,
+- organisers, including the members of the organising team.
+
+PyCon Ireland is a not-for-profit event run entirely by volunteers, and ticket sales are what make it possible. Speakers, volunteers and organisers buy their ticket like everyone else.
+
+If the cost of a ticket is a barrier, you can apply for financial aid, which can cover a complimentary ticket. Applying does not replace registration: the ticket you attend with must still be in your name.
+
 ### Tickets
 
 Tickets are personal and non-transferable unless explicitly agreed in writing by Python Ireland. Each ticket grants access to all conference activities on the day of the Event, including talks, workshops, and catering as described at the time of purchase.
