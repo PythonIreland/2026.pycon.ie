@@ -33,7 +33,7 @@ Managed via `mise.toml`:
 - Hugo: 0.170.1
 - Python: 3.13.11
 
-`mise.toml` also sets `NETLIFY_SITE_ID`, so the Netlify CLI targets the right site (`pycon-ireland-2026`) without `netlify link`. Each edition's branch carries its own site id.
+`mise.toml` also sets `NETLIFY_SITE_ID`, so the Netlify CLI targets the right site without `netlify link`: `pycon-ireland-2027` on `main`, `pycon-ireland-2026` on the `2026` branch. Each edition's branch carries its own site id.
 
 ## Architecture
 
