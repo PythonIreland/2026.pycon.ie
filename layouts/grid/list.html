@@ -1,0 +1,6 @@
+{{ define "main" }}
+{{/* Structured Data for Schedule */}}
+{{ partial "structured-data-schedule.html" . }}
+
+{{ partial "programme-page.html" (dict "page" . "view" "GridSmart") }}
+{{ end }}

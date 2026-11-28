@@ -1,43 +1,56 @@
 tiers:
-  - name: "Platinum"
+  - name: "Diamond"
     level: 1
+    amount: 7000 # euros
     sponsors:
-      - name: "Python Software Foundation"
-        logo: "/img/sponsors/placeholder.svg"
-        url: "https://www.python.org/psf/"
-      - name: "TechCorp Ireland"
-        logo: "/img/sponsors/placeholder.svg"
-        url: "https://example.com"
+      - name: "nineDots"
+        logo: "/img/sponsors/ninedots-logo-white.svg"
+        url: "https://ninedots.io/"
+        blurb: "The tech recruitment team that does it right."
+
+      - name: "Bank of America"
+        logo: "/img/sponsors/bofa_lo2_rgb.png"
+        url: "https://careers.bankofamerica.com/en-us/job-search?ref=search&search=jobsByLocation&rows=50&start=0&searchstring=Dublin%2C+Ireland"
+        blurb: "Bank of America"
+        bg_color: "#ffffff"
+
+  - name: "Platinum"
+    level: 2
+    amount: 5000 # euros
+    sponsors:
+      - name: "Zyte"
+        logo: "/img/sponsors/Zyte_Logo_RGB_ElectricIndigo-1.png"
+        url: "https://www.zyte.com/pycon-ireland-2026/"
+        blurb: "Unblock your data with Zyte."
+
+      - name: "EuroPython Society"
+        logo: "/img/sponsors/EuroPythonSociety-Logo-v3.svg"
+        url: "https://www.europython-society.org/"
+        blurb: "Organisers of the EuroPython conference series. Working for the Python community."
 
   - name: "Gold"
-    level: 2
+    level: 3
+    # amount: 0 # euros
     sponsors:
-      - name: "CloudScale"
-        logo: "/img/sponsors/placeholder.svg"
-        url: "https://example.com"
-      - name: "DataFlow Systems"
-        logo: "/img/sponsors/placeholder.svg"
-        url: "https://example.com"
-      - name: "DevTools Inc"
-        logo: "/img/sponsors/placeholder.svg"
-        url: "https://example.com"
+      # - name: "Your company could be HERE"
+      #   logo: "/img/sponsors/LogoHere.png"
+      #   url: "https://example.com"
+      #   blurb: "We are the best!"
 
   - name: "Silver"
-    level: 3
+    level: 4
+    # amount: 0 # euros
     sponsors:
-      - name: "PyLabs"
-        logo: "/img/sponsors/placeholder.svg"
-        url: "https://example.com"
-      - name: "CodeAcademy IE"
-        logo: "/img/sponsors/placeholder.svg"
-        url: "https://example.com"
+      # - name: "TBD"
+      #   logo: "/img/sponsors/LogoHere.png"
+      #   url: "https://example.com"
+      #   blurb: "We are the best!"
 
   - name: "Community"
-    level: 4
+    level: 5
+    # amount: 0 # euros
     sponsors:
-      - name: "Python Ireland"
-        logo: "/img/sponsors/placeholder.svg"
-        url: "https://python.ie"
-      - name: "Django Girls Dublin"
-        logo: "/img/sponsors/placeholder.svg"
-        url: "https://example.com"
+      # - name: "TBD"
+      #   logo: "/img/sponsors/LogoHere.png"
+      #   url: "https://example.com"
+      #   blurb: "We are the best!"

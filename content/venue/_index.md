@@ -1,4 +1,4 @@
 ---
-title: "Venue — Trinity College Dublin"
-description: "PyCon Ireland 2026 takes place at Trinity College Dublin, College Green, Dublin 2."
+title: "Venue"
+description: "PyCon Ireland 2026 will take place on 21 November at Chartered Accountants House, on Dublin's Pearse St."
 ---

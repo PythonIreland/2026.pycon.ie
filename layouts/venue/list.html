@@ -4,17 +4,12 @@
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0">
       <picture>
-        <source media="(max-width: 768px)" srcset="https://images.unsplash.com/photo-1529106480931-45a586ae6857?auto=format&fit=crop&w=768&q=80">
-        <img src="https://images.unsplash.com/photo-1529106480931-45a586ae6857?auto=format&fit=crop&w=1920&q=85"
-             alt="The Long Room library at Trinity College Dublin"
+        <source media="(max-width: 768px)" srcset="https://www.charteredaccountants.ie/sf_images/default-source/image-libraries/cta-images/cta-ca-house.jpg">
+        <img src="https://www.charteredaccountants.ie/sf_images/default-source/image-libraries/cta-images/cta-ca-house.jpg"
+             alt="Chartered Accountants House, Dublin, Ireland"
              class="w-full h-full object-cover object-center"
              loading="eager" fetchpriority="high">
       </picture>
-      <a href="https://unsplash.com/photos/Ty6KjYKmiUk"
-         target="_blank" rel="noopener noreferrer"
-         class="absolute bottom-2 right-3 text-[10px] text-white/30 hover:text-white/60 transition-colors z-20 drop-shadow">
-        Photo: Van Williams / Unsplash
-      </a>
     </div>
     <div class="absolute inset-0" style="background: rgba(15,17,23,0.62);"></div>
     <div class="absolute inset-0 overflow-hidden">
@@ -22,7 +17,7 @@
       <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-py-yellow/5 rounded-full blur-3xl"></div>
     </div>
     <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-      <p class="text-py-yellow font-semibold text-sm uppercase tracking-widest mb-4">PyCon Ireland 2026</p>
+      <p class="text-py-yellow font-semibold text-sm uppercase tracking-widest mb-4">{{ .Site.Title }}</p>
       <h1 class="font-brand text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-6" style="text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);">
         {{ .Site.Params.venue }}
       </h1>
@@ -50,10 +45,17 @@
 
           <div class="space-y-6 text-text-secondary leading-relaxed">
             <p>
-              Trinity College Dublin is Ireland's oldest and most prestigious university, founded in 1592 and located in the heart of Dublin city centre.
-            </p>
-            <p>
-              With its stunning historic campus and excellent facilities, TCD provides the perfect environment for PyCon Ireland 2026.
+              <a href="https://www.charteredaccountants.ie/chartered-accountants-house/home" target="_blank" rel="noopener"
+                  class="text-py-blue-light hover:text-py-yellow font-semibold transition-colors">Chartered Accountants House</a>
+              is a modern building
+              located in the heart of Dublin city centre,
+              just two minutes away from
+              <a href="https://www.tcd.ie/" target="_blank" rel="noopener"
+                  class="text-py-blue-light hover:text-py-yellow font-semibold transition-colors">Trinity College Dublin</a>,
+              Ireland's oldest and most prestigious university,
+              and around the corner from
+              <a href="https://www.irishrail.ie/en-ie/station/dublin-pearse" target="_blank" rel="noopener"
+                  class="text-py-blue-light hover:text-py-yellow font-semibold transition-colors">Pearse Station</a>.
             </p>
           </div>
 
@@ -72,19 +74,37 @@
           </div>
 
           <div class="mt-8 space-y-4">
-            <h3 class="text-lg font-semibold text-text-heading">Getting There</h3>
+            <h3 class="text-lg font-semibold text-text-heading">Getting Here</h3>
             <ul class="space-y-3 text-text-secondary text-sm">
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                <span><strong class="text-text-heading">Bus:</strong> Numerous routes stop on College Green and Nassau Street</span>
+                <span><strong class="text-text-heading">Dublin Bus:</strong> Numerous routes stop on Pearse Street, Townsend Street, and Westland Row</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                <span><strong class="text-text-heading">LUAS:</strong> Green Line — Dawson or St. Stephen's Green stops, 5 min walk</span>
+                <span><strong class="text-text-heading">LUAS:</strong> Green Line — Dawson (northbound) or Trinity (southbound) stops, 15 min walk</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                <span><strong class="text-text-heading">DART / Irish Rail:</strong> Pearse Station and Tara Street Station are both nearby</span>
               </li>
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                 <span><strong class="text-text-heading">Airport:</strong> Dublin Airport is 30 minutes by taxi or Aircoach</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                <span><strong class="text-text-heading">Car Parking:</strong>
+                    <a href="https://en.parkopedia.com/parking/locations/49_pearse_street_dublin_d02_ireland_i1dhgc7x3yfnxqphe1/?arriving=202611210830&leaving=202611211900"
+                        target="_blank" rel="noopener" class="text-py-yellow hover:underline">Paid parking</a>
+                    is available in the area</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                <span><strong class="text-text-heading">Bicycle Parking:</strong>
+                    <a href="https://www.tcd.ie/healthytrinity/smarter-travel/bike-parking/"
+                        target="_blank" rel="noopener" class="text-py-yellow hover:underline">Racks</a>
+                    are available on the Trinity College Dublin campus</span>
               </li>
             </ul>
           </div>
@@ -109,10 +129,13 @@
           <div class="bg-bg-card rounded-2xl p-6 border border-white/5">
             <h3 class="text-lg font-semibold text-text-heading mb-4">Nearby Accommodation</h3>
             <ul class="space-y-2 text-text-secondary text-sm">
-              <li>The Westbury Hotel — 5 min walk</li>
-              <li>Buswells Hotel — 5 min walk</li>
-              <li>Trinity City Hotel — adjacent to campus</li>
-              <li>Many more options throughout Dublin city centre</li>
+              <li>The Westbury Hotel — 15 min walk</li>
+              <li>Buswells Hotel — 10 min walk</li>
+              <li>Trinity City Hotel — 5 min walk</li>
+              <li>Many more
+                  <a href="https://www.charteredaccountants.ie/chartered-accountants-house/About-Venue/AccomodationOther-Services"
+                     target="_blank" rel="noopener" class="text-py-blue-light hover:text-py-yellow font-semibold transition-colors">options</a>
+                  throughout Dublin city centre</li>
             </ul>
           </div>
         </div>
@@ -121,13 +144,15 @@
   </section>
 </div>
 {{/* ── Accessibility ── */}}
+
 <section class="py-20 bg-bg-secondary">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <h2 class="text-3xl font-bold text-text-heading mb-4">Accessibility</h2>
       <p class="text-text-secondary text-lg max-w-2xl mx-auto">
-        We are committed to making PyCon Ireland 2026 accessible to everyone.
+        We are committed to making {{ .Site.Title }} accessible to everyone.
         If you have specific requirements, please <a href="mailto:{{ .Site.Params.email }}" class="text-py-yellow hover:underline">contact us</a> in advance.
+        We'll do our best to accommodate your needs.
       </p>
     </div>
 
@@ -144,64 +169,47 @@
         <ul class="space-y-3 text-text-secondary text-sm">
           <li class="flex items-start gap-2">
             <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <span><strong class="text-text-heading">Luas Green Line (recommended):</strong> <em>Trinity</em> stop on Pearse Street — 3 min walk to Nassau Gate. Fully step-free with level boarding.</span>
+            <span><strong class="text-text-heading">DART / IrishRail:</strong> Dublin Pearse Station — 200m from Chartered Accountants House. Has lifts; check
+                <a href="https://www.irishrail.ie/en-ie/station/dublin-pearse" target="_blank" rel="noopener" class="text-py-yellow hover:underline">status</a> on the day.</span>
           </li>
           <li class="flex items-start gap-2">
             <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <span><strong class="text-text-heading">DART:</strong> Pearse Station — ~5 min walk to Lincoln Gate. Has lifts; check status on the day.</span>
+            <span><strong class="text-text-heading">Dublin Bus:</strong> 100% low-floor fleet.
+                Stops on Pearse Street, Townsend Street, and Westland Row.</span>
           </li>
           <li class="flex items-start gap-2">
             <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <span><strong class="text-text-heading">Dublin Bus:</strong> 100% low-floor fleet. Stops on Nassau Street and College Green.</span>
+            <span><strong class="text-text-heading">LUAS Green Line:</strong>
+                Northbound: <em>Dawson Street</em> stop is 900m from venue.
+                Southbound: <em>Trinity</em> stop is 700m from venue.
+                Fully step-free with level boarding.</span>
           </li>
           <li class="flex items-start gap-2">
             <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <span><strong class="text-text-heading">Blue badge parking:</strong> ~10 disabled bays on campus. Enter via <strong>Lincoln Gate</strong> (Lincoln Place) and ask security for the nearest bay. First-come, no pre-booking.</span>
+            <span><strong class="text-text-heading">Taxi:</strong> You can use the
+                <a href="https://tapataxi.ie/" target="_blank" rel="noopener" class="text-py-yellow hover:underline">Tap a Taxi app</a> to book a taxi.</span>
           </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span><strong class="text-text-heading">On-site parking:</strong>
+               Some parking may be available underneath Chartered Accountants House.
+               Email us at <a href="mailto:{{ .Site.Params.email }}" class="text-py-yellow hover:underline">{{ .Site.Params.email }}</a>
+               to see what can be arranged.
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span><strong class="text-text-heading">Blue badge parking:</strong> ~10 disabled bays on Trinity College Dublin campus. Enter via <strong>Lincoln Gate</strong> (Lincoln Place) and ask security for the nearest bay. First-come, no pre-booking.
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            <span><strong class="text-text-heading">Further Information:</strong>
+                <a href="https://www.citizensinformation.ie/en/travel-and-recreation/public-transport/travelling-publictransport-with-disability/"
+                    target="_blank" rel="noopener" class="text-py-yellow hover:underline">
+                    Travelling on public transport with a disability or reduced mobility</a>.</span>
+              </li>
         </ul>
       </div>
 
-      {{/* Campus access */}}
-      <div class="bg-bg-card rounded-2xl p-6 card-glow">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 bg-py-yellow/10 rounded-xl flex items-center justify-center flex-shrink-0">
-            <svg class="w-5 h-5 text-py-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          </div>
-          <h3 class="font-bold text-text-heading">Campus Access</h3>
-        </div>
-        <ul class="space-y-3 text-text-secondary text-sm">
-          <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <span><strong class="text-text-heading">Recommended entrance:</strong> Lincoln Gate (Lincoln Place) or Nassau Street Gate — both step-free.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <span><strong class="text-text-heading">Accessible toilets</strong> throughout campus, including a <strong>Changing Places facility</strong> (hoist, height-adjustable bench) in the Arts Block — key available from security.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <span><strong class="text-text-heading">Induction loops</strong> available in lecture rooms. We will confirm which conference rooms have loops once the programme is finalised.</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <span><strong class="text-text-heading">Guide and assistance dogs</strong> are welcome throughout the entire campus and all conference spaces.</span>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-
-    {{/* Note + links */}}
-    <div class="bg-bg-card rounded-2xl p-6 border border-py-blue/20 flex flex-col sm:flex-row items-start gap-4">
-      <svg class="w-6 h-6 text-py-blue-light flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      <div class="text-text-secondary text-sm leading-relaxed">
-        <strong class="text-text-heading block mb-1">Need assistance or have specific requirements?</strong>
-        Contact us at <a href="mailto:{{ .Site.Params.email }}" class="text-py-yellow hover:underline">{{ .Site.Params.email }}</a> — we'll do our best to accommodate you.
-        You can also consult the
-        <a href="https://www.tcd.ie/Maps/map.php" target="_blank" rel="noopener" class="text-py-yellow hover:underline">TCD accessible campus map</a>
-        and the
-        <a href="https://www.tcd.ie/disability/" target="_blank" rel="noopener" class="text-py-yellow hover:underline">TCD disAbility Service</a>.
-      </div>
     </div>
   </div>
 </section>

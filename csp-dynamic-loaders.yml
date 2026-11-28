@@ -32,3 +32,15 @@
   also-loads:
     - directive: font-src
       domain: fonts.gstatic.com   # actual font files served from gstatic
+
+- name: Tito ticket widget
+  trigger:
+    directive: script-src
+    domain: js.tito.io
+  also-loads:
+    - directive: style-src
+      domain: js.tito.io           # widget CSS injected by https://js.tito.io/v2
+    - directive: frame-src
+      domain: js.tito.io           # widget and checkout overlay iframes
+    - directive: connect-src
+      domain: checkout.tito.io     # event/ticket JSON fetched by the widget

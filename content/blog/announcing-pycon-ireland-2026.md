@@ -1,9 +1,11 @@
 ---
 title: "Announcing PyCon Ireland 2026"
 date: 2026-05-01
-description: "We're excited to announce PyCon Ireland 2026! Join us on 17 October at Trinity College Dublin."
+description: "We're excited to announce PyCon Ireland 2026, taking place on 17 October at Trinity College Dublin. Save the date and join Ireland's Python community."
 draft: false
 ---
+
+**Added 2026-08-27**: PyCon Ireland 2026 will be held in **Dublin's city centre** (details to be announced) on **21 November 2026**.
 
 We're thrilled to announce that **PyCon Ireland 2026** will take place on **17 October 2026** at **Trinity College Dublin**.
 

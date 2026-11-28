@@ -1,11 +1,11 @@
 # PyCon Ireland 2026
 
-PyCon Ireland 2026 is Ireland's premier Python conference, organised by Python Ireland (a not-for-profit company registered in Ireland, CRO 559983). The event takes place on 17 October 2026 at Trinity College Dublin, College Green, Dublin 2, Ireland.
+PyCon Ireland 2026 is Ireland's premier Python conference, organised by Python Ireland (a not-for-profit company registered in Ireland, CRO 559983). The event takes place on 21 November 2026 in Dublin's City Centre.
 
 ## Event details
 
-- Date: 17 October 2026
-- Venue: Trinity College Dublin, College Green, Dublin 2, Ireland
+- Date: 21 November 2026
+- Venue: Dublin's City Centre
 - Format: Single-day, multi-track conference
 - Organiser: Python Ireland (https://python.ie)
 - Contact: contact@python.ie

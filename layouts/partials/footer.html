@@ -12,7 +12,9 @@
         </a>
         <p class="text-text-secondary text-sm">
           Ireland's premier Python conference.<br>
-          {{ .Site.Params.dateHuman }}
+          {{ .Site.Params.dateHuman }}.<br>
+          {{ .Site.Params.venue }}.<br>
+          Dublin's city centre.
         </p>
       </div>
 
@@ -20,8 +22,8 @@
       <div>
         <h4 class="text-text-heading font-semibold text-sm uppercase tracking-wider mb-4">Conference</h4>
         <ul class="space-y-2 text-sm">
-          {{/* <li><a href="/speakers/" class="text-text-secondary hover:text-py-yellow transition-colors">Speakers</a></li> */}}
-          {{/* <li><a href="/schedule/" class="text-text-secondary hover:text-py-yellow transition-colors">Schedule</a></li> */}}
+          <li><a href="/speakers/" class="text-text-secondary hover:text-py-yellow transition-colors">Speakers</a></li>
+          <li><a href="/grid/" class="text-text-secondary hover:text-py-yellow transition-colors">Schedule</a></li>
           {{/* <li><a href="/sponsors/" class="text-text-secondary hover:text-py-yellow transition-colors">Sponsors</a></li> */}}
           <li><a href="/venue/" class="text-text-secondary hover:text-py-yellow transition-colors">Venue</a></li>
         </ul>
@@ -35,7 +37,7 @@
           <li><a href="/code-of-conduct/" class="text-text-secondary hover:text-py-yellow transition-colors">Code of Conduct</a></li>
           <li><a href="/terms-and-conditions/" class="text-text-secondary hover:text-py-yellow transition-colors">Terms &amp; Conditions</a></li>
           <li><a href="/credits/" class="text-text-secondary hover:text-py-yellow transition-colors">Photo Credits</a></li>
-          <li><a href="https://python.ie" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">Python Ireland</a></li>
+          <li><a href="https://python.ie" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="me noopener">Python Ireland</a></li>
         </ul>
       </div>
 
@@ -43,10 +45,12 @@
       <div>
         <h4 class="text-text-heading font-semibold text-sm uppercase tracking-wider mb-4">Connect</h4>
         <ul class="space-y-2 text-sm">
-          <li><a href="https://twitter.com/{{ strings.TrimPrefix "@" .Site.Params.twitterHandle }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">Twitter / X</a></li>
+          <li><a href="{{ .Site.Params.bskyUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="me noopener">Bluesky</a></li>
+          <li><a href="{{ .Site.Params.linkedinUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="me noopener">LinkedIn</a></li>
           <li><a href="{{ .Site.Params.mastodonUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="me noopener">Mastodon</a></li>
-          <li><a href="{{ .Site.Params.youtubeUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">YouTube</a></li>
-          <li><a href="{{ .Site.Params.linkedinUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="{{ .Site.Params.meetupUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="me noopener">Meetup</a></li>
+          <li><a href="{{ .Site.Params.twitterUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="me noopener">X / Twitter</a></li>
+          <li><a href="{{ .Site.Params.youtubeUrl }}" class="text-text-secondary hover:text-py-yellow transition-colors" target="_blank" rel="me noopener">YouTube</a></li>
           <li><a href="mailto:{{ .Site.Params.email }}" class="text-text-secondary hover:text-py-yellow transition-colors">{{ .Site.Params.email }}</a></li>
         </ul>
       </div>
@@ -63,7 +67,7 @@
         <p>Built with <a href="https://gohugo.io" class="text-py-blue hover:text-py-blue-light transition-colors" target="_blank" rel="noopener">Hugo</a> &amp; <a href="https://tailwindcss.com" class="text-py-blue hover:text-py-blue-light transition-colors" target="_blank" rel="noopener">Tailwind CSS</a></p>
         {{ with os.Getenv "COMMIT_REF" }}
         <p class="mt-1 text-text-secondary/50">
-          {{ now.Format "2006-01-02" }} &middot; <a href="https://github.com/PythonIreland/2026.pycon.ie/commit/{{ . }}" class="font-mono hover:text-text-secondary transition-colors" target="_blank" rel="noopener">{{ slice . 0 7 }}</a>
+          {{ now.Format "2006-01-02" }} &middot; <a href="https://github.com/PythonIreland/2026.pycon.ie/commit/{{ . }}" class="font-mono hover:text-text-secondary transition-colors" target="_blank" rel="noopener">{{ substr . 0 7 }}</a>
         </p>
         {{ end }}
       </div>

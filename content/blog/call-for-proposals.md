@@ -1,7 +1,7 @@
 ---
 title: "Call for Proposals Now Open"
 date: 2026-05-29
-description: "Submit your talk proposal for PyCon Ireland 2026. We're looking for speakers of all experience levels."
+description: "Submit your talk proposal for PyCon Ireland 2026. We welcome speakers of all experience levels, from first-time presenters to seasoned Python experts."
 draft: false
 ---
 
@@ -25,6 +25,6 @@ Whether you're a first-time speaker or an experienced presenter, we'd love to he
 
 ## How to Submit
 
-Visit our [proposal submission page](https://sessionize.com/pycon-ireland-2026/) to submit your talk. The deadline is **30 August 2026**.
+Visit our [proposal submission page](https://sessionize.com/pycon-ireland-2026/) to submit your talk. The deadline is **31 July 2026**.
 
 Don't hesitate to reach out at [contact@python.ie](mailto:contact@python.ie) if you have any questions about your proposal.

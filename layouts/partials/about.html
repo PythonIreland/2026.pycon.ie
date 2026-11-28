@@ -8,7 +8,7 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {{ range $i, $item := where .Site.Data.site.about "disabled" "!=" true }}
+      {{ range $i, $item := where hugo.Data.site.about "disabled" "!=" true }}
         <div class="bg-bg-card rounded-2xl overflow-hidden card-glow transition-all duration-300 hover:-translate-y-1">
           {{ if $item.image }}
             <div class="h-52 overflow-hidden">

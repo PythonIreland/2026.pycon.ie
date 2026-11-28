@@ -1,102 +1,35 @@
-{{/* ItemList + Person Schema for Speakers Page */}}
-
-{{/* Option 1: ItemList showing all speakers */}}
+{{- /*
+  JSON-LD for /speakers/: an ItemList of Person nodes built from Sessionize.
+  Each Person has a stable @id (speakers/#<sessionize id>) referenced by the
+  sessions on /schedule/ and by the main Event's performer list, and links
+  back to its sessions via performerIn.
+*/ -}}
+{{- $sz := partialCached "sessionize-data.html" . -}}
+{{- if $sz.ok }}
+{{- $base := site.BaseURL -}}
+{{- $items := slice -}}
+{{- range $i, $s := $sz.speakers -}}
+  {{- $person := dict
+      "@type" "Person"
+      "@id" (printf "%sspeakers/#%s" $base $s.id)
+      "name" $s.name
+  -}}
+  {{- with $s.tagline }}{{ $person = merge $person (dict "jobTitle" .) }}{{ end -}}
+  {{- with $s.bio }}{{ $person = merge $person (dict "description" .) }}{{ end -}}
+  {{- with $s.photo }}{{ $person = merge $person (dict "image" .) }}{{ end -}}
+  {{- with $s.links }}{{ $person = merge $person (dict "sameAs" .) }}{{ end -}}
+  {{- $performerIn := slice -}}
+  {{- range $s.sessions }}{{ $performerIn = $performerIn | append (dict "@id" (printf "%sschedule/#session-%s" $base .)) }}{{ end -}}
+  {{- with $performerIn }}{{ $person = merge $person (dict "performerIn" .) }}{{ end -}}
+  {{- $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "item" $person) -}}
+{{- end }}
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "{{ .Site.Title }} Speakers",
-  "description": "Meet our incredible lineup of speakers at {{ .Site.Title }}",
-  "numberOfItems": {{ len .Site.Data.speakers }},
-  "itemListElement": [
-    {{ range $index, $speaker := .Site.Data.speakers }}
-    {
-      "@type": "ListItem",
-      "position": {{ add $index 1 }},
-      "item": {
-        "@type": "Person",
-        "@id": "{{ $.Site.BaseURL }}speakers/#{{ $speaker.id }}",
-        "name": "{{ $speaker.name }}",
-        "jobTitle": "{{ $speaker.title }}",
-        {{ with $speaker.company }}"worksFor": {
-          "@type": "Organization",
-          "name": "{{ . }}"
-        },{{ end }}
-        "description": "{{ $speaker.bio }}",
-        "image": "{{ $speaker.photo | absURL }}",
-        {{ with $speaker.social }}
-          "sameAs": [
-            {{ $links := slice }}
-            {{ with .twitter }}{{ $links = $links | append . }}{{ end }}
-            {{ with .github }}{{ $links = $links | append . }}{{ end }}
-            {{ with .linkedin }}{{ $links = $links | append . }}{{ end }}
-            {{ with .mastodon }}{{ $links = $links | append . }}{{ end }}
-            {{ range $i, $link := $links }}
-              {{ if gt $i 0 }},{{ end }}"{{ $link }}"
-            {{ end }}
-          ],
-        {{ end }}
-        {{/* Option 2: Link speakers to their talks via performerIn */}}
-        "performerIn": [
-          {{ $speakerId := $speaker.id }}
-          {{ $sessions := where $.Site.Data.sessions "speaker_ids" "intersect" (slice $speakerId) }}
-          {{ range $idx, $session := $sessions }}
-            {{ if gt $idx 0 }},{{ end }}
-            {
-              "@type": "EducationalEvent",
-              "@id": "{{ $.Site.BaseURL }}schedule/#{{ $session.id }}",
-              "name": "{{ $session.title }}",
-              "description": "{{ $session.description }}",
-              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
-            }
-          {{ end }}
-        ]
-      }
-    }{{ if lt (add $index 1) (len $.Site.Data.speakers) }},{{ end }}
-    {{ end }}
-  ]
-}
+{{ dict
+    "@context" "https://schema.org"
+    "@type" "ItemList"
+    "name" (printf "%s Speakers" site.Title)
+    "numberOfItems" (len $items)
+    "itemListElement" $items
+  | jsonify | safeJS }}
 </script>
-
-{{/* Individual Person schemas with rich detail for keynote speakers */}}
-{{ range $speaker := where .Site.Data.speakers "keynote" true }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "@id": "{{ $.Site.BaseURL }}speakers/#{{ $speaker.id }}",
-  "name": "{{ $speaker.name }}",
-  "jobTitle": "{{ $speaker.title }}",
-  {{ with $speaker.company }}"worksFor": {
-    "@type": "Organization",
-    "name": "{{ . }}"
-  },{{ end }}
-  "description": "{{ $speaker.bio }}",
-  "image": "{{ $speaker.photo | absURL }}",
-  {{ with $speaker.social }}
-    "sameAs": [
-      {{ $links := slice }}
-      {{ with .twitter }}{{ $links = $links | append . }}{{ end }}
-      {{ with .github }}{{ $links = $links | append . }}{{ end }}
-      {{ with .linkedin }}{{ $links = $links | append . }}{{ end }}
-      {{ with .mastodon }}{{ $links = $links | append . }}{{ end }}
-      {{ range $i, $link := $links }}
-        {{ if gt $i 0 }},{{ end }}"{{ $link }}"
-      {{ end }}
-    ],
-  {{ end }}
-  {{/* Build knowsAbout array — avoid empty trailing string for non-keynotes */}}
-  {{ $knows := slice "Python" "Software Development" }}
-  {{ if $speaker.keynote }}{{ $knows = $knows | append "Keynote Speaking" }}{{ end }}
-  "knowsAbout": [{{ range $i, $k := $knows }}{{ if $i }},{{ end }}"{{ $k }}"{{ end }}],
-  "alumniOf": {
-    "@type": "Event",
-    "name": "{{ $.Site.Title }}",
-    "organizer": {
-      "@type": "Organization",
-      "name": "{{ $.Site.Params.organizerName }}"
-    }
-  }
-}
-</script>
-{{ end }}
+{{- end }}

@@ -65,16 +65,32 @@
   "organizer": {
     "@type": "Organization",
     "@id": "{{ .Site.Params.organizerUrl }}#organization"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": {{ (index .Site.Params.tickets 0).price }},
-    "highPrice": {{ (index .Site.Params.tickets (sub (len .Site.Params.tickets) 1)).price }},
-    "offerCount": {{ len .Site.Params.tickets }},
-    "priceCurrency": "EUR",
-    "url": "{{ if .Site.Params.ticketsUrl }}{{ .Site.Params.ticketsUrl }}{{ else }}{{ .Site.BaseURL }}{{ end }}",
-    "availability": "https://schema.org/PreOrder"
   }
+  {{- $sz := partialCached "sessionize-data.html" . }}
+  {{- if $sz.ok }}
+  {{- $performers := slice }}
+  {{- range $sz.speakers }}
+    {{- $performers = $performers | append (dict "@type" "Person" "@id" (printf "%sspeakers/#%s" site.BaseURL .id) "name" .name) }}
+  {{- end }},
+  "performer": {{ $performers | jsonify | safeJS }}
+  {{- end }}
+  {{- $tito := partialCached "tito-data.html" . }}
+  {{- if $tito.ok }}
+  {{- $offers := slice }}
+  {{- range $tito.releases }}
+    {{- $offer := dict
+        "@type" "Offer"
+        "name" .name
+        "price" (printf "%.2f" .price)
+        "priceCurrency" $tito.currency
+        "url" site.Params.ticketsUrl
+        "validFrom" site.Params.ticketsValidFrom
+    }}
+    {{- with .availability }}{{ $offer = merge $offer (dict "availability" .) }}{{ end }}
+    {{- $offers = $offers | append $offer }}
+  {{- end }},
+  "offers": {{ $offers | jsonify | safeJS }}
+  {{- end }}
 }
 </script>
 {{ end }}

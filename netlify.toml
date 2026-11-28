@@ -1,11 +1,17 @@
 [build]
-  command = "npm install && hugo --minify"
+  command = "npm install && hugo --minify -b \"$DEPLOY_PRIME_URL/\""
   publish = "public"
 
 [build.environment]
-  HUGO_VERSION = "0.161.1"
+  HUGO_VERSION = "0.170.1"
   NODE_VERSION = "22"
   TZ = "Europe/Dublin"
+
+# Production must use the custom domain from hugo.toml (baseURL).
+# $DEPLOY_PRIME_URL points to the branch deploy URL (main--*.netlify.app)
+# in the production context, which leaked into canonical/og:url tags.
+[context.production]
+  command = "npm install && hugo --minify"
 
 [context.production.environment]
   HUGO_ENV = "production"

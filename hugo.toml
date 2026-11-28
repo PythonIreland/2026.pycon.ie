@@ -1,5 +1,5 @@
 baseURL = "https://2026.pycon.ie/"
-locale = "en-IE"
+locale = "en"
 title = "PyCon Ireland 2026"
 enableGitInfo = true
 
@@ -25,29 +25,34 @@ enableGitInfo = true
     target = "css"
 
 [security]
+  # Hugo >= 0.165 no longer allows tailwindcss by default (gohugoio/hugo#15178).
+  # Re-add it to the default list; we own the templates that drive it.
+  [security.exec]
+    allow = ['^(dart-)?sass$', '^go$', '^git$', '^node$', '^postcss$', '^tailwindcss$']
   [security.funcs]
     getenv = ['^HUGO_', '^CI$', '^COMMIT_REF$', '^DEPLOY_ID$']
 
 [params]
-  description = "PyCon Ireland 2026 — Ireland's premier Python conference. Join Python developers for talks, workshops, and networking at Trinity College Dublin."
-  dateHuman = "17 October 2026"
+  description = "PyCon Ireland 2026 — Ireland's premier Python conference. Join Python developers for talks, workshops, and networking in Dublin's city centre."
+  dateHuman = "21 November 2026"
+  eventDate = "2026-11-21"
 
   # Event dates in ISO 8601 format (for structured data)
-  eventStartDate = "2026-10-17T09:00:00+01:00"
-  eventEndDate = "2026-10-17T18:00:00+01:00"
+  eventStartDate = "2026-11-21T09:00:00+00:00"  # Dublin is on GMT (UTC+0) in November
+  eventEndDate = "2026-11-21T19:05:00+00:00"  # End of the last session (Lightning Talks) in Sessionize
 
   # Venue information
-  venue = "Trinity College Dublin"
-  venueAddress = "Trinity College Dublin, College Green, Dublin 2, Ireland"
-  venueStreetAddress = "College Green"
+  venue = "Chartered Accountants House"
+  venueAddress = "47-49 Pearse St, Dublin 2, D02 YN40, Ireland"
+  venueStreetAddress = "47-49 Pearse Street"
   venueCity = "Dublin"
-  venuePostalCode = "Dublin 2"
+  venuePostalCode = "D02 YN40"
   venueRegion = "Dublin"
   venueCountry = "IE"
-  venueMapLat = 53.3438
-  venueMapLon = -6.2546
-  venuePhone = "+353 1 896 1000"
-  venueWebsite = "https://www.tcd.ie/"
+  venueMapLat = 53.344289
+  venueMapLon = -6.247827
+  venuePhone = "+353 1 637 7200"
+  venueWebsite = "https://www.charteredaccountants.ie/chartered-accountants-house/home"
 
   # Organizer information
   organizerName = "Python Ireland"
@@ -55,27 +60,33 @@ enableGitInfo = true
   organizerUrl = "https://python.ie/"
   croNumber = "559983"
 
-  # CFP status: "soon" or "open"
-  cfpStatus = "open"
+  # CFP status: "soon", "open", "closed" (temporarily), or "finished"
+  cfpStatus = "finished"
   cfpUrl = "https://sessionize.com/pycon-ireland-2026/"
   cfpOpens = "2026-05-25"
   cfpCloses = "2026-08-30"
-  ticketsUrl = ""  # Set to Tito/Eventbrite URL when tickets go on sale
+  sessionizeApiUrl = "https://sessionize.com/api/v2/k10qao8b/view/All"  # JSON "All data" endpoint; sessions/speakers JSON-LD is built from it at build time
+  ticketsUrl = "https://ti.to/python-ireland/pycon-ireland-2026"  # Tito event URL; ticket names, prices and availability are fetched from Tito at build time
+  ticketsValidFrom = "2026-10-01"  # Date pricing tiers were announced; required by Google's Offer.validFrom check
 
   # Contact & social
-  email = "contact@python.ie"
+  email = "pycon2026@python.ie"
+  bskyUrl = "https://bsky.app/profile/python-ireland.bsky.social"
+  bskyHandle = "@python-ireland.bsky.social"
+  twitterUrl = "https://x.com/pythonireland"
   twitterHandle = "@pythonireland"
   mastodonHandle = "@Python_Ireland"
   mastodonUrl = "https://mastodon.ie/@Python_Ireland"
+  meetupUrl = "https://www.meetup.com/pythonireland/"
   youtubeUrl = "https://www.youtube.com/@PythonIreland"
   linkedinUrl = "https://www.linkedin.com/company/python-ireland"
-  ogImage = "/img/og-image.webp"
+  ogImage = "/img/dublin-skyline-2026.png"
 
   [params.hero]
     title = "PyCon Ireland 2026"
     subtitle = "Ireland's Premier Python Conference"
-    date = "17 October 2026"
-    location = "Trinity College Dublin"
+    date = "21 November 2026"
+    location = "Dublin's City Centre"
 
   [params.stats]
     # attendees = 500  # TODO: restore once attendance number is confirmed
@@ -83,43 +94,42 @@ enableGitInfo = true
     tracks = 3
     days = 1
 
-  [[params.tickets]]
-    name = "Student"
-    price = 40
-    currency = "EUR"
-    features = ["Full conference access", "Lunch & refreshments", "Community networking"]
-    highlight = false
-
-  [[params.tickets]]
-    name = "Early Bird"
-    price = 70
-    currency = "EUR"
-    features = ["Full conference access", "Lunch & refreshments", "Conference t-shirt", "Workshop access"]
-    highlight = true
-
-  [[params.tickets]]
-    name = "General"
-    price = 100
-    currency = "EUR"
-    features = ["Full conference access", "Lunch & refreshments", "Conference t-shirt", "Workshop access"]
-    highlight = false
-
-  [[params.tickets]]
-    name = "Corporate"
-    price = 300
-    currency = "EUR"
-    features = ["Full conference access", "Lunch & refreshments", "Conference t-shirt", "Workshop access", "Priority seating", "Networking reception"]
-    highlight = false
-
 [menus]
   [[menus.main]]
-    name = "Call for Proposals"
-    url = "/cfp/"
+    name = "Tickets"
+    url = "/#tickets"
+    weight = 10
+
+  [[menus.main]]
+    identifier = "conference"
+    name = "Conference"
     weight = 20
+  [[menus.main]]
+    name = "Schedule Grid"
+    url = "/grid/"
+    parent = "conference"
+    weight = 1
+  [[menus.main]]
+    name = "Schedule List"
+    url = "/schedule/"
+    parent = "conference"
+    weight = 2
+  [[menus.main]]
+    name = "Speakers"
+    url = "/speakers/"
+    parent = "conference"
+    weight = 3
+
   # [[menus.main]]
-  #   name = "Sponsors"
-  #   url = "/sponsors/"
-  #   weight = 40
+  #   name = "Call for Proposals"
+  #   url = "/cfp/"
+  #   weight = 30
+
+  [[menus.main]]
+    name = "Sponsors"
+    url = "/sponsors/"
+    weight = 40
+
   [[menus.main]]
     identifier = "venue"
     name = "Venue"
@@ -136,6 +146,7 @@ enableGitInfo = true
     url = "/dublin/"
     parent = "venue"
     weight = 2
+
   [[menus.main]]
     identifier = "community"
     name = "Community"
@@ -152,7 +163,13 @@ enableGitInfo = true
     url = "https://python.ie"
     parent = "community"
     weight = 2
+
   [[menus.main]]
     name = "Blog"
     url = "/blog/"
     weight = 70
+
+# Remote resources (Tito ticket data) are cached by Hugo; keep it short so a
+# local `hugo server` does not show stale prices forever.
+[caches.getresource]
+  maxAge = "1h"
