@@ -103,7 +103,7 @@
 <section class="py-20 bg-bg-secondary">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <span class="inline-block bg-py-yellow/10 border border-py-yellow/30 text-py-yellow text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">2026 Edition</span>
+      <span class="inline-block bg-py-yellow/10 border border-py-yellow/30 text-py-yellow text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wider">{{ .Site.Params.edition }} Edition</span>
       <h2 class="text-3xl font-bold text-text-heading mb-4">Featured Tracks</h2>
       <p class="text-text-secondary text-lg max-w-2xl mx-auto">
         This year we are particularly excited about two dedicated tracks. We especially encourage proposals in these areas.
@@ -335,8 +335,7 @@
       <h2 class="text-2xl font-bold text-text-heading mb-4">Stay in the Loop</h2>
       <p class="text-text-secondary mb-8 leading-relaxed">
         The Call for Proposals will reopen once we have confirmed a new venue and date, currently unknown.
-        Read our <a href="/blog/venue-change/" class="text-py-yellow hover:underline">full update</a>, and
-        follow Python Ireland on social media to be among the first notified when submissions reopen.
+        Follow Python Ireland on social media to be among the first notified when submissions reopen.
       </p>
       {{ else }}
       <h2 class="text-2xl font-bold text-text-heading mb-4">Stay in the Loop</h2>

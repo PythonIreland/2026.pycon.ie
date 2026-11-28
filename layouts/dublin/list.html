@@ -108,15 +108,15 @@
     },
     {
       "@type": "Question",
-      "name": "Is Chartered Accountants House accessible for wheelchair users?",
+      "name": "Is {{ .Site.Params.venue }} accessible for wheelchair users?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Chartered Accountants House has accessible entrances, lifts, and accessible toilet facilities. Contact the PyCon Ireland team at pycon2026@python.ie for specific accommodation requests."
+        "text": "{{ .Site.Params.venue }} has accessible entrances, lifts, and accessible toilet facilities. Contact the PyCon Ireland team at {{ .Site.Params.email }} for specific accommodation requests."
       }
     },
     {
       "@type": "Question",
-      "name": "What public transport options are available near PyCon Ireland 2026?",
+      "name": "What public transport options are available near {{ .Site.Title }}?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Dublin's City Centre is served by LUAS tram lines, Dublin Bus, and is within walking distance of Pearse and Tara Street DART stations. The venue is in the city centre and easily reachable from most Dublin hotels."

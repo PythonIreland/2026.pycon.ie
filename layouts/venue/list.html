@@ -1,3 +1,6 @@
+{{- /* Venue page: the description, transport, parking and accessibility
+       details below are written for the current venue (see params.venue in
+       hugo.toml). Rewrite them when the edition moves to a new venue. */ -}}
 {{ define "main" }}
 
   {{/* Hero — same pattern as homepage */}}
@@ -6,7 +9,7 @@
       <picture>
         <source media="(max-width: 768px)" srcset="https://www.charteredaccountants.ie/sf_images/default-source/image-libraries/cta-images/cta-ca-house.jpg">
         <img src="https://www.charteredaccountants.ie/sf_images/default-source/image-libraries/cta-images/cta-ca-house.jpg"
-             alt="Chartered Accountants House, Dublin, Ireland"
+             alt="{{ .Site.Params.venue }}, {{ .Site.Params.venueCity }}, Ireland"
              class="w-full h-full object-cover object-center"
              loading="eager" fetchpriority="high">
       </picture>
@@ -45,8 +48,8 @@
 
           <div class="space-y-6 text-text-secondary leading-relaxed">
             <p>
-              <a href="https://www.charteredaccountants.ie/chartered-accountants-house/home" target="_blank" rel="noopener"
-                  class="text-py-blue-light hover:text-py-yellow font-semibold transition-colors">Chartered Accountants House</a>
+              <a href="{{ .Site.Params.venueWebsite }}" target="_blank" rel="noopener"
+                  class="text-py-blue-light hover:text-py-yellow font-semibold transition-colors">{{ .Site.Params.venue }}</a>
               is a modern building
               located in the heart of Dublin city centre,
               just two minutes away from
@@ -95,7 +98,7 @@
               <li class="flex items-start gap-3">
                 <svg class="w-5 h-5 text-py-blue-light shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                 <span><strong class="text-text-heading">Car Parking:</strong>
-                    <a href="https://en.parkopedia.com/parking/locations/49_pearse_street_dublin_d02_ireland_i1dhgc7x3yfnxqphe1/?arriving=202611210830&leaving=202611211900"
+                    <a href="https://en.parkopedia.com/parking/locations/49_pearse_street_dublin_d02_ireland_i1dhgc7x3yfnxqphe1/?arriving={{ (time .Site.Params.eventStartDate).Format "200601021504" }}&leaving={{ (time .Site.Params.eventEndDate).Format "200601021504" }}"
                         target="_blank" rel="noopener" class="text-py-yellow hover:underline">Paid parking</a>
                     is available in the area</span>
               </li>
@@ -169,7 +172,7 @@
         <ul class="space-y-3 text-text-secondary text-sm">
           <li class="flex items-start gap-2">
             <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <span><strong class="text-text-heading">DART / IrishRail:</strong> Dublin Pearse Station — 200m from Chartered Accountants House. Has lifts; check
+            <span><strong class="text-text-heading">DART / IrishRail:</strong> Dublin Pearse Station, 200m from {{ .Site.Params.venue }}. Has lifts; check
                 <a href="https://www.irishrail.ie/en-ie/station/dublin-pearse" target="_blank" rel="noopener" class="text-py-yellow hover:underline">status</a> on the day.</span>
           </li>
           <li class="flex items-start gap-2">
@@ -192,7 +195,7 @@
           <li class="flex items-start gap-2">
             <svg class="w-4 h-4 text-py-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             <span><strong class="text-text-heading">On-site parking:</strong>
-               Some parking may be available underneath Chartered Accountants House.
+               Some parking may be available underneath {{ .Site.Params.venue }}.
                Email us at <a href="mailto:{{ .Site.Params.email }}" class="text-py-yellow hover:underline">{{ .Site.Params.email }}</a>
                to see what can be arranged.
           </li>

@@ -39,6 +39,7 @@ enableGitInfo = true
   # The date, venue, CFP and ticket params below are still the 2026 values,
   # kept as a template: update them before switching to "announced".
   editionStatus = "planning"
+  edition = "2027"  # Year shown in the hero, badges and headings
 
   dateHuman = "21 November 2026"
   eventDate = "2026-11-21"
