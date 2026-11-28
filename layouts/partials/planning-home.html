@@ -1,0 +1,102 @@
+{{- /*
+  Homepage while params.editionStatus = "planning": the next edition is not
+  confirmed, so no date, venue or tickets. Rendered from layouts/index.html.
+*/ -}}
+{{- $edition := strings.TrimPrefix "PyCon Ireland " site.Title -}}
+{{- /* mailto subject: urlquery encodes spaces as "+", which mail clients keep literally */ -}}
+{{- $mail := printf "mailto:%s?subject=%s" site.Params.email (replace (urlquery (printf "PyCon Ireland %s" $edition)) "+" "%20") -}}
+
+<section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden hero-gradient">
+  <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-py-blue/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-py-yellow/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-3xl mx-auto px-4 pt-24 pb-16 text-center">
+    <span class="inline-block bg-py-yellow/10 text-py-yellow text-sm font-semibold px-4 py-2 rounded-full uppercase tracking-wider mb-8">
+      In preparation
+    </span>
+
+    <h1 class="font-brand text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-8">
+      <span style="color:#169B62">PyCon</span>
+      <span class="text-white">Ireland</span>
+      <span style="color:#FF883E">{{ $edition }}</span>
+    </h1>
+
+    <p class="text-xl sm:text-2xl text-text-primary mb-6">
+      We are starting to work on the next edition of PyCon Ireland.
+    </p>
+    <p class="text-lg text-text-secondary mb-10">
+      Nothing is decided yet: we do not know whether a {{ $edition }} edition will take place,
+      when it would be, or where. We will announce it here and on our channels as soon as we know.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#follow" class="bg-py-yellow text-bg-primary px-8 py-4 rounded-xl text-lg font-semibold hover:bg-py-yellow-light transition-colors">
+        Stay informed
+      </a>
+      <a href="https://2026.pycon.ie/" class="border border-white/50 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/10 transition-colors">
+        Revisit PyCon Ireland 2026 &rarr;
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="follow" class="py-20 bg-bg-secondary scroll-mt-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text-heading mb-4">Stay informed</h2>
+      <p class="text-text-secondary max-w-2xl mx-auto text-lg">
+        Follow Python Ireland to hear first about the next PyCon Ireland and to join our monthly meetups in the meantime.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+      {{- range slice
+          (dict "name" "Meetup" "url" site.Params.meetupUrl "hint" "Monthly meetups")
+          (dict "name" "Bluesky" "url" site.Params.bskyUrl "hint" site.Params.bskyHandle)
+          (dict "name" "Mastodon" "url" site.Params.mastodonUrl "hint" site.Params.mastodonHandle)
+          (dict "name" "LinkedIn" "url" site.Params.linkedinUrl "hint" "Python Ireland")
+          (dict "name" "YouTube" "url" site.Params.youtubeUrl "hint" "Past talks")
+      }}
+      <a href="{{ .url }}" target="_blank" rel="me noopener"
+         class="bg-bg-card hover:bg-bg-card-hover card-glow rounded-2xl p-6 text-center transition-colors">
+        <span class="block text-text-heading font-semibold mb-1">{{ .name }}</span>
+        <span class="block text-text-secondary text-sm break-words">{{ .hint }}</span>
+      </a>
+      {{- end }}
+    </div>
+  </div>
+</section>
+
+<section id="get-involved" class="py-20 bg-bg-primary">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-text-heading mb-4">Help make it happen</h2>
+      <p class="text-text-secondary max-w-2xl mx-auto text-lg">
+        PyCon Ireland is organised by volunteers. Support from sponsors and helpers is what makes a new edition possible.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-bg-card rounded-2xl p-8">
+        <h3 class="text-xl font-bold text-text-heading mb-3">Sponsor PyCon Ireland {{ $edition }}</h3>
+        <p class="text-text-secondary mb-6">
+          Interested in supporting the Irish Python community? Tell us and we will keep you posted as plans take shape.
+        </p>
+        <a href="{{ $mail }}%20sponsoring" class="text-py-yellow font-semibold hover:underline">Contact us about sponsoring &rarr;</a>
+      </div>
+      <div class="bg-bg-card rounded-2xl p-8">
+        <h3 class="text-xl font-bold text-text-heading mb-3">Volunteer</h3>
+        <p class="text-text-secondary mb-6">
+          Want to help organise the next edition, before or on the day? We would love to hear from you.
+        </p>
+        <a href="{{ $mail }}%20volunteering" class="text-py-yellow font-semibold hover:underline">Offer your help &rarr;</a>
+      </div>
+    </div>
+
+    <p class="text-center text-text-secondary mt-10">
+      Any other question: <a href="mailto:{{ site.Params.email }}" class="text-py-blue-light hover:text-py-yellow transition-colors">{{ site.Params.email }}</a>
+    </p>
+  </div>
+</section>

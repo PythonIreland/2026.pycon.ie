@@ -24,7 +24,7 @@ We know this is disappointing, especially for everyone who was planning to submi
 - **PyCon Ireland 2026 is still happening.** We are treating this as a reschedule, not a cancellation.
 - **Our commitment to the community remains unchanged**, we are as enthusiastic as ever to showcase your talks, from first-time speakers to seasoned practitioners.
 - **The team has already begun the process of securing a new venue.** We will share updates as soon as there is something concrete to report.
-- We still welcome proposals from first-time and experienced speakers alike, across the full range of Python topics, in both full-talk (30 minutes) and lightning-talk (5 minutes) formats. See the [full CFP page](/cfp/) for submission guidelines.
+- We still welcome proposals from first-time and experienced speakers alike, across the full range of Python topics, in both full-talk (30 minutes) and lightning-talk (5 minutes) formats. See the [full CFP page](https://2026.pycon.ie/cfp/) for submission guidelines.
 
 ## How to Stay Updated
 

@@ -1,6 +1,6 @@
-baseURL = "https://2026.pycon.ie/"
+baseURL = "https://2027.pycon.ie/"
 locale = "en"
-title = "PyCon Ireland 2026"
+title = "PyCon Ireland 2027"
 enableGitInfo = true
 
 [taxonomies]
@@ -28,7 +28,18 @@ enableGitInfo = true
     getenv = ['^HUGO_', '^CI$', '^COMMIT_REF$', '^DEPLOY_ID$']
 
 [params]
-  description = "PyCon Ireland 2026 — Ireland's premier Python conference. Join Python developers for talks, workshops, and networking in Dublin's city centre."
+  description = "PyCon Ireland 2027: Python Ireland is working on the next edition of Ireland's Python conference. Whether, when and where it takes place is not decided yet."
+
+  # Edition status:
+  #   "planning"  - edition not confirmed: homepage says we are working on it,
+  #                 no date, venue, tickets or Event structured data are shown,
+  #                 and the programme sections are not built (see [[cascade]]
+  #                 at the end of this file)
+  #   "announced" - full conference site
+  # The date, venue, CFP and ticket params below are still the 2026 values,
+  # kept as a template: update them before switching to "announced".
+  editionStatus = "planning"
+
   dateHuman = "21 November 2026"
   eventDate = "2026-11-21"
 
@@ -76,7 +87,7 @@ enableGitInfo = true
   ticketsValidFrom = "2026-10-01"  # Date pricing tiers were announced; required by Google's Offer.validFrom check
 
   # Contact & social
-  email = "pycon2026@python.ie"
+  email = "contact@python.ie"
   bskyUrl = "https://bsky.app/profile/python-ireland.bsky.social"
   bskyHandle = "@python-ireland.bsky.social"
   twitterUrl = "https://x.com/pythonireland"
@@ -86,10 +97,10 @@ enableGitInfo = true
   meetupUrl = "https://www.meetup.com/pythonireland/"
   youtubeUrl = "https://www.youtube.com/@PythonIreland"
   linkedinUrl = "https://www.linkedin.com/company/python-ireland"
-  ogImage = "/img/dublin-skyline-2026.png"
+  ogImage = "/img/logo.png"  # TODO: 2027 social image (dublin-skyline-2026.png shows "2026")
 
   [params.hero]
-    title = "PyCon Ireland 2026"
+    title = "PyCon Ireland 2027"
     subtitle = "Ireland's Premier Python Conference"
     date = "21 November 2026"
     location = "Dublin's City Centre"
@@ -157,25 +168,51 @@ enableGitInfo = true
     identifier = "community"
     name = "Community"
     weight = 60
+    [menus.main.params]
+      planning = true
 
   [[menus.main]]
     name = "About Us"
     url = "/about/"
     parent = "community"
     weight = 1
+    [menus.main.params]
+      planning = true
 
   [[menus.main]]
     name = "Python Ireland"
     url = "https://python.ie"
     parent = "community"
     weight = 2
+    [menus.main.params]
+      planning = true
 
   [[menus.main]]
     name = "Blog"
     url = "/blog/"
     weight = 70
+    [menus.main.params]
+      planning = true
+
+  [[menus.main]]
+    name = "PyCon Ireland 2026"
+    url = "https://2026.pycon.ie/"
+    weight = 80
+    [menus.main.params]
+      planning = true
+      planningOnly = true
 
 # Remote resources (Tito ticket data) are cached by Hugo; keep it short so a
 # local `hugo server` does not show stale prices forever.
 [caches.getresource]
   maxAge = "1h"
+
+# Edition in planning (params.editionStatus = "planning"): the programme
+# sections are not built, so they are neither published nor listed in the
+# sitemap. Remove this block when the edition is announced.
+[[cascade]]
+  [cascade.build]
+    render = "never"
+    list = "never"
+  [cascade.target]
+    path = "{/cfp,/cfp/**,/dublin,/dublin/**,/grid,/grid/**,/schedule,/schedule/**,/speakers,/speakers/**,/sponsors,/sponsors/**,/venue,/venue/**}"

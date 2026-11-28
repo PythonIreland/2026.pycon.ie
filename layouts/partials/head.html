@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}{{ .Site.Title }} — Python Conference · Dublin, {{ dateFormat "2 January" (time .Site.Params.eventStartDate) }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+{{- $planning := eq site.Params.editionStatus "planning" }}
+<title>{{ if and .IsHome $planning }}{{ .Site.Title }}, Ireland's Python Conference{{ else if .IsHome }}{{ .Site.Title }} — Python Conference · Dublin, {{ dateFormat "2 January" (time .Site.Params.eventStartDate) }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta name="robots" content="index, follow">
 <meta name="google-site-verification" content="QPz8yzH2pOdYQFiK3Ndfd2VqhtQDzvkDs1YSZHntgao">
@@ -37,8 +38,8 @@
 <link rel="preload" href="https://use.typekit.net/qgj1xay.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://use.typekit.net/qgj1xay.css"></noscript>
 
-{{/* Hero image preload — homepage only */}}
-{{ if .IsHome }}
+{{/* Hero image preload — homepage only (the planning homepage has no hero image) */}}
+{{ if and .IsHome (not $planning) }}
   {{ $hero := resources.Get "img/hero.jpg" }}
   {{ if not $hero }}{{ errorf "assets/img/hero.jpg is missing — hero image pipeline broken" }}{{ end }}
   {{ $heroDesktop := $hero.Resize "1920x webp q85" }}
@@ -74,7 +75,7 @@
 {{/* Tito tickets: only the homepage renders the widget (partials/tickets.html).
      Kept in <head>: loading it next to the widget in <body> left the widget
      empty in some Firefox setups. */}}
-{{ if .IsHome }}{{ with (partialCached "tito-data.html" .).slug }}
+{{ if and .IsHome (not $planning) }}{{ with (partialCached "tito-data.html" .).slug }}
 <script src="https://js.tito.io/v2" async></script>
 {{ end }}{{ end }}
 

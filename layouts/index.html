@@ -1,4 +1,7 @@
 {{ define "main" }}
+{{- if eq site.Params.editionStatus "planning" }}
+  {{- partial "planning-home.html" . -}}
+{{- else }}
   {{- partial "hero.html" . -}}
   {{/* Key facts bar — visible prose for AI/GEO; keeps schema and visible content in sync */}}
   <section class="py-6 bg-bg-secondary border-b border-white/5">
@@ -44,4 +47,5 @@
   {{- partial "tickets.html" . -}}
   {{- partial "discover-dublin.html" . -}}
   {{- /* partial "cta-newsletter.html" . */ -}}
+{{- end }}
 {{ end }}
