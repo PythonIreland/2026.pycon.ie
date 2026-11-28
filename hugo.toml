@@ -61,6 +61,9 @@ enableGitInfo = true
   cfpOpens = "2026-05-25"
   cfpCloses = "2026-08-30"
 
+  # Financial aid: false hides /financial-aid/ (page not built) and its
+  # links in the footer and tickets section.
+  financialAidEnabled = false
   # Financial aid application window ("YYYY-MM-DD", closing day inclusive).
   # Leave empty until announced: the page then shows "dates to be announced".
   # The status on /financial-aid/ is computed at build time, so redeploy on

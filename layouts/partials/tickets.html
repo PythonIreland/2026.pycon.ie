@@ -16,10 +16,12 @@
     <tito-widget event="{{ . }}"></tito-widget>
     {{- end }}
 
+    {{- if site.Params.financialAidEnabled }}
     <p class="text-center text-sm text-text-secondary mt-8">
       Need help covering costs?
       <a href="/financial-aid/" class="text-py-blue-light hover:text-py-yellow transition-colors">Financial aid is available</a>
       for eligible attendees.
     </p>
+    {{- end }}
   </div>
 </section>

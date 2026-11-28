@@ -1,9 +1,3 @@
----
-title: "Financial Aid"
-description: "Python Ireland offers grants covering tickets, travel, and accommodation for community members attending PyCon Ireland 2027 who need financial support."
-layout: "single"
----
-
 {{< financial-aid-status >}}
 
 Python Ireland offers financial assistance to help members of the community attend PyCon Ireland 2027 who would otherwise be unable to do so.
