@@ -2,7 +2,7 @@
   Homepage while params.editionStatus = "planning": the next edition is not
   confirmed, so no date, venue or tickets. Rendered from layouts/index.html.
 */ -}}
-{{- $edition := strings.TrimPrefix "PyCon Ireland " site.Title -}}
+{{- $edition := site.Params.edition -}}
 {{- /* mailto subject: urlquery encodes spaces as "+", which mail clients keep literally */ -}}
 {{- $mail := printf "mailto:%s?subject=%s" site.Params.email (replace (urlquery (printf "PyCon Ireland %s" $edition)) "+" "%20") -}}
 
