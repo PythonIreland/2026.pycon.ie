@@ -3,6 +3,11 @@ locale = "en"
 title = "PyCon Ireland 2026"
 enableGitInfo = true
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [taxonomies]
 
 [build]
