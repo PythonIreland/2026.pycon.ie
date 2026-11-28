@@ -33,9 +33,10 @@ Each edition lives on its own branch and is deployed to its own Netlify site and
 1. Create the edition branch from `main` (for example `git switch -c 2027 main`) once the site is ready to go live, or keep working on `main` until then.
 2. Create a new Netlify site for the edition and set its id in `mise.toml` (`NETLIFY_SITE_ID`).
 3. Point the `<year>.pycon.ie` subdomain to that Netlify site.
-4. In `hugo.toml`, update `baseURL`, the event dates (Dublin is on GMT `+00:00` in November, IST `+01:00` in summer), the venue, and the Sessionize and Tito URLs of the new event.
-5. Reset edition content: sponsors in `data/sponsors.yml`, blog posts in `content/blog/`, CFP dates, venue page.
-6. Replace images and update `content/credits.md` accordingly.
+4. While the edition is not confirmed, keep `editionStatus = "planning"` in `hugo.toml`: the homepage says the edition is in preparation, no date, venue, tickets or Event structured data are shown, the menu only keeps entries marked `planning = true`, and the programme sections are not built (`[[cascade]]` block at the end of `hugo.toml`). To announce the edition, set `editionStatus = "announced"` and remove that `[[cascade]]` block.
+5. In `hugo.toml`, update `baseURL`, the event dates (Dublin is on GMT `+00:00` in November, IST `+01:00` in summer), the venue, and the Sessionize and Tito URLs of the new event.
+6. Reset edition content: sponsors in `data/sponsors.yml`, blog posts in `content/blog/`, CFP dates, venue page.
+7. Replace images and update `content/credits.md` accordingly.
 
 ## Tech Stack
 

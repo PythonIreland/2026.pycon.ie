@@ -1,4 +1,7 @@
 {{/* ConferenceEvent Schema - emitted on every page (Python conference interop format) */}}
+{{- /* No event schema while the edition is not confirmed (editionStatus = "planning") */}}
+{{- $planning := eq site.Params.editionStatus "planning" }}
+{{ if not $planning }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -29,9 +32,10 @@
   }{{ end }}
 }
 </script>
+{{ end }}
 
 {{/* Event Schema - Main Conference */}}
-{{ if .IsHome }}
+{{ if and .IsHome (not $planning) }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

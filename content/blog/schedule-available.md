@@ -5,16 +5,16 @@ description: "The sessions, speakers, and workshops for PyCon Ireland 2026 are n
 draft: false
 ---
 
-We are delighted to announce the [schedule](/grid/) for PyCon Ireland 2026,
-to be held at [Chartered Accountants House](/venue/) in Dublin on Saturday 21 November.
+We are delighted to announce the [schedule](https://2026.pycon.ie/grid/) for PyCon Ireland 2026,
+to be held at [Chartered Accountants House](https://2026.pycon.ie/venue/) in Dublin on Saturday 21 November.
 You can choose from
 more than thirty talks across three tracks,
 at least four workshops,
 and two panels,
 as well as keynotes and lightning talks,
-given by dozens of [speakers](/speakers/).
+given by dozens of [speakers](https://2026.pycon.ie/speakers/).
 
-We'll have lots of [sessions](/schedule/) on **AI** and Machine Learning, including
+We'll have lots of [sessions](https://2026.pycon.ie/schedule/) on **AI** and Machine Learning, including
 - agentic AI, coding agents, multi-agent workflows, and agent evaluation
 - Bayesian modeling
 - benchmarking ML models
@@ -32,7 +32,7 @@ We'll have lots of [sessions](/schedule/) on **AI** and Machine Learning, includ
 - workflows
 
 But it's not just AI.
-There will also be [sessions](/schedule/) on
+There will also be [sessions](https://2026.pycon.ie/schedule/) on
 - asynchronous I/O
 - learning in public
 - natural language processing
@@ -63,5 +63,5 @@ as well as access to all the sessions and networking with the speakers and other
 you get a light breakfast,
 a sandwich lunch, and morning and afternoon refreshment breaks.
 
-We do expect to make some **further additions** to the [schedule](/grid/),
+We do expect to make some **further additions** to the [schedule](https://2026.pycon.ie/grid/),
 so check regularly for updates.

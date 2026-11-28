@@ -12,9 +12,13 @@
         </a>
         <p class="text-text-secondary text-sm">
           Ireland's premier Python conference.<br>
+          {{- if eq site.Params.editionStatus "planning" }}
+          {{ site.Title }}: in preparation.
+          {{- else }}
           {{ .Site.Params.dateHuman }}.<br>
           {{ .Site.Params.venue }}.<br>
           Dublin's city centre.
+          {{- end }}
         </p>
       </div>
 
@@ -22,10 +26,14 @@
       <div>
         <h4 class="text-text-heading font-semibold text-sm uppercase tracking-wider mb-4">Conference</h4>
         <ul class="space-y-2 text-sm">
+          {{- if eq site.Params.editionStatus "planning" }}
+          <li><a href="https://2026.pycon.ie/" class="text-text-secondary hover:text-py-yellow transition-colors">PyCon Ireland 2026</a></li>
+          {{- else }}
           <li><a href="/speakers/" class="text-text-secondary hover:text-py-yellow transition-colors">Speakers</a></li>
           <li><a href="/grid/" class="text-text-secondary hover:text-py-yellow transition-colors">Schedule</a></li>
           {{/* <li><a href="/sponsors/" class="text-text-secondary hover:text-py-yellow transition-colors">Sponsors</a></li> */}}
           <li><a href="/venue/" class="text-text-secondary hover:text-py-yellow transition-colors">Venue</a></li>
+          {{- end }}
         </ul>
       </div>
 

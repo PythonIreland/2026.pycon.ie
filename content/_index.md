@@ -1,4 +1,4 @@
 ---
-title: "PyCon Ireland 2026"
-description: "Ireland's premier Python conference. Join 400+ Python developers for talks, workshops, and networking. 21 November 2026, Chartered Accountants House, Dublin."
+title: "PyCon Ireland 2027"
+description: "PyCon Ireland 2027 is in preparation: Python Ireland is working on the next edition of Ireland's Python conference. Whether, when and where it takes place is not decided yet."
 ---
