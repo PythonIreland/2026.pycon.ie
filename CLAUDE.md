@@ -4,10 +4,26 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-PyCon Ireland 2026 conference website — a Hugo static site with Tailwind CSS v4 native integration and comprehensive SEO structured data.
+PyCon Ireland conference website: a Hugo static site with Tailwind CSS v4 native integration and comprehensive SEO structured data. The same code serves every edition.
 
-**Event:** 21 November 2026 · Dublin city centre
-**Deployment:** Netlify (production at `https://2026.pycon.ie/`)
+### Editions and branches
+
+| Edition | Branch | Netlify site | URL | Status |
+|---|---|---|---|---|
+| 2026 | `2026` | `pycon-ireland-2026` | https://2026.pycon.ie/ (also `pycon.ie`, `www.pycon.ie`) | Archived: post-event thank-you, links to 2027 |
+| 2027 | `main` | `pycon-ireland-2027` | https://2027.pycon.ie/ | In preparation (`editionStatus = "planning"`) |
+
+- `main` holds the shared code and the edition being prepared. PRs against `main` get previews from `pycon-ireland-2027`; PRs against `2026` from `pycon-ireland-2026`
+- Generic fixes go to `main` first, then are cherry-picked into the `2026` branch when that site needs them (open a PR with base `2026`)
+- Edition-specific content (dates, venue, sponsors, blog posts, Terms wording) must not leak from one branch to the other
+- DNS for `pycon.ie` is on Cloudflare; edition subdomains are CNAMEs to their Netlify site, proxied, zone SSL mode "Full"
+
+### Edition status (`params.editionStatus`)
+
+- `"planning"` (current on `main`): `layouts/partials/planning-home.html` replaces the homepage ("in preparation", follow us, revisit 2026, sponsor/volunteer); no date, venue, tickets or Event JSON-LD; footer and `<title>` without date/venue; nav only shows menu entries with `[menus.main.params] planning = true` (`planningOnly = true` entries only show in planning); a `[[cascade]]` block at the end of `hugo.toml` stops building CFP, schedule, grid, speakers, sponsors, venue and Dublin (not built, not in the sitemap)
+- `"announced"`: full conference site. To switch, set `editionStatus = "announced"`, remove the `[[cascade]]` block, and update the date, venue, CFP, Sessionize and Tito params (they still hold the 2026 values as a template)
+- `params.edition` is the year shown in the hero, the planning homepage and the CFP badge; keep it in sync with `title` and `baseURL`
+- The venue page and `venue-home.html` contain prose specific to the current venue: rewrite it when the venue changes
 
 ## Development Commands
 
@@ -73,6 +89,12 @@ Conference content is stored in **YAML data files** (`data/*.yml`), not Markdown
 **`data/site.yml`**
 - About section content (feature cards)
 
+**Financial aid page (feature flag)**
+- `params.financialAidEnabled` (default `false`): when off, `/financial-aid/` is not built and its footer/tickets links are hidden
+- The page is added by a content adapter, `content/_content.gotmpl` (front matter cannot read site params); its body lives in `assets/content/financial-aid.md`, not in `content/`
+- `params.financialAidOpens` / `financialAidCloses` (`YYYY-MM-DD`, closing day inclusive) and `financialAidUrl` drive the `financial-aid-status` shortcode (badge and "How to Apply" text: to be announced, opening soon, open, closed). Computed at build time: redeploy on the opening and closing days
+- Policy: cap of €350 per person, requests well above it are declined; priority to people living in Ireland, then the UK, then Europe
+
 **`data/dublin.yml`**
 - "Discover Dublin" section: intro text, gallery images, highlights (attractions), transport options
 - Structure: `intro`, `gallery[]`, `highlights[]`, `transport[]`
@@ -85,6 +107,7 @@ Conference content is stored in **YAML data files** (`data/*.yml`), not Markdown
 The site implements **comprehensive JSON-LD schemas** across three layers:
 
 **Layer 1: Homepage (`layouts/partials/structured-data.html`)**
+- While `editionStatus = "planning"`, the ConferenceEvent and Event schemas are not emitted (no confirmed date or venue); Organization, WebSite and BreadcrumbList stay
 - Event schema: Full conference details (dates, location, pricing, organizer)
 - Organization schema: Python Ireland with contact info
 - WebSite schema: Site metadata
@@ -116,7 +139,7 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 - `layouts/schedule/list.html` — Multi-track schedule grid with time slots
 - `layouts/sponsors/list.html` — Sponsor logos grouped by tier
 - `layouts/venue/list.html` — Venue details with image grid
-- `layouts/blog/list.html`, `single.html` — Blog listing and posts
+- `layouts/blog/list.html`, `single.html`: Blog listing and posts. The list shows an empty-state message linking to the 2026 blog when there are no posts (the blog on `main` starts empty for each edition)
 - `layouts/credits/single.html` — Photo/image attribution page
 - `layouts/cfp/` — Call for Proposals page
 - `layouts/about/` — About Python Ireland page
@@ -126,7 +149,9 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 - `layouts/partials/nav.html` — Responsive navigation with mobile menu
 - `layouts/partials/footer.html` — Footer with 4 columns: brand, Conference links, Community links (Code of Conduct, Terms & Conditions, Photo Credits, Python Ireland), Connect (social + email)
 - `layouts/partials/head.html` — Meta tags, Open Graph, structured data inclusion
-- `layouts/partials/hero.html` — Homepage hero section (uses `assets/img/hero.jpg`)
+- `layouts/partials/hero.html`: Homepage hero section (uses `assets/img/hero.jpg`; year from `params.edition`)
+- `layouts/partials/planning-home.html`: Homepage while `editionStatus = "planning"`
+- `layouts/partials/key-questions.html`: Homepage FAQ (when/where, CFP, ticket policy, schedule)
 - `layouts/partials/about.html` — About section with feature cards from `site.yml`
 - `layouts/partials/sponsors-home.html` — Homepage sponsor logos by tier
 - `layouts/partials/venue-home.html` — Venue showcase
@@ -139,13 +164,16 @@ The site implements **comprehensive JSON-LD schemas** across three layers:
 - `layouts/partials/css.html` — Deferred CSS rendering with Tailwind processing
 
 **Homepage composition (`layouts/index.html`):**
-Active: Hero → key facts bar (date, venue, ticket prices) → About → Sponsors → Venue → Key questions → Tickets (Tito widget) → Discover Dublin
-Commented out (pending content): Stats, Newsletter CTA
+- Planning (current on `main`): `planning-home.html` only
+- Announced: Hero → key facts bar (date, venue, ticket prices) → About → Sponsors → Venue → Key questions → Tickets (Tito widget) → Discover Dublin
+- Commented out (pending content): Stats, Newsletter CTA
+
+**RSS:** `layouts/_default/rss.xml`. The home feed only lists blog posts (`Section "blog"`), so root pages such as `content/credits.md` stay out of it.
 
 ### Configuration (`hugo.toml`)
 
 **Key parameters:**
-- `[params]` — Conference details (dates, venue, contact, social). Key social params: `twitterHandle`, `mastodonHandle` (`@Python_Ireland`), `mastodonUrl` (`https://mastodon.ie/@Python_Ireland` — instance is mastodon.ie, not mastodon.social), `youtubeUrl`
+- `[params]`: Conference details (dates, venue, contact, social), `editionStatus`, `edition`, financial aid params. Contact email is `contact@python.ie`. Key social params: `twitterHandle`, `mastodonHandle` (`@Python_Ireland`), `mastodonUrl` (`https://mastodon.ie/@Python_Ireland`; the instance is mastodon.ie, not mastodon.social), `youtubeUrl`
 - `[params.hero]` — Hero section content
 - `[params.stats]` — Statistics for counters (attendees, speakers, tracks, days)
 - `ticketsUrl` — Tito event URL (`https://ti.to/<account>/<event>`). Ticket prices are **not** stored in `hugo.toml`: they come from Tito's public checkout endpoint at build time and feed the homepage price range and the Event `offers` JSON-LD
@@ -217,7 +245,7 @@ When making content changes:
 - [ ] Alt text on all images (especially speaker photos)
 - [ ] **Always update `content/credits.md`** when adding any image to the site (Unsplash or otherwise)
 - [ ] Verify structured data with [Google Rich Results Test](https://search.google.com/test/rich-results)
-- [ ] Check `og:image` exists at `/img/og-image.png` (1200x630px)
+- [ ] Check the `og:image` set by `params.ogImage` exists (1200x630px ideally; `main` currently uses `/img/logo.png` until a 2027 image exists)
 
 ## Language Policy
 
@@ -345,7 +373,9 @@ The Bree brand font (Adobe Fonts / Typekit) stopped loading in production becaus
 - `assets/img/hero.jpg` — Homepage hero image
 - `layouts/partials/head.html` — Meta tags, OG tags, favicon, structured data inclusion
 - `layouts/partials/structured-data*.html` — JSON-LD schemas (3 files)
-- `data/*.yml` — All conference content (speakers, sessions, schedule, sponsors)
+- `data/*.yml`: Sponsors, team, About cards, Discover Dublin (speakers and sessions come from Sessionize)
+- `content/_content.gotmpl`, `assets/content/financial-aid.md`: Financial aid page, published only when `financialAidEnabled`
+- `layouts/partials/planning-home.html`: Homepage while the edition is in preparation
 - `docs/STRUCTURED-DATA.md` — Complete structured data documentation
 - `static/_headers` — Netlify HTTP security headers including CSP
 - `csp-dynamic-loaders.yml` — Runtime loader declarations for the CSP checker
@@ -353,7 +383,7 @@ The Bree brand font (Adobe Fonts / Typekit) stopped loading in production becaus
 
 ## Deployment
 
-Deployed via **Netlify** (not GitHub Pages). Configuration in `netlify.toml`:
+Deployed via **Netlify** (not GitHub Pages), one site per edition (see "Editions and branches"). Configuration in `netlify.toml`:
 - Build command: `npm install && hugo --minify`
 - Publish dir: `public/`
 - Hugo version: 0.170.1 / Node: 22 / TZ: Europe/Dublin
@@ -365,4 +395,10 @@ Production builds via `hugo --minify` generate optimized output in `public/`:
 - HTML minified
 - Static assets copied from `static/`
 - Generated sitemap at `/sitemap.xml`
-- Generated robots.txt at `/robots.txt`
+- Generated robots.txt at `/robots.txt` (static file `static/robots.txt`: keep its `Sitemap:` URL on the edition's domain)
+
+## Dependency Updates
+
+- **Dependabot** (`.github/dependabot.yml`): npm (Tailwind) and GitHub Actions, weekly, `main` only
+- **Renovate** (`renovate.json`): only the Hugo version, in `mise.toml` and `netlify.toml` together. Requires the Renovate GitHub App on the repository
+- Edition branches are not updated automatically: cherry-pick from `main` when needed

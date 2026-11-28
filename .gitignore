@@ -10,3 +10,4 @@ CLAUDE.local.md
 
 # Local Netlify folder
 .netlify
+.env

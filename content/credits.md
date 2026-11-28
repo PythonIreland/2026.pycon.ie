@@ -1,16 +1,29 @@
 ---
 title: "Photo Credits"
-description: "Photo credits and image attribution for the PyCon Ireland 2026 website. Find the sources for photography and visual assets used across the site."
+description: "Photo credits and image attribution for the PyCon Ireland website. Find the sources for photography and visual assets used across the site."
 ---
 
-## Social sharing — OG images
+While PyCon Ireland 2027 is in preparation, the conference sections of this site (CFP, venue, Discover Dublin and the full homepage) are not published. Their images are credited below under "Used once the edition is announced", so the attribution is ready when they return.
+
+## Currently on this site
+
+### Logo and social sharing
+
+**PyCon Ireland logo**
+Artwork owned by Python Ireland. Used in the navigation, the footer, and as the Open Graph / Twitter Card preview image until a 2027 preview image is made.
+
+---
+
+## Used once the edition is announced
+
+### CFP page: social sharing
 
 **PyCon Ireland 2026 branded artwork**
-AI-generated illustration created for Python Ireland, used for the site's Open Graph / Twitter Card preview images (homepage and CFP page).
+AI-generated illustration created for Python Ireland, used as the Open Graph / Twitter Card preview image of the CFP page. Will be replaced by 2027 artwork.
 
 ---
 
-## CFP page — Hero
+### CFP page: Hero
 
 **Speaker presenting on stage at a conference**
 Photograph by [Product School](https://unsplash.com/@productschool), published on [Unsplash](https://unsplash.com/photos/DL-yyYDDNX4).
@@ -18,7 +31,7 @@ Used under the [Unsplash License](https://unsplash.com/license) — free for com
 
 ---
 
-## Homepage — About section cards
+### Homepage: About section cards
 
 **Conference talk — speaker presenting at a technology conference**
 Photograph by [Danny Howe](https://unsplash.com/@dannyhowe), published on [Unsplash](https://unsplash.com/photos/1540575467063).
@@ -30,7 +43,7 @@ Used under the [Unsplash License](https://unsplash.com/license) — free for com
 
 ---
 
-## Homepage — Hero image
+### Homepage: Hero image
 
 **Red telephone box in front of The Temple Bar, Dublin**
 Photograph by [Matheus Câmara da Silva](https://unsplash.com/@matheussox), published on [Unsplash](https://unsplash.com/photos/NL2ORrGh8KM).
@@ -38,7 +51,7 @@ Used under the [Unsplash License](https://unsplash.com/license) — free for com
 
 ---
 
-## Discover Dublin — Gallery
+### Discover Dublin: Gallery
 
 **Ha'penny Bridge over the River Liffey**
 Photograph by [Sophie Popplewell](https://unsplash.com/@sophiepopp), published on [Unsplash](https://unsplash.com/photos/blDB0HbjB1k).
@@ -58,7 +71,7 @@ Used under the [Unsplash License](https://unsplash.com/license).
 
 ---
 
-## Venue page — Hero
+### Venue page: Hero
 
 **Trinity College Dublin — The Long Room library**
 Photograph by [Van Williams](https://unsplash.com/@vanunsplash), published on [Unsplash](https://unsplash.com/photos/Ty6KjYKmiUk).
@@ -66,7 +79,7 @@ Used under the [Unsplash License](https://unsplash.com/license) — free for com
 
 ---
 
-## Discover Dublin — Top Things to Do
+### Discover Dublin: Top Things to Do
 
 **Trinity College Library (Long Room)**
 Photograph by [Van Williams](https://unsplash.com/@vanunsplash), published on [Unsplash](https://unsplash.com/photos/Ty6KjYKmiUk).
@@ -94,7 +107,7 @@ Used under the [Unsplash License](https://unsplash.com/license).
 
 ---
 
-## Discover Dublin — Getting Around
+### Discover Dublin: Getting Around
 
 **DART — Dublin train tracks**
 Photograph by [Duy Thanh Nguyen](https://unsplash.com/@duythanh), published on [Unsplash](https://unsplash.com/photos/W-ZjOkHqMFw).
