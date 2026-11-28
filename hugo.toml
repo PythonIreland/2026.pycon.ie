@@ -3,11 +3,6 @@ locale = "en"
 title = "PyCon Ireland 2026"
 enableGitInfo = true
 
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-
 [taxonomies]
 
 [build]
@@ -65,6 +60,14 @@ enableGitInfo = true
   cfpUrl = "https://sessionize.com/pycon-ireland-2026/"
   cfpOpens = "2026-05-25"
   cfpCloses = "2026-08-30"
+
+  # Financial aid application window ("YYYY-MM-DD", closing day inclusive).
+  # Leave empty until announced: the page then shows "dates to be announced".
+  # The status on /financial-aid/ is computed at build time, so redeploy on
+  # the opening and closing days.
+  financialAidOpens = ""
+  financialAidCloses = ""
+  financialAidUrl = ""  # Application form URL, linked while applications are open
   sessionizeApiUrl = "https://sessionize.com/api/v2/k10qao8b/view/All"  # JSON "All data" endpoint; sessions/speakers JSON-LD is built from it at build time
   ticketsUrl = "https://ti.to/python-ireland/pycon-ireland-2026"  # Tito event URL; ticket names, prices and availability are fetched from Tito at build time
   ticketsValidFrom = "2026-10-01"  # Date pricing tiers were announced; required by Google's Offer.validFrom check

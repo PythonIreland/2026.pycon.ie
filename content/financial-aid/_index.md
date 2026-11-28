@@ -4,9 +4,7 @@ description: "Python Ireland offers grants covering tickets, travel, and accommo
 layout: "single"
 ---
 
-<div class="mb-8 text-center">
-  <span class="inline-block bg-py-yellow/10 text-py-yellow text-sm font-semibold px-4 py-2 rounded-full uppercase tracking-wider">Applications opening soon</span>
-</div>
+{{< financial-aid-status >}}
 
 Python Ireland offers financial assistance to help members of the community attend PyCon Ireland 2027 who would otherwise be unable to do so.
 
@@ -30,7 +28,7 @@ Due to economic, budgetary, and environmental considerations, applications are e
 
 ## How to Apply
 
-The application form will be available shortly. The application deadline is to be announced.
+{{< financial-aid-status "apply" >}}
 
 ## Decision Process
 
