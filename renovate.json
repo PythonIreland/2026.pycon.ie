@@ -1,0 +1,37 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate only tracks the Hugo version, which Dependabot cannot read (mise.toml, netlify.toml). npm and GitHub Actions stay with Dependabot (.github/dependabot.yml).",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["custom.regex"],
+  "timezone": "Europe/Dublin",
+  "schedule": ["before 9am on monday"],
+  "baseBranches": ["main"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Hugo version in mise.toml ([tools] hugo = \"x.y.z\")",
+      "managerFilePatterns": ["/^mise\\.toml$/"],
+      "matchStrings": ["\\nhugo = \"(?<currentValue>\\d+\\.\\d+\\.\\d+)\""],
+      "depNameTemplate": "gohugoio/hugo",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    {
+      "customType": "regex",
+      "description": "Hugo version used by Netlify builds (netlify.toml)",
+      "managerFilePatterns": ["/^netlify\\.toml$/"],
+      "matchStrings": ["HUGO_VERSION = \"(?<currentValue>\\d+\\.\\d+\\.\\d+)\""],
+      "depNameTemplate": "gohugoio/hugo",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Bump mise.toml and netlify.toml together in a single PR",
+      "matchPackageNames": ["gohugoio/hugo"],
+      "groupName": "Hugo",
+      "commitMessageTopic": "Hugo"
+    }
+  ]
+}

@@ -135,6 +135,13 @@ Post content here.
 
 **Images**: always add the attribution to `content/credits.md`.
 
+## Dependency updates
+
+- **Dependabot** (`.github/dependabot.yml`): npm packages (Tailwind) and GitHub Actions, weekly on `main`.
+- **Renovate** (`renovate.json`): the Hugo version, which Dependabot cannot read. `mise.toml` and `netlify.toml` are bumped together in a single PR, weekly on `main`. Requires the [Renovate GitHub App](https://github.com/apps/renovate) on the repository.
+
+Edition branches (`2026`, ...) are not updated automatically: cherry-pick from `main` when needed.
+
 ## Design
 
 Dark theme with Python brand colours as accents:
