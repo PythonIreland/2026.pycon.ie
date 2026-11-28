@@ -1,12 +1,12 @@
 ---
 title: Terms and Conditions
-description: "Read the terms and conditions for purchasing tickets and attending PyCon Ireland 2026, taking place on 21 November at Chartered Accountants House, Dublin."
+description: "Read the terms and conditions for purchasing tickets and attending PyCon Ireland, including the ticket policy, refunds, and the Code of Conduct."
 layout: "single"
 ---
 
-### Terms and Conditions — PyCon Ireland 2026
+### Terms and Conditions: PyCon Ireland
 
-These Terms and Conditions govern the purchase of tickets and attendance at PyCon Ireland 2026 ("the Event"), organised by Python Ireland Developers CLG ("Python Ireland"), taking place on 21 November at Chartered Accountants House, Dublin.
+These Terms and Conditions govern the purchase of tickets and attendance at PyCon Ireland ("the Event"), organised by Python Ireland Developers CLG ("Python Ireland"). The Event is the edition of PyCon Ireland for which a ticket is purchased; its date and venue are those published on this website and on the ticket at the time of purchase.
 
 By purchasing a ticket or attending the Event, you agree to be bound by these Terms and Conditions.
 
@@ -31,7 +31,7 @@ Tickets must be presented (printed or digital) at the entrance. Python Ireland r
 
 ### Refund Policy
 
-Ticket refund requests must be submitted by email to [pycon2026@python.ie](mailto:pycon2026@python.ie).
+Ticket refund requests must be submitted by email to [contact@python.ie](mailto:contact@python.ie).
 
 - Requests made more than 30 days before the Event will receive a full refund.
 - Requests made between 15 and 30 days before the Event will receive a 50% refund.
@@ -49,7 +49,7 @@ The Event may be photographed and recorded. By attending, you consent to your im
 
 ### Code of Conduct
 
-All attendees, speakers, sponsors, and volunteers are required to comply with the [Code of Conduct](https://2026.pycon.ie/code-of-conduct/) at all times. Python Ireland reserves the right to remove any person found to be in violation of the Code of Conduct without a refund.
+All attendees, speakers, sponsors, and volunteers are required to comply with the [Code of Conduct](/code-of-conduct/) at all times. Python Ireland reserves the right to remove any person found to be in violation of the Code of Conduct without a refund.
 
 ### Liability
 
@@ -61,7 +61,7 @@ Financial aid is available on a per-request basis, subject to availability, with
 
 ### Contact
 
-For any queries relating to these Terms and Conditions, please contact us at [pycon2026@python.ie](mailto:pycon2026@python.ie).
+For any queries relating to these Terms and Conditions, please contact us at [contact@python.ie](mailto:contact@python.ie).
 
 Python Ireland Developers CLG
 Registered in Ireland
