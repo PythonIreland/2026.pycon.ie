@@ -5,6 +5,9 @@
 {{ $mobile  := $src.Resize "768x webp q80" }}
 {{ $fallback := $src.Resize "1920x jpeg q85" }}
 
+{{- /* The event is over once the last session has ended (evaluated at build time) */}}
+{{- $isOver := gt now.Unix (time .Site.Params.eventEndDate).Unix }}
+
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
   {{/* Hero background image with photo credit anchored to it */}}
   <div class="absolute inset-0">
@@ -40,6 +43,12 @@
   </div>
 
   <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
+    {{- if $isOver }}
+    <p class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-sm font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+      <span class="w-2 h-2 rounded-full bg-py-yellow"></span>
+      That's a wrap!
+    </p>
+    {{- end }}
     <h1 class="font-brand text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight mb-4"
         aria-label="{{ .Site.Title }} — Ireland's Python Conference"
         style="text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);">
@@ -49,11 +58,15 @@
     </h1>
 
     <p class="text-py-yellow font-semibold text-base sm:text-lg uppercase tracking-widest mb-8">
-      {{ .Site.Params.hero.date }} &middot; {{ .Site.Params.hero.location }}
+      {{ if $isOver }}Held on {{ end }}{{ .Site.Params.hero.date }} &middot; {{ .Site.Params.hero.location }}
     </p>
 
     <p class="text-xl sm:text-2xl text-text-secondary max-w-2xl mx-auto mb-10">
+      {{- if $isOver }}
+      Thank you for making it such a great day. See you next year!
+      {{- else }}
       {{ .Site.Params.hero.subtitle }}
+      {{- end }}
     </p>
 
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -66,7 +79,9 @@
         </a>
       {{ else if eq .Site.Params.cfpStatus "finished" }}
         <a href="/grid/" class="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white/15 transition-colors">
-        <span class="w-2 h-2 rounded-full bg-green-400"></span>
+          {{- if not $isOver }}
+          <span class="w-2 h-2 rounded-full bg-green-400"></span>
+          {{- end }}
           Schedule
         </a>
         {{- if .Site.Params.ticketsEnabled }}
